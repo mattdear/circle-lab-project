@@ -1,30 +1,30 @@
 # Meeting Notes
 
 ## WEEK1
-### FRIDAY LECTURE
+###### FRIDAY LECTURE
 - Introduced to course.
 
-### WEDNESDAY MEETUP
+###### WEDNESDAY MEETUP
 - Did not meet up.
 
 
 ## WEEK2
-### FRIDAY LECTURE
+###### FRIDAY LECTURE
 - All members were placed in the team.
 - Created GitHub repo.
 - Connected with other team members on Discard.
 - Decided that Emma would be the team captain.
 
-### WEDNESDAY MEETUP
+###### WEDNESDAY MEETUP
 - Got to know the other members a little better.
-- JOSH looked at the CMap and Risk Assessment.
-- EMMA looked at the CMap and Work Breakdown Structure.
-- MATT looked at the CMap and Work Breakdown Structure.
-- MARK looked at the CMap and Use Cases.
+- **JOSH** looked at the CMap and Risk Assessment.
+- **EMMA** looked at the CMap and Work Breakdown Structure.
+- **MATT** looked at the CMap and Work Breakdown Structure.
+- **MARK** looked at the CMap and Use Cases.
 
 
 ## WEEK3
-### FRIDAY LECTURE
+###### FRIDAY LECTURE
 - Talked with the customer and showed them the CMap and initial system
  requirements.
 - We also meet with Femi and received feedback on our work done so far,
@@ -35,58 +35,58 @@
 - Juan joined the team and we got him connected to all the systems we use
  e.g. GitHub and Discord.
 
-### WEDNESDAY MEETUP
+###### WEDNESDAY MEETUP
 
 
 
 ## WEEK4
-### FRIDAY LECTURE
-### WEDNESDAY MEETUP
+###### FRIDAY LECTURE
+###### WEDNESDAY MEETUP
 
 
 
 ## WEEK5
-### FRIDAY LECTURE
-### WEDNESDAY MEETUP
+###### FRIDAY LECTURE
+###### WEDNESDAY MEETUP
 
 
 
 ## WEEK6
-### FRIDAY LECTURE
-### WEDNESDAY MEETUP
+###### FRIDAY LECTURE
+###### WEDNESDAY MEETUP
 
 
 
 ## WEEK7
-### FRIDAY LECTURE
-### WEDNESDAY MEETUP
+###### FRIDAY LECTURE
+###### WEDNESDAY MEETUP
 
 
 
 ## WEEK8
-### FRIDAY LECTURE
-### WEDNESDAY MEETUP
+###### FRIDAY LECTURE
+###### WEDNESDAY MEETUP
 
 
 
 ## WEEK9
-### FRIDAY LECTURE
-### WEDNESDAY MEETUP
+###### FRIDAY LECTURE
+###### WEDNESDAY MEETUP
 
 
 
 ## WEEK10
-### FRIDAY LECTURE
-### WEDNESDAY MEETUP
+###### FRIDAY LECTURE
+###### WEDNESDAY MEETUP
 
 
 
 ## WEEK11
-### FRIDAY LECTURE
-### WEDNESDAY MEETUP
+###### FRIDAY LECTURE
+###### WEDNESDAY MEETUP
 
 
 
 ## WEEK12
-### FRIDAY LECTURE
-### WEDNESDAY MEETUP
+###### FRIDAY LECTURE
+###### WEDNESDAY MEETUP
