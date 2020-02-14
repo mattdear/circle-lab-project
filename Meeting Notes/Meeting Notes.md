@@ -36,7 +36,16 @@
  e.g. GitHub and Discord.
 
 ###### WEDNESDAY MEETUP
-
+- Mark to take down notes for meeting
+- Emma away from meeting but involved via disscord and trello
+- Work completed by matt, josh and juan regarding risk assesment table
+- Mark completed role justification
+- Matt added methodology vote to trello to decide which one to follow
+- Emma started work on pert chart
+- Each team member uploading their role justification
+- Each team member given a methodology to research and feedback on
+- Josh creating cmap for group with matt and juan
+- Mark and Matt started ontology (need to speak to femi for clarification)
 
 
 ## WEEK4
