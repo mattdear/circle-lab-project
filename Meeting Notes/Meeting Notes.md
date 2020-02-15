@@ -50,6 +50,11 @@
 
 ## WEEK4
 ###### FRIDAY LECTURE
+- Matt fixed the issue with the rouge commit to master
+- Mark, Emma, Josh, and Matt worked on the system requirements
+- Josh started work on a class diagram ready for the next stage
+- Emma updated the Trello with tasks to be completed this week
+
 ###### WEDNESDAY MEETUP
 
 
