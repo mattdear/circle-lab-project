@@ -56,7 +56,13 @@
 - Emma updated the Trello with tasks to be completed this week
 
 ###### WEDNESDAY MEETUP
-
+- Mark taking meeting notes
+- Emma and Mark completing domain model
+- Josh and Matt and Juan completeing use case diagram and text
+- Juan updating his methodology information
+- Mark Updating group cmap
+- Decide on methodology for the project
+- Assigned work to be completed by friday
 
 
 ## WEEK5
