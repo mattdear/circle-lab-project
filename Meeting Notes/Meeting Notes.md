@@ -36,33 +36,32 @@
  e.g. GitHub and Discord.
 
 ###### WEDNESDAY MEETUP
-- Mark to take down notes for meeting
-- Emma away from meeting but involved via disscord and trello
-- Work completed by matt, josh and juan regarding risk assesment table
-- Mark completed role justification
-- Matt added methodology vote to trello to decide which one to follow
-- Emma started work on pert chart
-- Each team member uploading their role justification
-- Each team member given a methodology to research and feedback on
-- Josh creating cmap for group with matt and juan
-- Mark and Matt started ontology (need to speak to femi for clarification)
+- Mark to take down notes for meeting.
+- Emma away from meeting but involved via Discord and Trello.
+- Work completed by Matt, Josh and Juan regarding risk assessment table.
+- Mark completed role justification.
+- Matt added methodology vote to Trello to decide which one to follow.
+- Emma started work on pert chart.
+- Each team member uploading their role justification.
+- Each team member given a methodology to research and feedback on.
+- Josh creating CMap for group with matt and Juan.
+- Mark and Matt started ontology (need to speak to Femi for clarification).
 
 
 ## WEEK4
 ###### FRIDAY LECTURE
-- Matt fixed the issue with the rouge commit to master
-- Mark, Emma, Josh, and Matt worked on the system requirements
-- Josh started work on a class diagram ready for the next stage
-- Emma updated the Trello with tasks to be completed this week
+- Matt fixed the issue with the rouge commit to master.
+- Mark, Emma, Josh, and Matt worked on the system requirements.
+- Josh started work on a class diagram ready for the next stage.
+- Emma updated the Trello with tasks to be completed this week.
 
 ###### WEDNESDAY MEETUP
-- Mark taking meeting notes
-- Emma and Mark completing domain model
-- Josh and Matt and Juan completeing use case diagram and text
-- Juan updating his methodology information
-- Mark Updating group cmap
-- Decide on methodology for the project
-- Assigned work to be completed by friday
+- Mark taking meeting notes.
+- Emma and Mark completing domain model.
+- Josh and Matt completing use case diagrams.
+- Juan updating his methodology information.
+- Mark Updating group CMap.
+- Assigned work to be completed by Friday.
 
 
 ## WEEK5
