@@ -3,9 +3,11 @@
 ## WEEK1
 ###### FRIDAY LECTURE
 - Introduced to course.
+Attendees = Emma, Mark, Josh, Matt
 
 ###### WEDNESDAY MEETUP
 - Did not meet up.
+Attendees = Emma, Mark, Josh, Matt
 
 
 ## WEEK2
@@ -14,6 +16,7 @@
 - Created GitHub repo.
 - Connected with other team members on Discard.
 - Decided that Emma would be the team captain.
+Attendees = Emma, Mark, Josh, Matt
 
 ###### WEDNESDAY MEETUP
 - Got to know the other members a little better.
@@ -21,6 +24,7 @@
 - **EMMA** looked at the CMap and Work Breakdown Structure.
 - **MATT** looked at the CMap and Work Breakdown Structure.
 - **MARK** looked at the CMap and Use Cases.
+Attendees = Emma, Mark, Josh, Matt
 
 
 ## WEEK3
@@ -34,6 +38,7 @@
 - Update Trello with list of things to be completed on Wednesday by the team.
 - Juan joined the team and we got him connected to all the systems we use
  e.g. GitHub and Discord.
+ Attendees = Emma, Mark, Josh, Matt, Juan
 
 ###### WEDNESDAY MEETUP
 - Mark to take down notes for meeting.
@@ -46,7 +51,7 @@
 - Each team member given a methodology to research and feedback on.
 - Josh creating CMap for group with matt and Juan.
 - Mark and Matt started ontology (need to speak to Femi for clarification).
-
+Attendees = Emma, Mark, Josh, Matt, Juan
 
 ## WEEK4
 ###### FRIDAY LECTURE
@@ -54,6 +59,7 @@
 - Mark, Emma, Josh, and Matt worked on the system requirements.
 - Josh started work on a class diagram ready for the next stage.
 - Emma updated the Trello with tasks to be completed this week.
+Attendees = Emma, Mark, Josh, Matt
 
 ###### WEDNESDAY MEETUP
 - Mark taking meeting notes.
@@ -62,10 +68,13 @@
 - Juan updating his methodology information.
 - Mark Updating group CMap.
 - Assigned work to be completed by Friday.
+Attendees = Emma, Mark, Josh, Matt, Juan
 
 
 ## WEEK5
 ###### FRIDAY LECTURE
+- Matt, Josh, and Emma talked to Femi about the use cases and changed them to meet the requirements.
+Attendees = Emma, Josh, Matt
 ###### WEDNESDAY MEETUP
 
 
