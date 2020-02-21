@@ -20,10 +20,10 @@ Attendees = Emma, Mark, Josh, Matt
 
 ###### WEDNESDAY MEETUP
 - Got to know the other members a little better.
-- **JOSH** looked at the CMap and Risk Assessment.
-- **EMMA** looked at the CMap and Work Breakdown Structure.
-- **MATT** looked at the CMap and Work Breakdown Structure.
-- **MARK** looked at the CMap and Use Cases.
+- JOSH looked at the CMap and Risk Assessment.
+- EMMA looked at the CMap and Work Breakdown Structure.
+- MATT looked at the CMap and Work Breakdown Structure.
+- MARK looked at the CMap and Use Cases.
 Attendees = Emma, Mark, Josh, Matt
 
 
@@ -74,7 +74,9 @@ Attendees = Emma, Mark, Josh, Matt, Juan
 ## WEEK5
 ###### FRIDAY LECTURE
 - Matt, Josh, and Emma talked to Femi about the use cases and changed them to meet the requirements.
+- Josh and Matt updated use case diagrams for everyone to work with.
 Attendees = Emma, Josh, Matt
+
 ###### WEDNESDAY MEETUP
 
 
