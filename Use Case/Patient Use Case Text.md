@@ -65,18 +65,20 @@
 |---|---|---|
 | 1  | Patient visits the home screen for the SMART Medical Management System. |   |
 | 2 |   | System responds with requested page. |
-| 3 | User inputs postcode. |   |
-| 4 |   | System searches the database for nearby services. |
-| 5 |   | System then displays a list of nearby services. |
-| 6 | Patient then selects a service they would like to know more about. |   |
-| 7 |   | Systems then searches the database for service details. |
-| 8 |   | System then displays a page with more in depth details about that service. |
-| 9 | Patient then presses cancel. |   |
-| 10 |   | System searches the database for nearby services. |
-| 11 |   | System then displays a list of nearby services. |
+| 3 | User selects services search. |   |
+| 4 |   | System responds with requested page. |
+| 5 | User inputs postcode. |   |
+| 6 |   | System searches the database for nearby services. |
+| 7 |   | System then displays a list of nearby services. |
+| 8 | Patient then selects a service they would like to know more about. |   |
+| 9 |   | Systems then searches the database for service details. |
+| 10 |   | System then displays a page with more in depth details about that service. |
+| 11 | Patient then presses cancel. |   |
+| 12 |   | System searches the database for nearby services. |
+| 13 |   | System then displays a list of nearby services. |
 
 
-#### Update/Delete Personal Information
+#### Modify Personal Information
 | Step | Actor Action | System Response |
 |---|---|---|
 | 1  | Patient visits the home page for the SMART Medical Management System. |   |
@@ -89,7 +91,7 @@
 | 8 | Patient selects personal record page. |   |
 | 9 |   | System searches the database for the logged in users personal details. |
 | 10 |   | System then shows the search results on the patient records page to the user. |
-| 11 | Patient then selects the personal information field that they would like to update. |   |
+| 11 | Patient then selects the personal information field that they would like to modify. |   |
 | 12 | Patient then updates the information. |   |
 | 13 | Patient then clicks save. |   |
 | 14 |   | System validates the information input by the user. |
