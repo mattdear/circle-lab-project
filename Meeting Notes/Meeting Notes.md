@@ -78,7 +78,8 @@ Attendees = Emma, Mark, Josh, Matt, Juan
 Attendees = Emma, Josh, Matt
 
 ###### WEDNESDAY MEETUP
-
+- Josh and Matt started work on the class diagram.
+- Emma, Mark, and Matt started working on the Decomposition diagram.
 
 
 ## WEEK6
