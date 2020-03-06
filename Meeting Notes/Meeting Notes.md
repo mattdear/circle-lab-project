@@ -97,14 +97,20 @@ Attendees = Emma, Josh, Matt, Mark
   - Do tree shaped diagrams in Microsoft Word as it is going to be a lot faster.
   - Make use cases and robustness more about the system rather than about the stakeholders.
 
-Attendees = Emma, Josh, Mark, Juan
+Attendees = Emma, Josh, Mark, Juan, Matt
 
 ###### WEDNESDAY MEETUP
+- Matt, Emma, Matt, Mark all worked on the re-designed use case texts.
 
-
+Attendees = Emma, Josh, Mark, Matt
 
 ## WEEK7
 ###### FRIDAY LECTURE
+- Josh worked on the class diagram.
+- Looked a milestones with Femi.
+
+Attendees = Emma, Josh, Mark, Juan, Matt
+
 ###### WEDNESDAY MEETUP
 
 
