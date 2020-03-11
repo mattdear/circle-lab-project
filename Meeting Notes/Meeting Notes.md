@@ -39,7 +39,7 @@ Attendees = Emma, Mark, Josh, Matt
 - Update Trello with list of things to be completed on Wednesday by the team.
 - Juan joined the team and we got him connected to all the systems we use e.g. GitHub and Discord.
 
- Attendees = Emma, Mark, Josh, Matt, Juan
+Attendees = Emma, Mark, Josh, Matt, Juan
 
 ###### WEDNESDAY MEETUP
 - Mark to take down notes for meeting.
@@ -112,8 +112,12 @@ Attendees = Emma, Josh, Mark, Matt
 Attendees = Emma, Josh, Mark, Juan, Matt
 
 ###### WEDNESDAY MEETUP
+- Matt and Emma worked on the Decomposition diagram.
+- Mark worked on the screen shots and JSP list.
+- Josh worked on the class diagram.
+- Juan uploaded work he did last week.
 
-
+Attendees = Emma, Mark, Josh, Matt, Juan
 
 ## WEEK8
 ###### FRIDAY LECTURE
