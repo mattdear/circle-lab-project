@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <Label layoutX="244.0" layoutY="39.0" text="Prescriptions">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Button layoutX="198.0" layoutY="511.0" mnemonicParsing="false" onAction="#homeBtnClick" prefHeight="32.0" prefWidth="208.0" text="Home" />
+        <TextField layoutX="157.0" layoutY="93.0" promptText="Search People" />
+        <ListView layoutX="157.0" layoutY="143.0" prefHeight="302.0" prefWidth="287.0" style="-fx-background-color: #EEEEEE;" />
+        <Label layoutX="231.0" layoutY="465.0" text="Click Prescription for more options">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+      <Button layoutX="347.0" layoutY="93.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="96.0" text="Search" />
+    </children>
+</AnchorPane>
