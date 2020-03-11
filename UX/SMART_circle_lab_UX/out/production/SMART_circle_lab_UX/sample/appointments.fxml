@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <Label layoutX="244.0" layoutY="27.0" text="Appointments">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Button layoutX="198.0" layoutY="499.0" mnemonicParsing="false" onAction="#homeBtnClick" prefHeight="32.0" prefWidth="208.0" text="Home" />
+        <TextField layoutX="226.0" layoutY="70.0" promptText="Search Appointments" />
+        <ListView layoutX="157.0" layoutY="166.0" prefHeight="253.0" prefWidth="287.0" style="-fx-background-color: #EEEEEE;" />
+        <Label layoutX="225.0" layoutY="433.0" text="Click Appointment for more options">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        <Button layoutX="198.0" layoutY="460.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" text="Add Appointment" />
+        <DatePicker layoutX="205.0" layoutY="127.0" />
+        <Label layoutX="287.0" layoutY="104.0" text="OR">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
