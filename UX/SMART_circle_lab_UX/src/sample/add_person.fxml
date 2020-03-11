@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <Label layoutX="255.0" layoutY="41.0" text="Add Person">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Button layoutX="196.0" layoutY="513.0" mnemonicParsing="false" onAction="#homeBtnClick" prefHeight="32.0" prefWidth="208.0" text="Home" />
+        <TextField fx:id="add_first_name" layoutX="296.0" layoutY="97.0" prefHeight="27.0" prefWidth="188.0" promptText="First Name" />
+        <Button layoutX="197.0" layoutY="471.0" mnemonicParsing="false" onAction="#addPersonClick" onMouseClicked="#addPersonClick" prefHeight="32.0" prefWidth="208.0" text="Add Person" />
+      <Label layoutX="191.0" layoutY="102.0" text="First Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="171.0" layoutY="141.0" text="Second Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="add_second_name" layoutX="296.0" layoutY="136.0" prefHeight="27.0" prefWidth="188.0" promptText="Second Name" />
+      <Label layoutX="182.0" layoutY="182.0" text="Date of Birth">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="add_dob" layoutX="296.0" layoutY="178.0" promptText="DOB" />
+      <Label layoutX="229.0" layoutY="228.0" text="Role">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+        <fx:define>
+            <ToggleGroup fx:id="group" />
+        </fx:define>
+            <RadioButton fx:id="rb_Patient" layoutX="298.0" layoutY="228.0" mnemonicParsing="false" text="Patient">
+         <toggleGroup>
+            <ToggleGroup fx:id="group" />
+         </toggleGroup></RadioButton>
+            <RadioButton fx:id="rb_Doctor" layoutX="298.0" layoutY="263.0" mnemonicParsing="false" text="Doctor" toggleGroup="$group" />
+            <RadioButton fx:id="rb_Nurse" layoutX="298.0" layoutY="300.0" mnemonicParsing="false" text="Nurse" toggleGroup="$group" />
+        <CheckBox layoutX="264.0" layoutY="388.0" mnemonicParsing="false" text="Admin Account" />
+    </children>
+</AnchorPane>
