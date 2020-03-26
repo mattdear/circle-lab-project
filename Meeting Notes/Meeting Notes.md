@@ -121,13 +121,27 @@ Attendees = Emma, Mark, Josh, Matt, Juan
 
 ## WEEK8
 ###### FRIDAY LECTURE
+- attended the lecture.
+
+Attendees = Emma, Mark, Josh, Matt
+
 ###### WEDNESDAY MEETUP
+- All members got caught up with tasks from last week.
+
+Attendees = Emma, Mark, Josh, Matt, Juan
 
 
 
 ## WEEK9
 ###### FRIDAY LECTURE
+- attended the lecture.
+
+Attendees = Emma, Mark, Josh, Matt, Juan
+
 ###### WEDNESDAY MEETUP
+- continued with personal tasks from last week.
+
+Attendees = Emma, Mark, Josh, Matt, Juan
 
 
 
@@ -138,11 +152,5 @@ Attendees = Emma, Mark, Josh, Matt, Juan
 
 
 ## WEEK11
-###### FRIDAY LECTURE
-###### WEDNESDAY MEETUP
-
-
-
-## WEEK12
 ###### FRIDAY LECTURE
 ###### WEDNESDAY MEETUP
