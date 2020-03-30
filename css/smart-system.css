@@ -18,9 +18,9 @@ h2{
 }
 
 button{
-    width: 15vw;
+    width: 20vw;
     height: 3vw;
-    border-radius: 5vw;
+    border-radius: 1vw;
     margin-top: 2vw;
 }
 
@@ -30,6 +30,15 @@ button:hover{
 
 button:focus{
     outline-style: none;
+}
+
+#symptomResults{
+    background-color: lightgray;
+    width: 30vw;
+    height: 35vw;
+    margin: 3vw auto;
+    border-radius: 1vw;
+
 }
 
 footer{
