@@ -1,0 +1,26 @@
+body{
+    background-color: #EBEBEB;
+    text-align: center;
+}
+
+.wrapper{
+    overflow: auto;
+    width: 100vw;
+}
+
+h1{
+
+}
+
+h2{
+
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    overflow: auto;
+    width: 100vw;
+}
