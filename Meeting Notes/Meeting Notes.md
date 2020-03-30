@@ -147,6 +147,13 @@ Attendees = Emma, Mark, Josh, Matt, Juan
 
 ## WEEK10
 ###### FRIDAY LECTURE
+- attended the lecture.
+- Mark assigned to start on the UX.
+- Emma assigned to start on the ERD and table creation.
+- Others requested to hold until database is complete.
+
+Attendees = Emma, Mark, Josh, Matt, Juan
+
 ###### WEDNESDAY MEETUP
 
 
