@@ -41,6 +41,14 @@ button:focus{
 
 }
 
+.inputs{
+    width: 20vw;
+    height: 3vw;
+    padding: 1vw;
+    border-radius: 1vw;
+    border: none;
+}
+
 footer{
     position: fixed;
     left: 0;
