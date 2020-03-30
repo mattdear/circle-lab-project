@@ -17,6 +17,21 @@ h2{
 
 }
 
+button{
+    width: 15vw;
+    height: 3vw;
+    border-radius: 5vw;
+    margin-top: 2vw;
+}
+
+button:hover{
+    background-color: #00BFFF;
+}
+
+button:focus{
+    outline-style: none;
+}
+
 footer{
     position: fixed;
     left: 0;
