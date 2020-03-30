@@ -15,7 +15,7 @@ $webPage->writeHead();
 
     </div>
 
-    <button onclick="window.location.href = 'addPerson.php';">Add Diagnosis</button>
+    <button onclick="window.location.href = 'addPerson.php';">Add Person</button>
     <br/>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>

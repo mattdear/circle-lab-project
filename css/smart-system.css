@@ -1,6 +1,7 @@
 body{
     background-color: #EBEBEB;
     text-align: center;
+    font-family: "Frutiger", Arial, serif;
 }
 
 .wrapper{
@@ -22,6 +23,8 @@ button{
     height: 3vw;
     border-radius: 1vw;
     margin-top: 2vw;
+    overflow: auto;
+    font-family: "Frutiger", Arial, serif;
 }
 
 button:hover{
@@ -47,6 +50,10 @@ button:focus{
     padding: 1vw;
     border-radius: 1vw;
     border: none;
+}
+
+.inputs:focus{
+    outline-style: none;
 }
 
 footer{
