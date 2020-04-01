@@ -11,7 +11,7 @@ $webPage->writeHead();
             <input  class="inputs" name="people" placeholder="Search People">
         </label>
     </form>
-    <div id="symptomResults">
+    <div id="peopleResults">
 
     </div>
 
