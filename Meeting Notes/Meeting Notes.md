@@ -154,9 +154,20 @@ Attendees = Emma, Mark, Josh, Matt, Juan
 
 Attendees = Emma, Mark, Josh, Matt, Juan
 
+###### MONDAY MEETUP
+- Matt assigned to update the ERD.
+- Mark assigned to continuing work on the UX.
+- Josh assigned to starting the service facade.
+
+Attendees = Emma, Mark, Josh, Matt
+
 ###### WEDNESDAY MEETUP
+- Matt assigned to update the ERD, create dummy database data, implement database, and implement DTO's.
+- Mark assigned to continuing work on the UX.
+- Josh assigned to starting the service facade.
+- All team members were also assigned to create at least 2 DAO's each.
 
-
+Attendees = Emma, Mark, Josh, Matt, Juan
 
 ## WEEK11
 ###### FRIDAY LECTURE
