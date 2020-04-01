@@ -28,7 +28,7 @@ button{
 }
 
 button:hover{
-    background-color: #00BFFF;
+    background-color: #b5ecff;
 }
 
 button:focus{
@@ -41,7 +41,6 @@ button:focus{
     height: 35vw;
     margin: 3vw auto;
     border-radius: 1vw;
-
 }
 
 .inputs{
@@ -57,10 +56,39 @@ button:focus{
 }
 
 footer{
-    position: fixed;
+    margin-top: 2vw;
     left: 0;
     bottom: 0;
     text-align: center;
     overflow: auto;
     width: 100vw;
+}
+
+
+@media screen and (max-width: 765px) {
+
+    .wrapper{
+        margin-bottom: 1vw;
+    }
+
+    button{
+        width: 70vw;
+        height: 15vw;
+    }
+
+    #symptomResults{
+        background-color: lightgray;
+        width: 70vw;
+        height: 100vw;
+        margin: 3vw auto;
+        border-radius: 1vw;
+    }
+
+    .inputs{
+        width: 70vw;
+        height: 8vw;
+        padding: 1vw;
+        border-radius: 1vw;
+        border: none;
+    }
 }
