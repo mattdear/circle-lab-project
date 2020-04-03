@@ -52,6 +52,14 @@ button:focus{
 }
 
 #appointmentResults{
+     background-color: lightgray;
+     width: 30vw;
+     height: 35vw;
+     margin: 3vw auto;
+     border-radius: 1vw;
+ }
+
+#locationResults{
     background-color: lightgray;
     width: 30vw;
     height: 35vw;
@@ -127,6 +135,14 @@ footer{
     }
 
     #appointmentResults{
+        background-color: lightgray;
+        width: 70vw;
+        height: 100vw;
+        margin: 3vw auto;
+        border-radius: 1vw;
+    }
+
+    #locationResults{
         background-color: lightgray;
         width: 70vw;
         height: 100vw;
