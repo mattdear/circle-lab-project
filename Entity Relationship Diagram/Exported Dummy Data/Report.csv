@@ -1,0 +1,4 @@
+id,name,requester,approved,max_age,min_age,male,female,disease,isactive
+,"Broken Ankle Men Only",9,1,NULL,NULL,1,NULL,1,NULL
+,"Broken Ankle Women Only",9,0,NULL,NULL,NULL,1,1,NULL
+,"Heel Pain",8,1,NULL,NULL,NULL,NULL,2,NULL

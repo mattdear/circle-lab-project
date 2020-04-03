@@ -1,0 +1,4 @@
+id,desciption,patient,staff_member,date_time,location,duration,isactive
+,"GP Appointment",6,1,"2020-05-01 09:00:00",14,10,1
+,"Nurse Appointment",6,5,"2020-05-02 09:00:00",14,5,1
+,"Nurse Appointment",6,5,"2020-05-03 09:00:00",14,5,1

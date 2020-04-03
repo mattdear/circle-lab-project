@@ -1,0 +1,10 @@
+id,name,access_level
+,Admin,9
+,Doctor,9
+,Government,1
+,Nurse,8
+,Patient,0
+,Pharmacy,1
+,"Regulatory Body",1
+,"Research Company",1
+,Staff,7
