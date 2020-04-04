@@ -47,6 +47,8 @@ class roleDTO
         echo $this->id . " " . $this->name . " " . $this->accessLevel . "<br />";
     }
 
+
+
 }
 
 ?>
