@@ -42,12 +42,11 @@ class roleDTO
         $this->accessLevel = $accessLevel;
     }
 
-    function display()
+    function toString()
     {
-        echo $this->id . " " . $this->name . " " . $this->accessLevel . "<br />";
+        $string = " " . $this->id . " " . $this->name . " " . $this->accessLevel . " ";
+        return $string;
     }
-
-
 
 }
 
