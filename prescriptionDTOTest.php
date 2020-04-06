@@ -62,9 +62,19 @@ class prescriptionDTOTest extends PHPUnit\Framework\TestCase
       $this->assertNotEquals(1, $prescription->getPatient(), $message = "testGetPatient, test 3");
     }
 
-    public function setPatient()
+    public function testSetPatient()
     {
+      $patient=2;
+      $prescription = new prescriptionDTO(null, null, null, null, null, null);
 
+      $this->assertEquals(null, $prescription->getPatient(), $message = "testSetPatient, test 1");
+      $this->assertNotEquals(2, $prescription->getPatient(), $message = "testSetPatient, test 2");
+
+      $prescription->setPatient($patient);
+
+      $this->assertEquals(2, $prescription->getPatient(), $message = "testSetPatient, test 3");
+      $this->assertNotEquals(null, $prescription->getPatient(), $message = "testSetPatient, test 4");
+      $this->assertIsInt($prescription->getPatient(), $message = "testSetPatient, test 5");
     }
 
     public function testGetDate()
@@ -76,9 +86,19 @@ class prescriptionDTOTest extends PHPUnit\Framework\TestCase
       $this->assertNotEquals("2019-11-29", $prescription->getDate(), $message = "testGetDate, test 3");
     }
 
-    public function setDate()
+    public function testSetDate()
     {
+      $date="2019-11-29";
+      $prescription = new prescriptionDTO(null, null, null, null, null, null);
 
+      $this->assertEquals(null, $prescription->getDate(), $message = "testSetDate, test 1");
+      $this->assertNotEquals("2019-11-29", $prescription->getDate(), $message = "testSetDate, test 2");
+
+      $prescription->setDate($date);
+
+      $this->assertEquals("2019-11-29", $prescription->getDate(), $message = "testSetDate, test 3");
+      $this->assertNotEquals(null, $prescription->getDate(), $message = "testSetDate, test 4");
+      $this->assertIsString($prescription->getDate(), $message = "testSetDate, test 5");
     }
 
     public function testGetQuantity()
@@ -90,9 +110,19 @@ class prescriptionDTOTest extends PHPUnit\Framework\TestCase
       $this->assertNotEquals(4, $prescription->getQuantity(), $message = "testGetQuantity, test 3");
     }
 
-    public function setQuantity()
+    public function testSetQuantity()
     {
+      $quantity=2;
+      $prescription = new prescriptionDTO(null, null, null, null, null, null);
 
+      $this->assertEquals(null, $prescription->getQuantity(), $message = "testSetQuantity, test 1");
+      $this->assertNotEquals(2, $prescription->getQuantity(), $message = "testSetQuantity, test 2");
+
+      $prescription->setQuantity($quantity);
+
+      $this->assertEquals(2, $prescription->getQuantity(), $message = "testSetQuantity, test 3");
+      $this->assertNotEquals(null, $prescription->getQuantity(), $message = "testSetQuantity, test 4");
+      $this->assertIsInt($prescription->getQuantity(), $message = "testSetQuantity, test 5");
     }
 
     public function testGetLocation()
@@ -104,9 +134,19 @@ class prescriptionDTOTest extends PHPUnit\Framework\TestCase
       $this->assertNotEquals(5, $prescription->getLocation(), $message = "testGetLocation, test 3");
     }
 
-    public function setLocation()
+    public function testSetLocation()
     {
+      $location=2;
+      $prescription = new prescriptionDTO(null, null, null, null, null, null);
 
+      $this->assertEquals(null, $prescription->getLocation(), $message = "testSetLocation, test 1");
+      $this->assertNotEquals(2, $prescription->getLocation(), $message = "testSetLocation, test 2");
+
+      $prescription->setLocation($location);
+
+      $this->assertEquals(2, $prescription->getLocation(), $message = "testSetLocation, test 3");
+      $this->assertNotEquals(null, $prescription->getLocation(), $message = "testSetLocation, test 4");
+      $this->assertIsInt($prescription->getLocation(), $message = "testSetLocation, test 5");
     }
 
     public function testGetIsactive()
@@ -118,9 +158,19 @@ class prescriptionDTOTest extends PHPUnit\Framework\TestCase
       $this->assertNotEquals(4, $prescription->getIsactive(), $message = "testGetIsactive, test 3");
     }
 
-    public function setIsactive()
+    public function testSetIsactive()
     {
+      $isactive=2;
+      $prescription = new prescriptionDTO(null, null, null, null, null, null);
 
+      $this->assertEquals(null, $prescription->getIsactive(), $message = "testSetIsactive, test 1");
+      $this->assertNotEquals(2, $prescription->getIsactive(), $message = "testSetIsactive, test 2");
+
+      $prescription->setIsactive($isactive);
+
+      $this->assertEquals(2, $prescription->getIsactive(), $message = "testSetIsactive, test 3");
+      $this->assertNotEquals(null, $prescription->getIsactive(), $message = "testSetIsactive, test 4");
+      $this->assertIsInt($prescription->getIsactive(), $message = "testSetIsactive, test 5");
     }
 
     public function testToString()
