@@ -30,7 +30,7 @@ class drug
 
     public function toString()
     {
-        $string = "Name: $this->name";
+        return = "Name: $this->name";
     }
 
 }
