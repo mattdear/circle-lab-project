@@ -11,6 +11,7 @@ class drug
     public function __construct($id, $name)
     {
         $this->name = $name;
+        $this->id = $id;
     }
 
     public function getName()
