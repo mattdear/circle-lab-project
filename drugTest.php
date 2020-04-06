@@ -8,7 +8,7 @@ class drug
     private $name;
 
 
-    public function __construct($name)
+    public function __construct($id, $name)
     {
         $this->name = $name;
     }
