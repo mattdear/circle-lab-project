@@ -6,32 +6,42 @@ class prescriptionDTOTest extends PHPUnit\Framework\TestCase
 {
     public function testConstruct()
     {
-        $prescription = new prescriptionDTO(1,"admin",1);
+        $prescription = new prescriptionDTO(1, 2, "2020-04-06", 3, 4, 5);
 
-        $this->assertIsInt($prescription->getAccessLevel(), $message = "testConstruct, test 1");
-        $this->assertIsInt($prescription->getId(), $message = "testConstruct, test 2");
-        $this->assertIsString($prescription->getName(), $message = "testConstruct, test 3");
-        $this->assertEquals(1, $prescription->getId(), $message = "testConstruct, test 4");
-        $this->assertEquals("admin", $prescription->getName(), $message = "testConstruct, test 5");
-        $this->assertEquals(1, $prescription->getAccessLevel(), $message = "testConstruct, test 6");
-        $this->assertNotEquals(2, $prescription->getId(), $message = "testConstruct, test 7");
-        $this->assertNotEquals("patient", $prescription->getName(), $message = "testConstruct, test 8");
-        $this->assertNotEquals(2, $prescription->getAccessLevel(), $message = "testConstruct, test 9");
+        $this->assertIsInt($prescription->getId(), $message = "testConstruct, test 1");
+        $this->assertIsInt($prescription->getPatient(), $message = "testConstruct, test 2");
+        $this->assertIsString($prescription->getDate(), $message = "testConstruct, test 3");
+        $this->assertIsInt($prescription->getQuantity(), $message = "testConstruct, test 4");
+        $this->assertIsInt($prescription->getLocation(), $message = "testConstruct, test 5");
+        $this->assertIsInt($prescription->getIsactive(), $message = "testConstruct, test 6");
+        $this->assertEquals(1, $prescription->getId(), $message = "testConstruct, test 7");
+        $this->assertEquals(2, $prescription->getPatient(), $message = "testConstruct, test 8");
+        $this->assertEquals("2020-04-06", $prescription->getDate(), $message = "testConstruct, test 9");
+        $this->assertEquals(3, $prescription->getQuantity(), $message = "testConstruct, test 10");
+        $this->assertEquals(4, $prescription->getLocation(), $message = "testConstruct, test 11");
+        $this->assertEquals(5, $prescription->getIsactive(), $message = "testConstruct, test 12");
+        $this->assertNotEquals(3, $prescription->getId(), $message = "testConstruct, test 13");
+        $this->assertNotEquals(5, $prescription->getPatient(), $message = "testConstruct, test 14");
+        $this->assertNotEquals("2019-11-29", $prescription->getDate(), $message = "testConstruct, test 15");
+        $this->assertNotEquals(2, $prescription->getQuantity(), $message = "testConstruct, test 16");
+        $this->assertNotEquals(1, $prescription->getLocation(), $message = "testConstruct, test 17");
+        $this->assertNotEquals(4, $prescription->getIsactive(), $message = "testConstruct, test 18");
+
     }
 
-    public function getId()
+    public function testGetId()
     {
-        $prescription = new prescriptionDTO(3,"Doctor",4);
+        $prescription = new prescriptionDTO(1, 2, "2020-04-06", 3, 4, 5);
 
         $this->assertIsInt($prescription->getId(), $message = "testGetId, test 1");
-        $this->assertEquals(3, $prescription->getId(), $message = "testGetId, test 2");
+        $this->assertEquals(1, $prescription->getId(), $message = "testGetId, test 2");
         $this->assertNotEquals(2, $prescription->getId(), $message = "testGetId, test 3");
     }
 
-    public function setId($id)
+    public function testSetId()
     {
         $id=2;
-        $prescription = new prescriptionDTO(null, null, null);
+        $prescription = new prescriptionDTO(null, null, null, null, null, null);
 
         $this->assertEquals(null, $prescription->getId(), $message = "testSetId, test 1");
         $this->assertNotEquals(2, $prescription->getId(), $message = "testSetId, test 2");
@@ -43,61 +53,85 @@ class prescriptionDTOTest extends PHPUnit\Framework\TestCase
         $this->assertIsInt($prescription->getId(), $message = "testSetId, test 5");
     }
 
-    public function getPatient()
+    public function testGetPatient()
     {
-        return $this->patient;
+      $prescription = new prescriptionDTO(1, 2, "2020-04-06", 3, 4, 5);
+
+      $this->assertIsInt($prescription->getPatient(), $message = "testGetPatient, test 1");
+      $this->assertEquals(2, $prescription->getPatient(), $message = "testGetPatient, test 2");
+      $this->assertNotEquals(1, $prescription->getPatient(), $message = "testGetPatient, test 3");
     }
 
-    public function setPatient($patient)
+    public function setPatient()
     {
-        $this->patient = $patient;
+
     }
 
-    public function getDate()
+    public function testGetDate()
     {
-        return $this->date;
+      $prescription = new prescriptionDTO(1, 2, "2020-04-06", 3, 4, 5);
+
+      $this->assertIsString($prescription->getDate(), $message = "testGetDate, test 1");
+      $this->assertEquals("2020-04-06", $prescription->getDate(), $message = "testGetDate, test 2");
+      $this->assertNotEquals("2019-11-29", $prescription->getDate(), $message = "testGetDate, test 3");
     }
 
-    public function setDate($date)
+    public function setDate()
     {
-        $this->date = $date;
+
     }
 
-    public function getQuantity()
+    public function testGetQuantity()
     {
-        return $this->quantity;
+      $prescription = new prescriptionDTO(1, 2, "2020-04-06", 3, 4, 5);
+
+      $this->assertIsInt($prescription->getQuantity(), $message = "testGetQuantity, test 1");
+      $this->assertEquals(3, $prescription->getQuantity(), $message = "testGetQuantity, test 2");
+      $this->assertNotEquals(4, $prescription->getQuantity(), $message = "testGetQuantity, test 3");
     }
 
-    public function setQuantity($quantity)
+    public function setQuantity()
     {
-        $this->quantity = $quantity;
+
     }
 
-    public function getLocation()
+    public function testGetLocation()
     {
-        return $this->location;
+      $prescription = new prescriptionDTO(1, 2, "2020-04-06", 3, 4, 5);
+
+      $this->assertIsInt($prescription->getLocation(), $message = "testGetLocation, test 1");
+      $this->assertEquals(4, $prescription->getLocation(), $message = "testGetLocation, test 2");
+      $this->assertNotEquals(5, $prescription->getLocation(), $message = "testGetLocation, test 3");
     }
 
-    public function setLocation($location)
+    public function setLocation()
     {
-        $this->location = $location;
+
     }
 
-    public function getIsactive()
+    public function testGetIsactive()
     {
-        return $this->isactive;
+      $prescription = new prescriptionDTO(1, 2, "2020-04-06", 3, 4, 5);
+
+      $this->assertIsInt($prescription->getIsactive(), $message = "testGetIsactive, test 1");
+      $this->assertEquals(5, $prescription->getIsactive(), $message = "testGetIsactive, test 2");
+      $this->assertNotEquals(4, $prescription->getIsactive(), $message = "testGetIsactive, test 3");
     }
 
-    public function setIsactive($isactive)
+    public function setIsactive()
     {
-        $this->isactive = $isactive;
+
     }
 
     public function testToString()
     {
-      $prescription = new prescriptionDTO(7,"government",8);
+      $prescription = new prescriptionDTO(1, 2, "2020-04-06", 3, 4, 5);
 
       $this->assertIsString($prescription->toString(), $message = "testToString, test 1");
-      $this->assertEquals(" 7 government 8 ", $prescription->toString(), $message = "testToString, test 2");
-      $this->assertNotEquals(" 3 doctor 4 ", $prescription->toString(), $message = "testToString, test 3");
+      $this->assertEquals(" 1 2 2020-04-06 3 4 5 ", $prescription->toString(), $message = "testToString, test 2");
+      $this->assertNotEquals(" 3 5 2019-11-29 2 1 4 ", $prescription->toString(), $message = "testToString, test 3");
     }
+
+}
+
+?>
