@@ -31,12 +31,12 @@ class drugDTOTest extends PHPUnit\Framework\TestCase
     $drug = new drugDTO(null, null);
 
     $this->assertEquals(null, $drug->getId(), $message = "testSetId, test 1");
-    $this->assertNotEquals(1, $drug->getId(), $message = "testSetId, test 2");
+    $this->assertNotEquals(2, $drug->getId(), $message = "testSetId, test 2");
 
     $drug->setId($id);
 
     $this->assertEquals(2, $drug->getId(), $message = "testSetId, test 3");
-    $this->assertNotEquals(1, $drug->getId(), $message = "testSetId, test 4");
+    $this->assertNotEquals(null, $drug->getId(), $message = "testSetId, test 4");
     $this->assertIsInt($drug->getId(), $message = "testSetId, test 5");
   }
 
@@ -60,7 +60,7 @@ class drugDTOTest extends PHPUnit\Framework\TestCase
     $drug->setName($name);
 
     $this->assertEquals("Paracetemol", $drug->getName(), $message = "testSetName, test 3");
-    $this->assertNotEquals("Ibuprofen", $drug->getName(), $message = "testSetName, test 4");
+    $this->assertNotEquals("null", $drug->getName(), $message = "testSetName, test 4");
     $this->assertIsString($drug->getName(), $message = "testSetName, test 5");
   }
 
@@ -69,6 +69,7 @@ class drugDTOTest extends PHPUnit\Framework\TestCase
     $drug = new drugDTO(1, "Paracetemol");
     $this->assertIsString($drug->toString(), $message = "testToString, test 1");
     $this->assertEquals(" 1 Paracetemol ", $drug->toString(), $message = "testToString, test 2");
+    $this->assertNotEquals(" 2 aspirin ", $role->toString(), $message = "testToString, test 3");
   }
 
 }

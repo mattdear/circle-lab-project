@@ -2,6 +2,7 @@
 
 class drugDTO
 {
+  
     private $id, $name;
 
     public function __construct($id, $name)
