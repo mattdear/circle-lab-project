@@ -1,26 +1,12 @@
 <?php
 
-
 class treatmentDTO
 {
-    //Attributes
-    private $id;
-    private $name;
-
+    private $id, $name;
 
     public function __construct($id, $name)
     {
-        $this->name = $name;
         $this->id = $id;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function setName($name)
-    {
         $this->name = $name;
     }
 
@@ -34,9 +20,20 @@ class treatmentDTO
         $this->id = $id;
     }
 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
     public function toString()
     {
-        return "ID: $this->id \nName: $this->name";
+        $string = " " . $this->id . " " . $this->name . " ";
+        return $string;
     }
 
 }

@@ -14,7 +14,6 @@ class treatmentDTOTest extends PHPUnit\Framework\TestCase
     $this->assertEquals("Chemo", $treatment->getName(), $message = "testConstruct, test 4");
     $this->assertNotEquals(2, $treatment->getId(), $message = "testConstruct, test 5");
     $this->assertNotEquals("Medication", $treatment->getName(), $message = "testConstruct, test 6");
-
   }
 
   public function testGetId()
@@ -57,13 +56,21 @@ class treatmentDTOTest extends PHPUnit\Framework\TestCase
 
     $this->assertEquals(null, $treatment->getName(), $message = "testSetName, test 1");
     $this->assertNotEquals("Meds", $treatment->getName(), $message = "testSetName, test 2");
+
+    $treatment->setName($name);
+
+    $this->assertEquals("Chemo", $treatment->getName(), $message = "testSetName, test 3");
+    $this->assertNotEquals("Medication", $treatment->getName(), $message = "testSetName, test 4");
+    $this->assertIsString($treatment->getName(), $message = "testSetName, test 5");
   }
 
   public function testToString()
   {
     $treatment = new treatmentDTO(1, "Chemo");
     $this->assertIsString($treatment->toString(), $message = "testToString, test 1");
-    $this->assertEquals("ID: 1 \nName: Chemo", $treatment->toString(), $message = "testToString, test 2");
+    $this->assertEquals(" 1 Chemo ", $treatment->toString(), $message = "testToString, test 2");
   }
+
 }
- ?>
+
+?>
