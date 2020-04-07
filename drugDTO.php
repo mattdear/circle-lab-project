@@ -1,7 +1,7 @@
 <?php
 
 
-class drug
+class drugDTO
 {
     //Attributes
     private $id;
@@ -10,28 +10,33 @@ class drug
 
     public function __construct($id, $name)
     {
-        $this->name = $name;
-        $this->id = $id;
+      $this->name = $name;
+      $this->id = $id;
     }
 
     public function getName()
     {
-        return $this->name;
+      return $this->name;
     }
 
     public function setName($name)
     {
-        $this->name = $name;
+      $this->name = $name;
+    }
+
+    public function getId()
+    {
+      return $this->id;
     }
 
     public function setId($id)
     {
-        $this->id = $id;
+      $this->id = $id;
     }
 
     public function toString()
     {
-        return = "Name: $this->name";
+      return "ID: $this->id \nName: $this->name";
     }
 
 }
