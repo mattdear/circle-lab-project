@@ -10,7 +10,7 @@ class drugDAO
         $this->table = $t;
     }
 
-    public function saveDrug(drug $drugObj) {
+    public function addDrug(drug $drugObj) {
         $query = $this->conn->prepare("INSERT INTO " . $this->table .  "(name) VALUES (?)");
         $query->execute([$drugObj->getName()]);
         return $drugObj;
