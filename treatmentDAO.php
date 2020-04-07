@@ -10,7 +10,7 @@ class treatmentDAO
         $this->table = $t;
     }
 
-    public function saveTreatment(treatment $treatmentObj) {
+    public function addTreatment(treatment $treatmentObj) {
         $query = $this->conn->prepare("INSERT INTO " . $this->table .  "(name) VALUES (?)");
         $query->execute([$treatmentObj->getName()]);
         return $treatmentObj;
