@@ -171,4 +171,15 @@ Attendees = Emma, Mark, Josh, Matt, Juan
 
 ## WEEK11
 ###### FRIDAY LECTURE
+- attended the lecture.
+
+Attendees = Emma, Mark, Josh, Matt, Juan
+
+###### MONDAY MEETUP
+- All members to continue with previous tasks.
+
+Attendees = Emma, Mark, Josh, Matt, Juan
+
 ###### WEDNESDAY MEETUP
+
+###### FRIDAY MEETUP
