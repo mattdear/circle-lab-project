@@ -1,7 +1,7 @@
 <?php
 
 
-class treatment
+class treatmentDTO
 {
     //Attributes
     private $id;
@@ -24,6 +24,11 @@ class treatment
         $this->name = $name;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function setId($id)
     {
         $this->id = $id;
@@ -31,7 +36,7 @@ class treatment
 
     public function toString()
     {
-        return = "Name: $this->name";
+        return "ID: $this->id \nName: $this->name";
     }
 
 }
