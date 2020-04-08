@@ -13,7 +13,7 @@ class drugDAO
 
     public function addDrug(drug $drugObj)
     {
-      if($drugObj->getName != null){
+      if($drugObj->getId() != null && $drugObj->getName() != null){
         $query = $this->conn->prepare("INSERT INTO " . $this->table .  "(name) VALUES (?)");
         $query->execute([$drugObj->getName()]);
         return $drugObj;
@@ -22,11 +22,9 @@ class drugDAO
 
     public function modifyDrug($drugObj)
     {
-      $query = $this->conn->prepare("UPDATE " . $this->table .  " SET name=?");
-      $query->execute([$drugObj->getName()]);
-      $row = $query->fetch();
+      $query = $this->conn->prepare("UPDATE " . $this->table .  " SET name=? WHERE id=?");
+      $query->execute([$drugObj->getName(), $drugObj->getId()]);
 
-      $returnObj = new drug($row["id"] ,$row["name"]);
     }
 
     public function deleteDrug($drugObj)
@@ -35,12 +33,6 @@ class drugDAO
       $query->execute([$drugObj->getId()]);
       $count = $query->rowCount();
 
-      if($count>0){
-          return true;
-      }
-      else{
-          return false;
-      }
     }
 
     public function findDrug($drugObj)
