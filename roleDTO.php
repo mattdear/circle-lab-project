@@ -1,3 +1,10 @@
+#
+# Copyright (C) 2020 Circle Lab
+#
+# Coder: Matthew Dear
+#
+# Reviwer: Joshua Alsop-Barrell
+#
 <?php
 
 class roleDTO

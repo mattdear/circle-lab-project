@@ -1,3 +1,10 @@
+#
+# Copyright (C) 2020 Circle Lab
+#
+# Coder: Joshua Alsop-Barrell
+#
+# Reviwer: Matthew Dear
+#
 <?php
 include ("drugDTO.php");
 use PHPUnit\Framework\TestCase;

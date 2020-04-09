@@ -1,8 +1,15 @@
+#
+# Copyright (C) 2020 Circle Lab
+#
+# Coder: Joshua Alsop-Barrell
+#
+# Reviwer: Matthew Dear
+#
 <?php
 
 class drugDTO
 {
-  
+
     private $id, $name;
 
     public function __construct($id, $name)
