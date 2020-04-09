@@ -1,11 +1,14 @@
-#
-# Copyright (C) 2020 Circle Lab
-#
-# Coder: Joshua Alsop-Barrell
-#
-# Reviwer: Matthew Dear
-#
 <?php
+
+/**
+* Copyright (C) 2020 Circle Lab
+*
+* Coder: Joshua Alsop-Barrell
+*
+* Reviwer: Matthew Dear
+*
+*/
+
 include ("treatmentDTO.php");
 use PHPUnit\Framework\TestCase;
 
