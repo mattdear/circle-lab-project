@@ -138,8 +138,13 @@ class roleDAO {
     {
       $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE id=:id");
       $stmt->execute([":id"=>$id]);
-      $row = $stmt->fetch();
-      return new roleDto((int)$row["id"], $row["name"], (int)$row["access_level"]);
+      $count = $stmt->rowCount();
+      if($count == 1)
+      {
+        $row = $stmt->fetch();
+        return new roleDto((int)$row["id"], $row["name"], (int)$row["access_level"]);
+      }
+      return null;
     }
     return null;
   }

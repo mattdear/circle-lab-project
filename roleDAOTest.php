@@ -78,7 +78,6 @@ class roleDAOTest extends PHPUnit\Framework\TestCase
     $this->assertNotEquals(4, $returnedRole->getId(), $message = "testAddRole, test 11");
     $this->assertNotEquals("Nurse", $returnedRole->getName(), $message = "testAddRole, test 12");
     $this->assertNotEquals(8, $returnedRole->getAccessLevel(), $message = "testAddRole, test 13");
-
   }
 
   public function testFindRole()
@@ -158,7 +157,6 @@ class roleDAOTest extends PHPUnit\Framework\TestCase
     $this->assertEquals(" 8 Research Company 1 ", $roles[7]->toString(), $message = "testFindAll, test 10");
     $this->assertEquals(" 9 Staff 7 ", $roles[8]->toString(), $message = "testFindAll, test 11");
     $this->assertEquals(" 10 root 9 ", $roles[9]->toString(), $message = "testFindAll, test 12");
-
   }
 
   public function testFindRoleById()
@@ -172,6 +170,15 @@ class roleDAOTest extends PHPUnit\Framework\TestCase
 
     $this->assertNull($returnedRole, $message = "testFindRoleById, test 1");
 
+    // Test for id not in database.
+    $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $DAO = new roleDAO($conn, "role");
+    $id = 23;
+    $returnedRole = $DAO->findRoleById($id);
+
+    $this->assertNull($returnedRole, $message = "testFindRoleById, test 2");
+
     // Test with complete template object.
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -179,14 +186,13 @@ class roleDAOTest extends PHPUnit\Framework\TestCase
     $id = 10;
     $returnedRole = $DAO->findRoleById($id);
 
-    $this->assertNotNull($returnedRole, $message = "testFindRoleById, test 2");
-    $this->assertIsInt($returnedRole->getId(), $message = "testFindRoleById, test 3");
-    $this->assertIsString($returnedRole->getName(), $message = "testFindRoleById, test 4");
-    $this->assertIsInt($returnedRole->getAccessLevel(), $message = "testFindRoleById, test 5");
-    $this->assertEquals(10, $returnedRole->getId(), $message = "testFindRoleById, test 6");
-    $this->assertEquals("root", $returnedRole->getName(), $message = "testFindRoleById, test 7");
-    $this->assertEquals(9, $returnedRole->getAccessLevel(), $message = "testFindRoleById, test 8");
-
+    $this->assertNotNull($returnedRole, $message = "testFindRoleById, test 3");
+    $this->assertIsInt($returnedRole->getId(), $message = "testFindRoleById, test 4");
+    $this->assertIsString($returnedRole->getName(), $message = "testFindRoleById, test 5");
+    $this->assertIsInt($returnedRole->getAccessLevel(), $message = "testFindRoleById, test 6");
+    $this->assertEquals(10, $returnedRole->getId(), $message = "testFindRoleById, test 7");
+    $this->assertEquals("root", $returnedRole->getName(), $message = "testFindRoleById, test 8");
+    $this->assertEquals(9, $returnedRole->getAccessLevel(), $message = "testFindRoleById, test 9");
   }
 
   public function testModifyRole()
