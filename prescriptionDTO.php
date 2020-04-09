@@ -1,11 +1,13 @@
-#
-# Copyright (C) 2020 Circle Lab
-#
-# Coder: Matthew Dear
-#
-# Reviwer: Joshua Alsop-Barrell
-#
 <?php
+
+/**
+* Copyright (C) 2020 Circle Lab
+*
+* Coder: Matthew Dear
+*
+* Reviwer: Joshua Alsop-Barrell
+*
+*/
 
 class prescriptionDTO
 {
