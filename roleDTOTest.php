@@ -1,3 +1,10 @@
+#
+# Copyright (C) 2020 Circle Lab
+#
+# Coder: Matthew Dear
+#
+# Reviwer: Joshua Alsop-Barrell
+#
 <?php
 include ("roleDTO.php");
 use PHPUnit\Framework\TestCase;
@@ -101,3 +108,5 @@ class roleDTOTest extends PHPUnit\Framework\TestCase
     }
 
 }
+
+?>
