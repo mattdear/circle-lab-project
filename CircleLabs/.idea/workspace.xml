@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d75d9025-e984-41aa-a4f0-7c71738f5b75" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="ProjectId" id="1a1jGlX0Vc796JbsDRXRv1nwMJy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Emma\PhpstormProjects\CircleLabs\DAO" />
+      <recent name="C:\Users\Emma\PhpstormProjects\CircleLabs\DTO" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d75d9025-e984-41aa-a4f0-7c71738f5b75" name="Default Changelist" comment="" />
+      <created>1585909901027</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585909901027</updated>
+      <workItem from="1585909904443" duration="13414000" />
+      <workItem from="1585928604447" duration="66000" />
+      <workItem from="1586167715221" duration="1434000" />
+      <workItem from="1586424831522" duration="960000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="717" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586425463163">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="717" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1586425463163" />
+    <state x="753" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1585927209287">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="753" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1585927209287" />
+    <state x="1194" y="154" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585911939481">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1194" y="154" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1585911939481" />
+    <state x="1095" y="235" key="NewPhpClassDialog" timestamp="1585927174591">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1095" y="235" key="NewPhpClassDialog/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1585927174591" />
+    <state x="922" y="166" key="SettingsEditor" timestamp="1585909915612">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="922" y="166" key="SettingsEditor/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1585909915612" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1585928608532">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1585928608532" />
+    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1585920254138">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1585920254138" />
+  </component>
+</project>
