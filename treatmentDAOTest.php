@@ -96,7 +96,7 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new treatmentDAO($conn, "Treatment");
-    $treatment = new treatmentDTO(8, null);
+    $treatment = new treatmentDTO(27, null);
     $returnedTreatment = $DAO->findTreatment($treatment);
 
     $this->assertNotNull($returnedTreatment, $message = "testFindTreatment, test 7");
@@ -109,7 +109,7 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new treatmentDAO($conn, "Treatment");
-    $treatment = new treatmentDTO(8, "testInput");
+    $treatment = new treatmentDTO(27, "testInput");
     $returnedTreatment = $DAO->findTreatment($treatment);
 
     $this->assertNotNull($returnedTreatment, $message = "testFindTreatment, test 12");
@@ -137,25 +137,25 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
     $this->assertEquals(" 24 ice pack ", $treatments[5]->toString(), $message = "testFindAll, test 8");
     $this->assertEquals(" 25 immobilisation ", $treatments[6]->toString(), $message = "testFindAll, test 9");
     $this->assertEquals(" 15 lifestyle changes ", $treatments[7]->toString(), $message = "testFindAll, test 10");
-    $this->assertEquals(" 11 losing weight ", $treatments[7]->toString(), $message = "testFindAll, test 11");
-    $this->assertEquals(" 16 medication ", $treatments[7]->toString(), $message = "testFindAll, test 12");
-    $this->assertEquals(" 1 painkiller ", $treatments[7]->toString(), $message = "testFindAll, test 13");
-    $this->assertEquals(" 19 physiotherapy ", $treatments[7]->toString(), $message = "testFindAll, test 14");
-    $this->assertEquals(" 17 price therapy ", $treatments[7]->toString(), $message = "testFindAll, test 15");
-    $this->assertEquals(" 13 raising your legs three to four times a day ", $treatments[7]->toString(), $message = "testFindAll, test 16");
-    $this->assertEquals(" 26 reduction ", $treatments[7]->toString(), $message = "testFindAll, test 17");
-    $this->assertEquals(" 8 regular stretching ", $treatments[7]->toString(), $message = "testFindAll, test 18");
-    $this->assertEquals(" 7 resting your heel ", $treatments[7]->toString(), $message = "testFindAll, test 19");
-    $this->assertEquals(" 20 self-help measures ", $treatments[7]->toString(), $message = "testFindAll, test 20");
-    $this->assertEquals(" 5 splint or plaster ", $treatments[7]->toString(), $message = "testFindAll, test 21");
-    $this->assertEquals(" 4 supportive boot ", $treatments[7]->toString(), $message = "testFindAll, test 22");
-    $this->assertEquals(" 6 surgery ", $treatments[7]->toString(), $message = "testFindAll, test 23");
-    $this->assertEquals(" 12 taking regular exercise ", $treatments[7]->toString(), $message = "testFindAll, test 24");
-    $this->assertEquals(" 22 topical corticosteroids ", $treatments[7]->toString(), $message = "testFindAll, test 25");
-    $this->assertEquals(" 10 using supportive devices ", $treatments[7]->toString(), $message = "testFindAll, test 26");
-    $this->assertEquals(" 9 wearing well fitted shoes ", $treatments[7]->toString(), $message = "testFindAll, test 27");
-    $this->assertEquals(" 3 x-ray ", $treatments[7]->toString(), $message = "testFindAll, test 28");
-    $this->assertEquals(" 27 testInput ", $treatments[7]->toString(), $message = "testFindAll, test 29");
+    $this->assertEquals(" 11 losing weight ", $treatments[8]->toString(), $message = "testFindAll, test 11");
+    $this->assertEquals(" 16 medication ", $treatments[9]->toString(), $message = "testFindAll, test 12");
+    $this->assertEquals(" 1 painkiller ", $treatments[10]->toString(), $message = "testFindAll, test 13");
+    $this->assertEquals(" 19 physiotherapy ", $treatments[11]->toString(), $message = "testFindAll, test 14");
+    $this->assertEquals(" 17 price therapy ", $treatments[12]->toString(), $message = "testFindAll, test 15");
+    $this->assertEquals(" 13 raising your legs three to four times a day ", $treatments[13]->toString(), $message = "testFindAll, test 16");
+    $this->assertEquals(" 26 reduction ", $treatments[14]->toString(), $message = "testFindAll, test 17");
+    $this->assertEquals(" 8 regular stretching ", $treatments[15]->toString(), $message = "testFindAll, test 18");
+    $this->assertEquals(" 7 resting your heel ", $treatments[16]->toString(), $message = "testFindAll, test 19");
+    $this->assertEquals(" 20 self-help measures ", $treatments[17]->toString(), $message = "testFindAll, test 20");
+    $this->assertEquals(" 5 splint or plaster ", $treatments[18]->toString(), $message = "testFindAll, test 21");
+    $this->assertEquals(" 4 supportive boot ", $treatments[19]->toString(), $message = "testFindAll, test 22");
+    $this->assertEquals(" 6 surgery ", $treatments[20]->toString(), $message = "testFindAll, test 23");
+    $this->assertEquals(" 12 taking regular exercise ", $treatments[21]->toString(), $message = "testFindAll, test 24");
+    $this->assertEquals(" 27 testInput ", $treatments[22]->toString(), $message = "testFindAll, test 25");
+    $this->assertEquals(" 22 topical corticosteroids ", $treatments[23]->toString(), $message = "testFindAll, test 26");
+    $this->assertEquals(" 10 using supportive devices ", $treatments[24]->toString(), $message = "testFindAll, test 27");
+    $this->assertEquals(" 9 wearing well fitted shoes ", $treatments[25]->toString(), $message = "testFindAll, test 28");
+    $this->assertEquals(" 3 x-ray ", $treatments[26]->toString(), $message = "testFindAll, test 29");
 
   }
 
@@ -174,7 +174,7 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new treatmentDAO($conn, "Treatment");
-    $id = 23;
+    $id = 30;
     $returnedTreatment = $DAO->findTreatmentById($id);
 
     $this->assertNull($returnedTreatment, $message = "testFindTreatmentById, test 2");
@@ -183,7 +183,7 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new treatmentDAO($conn, "Treatment");
-    $id = 8;
+    $id = 27;
     $returnedTreatment = $DAO->findTreatmentById($id);
 
     $this->assertNotNull($returnedTreatment, $message = "testFindTreatmentById, test 3");
@@ -217,7 +217,7 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new treatmentDAO($conn, "Treatment");
-    $treatment = new treatmentDTO(8, null);
+    $treatment = new treatmentDTO(27, null);
     $returnedTreatment = $DAO->modfiytreatment($treatment);
 
     $this->assertNotNull($returnedTreatment, $message = "testModifyTreatment, test 3");
@@ -230,7 +230,7 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new treatmentDAO($conn, "Treatment");
-    $treatment = new treatmentDTO(8, "testInput");
+    $treatment = new treatmentDTO(27, "testInput");
     $returnedTreatment = $DAO->modfiytreatment($treatment);
 
     $this->assertNotNull($returnedTreatment, $message = "testModifyTreatment, test 8");
@@ -264,7 +264,7 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new treatmentDAO($conn, "Treatment");
-    $treatment = new treatmentDTO(8, "testInput");
+    $treatment = new treatmentDTO(27, "testInput");
     $returnedTreatment = $DAO->deleteTreatment($treatment);
 
     $this->assertTrue($returnedTreatment, $message = "testDeleteTreatment, test 3");
