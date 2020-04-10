@@ -79,6 +79,7 @@ class treatmentDTOTest extends PHPUnit\Framework\TestCase
     $treatment = new treatmentDTO(1, "Chemo");
     $this->assertIsString($treatment->toString(), $message = "testToString, test 1");
     $this->assertEquals(" 1 Chemo ", $treatment->toString(), $message = "testToString, test 2");
+    $this->assertNotEquals(" 2 Medication ", $treatment->toString(), $message = "testToString, test 3");
   }
 
 }
