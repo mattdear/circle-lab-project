@@ -1,61 +1,151 @@
 <?php
-include("treatment.php");
-include("functions.php");
+
+/**
+* Copyright (C) 2020 Circle Lab
+*
+* Coder: Joshua Alsop-Barrell
+*
+* Reviwer: Matthew Dear
+*
+*/
+
+include("treatmentDTO.php");
+
 class treatmentDAO
 {
-    private $table, $conn;
 
-    public function __construct($conn, $t) {
-        $this->conn = $conn;
-        $this->table = $t;
-    }
+  private $table, $conn;
 
-    public function addTreatment(treatment $treatmentObj) {
-        $query = $this->conn->prepare("INSERT INTO " . $this->table .  "(name) VALUES (?)");
-        $query->execute([$treatmentObj->getName()]);
+  public function __construct($conn, $table)
+  {
+    $this->conn = $conn;
+    $this->table = $table;
+  }
+
+  public function addTreatment(&$treatmentObj)
+  {
+    if($treatmentObj != null && $treatmentObj->getId() == null && $treatmentObj->getName() != null)
+      {
+        $stmt = $this->conn->prepare("INSERT INTO " .  $this->table .  " (name) VALUES (:name)");
+        $stmt->execute([":name"=>$treatmentObj->getName()]);
+        $idInt = (int)$this->conn->lastInsertId();
+        $treatmentObj->setId($idInt);
         return $treatmentObj;
-    }
+      }
+      return null;
+  }
 
-    public function modifyTreatment($treatmentObj){
-        $query = $this->conn->prepare("UPDATE " . $this->table .  " SET name=?");
-        $query->execute([$treatmentObj->getName()]);
-        $row = $query->fetch();
-
-    }
-
-    public function deleteTreatment($treatmentObj){
-        $query = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE id=?");
-        $query->execute([$treatmentObj->getId()]);
-        $count = $query->rowCount();
-
-        if($count>0){
-            return true;
+  public function modfiyTreatment($treatmentObj)
+  {
+    if($treatmentObj != null && $treatmentObj->getId() != null)
+    {
+      $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE id=:id");
+      $stmt->execute([":id"=>$treatmentObj->getId()]);
+      $count = $stmt->rowCount();
+      $row = $stmt->fetch();
+      $currentTreatmentObj = new treatmentDTO((int)$row["id"], $row["name"]);
+      if($count == 1)
+      {
+        if($treatmentObj->getName() != $currentTreatmentObj->getName() && $treatmentObj->getName() != null)
+        {
+          $currentTreatmentObj->setName($treatmentObj->getName());
         }
-        else{
-            return false;
+        $stmt = $this->conn->prepare("UPDATE " .  $this->table .  " SET name=:name WHERE id=:id");
+        $stmt->execute([":id"=>$currentTreatmentObj->getId(), ":name"=>$currentTreatmentObj->getName()]);
+        $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE id=:id");
+        $stmt->execute([":id"=>$currentTreatmentObj->getId()]);
+        $count = $stmt->rowCount();
+        if($count == 1)
+        {
+          $row = $stmt->fetch();
+          if($row["id"] == $currentTreatmentObj->getId() && $row["name"] == $currentTreatmentObj->getName())
+          return new treatmentDto((int)$row["id"], $row["name"]);
         }
+        return null;
+      }
+      return null;
     }
+    return null;
+  }
 
-    public function findTreatment($treatmentObj){
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table .  " WHERE TRUE=TRUE");
-        if($treatmentObj->getName!=null){
-            $query = $query + " AND name = ?";
+  public function deleteTreatment($treatmentObj)
+  {
+    if($treatmentObj != null && $treatmentObj->getId() != null)
+    {
+      $stmt = $this->conn->prepare("DELETE FROM " .  $this->table .  " WHERE id=:id");
+      $stmt->execute([":id"=>$treatmentObj->getId()]);
+      $stmt = null;
+      $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE id=:id");
+      $stmt->execute([":id"=>$treatmentObj->getId()]);
+      $count = $stmt->rowCount();
+      if($count == 0){
+        return true;
+      }
+      return false;
+    }
+    return false;
+  }
+
+  public function findTreatment($treatmentObj)
+  {
+    if($treatmentObj != null)
+    {
+      if($treatmentObj->getId() != null)
+      {
+        $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE id=:id");
+        $stmt->execute([":id"=>$treatmentObj->getId()]);
+        $count = $stmt->rowCount();
+        if($count == 1)
+        {
+          $row = $stmt->fetch();
+          return new treatmentDto((int)$row["id"], $row["name"]);
         }
-        $treatmentRet = $query->execute([$treatmentObj->getName()]);
-        return $treatmentRet;
-    }
-
-    public function findAll(){
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table);
-        $query->execute();
-        $treatments = [];
-        while($row = $query->fetch()) {
-            $treatment = new treatment($row["name"]);
-            $treatment->setId($row["id"]);
-            $treatments[] = $treatment;
+        return null;
+      }
+      else if($treatmentObj->getName() != null)
+      {
+        $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE name=:name");
+        $stmt->execute([":name"=>$treatmentObj->getName()]);
+        $count = $stmt->rowCount();
+        if($count == 1)
+        {
+          $row = $stmt->fetch();
+          return new treatmentDto((int)$row["id"], $row["name"]);
         }
-
-        return $treatments;
+        return null;
+      }
+      return null;
     }
+    return null;
+  }
 
+  public function findAll()
+  {
+    $stmt = $this->conn->prepare("SELECT * FROM " . $this->table);
+    $stmt->execute();
+    while($row = $stmt->fetch()) {
+      $treatment = new treatmentDTO((int)$row["id"], $row["name"]);
+      $treatments[] = $treatment;
+    }
+    return $treatments;
+  }
+
+  public function findTreatmentById($id)
+  {
+    if($id != null)
+    {
+      $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE id=:id");
+      $stmt->execute([":id"=>$id]);
+      $count = $stmt->rowCount();
+      if($count == 1)
+      {
+        $row = $stmt->fetch();
+        return new treatmentDto((int)$row["id"], $row["name"]);
+      }
+      return null;
+    }
+    return null;
+  }
 }
+
+?>
