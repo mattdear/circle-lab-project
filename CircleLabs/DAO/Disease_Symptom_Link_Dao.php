@@ -1,5 +1,5 @@
 <?php
-
+include("../DTO/DS_Link.php");
 
 class Disease_Symptom_Link_Dao
 {

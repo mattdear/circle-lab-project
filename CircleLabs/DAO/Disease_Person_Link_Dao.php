@@ -1,5 +1,5 @@
 <?php
-include("DPe_Link.php");
+include("../DTO/DPe_Link.php");
 
 class Disease_Person_Link_Dao
 {

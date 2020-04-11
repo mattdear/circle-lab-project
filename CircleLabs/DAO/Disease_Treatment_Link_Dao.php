@@ -1,5 +1,5 @@
 <?php
-
+include("../DTO/DT_Link.php");
 
 class Disease_Treatment_Link_Dao
 {
