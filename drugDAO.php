@@ -5,7 +5,7 @@
 *
 * Coder: Joshua Alsop-Barrell
 *
-* Reviwer: Matthew Dear
+* Reviewer: Matthew Dear
 *
 */
 
