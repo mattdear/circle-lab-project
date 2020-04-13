@@ -50,22 +50,29 @@ class treatmentDAO
         {
           $currentTreatmentObj->setName($treatmentObj->getName());
         }
-        $stmt = $this->conn->prepare("UPDATE " .  $this->table .  " SET name=:name WHERE id=:id");
-        $stmt->execute([":id"=>$currentTreatmentObj->getId(), ":name"=>$currentTreatmentObj->getName()]);
-        $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE id=:id");
-        $stmt->execute([":id"=>$currentTreatmentObj->getId()]);
-        $count = $stmt->rowCount();
-        if($count == 1)
+        $unique = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE name=:name");
+        $unique->execute([":name"=>$currentTreatmentObj->getName()]);
+        $uniqueCount = $unique->rowCount();
+        if($uniqueCount == 0)
         {
-          $row = $stmt->fetch();
-          if($row["id"] == $currentTreatmentObj->getId() && $row["name"] == $currentTreatmentObj->getName())
-          return new treatmentDto((int)$row["id"], $row["name"]);
+          $stmt = $this->conn->prepare("UPDATE " .  $this->table .  " SET name=:name WHERE id=:id");
+          $stmt->execute([":id"=>$currentTreatmentObj->getId(), ":name"=>$currentTreatmentObj->getName()]);
+          $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE id=:id");
+          $stmt->execute([":id"=>$currentTreatmentObj->getId()]);
+          $count = $stmt->rowCount();
+          if($count == 1)
+          {
+            $row = $stmt->fetch();
+            if($row["id"] == $currentTreatmentObj->getId() && $row["name"] == $currentTreatmentObj->getName())
+            return new treatmentDto((int)$row["id"], $row["name"]);
+          }
+          return null;
         }
         return null;
       }
       return null;
-    }
-    return null;
+      }
+      return null;
   }
 
   public function deleteTreatment($treatmentObj)

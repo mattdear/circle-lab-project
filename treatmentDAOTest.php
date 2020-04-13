@@ -208,7 +208,7 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new treatmentDAO($conn, "Treatment");
-    $treatment = new treatmentDTO(null, "testInput");
+    $treatment = new treatmentDTO(null, "testInput2");
     $returnedTreatment = $DAO->modfiytreatment($treatment);
 
     $this->assertNull($returnedTreatment, $message = "testModifyTreatment, test 2");
@@ -220,24 +220,20 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
     $treatment = new treatmentDTO(27, null);
     $returnedTreatment = $DAO->modfiytreatment($treatment);
 
-    $this->assertNotNull($returnedTreatment, $message = "testModifyTreatment, test 3");
-    $this->assertIsInt($returnedTreatment->getId(), $message = "testModifyTreatment, test 4");
-    $this->assertIsString($returnedTreatment->getName(), $message = "testModifyTreatment, test 5");
-    $this->assertEquals(27 ,$returnedTreatment->getId(), $message = "testModifyTreatment, test 6");
-    $this->assertEquals("testInput", $returnedTreatment->getName(), $message = "testModifyTreatment, test 7");
+    $this->assertNull($returnedTreatment, $message = "testModifyTreatment, test 3");
 
     // Test with complete template object.
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new treatmentDAO($conn, "Treatment");
-    $treatment = new treatmentDTO(27, "testInput");
+    $treatment = new treatmentDTO(27, "testInput2");
     $returnedTreatment = $DAO->modfiytreatment($treatment);
 
-    $this->assertNotNull($returnedTreatment, $message = "testModifyTreatment, test 8");
-    $this->assertIsInt($returnedTreatment->getId(), $message = "testModifyTreatment, test 9");
-    $this->assertIsString($returnedTreatment->getName(), $message = "testModifyTreatment, test 10");
-    $this->assertEquals(27 ,$returnedTreatment->getId(), $message = "testModifyTreatment, test 11");
-    $this->assertEquals("testInput", $returnedTreatment->getName(), $message = "testModifyTreatment, test 12");
+    $this->assertNotNull($returnedTreatment, $message = "testModifyTreatment, test 4");
+    $this->assertIsInt($returnedTreatment->getId(), $message = "testModifyTreatment, test 5");
+    $this->assertIsString($returnedTreatment->getName(), $message = "testModifyTreatment, test 6");
+    $this->assertEquals(27 ,$returnedTreatment->getId(), $message = "testModifyTreatment, test 7");
+    $this->assertEquals("testInput2", $returnedTreatment->getName(), $message = "testModifyTreatment, test 8");
   }
 
   public function testDeleteTreatment()
