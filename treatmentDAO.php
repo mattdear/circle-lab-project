@@ -26,11 +26,18 @@ class treatmentDAO
   {
     if($treatmentObj != null && $treatmentObj->getId() == null && $treatmentObj->getName() != null)
       {
-        $stmt = $this->conn->prepare("INSERT INTO " .  $this->table .  " (name) VALUES (:name)");
-        $stmt->execute([":name"=>$treatmentObj->getName()]);
-        $idInt = (int)$this->conn->lastInsertId();
-        $treatmentObj->setId($idInt);
-        return $treatmentObj;
+        $unique = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE name=:name");
+        $unique->execute([":name"=>$treatmentObj->getName()]);
+        $uniqueCount = $unique->rowCount();
+        if($uniqueCount == 0)
+        {
+          $stmt = $this->conn->prepare("INSERT INTO " .  $this->table .  " (name) VALUES (:name)");
+          $stmt->execute([":name"=>$treatmentObj->getName()]);
+          $idInt = (int)$this->conn->lastInsertId();
+          $treatmentObj->setId($idInt);
+          return $treatmentObj;
+        }
+        return null;
       }
       return null;
   }
