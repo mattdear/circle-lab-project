@@ -133,7 +133,6 @@ class drugDAOTest extends PHPUnit\Framework\TestCase
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new drugDAO($conn, "Drug");
-    $DAO->addDrug($drug);
     $drugs = $DAO->findAll();
 
     $this->assertIsArray($drugs, $message = "testFindAll, test 1");
@@ -193,7 +192,7 @@ class drugDAOTest extends PHPUnit\Framework\TestCase
 
     $this->assertNull($returnedDrug, $message = "testModifyDrug, test 1");
 
-    // Test with template object and null id.
+    // Test with template object and pre-existing name in the database.
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new drugDAO($conn, "Drug");
@@ -223,7 +222,6 @@ class drugDAOTest extends PHPUnit\Framework\TestCase
     $this->assertIsString($returnedDrug->getName(), $message = "testModifyDrug, test 6");
     $this->assertEquals(8 ,$returnedDrug->getId(), $message = "testModifyDrug, test 7");
     $this->assertEquals("testInput 2", $returnedDrug->getName(), $message = "testModifyDrug, test 8");
-
   }
 
   public function testDeleteDrug()
@@ -255,7 +253,7 @@ class drugDAOTest extends PHPUnit\Framework\TestCase
 
     $this->assertTrue($returnedDrug, $message = "testDeleteDrug, test 3");
   }
-  
+
 }
 
 ?>
