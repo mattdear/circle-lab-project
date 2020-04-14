@@ -255,6 +255,7 @@ class drugDAOTest extends PHPUnit\Framework\TestCase
 
     $this->assertTrue($returnedDrug, $message = "testDeleteDrug, test 3");
   }
+  
 }
 
 ?>
