@@ -26,11 +26,18 @@ class drugDAO
   {
     if($drugObj != null && $drugObj->getId() == null && $drugObj->getName() != null)
       {
-        $stmt = $this->conn->prepare("INSERT INTO " .  $this->table .  " (name) VALUES (:name)");
-        $stmt->execute([":name"=>$drugObj->getName()]);
-        $idInt = (int)$this->conn->lastInsertId();
-        $drugObj->setId($idInt);
-        return $drugObj;
+        $unique = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE name=:name");
+        $unique->execute([":name"=>$drugObj->getName()]);
+        $uniqueCount = $unique->rowCount();
+        if($uniqueCount == 0)
+        {
+          $stmt = $this->conn->prepare("INSERT INTO " .  $this->table .  " (name) VALUES (:name)");
+          $stmt->execute([":name"=>$drugObj->getName()]);
+          $idInt = (int)$this->conn->lastInsertId();
+          $drugObj->setId($idInt);
+          return $drugObj;
+        }
+        return null;
       }
       return null;
   }
@@ -50,16 +57,23 @@ class drugDAO
         {
           $currentDrugObj->setName($drugObj->getName());
         }
-        $stmt = $this->conn->prepare("UPDATE " .  $this->table .  " SET name=:name WHERE id=:id");
-        $stmt->execute([":id"=>$currentDrugObj->getId(), ":name"=>$currentDrugObj->getName()]);
-        $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE id=:id");
-        $stmt->execute([":id"=>$currentDrugObj->getId()]);
-        $count = $stmt->rowCount();
-        if($count == 1)
+        $unique = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE name=:name");
+        $unique->execute([":name"=>$currentDrugObj->getName()]);
+        $uniqueCount = $unique->rowCount();
+        if($uniqueCount == 0)
         {
-          $row = $stmt->fetch();
-          if($row["id"] == $currentDrugObj->getId() && $row["name"] == $currentDrugObj->getName())
-          return new drugDto((int)$row["id"], $row["name"]);
+          $stmt = $this->conn->prepare("UPDATE " .  $this->table .  " SET name=:name WHERE id=:id");
+          $stmt->execute([":id"=>$currentDrugObj->getId(), ":name"=>$currentDrugObj->getName()]);
+          $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE id=:id");
+          $stmt->execute([":id"=>$currentDrugObj->getId()]);
+          $count = $stmt->rowCount();
+          if($count == 1)
+          {
+            $row = $stmt->fetch();
+            if($row["id"] == $currentDrugObj->getId() && $row["name"] == $currentDrugObj->getName())
+            return new drugDto((int)$row["id"], $row["name"]);
+          }
+          return null;
         }
         return null;
       }

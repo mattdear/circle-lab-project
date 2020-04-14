@@ -66,6 +66,15 @@ class drugDAOTest extends PHPUnit\Framework\TestCase
     $this->assertEquals("testInput", $returnedDrug->getName(), $message = "testAddDrug, test 7");
     $this->assertNotEquals(4, $returnedDrug->getId(), $message = "testAddDrug, test 8");
     $this->assertNotEquals("Nurse", $returnedDrug->getName(), $message = "testAddDrug, test 9");
+
+    // Test with template object and same name attribute as existing database entity.
+    $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $DAO = new drugDAO($conn, "Drug");
+    $drug = new drugDTO(null, "testInput");
+    $returnedDrug = $DAO->addDrug($drug);
+
+    $this->assertNull($returnedDrug, $message = "testAddDrug, test 10");
   }
 
   public function testFindDrug()
@@ -200,24 +209,21 @@ class drugDAOTest extends PHPUnit\Framework\TestCase
     $drug = new drugDTO(8, null);
     $returnedDrug = $DAO->modfiydrug($drug);
 
-    $this->assertNotNull($returnedDrug, $message = "testModifyDrug, test 3");
-    $this->assertIsInt($returnedDrug->getId(), $message = "testModifyDrug, test 4");
-    $this->assertIsString($returnedDrug->getName(), $message = "testModifyDrug, test 5");
-    $this->assertEquals(8 ,$returnedDrug->getId(), $message = "testModifyDrug, test 6");
-    $this->assertEquals("testInput", $returnedDrug->getName(), $message = "testModifyDrug, test 7");
+    $this->assertNull($returnedDrug, $message = "testModifyDrug, test 3");
 
     // Test with complete template object.
     $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $DAO = new drugDAO($conn, "Drug");
-    $drug = new drugDTO(8, "testInput");
+    $drug = new drugDTO(8, "testInput 2");
     $returnedDrug = $DAO->modfiydrug($drug);
 
-    $this->assertNotNull($returnedDrug, $message = "testModifyDrug, test 8");
-    $this->assertIsInt($returnedDrug->getId(), $message = "testModifyDrug, test 9");
-    $this->assertIsString($returnedDrug->getName(), $message = "testModifyDrug, test 10");
-    $this->assertEquals(8 ,$returnedDrug->getId(), $message = "testModifyDrug, test 11");
-    $this->assertEquals("testInput", $returnedDrug->getName(), $message = "testModifyDrug, test 12");
+    $this->assertNotNull($returnedDrug, $message = "testModifyDrug, test 4");
+    $this->assertIsInt($returnedDrug->getId(), $message = "testModifyDrug, test 5");
+    $this->assertIsString($returnedDrug->getName(), $message = "testModifyDrug, test 6");
+    $this->assertEquals(8 ,$returnedDrug->getId(), $message = "testModifyDrug, test 7");
+    $this->assertEquals("testInput 2", $returnedDrug->getName(), $message = "testModifyDrug, test 8");
+
   }
 
   public function testDeleteDrug()
