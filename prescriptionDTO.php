@@ -86,7 +86,7 @@ class prescriptionDTO
 
     public function toString()
     {
-        $string = " " . $this->id . " " . $this->patient . " " . $this->date . " " . $this->quantity . " " . $this->location . " " . $this->isactive . " ";
+        $string = " " . $this->id . " " . $this->patient . " " . $this->date->format("Y-m-d") . " " . $this->quantity . " " . $this->location . " " . $this->isactive . " ";
         return $string;
     }
 
