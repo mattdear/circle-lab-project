@@ -71,7 +71,7 @@ class drugDAO
           {
             $row = $stmt->fetch();
             if($row["id"] == $currentDrugObj->getId() && $row["name"] == $currentDrugObj->getName())
-            return new drugDto((int)$row["id"], $row["name"]);
+            return new drugDTO((int)$row["id"], $row["name"]);
           }
           return null;
         }
@@ -112,7 +112,7 @@ class drugDAO
         if($count == 1)
         {
           $row = $stmt->fetch();
-          return new drugDto((int)$row["id"], $row["name"]);
+          return new drugDTO((int)$row["id"], $row["name"]);
         }
         return null;
       }
@@ -124,7 +124,7 @@ class drugDAO
         if($count == 1)
         {
           $row = $stmt->fetch();
-          return new drugDto((int)$row["id"], $row["name"]);
+          return new drugDTO((int)$row["id"], $row["name"]);
         }
         return null;
       }
@@ -154,13 +154,13 @@ class drugDAO
       if($count == 1)
       {
         $row = $stmt->fetch();
-        return new drugDto((int)$row["id"], $row["name"]);
+        return new drugDTO((int)$row["id"], $row["name"]);
       }
       return null;
     }
     return null;
   }
-  
+
 }
 
 ?>
