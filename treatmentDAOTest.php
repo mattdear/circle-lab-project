@@ -66,6 +66,15 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
     $this->assertEquals("testInput", $returnedTreatment->getName(), $message = "testAddTreatment, test 7");
     $this->assertNotEquals(4, $returnedTreatment->getId(), $message = "testAddTreatment, test 8");
     $this->assertNotEquals("Nurse", $returnedTreatment->getName(), $message = "testAddTreatment, test 9");
+
+    // Test with template object and same name attribute as existing database entity.
+    $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $DAO = new treatmentDAO($conn, "Treatment");
+    $treatment = new treatmentDTO(null, "testInput");
+    $returnedTreatment = $DAO->addTreatment($treatment);
+
+    $this->assertNull($returnedTreatment, $message = "testAddTreatment, test 10");
   }
 
   public function testFindTreatment()
