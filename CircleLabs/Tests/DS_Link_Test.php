@@ -64,7 +64,7 @@ class DS_Link_Test extends PHPUnit\Framework\TestCase
 
     public function testToString()
     {
-        
+
     }
 
 }

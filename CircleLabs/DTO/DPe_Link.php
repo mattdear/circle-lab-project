@@ -3,31 +3,31 @@
 
 class DPe_Link
 {
-    private $disease, $person ;
+    private $diseaseId, $personId ;
 
-    public function __construct($disease, $person ) {
-        $this->disease = $this->disease;
-        $this->person = $person;
+    public function __construct($diseaseId, $personId ) {
+        $this->diseaseId = $this->diseaseId;
+        $this->personId = $this->personId;
     }
 
     public function getDisease()
     {
-        return $this->disease;
+        return $this->diseaseId;
     }
 
-    public function setDisease($disease)
+    public function setDisease($diseaseId)
     {
-        $this->disease = $disease;
+        $this->diseaseId = $diseaseId;
     }
 
     public function getPerson()
     {
-        return $this->person;
+        return $this->personId;
     }
 
-    public function setPerson($person)
+    public function setPerson($personId)
     {
-        $this->person = $person;
+        $this->personId = $personId;
     }
 
 }

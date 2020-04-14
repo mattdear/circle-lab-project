@@ -14,6 +14,10 @@ class PersonDao
     public function insertPerson(PersonDto $newPerson){
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(first_name , last_name , dob , gender , email , phone , address , role , username, password) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ?, ? )");
         $stmt->execute([$newPerson->getFirstName(), $newPerson->getLastName(), $newPerson->getDob() , $newPerson->getGender(), $newPerson->getEmail() , $newPerson->getPhone(), $newPerson->getAddress() , $newPerson->getRole(), $newPerson->getUsername(), $newPerson->getPassword()]);
+        $id = (int)$this->conn->lastInsertId();
+        $newPerson->setId($id);
+        return $newPerson;
+
     }
 
     //Updating a person

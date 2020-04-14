@@ -3,31 +3,31 @@
 
 class DT_Link
 {
-    private $disease, $treatment ;
+    private $diseaseId, $treatmentId ;
 
-    public function __construct($disease, $treatment ) {
-        $this->disease = $this->disease;
-        $this->treatment = $treatment;
+    public function __construct($diseaseId, $treatmentId ) {
+        $this->diseaseId = $this->diseaseId;
+        $this->treatmentId = $this->treatmentId;
     }
 
     public function getDisease()
     {
-        return $this->disease;
+        return $this->diseaseId;
     }
 
-    public function setDisease($disease)
+    public function setDisease($diseaseId)
     {
-        $this->disease = $disease;
+        $this->diseaseId = $diseaseId;
     }
 
     public function getTreatment()
     {
-        return $this->treatment;
+        return $this->treatmentId;
     }
 
-    public function setTreatment($treatment)
+    public function setTreatment($treatmentId)
     {
-        $this->treatment = $treatment;
+        $this->treatmentId = $treatmentId;
     }
 
 }

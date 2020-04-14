@@ -3,30 +3,30 @@
 
 class DS_Link
 {
-    private $disease, $symptom ;
+    private $diseaseId, $symptomId ;
 
-    public function __construct($disease, $symptom ) {
-        $this->disease = $this->disease;
-        $this->symptom = $symptom;
+    public function __construct($diseaseId, $symptomId ) {
+        $this->diseaseId = $this->diseaseId;
+        $this->symptomId = $this->symptomId;
     }
 
     public function getDisease()
     {
-        return $this->disease;
+        return $this->diseaseId;
     }
 
-    public function setDisease($disease)
+    public function setDisease($diseaseId)
     {
-        $this->disease = $disease;
+        $this->diseaseId = $diseaseId;
     }
 
     public function getSymptom()
     {
-        return $this->symptom;
+        return $this->symptomId;
     }
 
-    public function setSymptom($symptom)
+    public function setSymptom($symptomId)
     {
-        $this->symptom = $symptom;
+        $this->symptomId = $symptomId;
     }
 }
