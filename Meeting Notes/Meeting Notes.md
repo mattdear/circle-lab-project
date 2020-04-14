@@ -180,6 +180,9 @@ Attendees = Emma, Mark, Josh, Matt, Juan
 
 Attendees = Emma, Mark, Josh, Matt, Juan
 
-###### WEDNESDAY MEETUP
+## WEEK12
+###### TUESDAY MEETUP
+- Matt and Josh demoed the pull request and code review though GitHub.
+- Matt assigned tasks to the team until the end of the task.
 
-###### FRIDAY MEETUP
+Attendees = Emma, Mark, Josh, Matt
