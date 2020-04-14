@@ -274,6 +274,7 @@ class treatmentDAOTest extends PHPUnit\Framework\TestCase
 
     $this->assertTrue($returnedTreatment, $message = "testDeleteTreatment, test 3");
   }
+  
 }
 
 ?>

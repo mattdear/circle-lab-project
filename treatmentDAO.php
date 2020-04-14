@@ -71,15 +71,15 @@ class treatmentDAO
           {
             $row = $stmt->fetch();
             if($row["id"] == $currentTreatmentObj->getId() && $row["name"] == $currentTreatmentObj->getName())
-            return new treatmentDto((int)$row["id"], $row["name"]);
+            return new treatmentDTO((int)$row["id"], $row["name"]);
           }
           return null;
         }
         return null;
       }
       return null;
-      }
-      return null;
+    }
+    return null;
   }
 
   public function deleteTreatment($treatmentObj)
@@ -112,7 +112,7 @@ class treatmentDAO
         if($count == 1)
         {
           $row = $stmt->fetch();
-          return new treatmentDto((int)$row["id"], $row["name"]);
+          return new treatmentDTO((int)$row["id"], $row["name"]);
         }
         return null;
       }
@@ -124,7 +124,7 @@ class treatmentDAO
         if($count == 1)
         {
           $row = $stmt->fetch();
-          return new treatmentDto((int)$row["id"], $row["name"]);
+          return new treatmentDTO((int)$row["id"], $row["name"]);
         }
         return null;
       }
@@ -154,12 +154,13 @@ class treatmentDAO
       if($count == 1)
       {
         $row = $stmt->fetch();
-        return new treatmentDto((int)$row["id"], $row["name"]);
+        return new treatmentDTO((int)$row["id"], $row["name"]);
       }
       return null;
     }
     return null;
   }
+  
 }
 
 ?>
