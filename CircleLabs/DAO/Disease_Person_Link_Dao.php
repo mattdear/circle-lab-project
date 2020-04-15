@@ -1,5 +1,5 @@
 <?php
-include("../DTO/DPe_Link.php");
+include(__DIR__."\..\DTO\DPe_Link.php");
 
 class Disease_Person_Link_Dao
 {
@@ -19,7 +19,7 @@ class Disease_Person_Link_Dao
 
     //Updating a Disease_Person_Link
     public function updateDPe_Link(Dpe_Link $oldDPe_Link , DPe_Link $updatedDPe_Link){
-        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET disease= ? , person= ? WHERE = disease =? AND person = ?  ");
+        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET disease= ? , person= ? WHERE disease =? AND person = ?  ");
         $stmt->execute([$updatedDPe_Link->getDisease(), $updatedDPe_Link->getPerson(), $oldDPe_Link->getDisease(), $oldDPe_Link->getPerson()]);
     }
 
@@ -47,7 +47,7 @@ class Disease_Person_Link_Dao
 
     //Delete Disease_Person_Link
     public function removeDPe_Link(DPe_Link $removedDPe_Link){
-        $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE = disease =? AND person = ? ");
+        $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE disease =? AND person = ? ");
         $stmt->execute([$removedDPe_Link->getDisease(), $removedDPe_Link->getPerson()]);
     }
 }

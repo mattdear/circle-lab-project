@@ -30,6 +30,17 @@
       <recent name="C:\Users\Emma\PhpstormProjects\CircleLabs\DTO" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Disease_Treatment_Link_Dao_Test" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Disease_Treatment_Link_Dao_Test" file="$PROJECT_DIR$/Tests/Disease_Treatment_Link_Dao_Test.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.Disease_Treatment_Link_Dao_Test" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -45,6 +56,7 @@
       <workItem from="1586167715221" duration="1434000" />
       <workItem from="1586424831522" duration="3089000" />
       <workItem from="1586509649760" duration="12146000" />
+      <workItem from="1586862022383" duration="3041000" />
     </task>
     <servers />
   </component>
@@ -52,6 +64,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="644" y="141" width="645" height="758" key="#Disease_Treatment_Link_Dao_Test" timestamp="1586864308694">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="644" y="141" width="645" height="758" key="#Disease_Treatment_Link_Dao_Test/0.0.1920.1040/-223.-1440.2048.1112@0.0.1920.1040" timestamp="1586864308694" />
     <state x="717" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586426293890">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

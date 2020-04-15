@@ -1,6 +1,6 @@
 <?php
 
-include("../DAO/Disease_Treatment_Link_Dao.php");
+include(__DIR__."\..\DAO\Disease_Treatment_Link_Dao.php");
 use PHPUnit\Framework\TestCase;
 
 class Disease_Treatment_Link_Dao_Test extends PHPUnit\Framework\TestCase
@@ -20,58 +20,93 @@ class Disease_Treatment_Link_Dao_Test extends PHPUnit\Framework\TestCase
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $DAO = new Disease_Treatment_Link_Dao($conn, "disease_treatment_link");
 
+        $links = $DAO->findByDiseaseId(6);
         // Test with complete template object.
-        $link = 
-        $people = $DAO->findAllPeople();
-        $DAO->insertPerson($person);
-        $newPeople = $DAO->findAllPeople();
-        $this->assertEquals(sizeof($newPeople), sizeof($people) + 1, $message = "testAddPerson, test 2");
-
+        $link = new DT_Link(6,25);
+        $DAO->insertDT_Link($link);
+        $newLinks = $DAO->findByDiseaseId(6);
+        $this->assertEquals(sizeof($newLinks), sizeof($links) + 1, $message = "testInsert, test 1");
+        $DAO->removeDT_Link($link);
     }
 
     public function testUpdate()
     {
         $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $DAO = new PersonDao($conn, "Person");
+        $DAO = new Disease_Treatment_Link_Dao($conn, "disease_treatment_link");
 
-        $person = new personDto(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , "Test_Address", "Nurse", "Test_Username", "Test_Password");
-        $newPerson = $DAO->insertPerson($person);
-        $newPerson->setAddress("Updated Address Test");
-        $DAO->updatePerson($newPerson);
 
-        $this->assertEquals("Updated Address Test", $DAO->findPersonById($newPerson->getId())->getAddress(), $message = "testUpdatePerson, test 1");
+        $link = new DT_Link(6,24);
+        $DAO->insertDT_Link($link);
+        $link->setDisease(2);
+        $oldLink = new DT_Link(6,24);
+        $DAO->updateDT_Link($link, $oldLink );
+        $links = $DAO->findByDiseaseId(2);
+        foreach($links as $foundLink)
+        {
+            if ($foundLink->getTreatment() == 24){
+                $newLink = $foundLink;
+            }
+        }
+        $this->assertEquals($link, $newLink, $message = "testUpdate, test 1");
+        $DAO->removeDT_Link($newLink);
     }
 
     public function testFindByTreatmentId()
     {
-        // Test with null object.
         $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $DAO = new PersonDao($conn, "Person");
-        $person = new personDto(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , "Test_Address", "Nurse", "Test_Username", "Test_Password");
-        $DAO->insertPerson($person);
-        $people = $DAO->findByRole("Nurse");
-        foreach ($people as $foundPerson){
-            $this->assertEquals("Nurse", $foundPerson->getRole(), $message = "testFindByRole , test 1");
+        $DAO = new Disease_Treatment_Link_Dao($conn, "disease_treatment_link");
+
+        $link = new DT_Link(6,23);
+
+        $DAO->insertDT_Link($link);
+        $links = $DAO->findByTreatmentId(23);
+
+        foreach($links as $foundLink )
+        {
+            if ($foundLink->getDisease() == 6){
+                $newLink = $foundLink;
+            }
         }
+
+        $this->assertEquals($link, $newLink, $message = "testFindByTreatmentId, test 1");
+        $DAO->removeDT_Link($link);
     }
 
     public function testFindByDiseaseId()
     {
-        // Test with null object.
         $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $DAO = new PersonDao($conn, "Person");
-        $person = new personDto(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , "Test_Address", "Nurse", "Test_Username", "Test_Password");
-        $person = $DAO->insertPerson($person);
-        $people = $DAO->findPersonById($person->getId());
-        foreach ($people as $foundPerson){
-            $this->assertEquals($person->getId() , $foundPerson->getId(), $message = "testFindById , test 1");
+        $DAO = new Disease_Treatment_Link_Dao($conn, "disease_treatment_link");
+
+       $link = new DT_Link(6,22);
+
+        $DAO->insertDT_Link($link);
+        $links = $DAO->findByDiseaseId(6);
+
+        foreach($links as $foundLink )
+        {
+            if ($foundLink->getTreatment() == 22){
+                $newLink = $foundLink;
+            }
         }
+
+        $this->assertEquals($link, $newLink, $message = "testFindByDiseaseId, test 1");
+        $DAO->removeDT_Link($link);
     }
 
     public function testDelete(){
+        $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $DAO = new Disease_Treatment_Link_Dao($conn, "disease_treatment_link");
+
+        $link = new DT_Link(6,21);
+        $DAO->insertDT_Link($link);
+        $links = $DAO->findByDiseaseId(6);
+        $DAO->removeDT_Link($link);
+        $newLinks = $DAO->findByDiseaseId(6);
+        $this->assertEquals(sizeof($newLinks), sizeof($links) - 1, $message = "testInsert, test 1");
 
     }
 }

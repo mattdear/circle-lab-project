@@ -1,5 +1,5 @@
 <?php
-include("../DTO/LocationDto.php");
+include(__DIR__."\..\DTO\LocationDto.php");
 
 class LocationDao
 {
@@ -14,11 +14,15 @@ class LocationDao
     public function insertLocation(LocationDto  $newLocation){
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(name , address , type) VALUES (? , ? , ? )");
         $stmt->execute([$newLocation->getName(), $newLocation->getAddress(), $newLocation->getType()]);
+        $id = (int)$this->conn->lastInsertId();
+        $newLocation->setId($id);
+        return $newLocation;
+
     }
 
     //Updating a location
     public function updateLocation(LocationDto $updatedLocation){
-        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET name= ? , address= ? , type= ? , WHERE ID= ? ");
+        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET name= ? , address= ? , type= ?  WHERE id= ?");
         $stmt->execute([$updatedLocation->getName(), $updatedLocation->getAddress(), $updatedLocation->getType() , $updatedLocation->getId()]);
     }
 
@@ -27,7 +31,7 @@ class LocationDao
         $stmt = $this->conn->query("SELECT * FROM ".  $this->table);
         $locations = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($locations, new LocationDto($row["ID"], $row["name"], $row["address"],$row["type"]));
+            array_push($locations, new LocationDto($row["id"], $row["name"], $row["address"],$row["type"]));
         }
         return $locations;
     }
@@ -38,23 +42,24 @@ class LocationDao
         $allLocations = $this->findAllLocations();
         $matching = true;
         foreach ($allLocations as $l){
+          $matching = true;
             if($locationTemplate->getName() != null) {
-                if (!$l->getName()->contains($locationTemplate->getName())) {
+                if (strpos($l->getName(), $locationTemplate->getName()) === false) {
                     $matching = false;
                 }
             }
             if($locationTemplate->getAddress() != null) {
-                if (!$l->getAddress()->contains($locationTemplate->getAddress())) {
+                if (strpos($l->getAddress(), $locationTemplate->getAddress()) === false) {
                     $matching = false;
                 }
             }
             if($locationTemplate->getType() != null) {
-                if (!$l->getType()->contains($locationTemplate->getType())){
+                if (strpos($l->getType(), $locationTemplate->getType()) === false){
                     $matching = false;
                 }
             }
-            if(matching){
-                array_push($locations, l);
+            if($matching === true){
+                array_push($locations, $l);
             }
         }
         return $locations;

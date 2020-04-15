@@ -5,7 +5,7 @@ class LocationDto
 {
     private $id, $name, $address , $type;
 
-    public function __construct($id=null, $name, $address , $type) {
+    public function __construct($id, $name, $address , $type) {
         $this->id = $id;
         $this->name = $name;
         $this->address = $address;
@@ -50,5 +50,11 @@ class LocationDto
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    public function toString()
+    {
+        $string = $this->id . " , " . $this->name . " , ". $this->address . " , " . $this->type;
+        return $string;
     }
 }

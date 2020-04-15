@@ -5,7 +5,7 @@ class PersonDto
 {
     private $id, $first_name, $last_name , $dob, $gender, $email, $phone, $address, $role, $username , $password;
 
-    public function __construct($id=null, $first_name, $last_name , $dob, $gender, $email, $phone, $address, $role, $username , $password) {
+    public function __construct($id, $first_name, $last_name , $dob, $gender, $email, $phone, $address, $role, $username , $password) {
         $this->id = $id;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
@@ -128,4 +128,9 @@ class PersonDto
         $this->password = $password;
     }
 
+    public function toString()
+        {
+            $string = " " . $this->id . " " . $this->first_name . " " . $this->last_name . " " . $this->dob . " " . $this->gender . " " . $this->email . " " . $this->phone . " " . $this->address . " "  . $this->role . " "   . $this->username . " "   . $this->password . " " ;
+            return $string;
+        }
 }

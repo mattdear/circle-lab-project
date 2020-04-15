@@ -1,5 +1,5 @@
 <?php
-include("../DTO/DS_Link.php");
+include(__DIR__."\..\DTO\DS_Link.php");
 
 class Disease_Symptom_Link_Dao
 {
@@ -19,7 +19,7 @@ class Disease_Symptom_Link_Dao
 
     //Updating a Disease_Symptom_Link
     public function updateDS_Link(DS_Link $oldDS_Link,   DS_Link $updatedDS_Link){
-        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET disease= ? , treatment= ? WHERE = disease =? AND symptom = ?  ");
+        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET disease= ? , treatment= ? WHERE disease =? AND symptom = ?  ");
         $stmt->execute([$updatedDS_Link->getDisease(), $updatedDS_Link->getSymptom(), $oldDS_Link->getDisease(), $oldDS_Link->getSymptom()]);
     }
 
@@ -47,7 +47,7 @@ class Disease_Symptom_Link_Dao
 
     //Delete Disease_Symptom_Link
     public function removeDS_Link(DS_Link $removedDS_Link){
-            $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE = disease =? AND symptom = ? ");
+            $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE disease =? AND symptom = ? ");
             $stmt->execute([$removedDS_Link->getDisease(), $removedDS_Link->getSymptom()]);
         }
 }
