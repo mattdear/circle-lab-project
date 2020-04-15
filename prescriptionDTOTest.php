@@ -185,7 +185,7 @@ class prescriptionDTOTest extends PHPUnit\Framework\TestCase
 
     public function testToString()
     {
-      $prescription = new prescriptionDTO(1, 2, "2020-04-06", 3, 4, 5);
+      $prescription = new prescriptionDTO(1, 2, date_create("2020-04-06"), 3, 4, 5);
 
       $this->assertIsString($prescription->toString(), $message = "testToString, test 1");
       $this->assertEquals(" 1 2 2020-04-06 3 4 5 ", $prescription->toString(), $message = "testToString, test 2");
