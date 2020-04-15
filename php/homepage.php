@@ -4,6 +4,7 @@ $webPage = new WebPage("Homepage", "Circle Lab", 2020);
 $webPage->open();
 $webPage->setCSS("../css/smart-system");
 $webPage->writeHead();
+
 ?>
     <div>
         <h1>Homepage</h1>
@@ -20,6 +21,8 @@ $webPage->writeHead();
         <button onclick="window.location.href = 'reports.php';">Reports</button>
         <br/>
     </div>
+
+
 <?php
 $webPage->writeFooter();
 $webPage->close();
