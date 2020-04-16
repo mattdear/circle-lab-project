@@ -25,6 +25,7 @@ button{
     margin-top: 2vw;
     overflow: auto;
     font-family: "Frutiger", Arial, serif;
+    border: none;
 }
 
 button:hover{
@@ -75,6 +76,12 @@ button:focus{
     border: none;
 }
 
+.select{
+    width:22vw;
+    height: 4.5vw;
+    border-radius: 1vw;
+}
+
 .inputs:focus{
     outline-style: none;
 }
@@ -97,15 +104,47 @@ footer{
 .col-25{
     float: left;
     width: 20vw;
+    height: 5vw;
     margin-top: 3vw;
 }
 
 .col-75{
     float: left;
     width: 30vw;
+    height: 5vw;
     margin-top: 1vw;
 }
 
+.searchResults{
+    overflow: auto;
+    width: 75vw;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.searchResult{
+ overflow: auto;
+}
+
+.searchDetails{
+    float:left;
+    width: 35vw;
+}
+
+.searchButtons{
+    float: left;
+    margin-top: 2vw;
+}
+
+
+
+
+
+
+
+
+
+/*Responsive screen css*/
 
 @media screen and (max-width: 765px) {
 
@@ -158,6 +197,12 @@ footer{
         border: none;
     }
 
+    .select{
+        width:47vw;
+        height: 8vw;
+        border-radius: 1vw;
+    }
+
     .row{
         width: 75vw;
         overflow: auto;
@@ -167,12 +212,14 @@ footer{
     .col-25{
         float: left;
         width: 25vw;
+        height: 10vw;
         margin-top: 4vw;
     }
 
     .col-75{
         float: left;
         width: 50vw;
+        height: 10vw;
         margin-top: 1vw;
     }
 }

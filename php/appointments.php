@@ -6,21 +6,17 @@ $webPage->setCSS("../css/smart-system");
 $webPage->writeHead();
 ?>
     <h1>Appointments</h1>
-    <form>
+    <form method="get" action="appointmentResults.php">
         <label>
             <input class="inputs" name="appointment" placeholder="Search Name">
         </label>
         <p>OR</p>
         <label>
-            <input class="inputs" name="appointmentDate" type="date">
+            <input class="inputs" name="date" placeholder="dd/mm/yyyy" type="date" min='<?=$todayMin?>'>
         </label>
         <br/>
         <button type="submit">Search</button>
     </form>
-    <div id="appointmentResults">
-
-    </div>
-    <p>Click appointment for more information</p>
 
     <button onclick="window.location.href = 'addAppointment.php';">Add Appointment</button>
     <br/>
