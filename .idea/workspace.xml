@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e38ae4e7-39ce-46e5-8095-4c87a286b542" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/php/homepage.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/homepage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
-      <executable />
+      <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="fcf50ad3-0c78-47ca-932b-164165500a9c" />
     </execution>
   </component>
   <component name="DatabaseView">
@@ -31,7 +32,40 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="1Zq5fgoQIkthIGkZtTYLDfDIzUH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -45,7 +79,20 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dumpAutoload /Users/markhartop/Documents/University/gitrepos/circle_lab_project/composer.json" value="--no-interaction --ansi --verbose" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="php.test.frameworks.configurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="DiseaseTest.test__construct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="DiseaseTest" file="$PROJECT_DIR$/DiseaseTest.php" method="test__construct" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.DiseaseTest.test__construct" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -68,6 +115,8 @@
       <workItem from="1586332918409" duration="3775000" />
       <workItem from="1586777281172" duration="730000" />
       <workItem from="1586864974563" duration="498000" />
+      <workItem from="1587029919293" duration="362000" />
+      <workItem from="1587030292563" duration="229000" />
     </task>
     <servers />
   </component>
@@ -75,6 +124,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="409" y="98" key="#DiseaseTest.test__construct" timestamp="1586972613962">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="409" y="98" key="#DiseaseTest.test__construct/0.23.2560.1417@0.23.2560.1417" timestamp="1586972613962" />
     <state x="320" y="115" key="#Notifications" timestamp="1585553949097">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -87,12 +140,48 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="533" y="203" key="#com.intellij.ide.util.MemberChooser/0.23.2560.1417@0.23.2560.1417" timestamp="1586275097280" />
+    <state x="600" y="23" width="600" height="1368" key="ComposerAddDependencyOutputPopupDimensionServiceKey" timestamp="1587030331999">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="600" y="23" width="600" height="1368" key="ComposerAddDependencyOutputPopupDimensionServiceKey/0.23.2560.1417@0.23.2560.1417" timestamp="1587030331999" />
+    <state x="539" y="376" key="ComposerDumpAutoloadDialog" timestamp="1587030214792">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="539" y="376" key="ComposerDumpAutoloadDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1587030214792" />
+    <state x="504" y="371" width="461" height="289" key="ComposerInitDialogKey" timestamp="1587030382243">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="504" y="371" width="461" height="289" key="ComposerInitDialogKey/0.23.2560.1417@0.23.2560.1417" timestamp="1587030382243" />
+    <state width="1387" height="231" key="GridCell.Tab.0.bottom" timestamp="1587030281366">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state width="1387" height="231" key="GridCell.Tab.0.bottom/0.23.2560.1417@0.23.2560.1417" timestamp="1587030281366" />
+    <state width="1387" height="231" key="GridCell.Tab.0.center" timestamp="1587030281366">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state width="1387" height="231" key="GridCell.Tab.0.center/0.23.2560.1417@0.23.2560.1417" timestamp="1587030281366" />
+    <state width="1387" height="231" key="GridCell.Tab.0.left" timestamp="1587030281366">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state width="1387" height="231" key="GridCell.Tab.0.left/0.23.2560.1417@0.23.2560.1417" timestamp="1587030281366" />
+    <state width="1387" height="231" key="GridCell.Tab.0.right" timestamp="1587030281366">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state width="1387" height="231" key="GridCell.Tab.0.right/0.23.2560.1417@0.23.2560.1417" timestamp="1587030281366" />
     <state x="956" y="621" key="NewPhpFileDialog" timestamp="1586275194796">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="538" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1585732680861" />
     <state x="956" y="608" key="NewPhpFileDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1585907388370" />
     <state x="956" y="621" key="NewPhpFileDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1586275194796" />
+    <state x="474" y="292" key="PHPComposerAddDependencyDialogDimensionKey" timestamp="1587030511491">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="474" y="292" key="PHPComposerAddDependencyDialogDimensionKey/0.23.2560.1417@0.23.2560.1417" timestamp="1587030511491" />
+    <state x="243" y="119" width="1089" height="722" key="SettingsEditor" timestamp="1587030521692">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="243" y="119" width="1089" height="722" key="SettingsEditor/0.23.2560.1417@0.23.2560.1417" timestamp="1587030521692" />
     <state x="361" y="207" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1586274558039">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e38ae4e7-39ce-46e5-8095-4c87a286b542" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/php/homepage.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/homepage.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
+  <component name="ProjectId" id="1Zq5fgoQIkthIGkZtTYLDfDIzUH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e38ae4e7-39ce-46e5-8095-4c87a286b542" name="Default Changelist" comment="" />
+      <created>1585553888227</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585553888227</updated>
+      <workItem from="1585553891156" duration="5722000" />
+      <workItem from="1585648393023" duration="30000" />
+      <workItem from="1585725728397" duration="5047000" />
+      <workItem from="1585830070449" duration="706000" />
+      <workItem from="1585848248243" duration="573000" />
+      <workItem from="1585900065371" duration="5163000" />
+      <workItem from="1586167957346" duration="289000" />
+      <workItem from="1586252663341" duration="2795000" />
+      <workItem from="1586332918409" duration="3775000" />
+      <workItem from="1586777281172" duration="730000" />
+      <workItem from="1586864974563" duration="498000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="115" key="#Notifications" timestamp="1585553949097">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="115" key="#Notifications/0.0.1440.900@0.0.1440.900" timestamp="1585553949097" />
+    <state x="385" y="35" key="#PHP" timestamp="1585555394722">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="35" key="#PHP/0.0.1440.900@0.0.1440.900" timestamp="1585555394722" />
+    <state x="533" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1586275097280">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="533" y="203" key="#com.intellij.ide.util.MemberChooser/0.23.2560.1417@0.23.2560.1417" timestamp="1586275097280" />
+    <state x="956" y="621" key="NewPhpFileDialog" timestamp="1586275194796">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="538" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1585732680861" />
+    <state x="956" y="608" key="NewPhpFileDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1585907388370" />
+    <state x="956" y="621" key="NewPhpFileDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1586275194796" />
+    <state x="361" y="207" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1586274558039">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="361" y="207" key="com.jetbrains.php.test.PhpNewTestDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1586274558039" />
+    <state x="945" y="345" key="run.anything.popup" timestamp="1585903132560">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="945" y="345" key="run.anything.popup/0.23.2560.1417@0.23.2560.1417" timestamp="1585903132560" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1585562560519">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1585562560519" />
+  </component>
+</project>
