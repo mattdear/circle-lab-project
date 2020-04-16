@@ -15,11 +15,11 @@ $webPage->writeHead();
                 <p>Email:</p>
             </div>
             <div class="searchButtons">
-                <form method="get" action="modifyAppointment.php">
+                <form method="get" action="modifyPerson.php">
                     <input type="hidden" name="id">
                     <button type="submit">Modify</button>
                 </form>
-                <form method="post" action="deleteAppointment.php">
+                <form method="post" action="deletePerson.php">
                     <input type="hidden" name="id">
                     <button type="submit">Delete</button>
                 </form>

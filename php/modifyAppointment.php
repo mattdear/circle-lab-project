@@ -1,6 +1,6 @@
 <?php
 include("../OOP/WebPage.php");
-$webPage = new WebPage("Add Appointment", "Circle Lab", 2020);
+$webPage = new WebPage("Modify Appointment", "Circle Lab", 2020);
 $webPage->open();
 $webPage->setCSS("../css/smart-system");
 $webPage->writeHead();
