@@ -9,13 +9,11 @@ $webPage->writeHead();
     <div class="searchResults">
         <div class="searchResult">
             <div class="searchDetails">
-                <p>Date:</p>
-                <p>Patient:</p>
-                <p>Doctor:</p>
-                <p>Duration:</p>
-                <p>Description:</p>
+                <p>Name:</p>
+                <p>Date of Birth:</p>
+                <p>Telephone:</p>
+                <p>Email:</p>
             </div>
-            
             <div class="searchButtons">
                 <form method="get" action="modifyAppointment.php">
                     <input type="hidden" name="id">
@@ -29,11 +27,11 @@ $webPage->writeHead();
         </div>
     </div>
 
-    <button onclick="window.location.href = 'appointments.php';">Back</button>
+    <button onclick="window.location.href = 'people.php';">Back</button>
     <br/>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>
 
 <?php
 $webPage->writeFooter();
-$webPage->close();<?php
+$webPage->close();

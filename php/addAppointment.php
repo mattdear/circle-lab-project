@@ -7,7 +7,7 @@ $webPage->writeHead();
 $todayMin = date("d/m/Y");
 ?>
     <h1>Add Appointment</h1>
-    <form>
+    <form method="post" action="appointments.php">
         <div class="row">
             <div class="col-25">
                 <label>Description</label>

@@ -6,14 +6,13 @@ $webPage->setCSS("../css/smart-system");
 $webPage->writeHead();
 ?>
     <h1>People</h1>
-    <form>
+    <form method="get" action="peopleResults.php">
         <label>
-            <input  class="inputs" name="people" placeholder="Search People">
+            <input class="inputs" name="name" placeholder="Search Name">
         </label>
+        <br/>
+        <button type="submit">Search</button>
     </form>
-    <div id="peopleResults">
-
-    </div>
 
     <button onclick="window.location.href = 'addPerson.php';">Add Person</button>
     <br/>
