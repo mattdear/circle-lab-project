@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":88:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:1:{s:28:"DiseaseTest::test__construct";d:0.003;}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":279:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:6:{s:28:"DiseaseTest::test__construct";d:0.003;s:24:"SymptomTest::testGetName";d:0.002;s:24:"SymptomTest::testSetName";d:0;s:22:"SymptomTest::testGetId";d:0.001;s:28:"SymptomTest::test__construct";d:0;s:25:"SymptomTest::testToString";d:0;}}}

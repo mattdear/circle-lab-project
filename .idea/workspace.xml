@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e38ae4e7-39ce-46e5-8095-4c87a286b542" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,13 +83,28 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="php.test.frameworks.configurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.SymptomTest">
     <configuration name="DiseaseTest.test__construct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="DiseaseTest" file="$PROJECT_DIR$/DiseaseTest.php" method="test__construct" scope="Method" />
       <method v="2" />
     </configuration>
+    <configuration name="SymptomTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="SymptomTest" file="$PROJECT_DIR$/SymptomTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SymptomTest.testGetName" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="SymptomTest" file="$PROJECT_DIR$/SymptomTest.php" method="testGetName" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SymptomTest.testSetName" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="SymptomTest" file="$PROJECT_DIR$/SymptomTest.php" method="testSetName" scope="Method" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.SymptomTest" />
+        <item itemvalue="PHPUnit.SymptomTest.testSetName" />
+        <item itemvalue="PHPUnit.SymptomTest.testGetName" />
         <item itemvalue="PHPUnit.DiseaseTest.test__construct" />
       </list>
     </recent_temporary>
@@ -152,21 +167,25 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="504" y="371" width="461" height="289" key="ComposerInitDialogKey/0.23.2560.1417@0.23.2560.1417" timestamp="1587030382243" />
-    <state width="1387" height="231" key="GridCell.Tab.0.bottom" timestamp="1587030978152">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="1228" height="231" key="GridCell.Tab.0.bottom" timestamp="1587044319125">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="1228" height="231" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1587044319125" />
     <state width="1387" height="231" key="GridCell.Tab.0.bottom/0.23.2560.1417@0.23.2560.1417" timestamp="1587030978152" />
-    <state width="1387" height="231" key="GridCell.Tab.0.center" timestamp="1587030978151">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="1228" height="231" key="GridCell.Tab.0.center" timestamp="1587044319124">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="1228" height="231" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1587044319124" />
     <state width="1387" height="231" key="GridCell.Tab.0.center/0.23.2560.1417@0.23.2560.1417" timestamp="1587030978151" />
-    <state width="1387" height="231" key="GridCell.Tab.0.left" timestamp="1587030978151">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="1228" height="231" key="GridCell.Tab.0.left" timestamp="1587044319123">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="1228" height="231" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1587044319123" />
     <state width="1387" height="231" key="GridCell.Tab.0.left/0.23.2560.1417@0.23.2560.1417" timestamp="1587030978151" />
-    <state width="1387" height="231" key="GridCell.Tab.0.right" timestamp="1587030978152">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state width="1228" height="231" key="GridCell.Tab.0.right" timestamp="1587044319125">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="1228" height="231" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1587044319125" />
     <state width="1387" height="231" key="GridCell.Tab.0.right/0.23.2560.1417@0.23.2560.1417" timestamp="1587030978152" />
     <state x="956" y="621" key="NewPhpFileDialog" timestamp="1586275194796">
       <screen x="0" y="23" width="2560" height="1417" />
