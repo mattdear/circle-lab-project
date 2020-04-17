@@ -4,13 +4,19 @@ $webPage = new WebPage("Appointment Results", "Circle Lab", 2020);
 $webPage->open();
 $webPage->setCSS("../css/smart-system");
 $webPage->writeHead();
+
+$searchName = htmlentities($_GET["name"]);
+$searchDate = htmlentities($_GET["date"]);
+if($searchDate != null){
+    $searchDate = date("d/m/Y", strtotime($searchDate));
+}
 ?>
     <h1>Appointment Results</h1>
     <div class="searchResults">
         <div class="searchResult">
             <div class="searchDetails">
-                <p>Date:</p>
-                <p>Patient:</p>
+                <p>Date: <?=$searchDate?></p>
+                <p>Patient: <?=$searchName?></p>
                 <p>Doctor:</p>
                 <p>Duration:</p>
                 <p>Description:</p>
@@ -18,11 +24,11 @@ $webPage->writeHead();
             <div class="searchButtons">
                 <form method="get" action="modifyAppointment.php">
                     <input type="hidden" name="id">
-                    <button type="submit">Modify</button>
+                    <button type="submit" class="modDelButton">Modify</button>
                 </form>
                 <form method="post" action="deleteAppointment.php">
                     <input type="hidden" name="id">
-                    <button type="submit">Delete</button>
+                    <button type="submit" class="modDelButton">Delete</button>
                 </form>
             </div>
         </div>

@@ -4,24 +4,26 @@ $webPage = new WebPage("People Results", "Circle Lab", 2020);
 $webPage->open();
 $webPage->setCSS("../css/smart-system");
 $webPage->writeHead();
+
+$searchName = htmlentities($_GET["name"]);
 ?>
     <h1>People Results</h1>
     <div class="searchResults">
         <div class="searchResult">
             <div class="searchDetails">
-                <p>Name:</p>
+                <p>Name: <?=$searchName?></p>
                 <p>Date of Birth:</p>
                 <p>Telephone:</p>
                 <p>Email:</p>
             </div>
             <div class="searchButtons">
-                <form method="get" action="modifyPerson.php">
+                <form method="post" action="modifyPerson.php">
                     <input type="hidden" name="id">
-                    <button type="submit">Modify</button>
+                    <button type="submit" class="modDelButton">Modify</button>
                 </form>
                 <form method="post" action="deletePerson.php">
                     <input type="hidden" name="id">
-                    <button type="submit">Delete</button>
+                    <button type="submit" class="modDelButton">Delete</button>
                 </form>
             </div>
         </div>

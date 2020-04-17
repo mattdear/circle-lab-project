@@ -1,14 +1,12 @@
 <?php
 include("../OOP/WebPage.php");
-$webPage = new WebPage("Modify Person", "Circle Lab", 2020);
+$webPage = new WebPage("Add Person", "Circle Lab", 2020);
 $webPage->open();
 $webPage->setCSS("../css/smart-system");
 $webPage->writeHead();
-
-$modifyId = htmlentities($_POST["id"]);
 ?>
-    <h1>Modify Person</h1>
-    <form method="post" action="people.php">
+    <h1>Add Person</h1>
+    <form method="post" action="addPerson.php">
         <div class="row">
             <div class="col-25">
                 <label>First Name</label>
@@ -95,10 +93,10 @@ $modifyId = htmlentities($_POST["id"]);
                 <input class="inputs" name="sName" placeholder="Password" type="password">
             </div>
         </div>
-        <button type="submit">Save</button>
+            <button type="submit">Add</button>
     </form>
 
-    <button onclick="window.location.href = 'people.php';">People</button>
+    <button onclick="window.location.href = 'people.php';">Back</button>
     <br/>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>

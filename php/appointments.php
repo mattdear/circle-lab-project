@@ -8,7 +8,7 @@ $webPage->writeHead();
     <h1>Appointments</h1>
     <form method="get" action="appointmentResults.php">
         <label>
-            <input class="inputs" name="appointment" placeholder="Search Name">
+            <input class="inputs" name="name" placeholder="Search Name">
         </label>
         <p>OR</p>
         <label>

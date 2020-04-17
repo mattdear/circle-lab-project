@@ -14,7 +14,7 @@ $webPage->writeHead();
         <button type="submit">Search</button>
     </form>
 
-    <button onclick="window.location.href = 'addPerson.php';">Add Person</button>
+    <button onclick="window.location.href = 'addPersonInput.php';">Add Person</button>
     <br/>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>

@@ -117,13 +117,13 @@ footer{
 
 .searchResults{
     overflow: auto;
-    width: 75vw;
+    width: 55vw;
     margin: 0 auto;
-    text-align: center;
 }
 
 .searchResult{
  overflow: auto;
+    text-align: left;
 }
 
 .searchDetails{
@@ -221,5 +221,32 @@ footer{
         width: 50vw;
         height: 10vw;
         margin-top: 1vw;
+    }
+
+    .searchResults{
+        overflow: auto;
+        width: 70vw;
+        margin: 0 auto;
+    }
+
+    .searchResult{
+        overflow: auto;
+        text-align: left;
+    }
+
+    .searchDetails{
+        float: none;
+        width: 35vw;
+    }
+
+    .searchButtons{
+        float: none;
+        margin-top: 2vw;
+    }
+
+    .modDelButton{
+        width: 33vw;
+        margin: 0 1vw 0 1vw;
+        float: left;
     }
 }
