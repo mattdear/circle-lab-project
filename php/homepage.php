@@ -1,11 +1,16 @@
 <?php
+session_start();
 include("../OOP/WebPage.php");
-$webPage = new WebPage("Homepage", "Circle Lab", 2020);
-$webPage->open();
-$webPage->setCSS("../css/smart-system");
-$webPage->writeHead();
+include("functions.php");
 
-?>
+if (!isset ($_SESSION["gatekeeper"])) {
+    popUpError("Your not logged in! Please log in and try again.");
+} else {
+    $webPage = new WebPage("Homepage", "Circle Lab", 2020);
+    $webPage->open();
+    $webPage->setCSS("../css/smart-system");
+    $webPage->writeHead();
+    ?>
     <div>
         <h1>Homepage</h1>
         <button onclick="window.location.href = 'diagnosis.php';">Diagnosis</button>
@@ -20,10 +25,14 @@ $webPage->writeHead();
         <br/>
         <button onclick="window.location.href = 'reports.php';">Reports</button>
         <br/>
+        <button onclick="window.location.href = 'logOff.php';">Log Off</button>
+        <br/>
     </div>
 
 
-<?php
-$webPage->writeFooter();
-$webPage->close();
+    <?php
+    $webPage->writeFooter();
+    $webPage->close();
+}
+
 

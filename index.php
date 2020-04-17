@@ -7,7 +7,7 @@ $webPage->writeHead();
 ?>
     <div id="login">
         <h1>Log In</h1>
-        <form method="post" action="php/homepage.php">
+        <form method="post" action="php/login.php">
             <label for="username">Username:</label><br/>
             <input name="username" id="username"/> <br/>
             <label for="password">Password:</label><br/>
