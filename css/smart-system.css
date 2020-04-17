@@ -76,6 +76,10 @@ button:focus{
     border: none;
 }
 
+.loginInput{
+    margin: 2vw 0 2vw 0;
+}
+
 .select{
     width:22vw;
     height: 4.5vw;
@@ -135,6 +139,7 @@ footer{
     float: left;
     margin-top: 2vw;
 }
+
 
 
 
