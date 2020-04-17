@@ -15,6 +15,12 @@ if (!isset ($_SESSION["gatekeeper"])) {
             <input name="username" class="inputs" id="username"/><br/><br/>
             <label for="password">Password:</label><br/><br/>
             <input name="password" class="inputs" id="password" type="password"/> <br/><br/>
+
+            <!--Only for prototype :-->
+            <label for="access">Access(0 - Patient/9 - Admin&Doctor)</label><br/><br/>
+            <input name="access" class="inputs" id="access"/> <br/><br/>
+            <!--Only for prototype :-->
+
             <button type="submit">Sign In!</button>
         </form>
     </div>

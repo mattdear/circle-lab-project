@@ -254,4 +254,9 @@ footer{
         margin: 0 1vw 0 1vw;
         float: left;
     }
+
+    .modDelButtonPatient{
+        width: 70vw;
+        margin: 0;
+    }
 }

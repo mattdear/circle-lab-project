@@ -5,23 +5,44 @@ include("functions.php");
 if (!isset ($_SESSION["gatekeeper"])) {
     popUpError("Your not logged in! Please log in and try again.");
 } else {
+    $todayMin = date("d/m/Y");
     $webPage = new WebPage("Appointments", "Circle Lab", 2020);
     $webPage->open();
     $webPage->setCSS("../css/smart-system");
     $webPage->writeHead();
-    ?>
-    <h1>Appointments</h1>
-    <form method="get" action="appointmentResults.php">
-        <label>
-            <input class="inputs" name="name" placeholder="Search Name">
-        </label>
-        <p>OR</p>
-        <label>
-            <input class="inputs" name="date" placeholder="dd/mm/yyyy" type="date" min='<?= $todayMin ?>'>
-        </label>
-        <br/>
-        <button type="submit">Search</button>
-    </form>
+    if ($_SESSION["role"] > 7) {
+        ?>
+        <h1>Appointments</h1>
+        <form method="get" action="appointmentResults.php">
+            <label>
+                <input class="inputs" name="name" placeholder="Search Name">
+            </label>
+            <p>OR</p>
+            <label>
+                <input class="inputs" name="date" placeholder="dd/mm/yyyy" type="date" min='<?= $todayMin ?>'>
+            </label>
+            <br/>
+            <button type="submit">Search</button>
+        </form>
+    <?php } elseif ($_SESSION["role"] == 0) {
+        ?>
+        <h1>Appointments</h1>
+        <form method="get" action="appointmentResults.php">
+            <label>
+                <input class="inputs" name="date" placeholder="dd/mm/yyyy" type="date" min='<?= $todayMin ?>'>
+            </label>
+            <br/>
+            <button type="submit">Search</button>
+        </form>
+        <form method="get" action="appointmentResults.php">
+            <label>
+                <input name="personId" type="hidden">
+            </label>
+            <br/>
+            <button type="submit">See All My Appointments</button>
+        </form>
+        <?php
+    } ?>
 
     <button onclick="window.location.href = 'addAppointment.php';">Add Appointment</button>
     <br/>

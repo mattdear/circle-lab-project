@@ -19,9 +19,14 @@ if (!isset ($_SESSION["gatekeeper"])) {
     <div id="symptomResults">
 
     </div>
-
-    <button onclick="window.location.href = 'addDiagnosis.php';">Add Diagnosis</button>
-    <br/>
+    <?php
+    if ($_SESSION["role"] > 8) {
+        ?>
+        <button onclick="window.location.href = 'addDiagnosis.php';">Add Diagnosis</button>
+        <br/>
+        <?php
+    }
+    ?>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>
     <?php

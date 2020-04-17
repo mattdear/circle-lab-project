@@ -3,7 +3,7 @@ session_start();
 include("functions.php");
 $un = $_POST["username"];
 $pw = $_POST["password"];
-
+$accessLevel = $_POST["access"];
 try {
 
     if ($un != "admin" && $pw != "admin") {
@@ -16,6 +16,7 @@ try {
         $token = bin2hex(random_bytes(32));
         $_SESSION["token"] = $token;
         $_SESSION["gatekeeper"] = $un;
+        $_SESSION["role"] = $accessLevel;
 
         // Redirect to the main menu
         header("Location: homepage.php");

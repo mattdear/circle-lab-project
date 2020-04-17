@@ -27,14 +27,27 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 <p>Description:</p>
             </div>
             <div class="searchButtons">
-                <form method="get" action="modifyAppointment.php">
-                    <input type="hidden" name="id">
-                    <button type="submit" class="modDelButton">Modify</button>
-                </form>
-                <form method="post" action="deleteAppointment.php">
-                    <input type="hidden" name="id">
-                    <button type="submit" class="modDelButton">Delete</button>
-                </form>
+                <?php
+                if ($_SESSION["role"] > 7) {
+                    ?>
+                    <form method="get" action="modifyAppointment.php">
+                        <input type="hidden" name="id">
+                        <button type="submit" class="modDelButton">Modify Appointment</button>
+                    </form>
+                    <form method="post" action="cancelAppointment.php">
+                        <input type="hidden" name="id">
+                        <button type="submit" class="modDelButton">Cancel Appointment</button>
+                    </form>
+                    <?php
+                } else {
+                    ?>
+                    <form method="post" action="cancelAppointment.php">
+                        <input type="hidden" name="id">
+                        <button type="submit" class="modDelButtonPatient">Cancel Appointment</button>
+                    </form>
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </div>

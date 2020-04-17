@@ -12,7 +12,11 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->writeHead();
     ?>
     <div>
-        <h1>Homepage</h1>
+    <h1>Homepage</h1>
+    <!--Only for prototype-->
+    <p>Access : <?= $_SESSION["role"] ?></p>
+    <!--Only for prototype-->
+    <?php if ($_SESSION["role"] > 8) { ?>
         <button onclick="window.location.href = 'diagnosis.php';">Diagnosis</button>
         <br/>
         <button onclick="window.location.href = 'people.php';">People</button>
@@ -27,8 +31,20 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <br/>
         <button onclick="window.location.href = 'logOff.php';">Log Off</button>
         <br/>
-    </div>
-    <?php
+    <?php } elseif ($_SESSION["role"] == 0) { ?>
+        <button onclick="window.location.href = 'diagnosis.php';">Diagnosis</button>
+        <br/>
+        <button onclick="window.location.href = 'appointments.php';">Appointments</button>
+        <br/>
+        <button onclick="window.location.href = 'locations.php';">Locations</button>
+        <br/>
+        <button onclick="window.location.href = 'modifyPerson.php';">Update Personal Info</button>
+        <br/>
+        <button onclick="window.location.href = 'logOff.php';">Log Off</button>
+        <br/>
+        </div>
+        <?php
+    }
     $webPage->writeFooter();
     $webPage->close();
 }
