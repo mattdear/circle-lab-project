@@ -68,9 +68,9 @@ class SymptomDaoTest extends PHPUnit\Framework\TestCase
         $DAO = new SymptomDao($conn, "symptom");
         $symptoms = $DAO->findAllSymptoms();
 
-        $this->assertIsArray($symptoms);
-        $this->assertNotNull($symptoms);
-        $this->assertEquals(46, count($symptoms));
+        $this->assertIsArray($symptoms, $message = "testFindAllSymptoms, test 1");
+        $this->assertNotNull($symptoms, $message = "testFindAllSymptoms, test 2");
+        $this->assertEquals(46, count($symptoms), $message = "testFindAllSymptoms, test 3");
 
     }
 
@@ -82,19 +82,19 @@ class SymptomDaoTest extends PHPUnit\Framework\TestCase
 
         $symptom = new Symptom(null, null);
         $rSymptom = $DAO->findSymptom($symptom);
-        $this->assertNull($rSymptom);
+        $this->assertNull($rSymptom, $message = "testFindSymptom, test 1");
 
         $symptom = new Symptom(1, null);
         $rSymptom = $DAO->findSymptom($symptom);
-        $this->assertIsInt($rSymptom->getId());
-        $this->assertIsString($rSymptom->getName());
-        $this->assertEquals("1 severe pain", $rSymptom->toString());
+        $this->assertIsInt($rSymptom->getId(), $message = "testFindSymptom, test 2");
+        $this->assertIsString($rSymptom->getName(), $message = "testFindSymptom, test 3");
+        $this->assertEquals("1 severe pain", $rSymptom->toString(), $message = "testFindSymptom, test 4");
 
         $symptom = new Symptom(null, "redness");
         $rSymptom = $DAO->findSymptom($symptom);
-        $this->assertIsInt($rSymptom->getId());
-        $this->assertIsString($rSymptom->getName());
-        $this->assertEquals("redness", $rSymptom->getName());
+        $this->assertIsInt($rSymptom->getId(), $message = "testFindSymptom, test 5");
+        $this->assertIsString($rSymptom->getName(), $message = "testFindSymptom, test 6");
+        $this->assertEquals("redness", $rSymptom->getName(), $message = "testFindSymptom, test 7");
     }
 
     public function testUpdateSymptom()
@@ -105,17 +105,17 @@ class SymptomDaoTest extends PHPUnit\Framework\TestCase
 
         $symptom = new Symptom(null, null);
         $rSymptom = $DAO->updateSymptom($symptom);
-        $this->assertNull($rSymptom);
+        $this->assertNull($rSymptom, $message = "testUpdateSymptom, test 1");
 
         $symptom = new Symptom(null, "torn acl");
         $newSymptom = $DAO->addSymptom($symptom);
-        $this->assertEquals("torn acl", $newSymptom->getName());
+        $this->assertEquals("torn acl", $newSymptom->getName(), $message = "testUpdateSymptom, test 2");
 
         $updateSymptom = $DAO->findSymptom($newSymptom);
         $updateSymptom->setName("hyperflex");
         $rSymptom = $DAO->updateSymptom($updateSymptom);
-        $this->assertNotNull($rSymptom);
-        $this->assertEquals("hyperflex", $rSymptom->getName());
-        $this->assertEquals($updateSymptom->getId(), $rSymptom->getId());
+        $this->assertNotNull($rSymptom, $message = "testUpdateSymptom, test 3");
+        $this->assertEquals("hyperflex", $rSymptom->getName(), $message = "testUpdateSymptom, test 4");
+        $this->assertEquals($updateSymptom->getId(), $rSymptom->getId(), $message = "testUpdateSymptom, test 5");
     }
 }
