@@ -28,8 +28,6 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <button onclick="window.location.href = 'logOff.php';">Log Off</button>
         <br/>
     </div>
-
-
     <?php
     $webPage->writeFooter();
     $webPage->close();

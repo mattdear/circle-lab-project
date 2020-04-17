@@ -1,10 +1,14 @@
 <?php
 include("../OOP/WebPage.php");
-$webPage = new WebPage("People", "Circle Lab", 2020);
-$webPage->open();
-$webPage->setCSS("../css/smart-system");
-$webPage->writeHead();
-?>
+include("functions.php");
+if (!isset ($_SESSION["gatekeeper"])) {
+    popUpError("Your not logged in! Please log in and try again.");
+} else {
+    $webPage = new WebPage("People", "Circle Lab", 2020);
+    $webPage->open();
+    $webPage->setCSS("../css/smart-system");
+    $webPage->writeHead();
+    ?>
     <h1>People</h1>
     <form method="get" action="peopleResults.php">
         <label>
@@ -18,6 +22,7 @@ $webPage->writeHead();
     <br/>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>
-<?php
-$webPage->writeFooter();
-$webPage->close();
+    <?php
+    $webPage->writeFooter();
+    $webPage->close();
+}

@@ -1,12 +1,16 @@
 <?php
 include("../OOP/WebPage.php");
-$webPage = new WebPage("Modify Person", "Circle Lab", 2020);
-$webPage->open();
-$webPage->setCSS("../css/smart-system");
-$webPage->writeHead();
+include("functions.php");
+if (!isset ($_SESSION["gatekeeper"])) {
+    popUpError("Your not logged in! Please log in and try again.");
+} else {
+    $webPage = new WebPage("Modify Person", "Circle Lab", 2020);
+    $webPage->open();
+    $webPage->setCSS("../css/smart-system");
+    $webPage->writeHead();
 
-$modifyId = htmlentities($_POST["id"]);
-?>
+    $modifyId = htmlentities($_POST["id"]);
+    ?>
     <h1>Modify Person</h1>
     <form method="post" action="people.php">
         <div class="row">
@@ -102,6 +106,7 @@ $modifyId = htmlentities($_POST["id"]);
     <br/>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>
-<?php
-$webPage->writeFooter();
-$webPage->close();
+    <?php
+    $webPage->writeFooter();
+    $webPage->close();
+}
