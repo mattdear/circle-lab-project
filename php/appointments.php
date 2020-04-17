@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../OOP/WebPage.php");
 include("functions.php");
 if (!isset ($_SESSION["gatekeeper"])) {
