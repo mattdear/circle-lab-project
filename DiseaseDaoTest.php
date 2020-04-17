@@ -12,9 +12,8 @@ class DiseaseDaoTest extends PHPUnit\Framework\TestCase
         $DAO = new DiseaseDAO($conn, "disease");
 
         $this->assertNotNull($DAO, $message = "testConstruct, test 1");
-
     }
-    
+
     public function testAddDisease()
     {
         $conn = new PDO ("mysql:host=cookmate.app:3306;dbname=circlelabs", "CircleLabs", "Yf25&ZPPaAAk");
@@ -51,18 +50,18 @@ class DiseaseDaoTest extends PHPUnit\Framework\TestCase
 
         $disease = new Disease(null, null);
         $returnedDisease = $DAO->updateDisease($disease);
-        $this->assertNull($returnedDisease);
+        $this->assertNull($returnedDisease, $message = "testUpdateDisease, test 1");
 
         $disease = new Disease(null, "torn acl");
         $newDisease = $DAO->addDisease($disease);
-        $this->assertEquals("torn acl", $newDisease->getName());
+        $this->assertEquals("torn acl", $newDisease->getName(), $message = "testUpdateDisease, test 2");
 
         $updateDisease = $DAO->findDisease($newDisease);
         $updateDisease->setName("hyperflex");
         $returnedDisease = $DAO->updateDisease($updateDisease);
-        $this->assertNotNull($returnedDisease);
-        $this->assertEquals("hyperflex", $returnedDisease->getName());
-        $this->assertEquals($updateDisease->getId(), $returnedDisease->getId());
+        $this->assertNotNull($returnedDisease, $message = "testUpdateDisease, test 3");
+        $this->assertEquals("hyperflex", $returnedDisease->getName(), $message = "testUpdateDisease, test 4");
+        $this->assertEquals($updateDisease->getId(), $returnedDisease->getId(), $message = "testUpdateDisease, test 5");
     }
 
     public function testFindDisease()
@@ -73,19 +72,19 @@ class DiseaseDaoTest extends PHPUnit\Framework\TestCase
 
         $disease = new Disease(null, null);
         $rDisease = $DAO->findDisease($disease);
-        $this->assertNull($rDisease);
+        $this->assertNull($rDisease, $message = "testFindDisease, test 1");
 
         $disease = new Disease(1, null);
         $rDisease = $DAO->findDisease($disease);
-        $this->assertIsInt($rDisease->getId());
-        $this->assertIsString($rDisease->getName());
-        $this->assertEquals("1 broken ankle", $rDisease->toString());
+        $this->assertIsInt($rDisease->getId(), $message = "testFindDisease, test 2");
+        $this->assertIsString($rDisease->getName(), $message = "testFindDisease, test 3");
+        $this->assertEquals("1 broken ankle", $rDisease->toString(), $message = "testFindDisease, test 4");
 
         $disease = new Disease(null, "broken leg");
         $rDisease = $DAO->findDisease($disease);
-        $this->assertIsInt($rDisease->getId());
-        $this->assertIsString($rDisease->getName());
-        $this->assertEquals("8 broken leg", $rDisease->toString());
+        $this->assertIsInt($rDisease->getId(), $message = "testFindDisease, test 5");
+        $this->assertIsString($rDisease->getName(), $message = "testFindDisease, test 6");
+        $this->assertEquals("8 broken leg", $rDisease->toString(), $message = "testFindDisease, test 7");
 
     }
 
@@ -116,16 +115,16 @@ class DiseaseDaoTest extends PHPUnit\Framework\TestCase
         $DAO = new DiseaseDao($conn, "disease");
         $diseases = $DAO->findAllDiseases();
 
-        $this->assertIsArray($diseases);
-        $this->assertNotNull($diseases);
-        $this->assertEquals(8, count($diseases));
-        $this->assertEquals("1 broken ankle", $diseases[0]->toString());
-        $this->assertEquals("2 heel pain", $diseases[1]->toString());
-        $this->assertEquals("3 oedema", $diseases[2]->toString());
-        $this->assertEquals("4 restless legs syndrome", $diseases[3]->toString());
-        $this->assertEquals("5 sprains and strains", $diseases[4]->toString());
-        $this->assertEquals("6 varicose eczema", $diseases[5]->toString());
-        $this->assertEquals("7 baker's cyst", $diseases[6]->toString());
-        $this->assertEquals("8 broken leg", $diseases[7]->toString());
+        $this->assertIsArray($diseases, $message = "testFindAllDiseases, test 1");
+        $this->assertNotNull($diseases, $message = "testFindAllDiseases, test 2");
+        $this->assertEquals(8, count($diseases), $message = "testFindAllDiseases, test 3");
+        $this->assertEquals("1 broken ankle", $diseases[0]->toString(), $message = "testFindAllDiseases, test 4");
+        $this->assertEquals("2 heel pain", $diseases[1]->toString(), $message = "testFindAllDiseases, test 5");
+        $this->assertEquals("3 oedema", $diseases[2]->toString(), $message = "testFindAllDiseases, test 1");
+        $this->assertEquals("4 restless legs syndrome", $diseases[3]->toString(), $message = "testFindAllDiseases, test 6");
+        $this->assertEquals("5 sprains and strains", $diseases[4]->toString(), $message = "testFindAllDiseases, test 7");
+        $this->assertEquals("6 varicose eczema", $diseases[5]->toString(), $message = "testFindAllDiseases, test 8");
+        $this->assertEquals("7 baker's cyst", $diseases[6]->toString(), $message = "testFindAllDiseases, test 9");
+        $this->assertEquals("8 broken leg", $diseases[7]->toString(), $message = "testFindAllDiseases, test 10");
     }
 }
