@@ -10,7 +10,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->open();
     $webPage->setCSS("../css/smart-system");
     $webPage->writeHead();
-    if ($_SESSION["role"] > 7) {
+    if ($_SESSION["role"] > 6) {
         ?>
         <h1>Appointments</h1>
         <form method="get" action="appointmentResults.php">
@@ -24,6 +24,17 @@ if (!isset ($_SESSION["gatekeeper"])) {
             <br/>
             <button type="submit">Search</button>
         </form>
+        <?php
+        if ($_SESSION["role"] == 9) {
+            ?>
+            <form method="get" action="appointmentResults.php">
+                <input type="hidden" name="doctorId">
+                <br/>
+                <button type="submit">See All My Appointments</button>
+            </form>
+            <?php
+        }
+        ?>
     <?php } elseif ($_SESSION["role"] == 0) {
         ?>
         <h1>Appointments</h1>

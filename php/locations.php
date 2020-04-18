@@ -11,14 +11,18 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->writeHead();
     ?>
     <h1>Locations</h1>
-    <form>
+    <form method="get" action="locationResults.php">
         <label>
-            <input class="inputs" name="locations" placeholder="Search Locations">
+            <input class="inputs" name="locationName" placeholder="Search Name">
         </label>
+        <br/>
+        <p>OR</p>
+        <label>
+            <input class="inputs" name="locationPost" placeholder="Search Postcode">
+        </label>
+        <br/>
+        <button type="submit">Search</button>
     </form>
-    <div id="locationResults">
-
-    </div>
 
     <button onclick="window.location.href = 'addPerson.php';">Add Location</button>
     <br/>

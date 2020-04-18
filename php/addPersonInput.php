@@ -87,7 +87,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 <label>Username</label>
             </div>
             <div class="col-75">
-                <input class="inputs" name="fName" placeholder="Username">
+                <input class="inputs" name="username" placeholder="Username">
             </div>
         </div>
         <div class="row">
@@ -95,7 +95,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 <label>Password</label>
             </div>
             <div class="col-75">
-                <input class="inputs" name="sName" placeholder="Password" type="password">
+                <input class="inputs" name="password" placeholder="Password" type="password">
             </div>
         </div>
         <button type="submit">Add</button>

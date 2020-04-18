@@ -18,7 +18,9 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <br/>
         <button type="submit">Search</button>
     </form>
-
+    <?php
+    if ()
+    ?>
     <button onclick="window.location.href = 'addPersonInput.php';">Add Person</button>
     <br/>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>

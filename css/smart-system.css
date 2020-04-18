@@ -44,30 +44,6 @@ button:focus{
     border-radius: 1vw;
 }
 
-#peopleResults{
-    background-color: lightgray;
-    width: 30vw;
-    height: 35vw;
-    margin: 3vw auto;
-    border-radius: 1vw;
-}
-
-#appointmentResults{
-     background-color: lightgray;
-     width: 30vw;
-     height: 35vw;
-     margin: 3vw auto;
-     border-radius: 1vw;
- }
-
-#locationResults{
-    background-color: lightgray;
-    width: 30vw;
-    height: 35vw;
-    margin: 3vw auto;
-    border-radius: 1vw;
-}
-
 .inputs{
     width: 20vw;
     height: 3vw;
@@ -163,30 +139,6 @@ footer{
     }
 
     #symptomResults{
-        background-color: lightgray;
-        width: 70vw;
-        height: 100vw;
-        margin: 3vw auto;
-        border-radius: 1vw;
-    }
-
-    #peopleResults{
-        background-color: lightgray;
-        width: 70vw;
-        height: 100vw;
-        margin: 3vw auto;
-        border-radius: 1vw;
-    }
-
-    #appointmentResults{
-        background-color: lightgray;
-        width: 70vw;
-        height: 100vw;
-        margin: 3vw auto;
-        border-radius: 1vw;
-    }
-
-    #locationResults{
         background-color: lightgray;
         width: 70vw;
         height: 100vw;
