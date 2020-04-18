@@ -341,7 +341,7 @@ final class TestCaseTest extends TestCase
         $this->assertTrue($result->wasSuccessful());
     }
 
-    public function testExpectExceptionMessageRegExpAllowsAccessingExpectedExceptionRegExp(): void
+    public function testexpectExceptionMessageMatchesAllowsAccessingExpectedExceptionRegExp(): void
     {
         $messageRegExp = '/runtime .*? occurred/';
 
@@ -743,7 +743,7 @@ final class TestCaseTest extends TestCase
 
         $this->assertEquals(
             'PHP >= 99-dev is required.' . \PHP_EOL .
-            'PHPUnit >= 9-dev is required.' . \PHP_EOL .
+            'PHPUnit >= 99-dev is required.' . \PHP_EOL .
             'Operating system matching /DOESNOTEXIST/i is required.' . \PHP_EOL .
             'Function testFuncOne is required.' . \PHP_EOL .
             'Function testFunc2 is required.' . \PHP_EOL .

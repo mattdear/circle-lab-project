@@ -6,6 +6,9 @@ on:
 
 name: CI
 
+env:
+  COMPOSER_ROOT_VERSION: "9.1-dev"
+
 jobs:
   coding-guidelines:
     name: Coding Guidelines
@@ -71,7 +74,7 @@ jobs:
           extensions: intl
 
       - name: Run roave/backward-compatibility-check
-        run: ./tools/roave-backward-compatibility-check --from=8.5.0
+        run: ./tools/roave-backward-compatibility-check --from=0c85ee127b497a9a226b2f2d2475f444d02692ea
 
   lint-xml-configuration:
     name: Lint XML Configuration
@@ -102,9 +105,9 @@ jobs:
           - windows-latest
 
         php-version:
-          - 7.2
-          - 7.3
-          - 7.4
+          - "7.3"
+          - "7.4"
+          - "8.0"
 
         dependencies:
           - lowest

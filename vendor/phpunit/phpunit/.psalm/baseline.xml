@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.9.4@352bd3f5c5789db04e4010856c2f4e01ed354f4e">
+<files psalm-version="3.9.5@0cfe565d0afbcd31eadcc281b9017b5692911661">
   <file src="src/Framework/Assert.php">
     <ArgumentTypeCoercion occurrences="2">
       <code>$expectedElement-&gt;childNodes-&gt;item($i)</code>
       <code>$actualElement-&gt;childNodes-&gt;item($i)</code>
     </ArgumentTypeCoercion>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$subset</code>
+    <PossiblyInvalidArgument occurrences="2">
       <code>$expected</code>
       <code>$expected</code>
     </PossiblyInvalidArgument>
@@ -28,11 +27,6 @@
       <code>Assert::fileExists(...\func_get_args())</code>
     </TooManyArguments>
   </file>
-  <file src="src/Framework/Constraint/Count.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$this-&gt;getCountOf($other)</code>
-    </PossiblyNullArgument>
-  </file>
   <file src="src/Framework/Constraint/ExceptionCode.php">
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$other</code>
@@ -52,26 +46,6 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$this-&gt;className</code>
     </ArgumentTypeCoercion>
-  </file>
-  <file src="src/Framework/Constraint/IsJson.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$error</code>
-    </PossiblyNullArgument>
-  </file>
-  <file src="src/Framework/Constraint/IsType.php">
-    <InvalidReturnType occurrences="1">
-      <code>bool</code>
-    </InvalidReturnType>
-  </file>
-  <file src="src/Framework/Constraint/SameSize.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$this-&gt;getCountOf($expected)</code>
-    </PossiblyNullArgument>
-  </file>
-  <file src="src/Framework/Constraint/StringMatchesFormatDescription.php">
-    <InvalidArgument occurrences="1">
-      <code>"--- Expected\n+++ Actual\n"</code>
-    </InvalidArgument>
   </file>
   <file src="src/Framework/DataProviderTestSuite.php">
     <ArgumentTypeCoercion occurrences="1">
@@ -164,8 +138,7 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Framework/TestCase.php">
-    <ArgumentTypeCoercion occurrences="2">
-      <code>$class_name</code>
+    <ArgumentTypeCoercion occurrences="1">
       <code>$this-&gt;expectedException</code>
     </ArgumentTypeCoercion>
     <InvalidArgument occurrences="1">
@@ -253,9 +226,6 @@
     <MoreSpecificReturnType occurrences="1">
       <code>null|Printer|string</code>
     </MoreSpecificReturnType>
-    <PossiblyFalseArgument occurrences="1">
-      <code>\strrpos($this-&gt;arguments['test'], '.')</code>
-    </PossiblyFalseArgument>
     <PossiblyNullArgument occurrences="4">
       <code>$suite</code>
       <code>$suite</code>
@@ -263,16 +233,16 @@
       <code>$suite</code>
     </PossiblyNullArgument>
   </file>
+  <file src="src/TextUI/DefaultResultPrinter.php">
+    <PossiblyUndefinedVariable occurrences="1">
+      <code>$color</code>
+    </PossiblyUndefinedVariable>
+  </file>
   <file src="src/TextUI/Help.php">
     <PossiblyUndefinedArrayOffset occurrences="2">
       <code>$option['desc']</code>
       <code>$option['desc']</code>
     </PossiblyUndefinedArrayOffset>
-  </file>
-  <file src="src/TextUI/ResultPrinter.php">
-    <PossiblyUndefinedVariable occurrences="1">
-      <code>$color</code>
-    </PossiblyUndefinedVariable>
   </file>
   <file src="src/TextUI/TestRunner.php">
     <PossiblyNullPropertyAssignmentValue occurrences="1">
@@ -289,32 +259,6 @@
     <UndefinedClass occurrences="1">
       <code>Invoker</code>
     </UndefinedClass>
-  </file>
-  <file src="src/Util/Configuration.php">
-    <ArgumentTypeCoercion occurrences="4">
-      <code>$extension</code>
-      <code>$listener</code>
-      <code>$testSuiteNodes-&gt;item(0)</code>
-      <code>$testSuiteNode</code>
-    </ArgumentTypeCoercion>
-    <PossiblyInvalidArrayOffset occurrences="3">
-      <code>$result[$array][$name]['verbatim']</code>
-      <code>$result[$array][$name]['force']</code>
-      <code>$result[$array][$name]['value']</code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyNullReference occurrences="2">
-      <code>getAttribute</code>
-      <code>getAttribute</code>
-    </PossiblyNullReference>
-    <UndefinedMethod occurrences="7">
-      <code>hasAttribute</code>
-      <code>getAttribute</code>
-      <code>hasAttribute</code>
-      <code>getAttribute</code>
-      <code>getAttribute</code>
-      <code>getAttribute</code>
-      <code>getAttribute</code>
-    </UndefinedMethod>
   </file>
   <file src="src/Util/ErrorHandler.php">
     <InvalidArgument occurrences="1"/>
@@ -394,26 +338,10 @@
       <code>addToAssertionCount</code>
     </UndefinedInterfaceMethod>
   </file>
-  <file src="src/Util/Printer.php">
-    <InvalidArgument occurrences="1">
-      <code>$out[1]</code>
-    </InvalidArgument>
-    <InvalidScalarArgument occurrences="1">
-      <code>$out[1]</code>
-    </InvalidScalarArgument>
-    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
-      <code>$out</code>
-    </PossiblyInvalidPropertyAssignmentValue>
-  </file>
   <file src="src/Util/RegularExpression.php">
     <PossiblyNullArgument occurrences="1">
       <code>$matches</code>
     </PossiblyNullArgument>
-  </file>
-  <file src="src/Util/Test.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>\array_flip($lineNumbers)</code>
-    </InvalidScalarArgument>
   </file>
   <file src="src/Util/TestDox/CliTestDoxPrinter.php">
     <PossiblyInvalidArrayOffset occurrences="6">
@@ -454,10 +382,10 @@
       <code>$item</code>
     </ArgumentTypeCoercion>
     <LessSpecificReturnStatement occurrences="1">
-      <code>(new DOMDocument)-&gt;importNode($element, true)</code>
+      <code>(new \DOMDocument)-&gt;importNode($element, true)</code>
     </LessSpecificReturnStatement>
     <MoreSpecificReturnType occurrences="1">
-      <code>DOMElement</code>
+      <code>\DOMElement</code>
     </MoreSpecificReturnType>
   </file>
   <file src="src/Util/XmlTestListRenderer.php">

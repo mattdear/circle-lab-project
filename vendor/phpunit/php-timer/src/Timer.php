@@ -11,22 +11,10 @@ namespace SebastianBergmann\Timer;
 
 final class Timer
 {
-    /**
-     * @var int[]
-     */
-    private static $sizes = [
+    private const SIZES = [
         'GB' => 1073741824,
         'MB' => 1048576,
         'KB' => 1024,
-    ];
-
-    /**
-     * @var int[]
-     */
-    private static $times = [
-        'hour'   => 3600000,
-        'minute' => 60000,
-        'second' => 1000,
     ];
 
     /**
@@ -36,17 +24,17 @@ final class Timer
 
     public static function start(): void
     {
-        self::$startTimes[] = \microtime(true);
+        self::$startTimes[] = \hrtime(true) / 1000000000;
     }
 
     public static function stop(): float
     {
-        return \microtime(true) - \array_pop(self::$startTimes);
+        return (\hrtime(true) / 1000000000) - \array_pop(self::$startTimes);
     }
 
     public static function bytesToString(float $bytes): string
     {
-        foreach (self::$sizes as $unit => $value) {
+        foreach (self::SIZES as $unit => $value) {
             if ($bytes >= $value) {
                 return \sprintf('%.2f %s', $bytes >= 1024 ? $bytes / $value : $bytes, $unit);
             }
@@ -55,19 +43,68 @@ final class Timer
         return $bytes . ' byte' . ((int) $bytes !== 1 ? 's' : '');
     }
 
-    public static function secondsToTimeString(float $time): string
+    public static function secondsToShortTimeString(float $timeInSeconds): string
     {
-        $ms = \round($time * 1000);
+        $integerFragments = self::timeInSecondsToFragments($timeInSeconds);
+        $result           = '';
 
-        foreach (self::$times as $unit => $value) {
-            if ($ms >= $value) {
-                $time = \floor($ms / $value * 100.0) / 100.0;
+        if ($integerFragments['hours'] > 0) {
+            $result = \sprintf('%02d', $integerFragments['hours']) . ':';
+        }
 
-                return $time . ' ' . ($time == 1 ? $unit : $unit . 's');
+        $result .= \sprintf('%02d', $integerFragments['minutes']) . ':';
+        $result .= \sprintf('%02d', $integerFragments['seconds']);
+
+        if ($integerFragments['milliseconds'] > 0) {
+            $result .= '.' . \sprintf('%03d', $integerFragments['milliseconds']);
+        }
+
+        return $result;
+    }
+
+    public static function secondsToTimeString(float $timeInSeconds): string
+    {
+        $fragments = self::timeInSecondsToFragments($timeInSeconds);
+
+        $result = [];
+
+        if ($fragments['hours'] > 0) {
+            if ($fragments['hours'] === 1) {
+                $result[] = '1 hour';
+            } else {
+                $result[] = $fragments['hours'] . ' hours';
             }
         }
 
-        return $ms . ' ms';
+        if ($fragments['minutes'] > 0) {
+            if ($fragments['minutes'] === 1) {
+                $result[] = '1 minute';
+            } else {
+                $result[] = $fragments['minutes'] . ' minutes';
+            }
+        }
+
+        if ($fragments['seconds'] > 0) {
+            if ($fragments['seconds'] === 1) {
+                $result[] = '1 second';
+            } else {
+                $result[] = $fragments['seconds'] . ' seconds';
+            }
+        }
+
+        if ($fragments['milliseconds'] > 0) {
+            if ($fragments['milliseconds'] === 1) {
+                $result[] = '1 millisecond';
+            } else {
+                $result[] = $fragments['milliseconds'] . ' milliseconds';
+            }
+        }
+
+        if (!empty($result)) {
+            return \implode(', ', $result);
+        }
+
+        return '0 milliseconds';
     }
 
     /**
@@ -83,7 +120,7 @@ final class Timer
             throw new RuntimeException('Cannot determine time at which the request started');
         }
 
-        return self::secondsToTimeString(\microtime(true) - $startOfRequest);
+        return self::secondsToShortTimeString(\microtime(true) - $startOfRequest);
     }
 
     /**
@@ -96,5 +133,31 @@ final class Timer
             self::timeSinceStartOfRequest(),
             self::bytesToString(\memory_get_peak_usage(true))
         );
+    }
+
+    /**
+     * @psalm-return array<string,int>
+     */
+    private static function timeInSecondsToFragments(float $timeInSeconds): array
+    {
+        $timeInMilliseconds    = \round($timeInSeconds * 1000);
+        $hours                 = \floor($timeInMilliseconds / 60 / 60 / 1000);
+        $hoursAsInteger        = (int) $hours;
+        $hoursInMilliseconds   = $hours * 60 * 60 * 1000;
+        $minutes               = \floor($timeInMilliseconds / 60 / 1000) % 60;
+        $minutesAsInteger      = $minutes;
+        $minutesInMilliseconds = $minutes * 60 * 1000;
+        $seconds               = \floor(($timeInMilliseconds - $hoursInMilliseconds - $minutesInMilliseconds) / 1000);
+        $secondsAsInteger      = (int) $seconds;
+        $secondsInMilliseconds = $seconds * 1000;
+        $milliseconds          = $timeInMilliseconds - $hoursInMilliseconds - $minutesInMilliseconds - $secondsInMilliseconds;
+        $millisecondsAsInteger = (int) $milliseconds;
+
+        return [
+            'hours'        => $hoursAsInteger,
+            'minutes'      => $minutesAsInteger,
+            'seconds'      => $secondsAsInteger,
+            'milliseconds' => $millisecondsAsInteger,
+        ];
     }
 }

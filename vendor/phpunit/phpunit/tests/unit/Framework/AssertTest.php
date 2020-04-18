@@ -437,100 +437,6 @@ XML;
         $this->assertXmlStringNotEqualsXmlString('<root/>', '<root/>');
     }
 
-    public function testXMLStructureIsSame(): void
-    {
-        $expected = new \DOMDocument;
-        $expected->load(TEST_FILES_PATH . 'structureExpected.xml');
-
-        $actual = new \DOMDocument;
-        $actual->load(TEST_FILES_PATH . 'structureExpected.xml');
-
-        $this->assertEqualXMLStructure(
-            $expected->firstChild,
-            $actual->firstChild,
-            true
-        );
-    }
-
-    public function testXMLStructureWrongNumberOfAttributes(): void
-    {
-        $expected = new \DOMDocument;
-        $expected->load(TEST_FILES_PATH . 'structureExpected.xml');
-
-        $actual = new \DOMDocument;
-        $actual->load(TEST_FILES_PATH . 'structureWrongNumberOfAttributes.xml');
-
-        $this->expectException(ExpectationFailedException::class);
-
-        $this->assertEqualXMLStructure(
-            $expected->firstChild,
-            $actual->firstChild,
-            true
-        );
-    }
-
-    public function testXMLStructureWrongNumberOfNodes(): void
-    {
-        $expected = new \DOMDocument;
-        $expected->load(TEST_FILES_PATH . 'structureExpected.xml');
-
-        $actual = new \DOMDocument;
-        $actual->load(TEST_FILES_PATH . 'structureWrongNumberOfNodes.xml');
-
-        $this->expectException(ExpectationFailedException::class);
-
-        $this->assertEqualXMLStructure(
-            $expected->firstChild,
-            $actual->firstChild,
-            true
-        );
-    }
-
-    public function testXMLStructureIsSameButDataIsNot(): void
-    {
-        $expected = new \DOMDocument;
-        $expected->load(TEST_FILES_PATH . 'structureExpected.xml');
-
-        $actual = new \DOMDocument;
-        $actual->load(TEST_FILES_PATH . 'structureIsSameButDataIsNot.xml');
-
-        $this->assertEqualXMLStructure(
-            $expected->firstChild,
-            $actual->firstChild,
-            true
-        );
-    }
-
-    public function testXMLStructureAttributesAreSameButValuesAreNot(): void
-    {
-        $expected = new \DOMDocument;
-        $expected->load(TEST_FILES_PATH . 'structureExpected.xml');
-
-        $actual = new \DOMDocument;
-        $actual->load(TEST_FILES_PATH . 'structureAttributesAreSameButValuesAreNot.xml');
-
-        $this->assertEqualXMLStructure(
-            $expected->firstChild,
-            $actual->firstChild,
-            true
-        );
-    }
-
-    public function testXMLStructureIgnoreTextNodes(): void
-    {
-        $expected = new \DOMDocument;
-        $expected->load(TEST_FILES_PATH . 'structureExpected.xml');
-
-        $actual = new \DOMDocument;
-        $actual->load(TEST_FILES_PATH . 'structureIgnoreTextNodes.xml');
-
-        $this->assertEqualXMLStructure(
-            $expected->firstChild,
-            $actual->firstChild,
-            true
-        );
-    }
-
     public function testAssertStringEqualsNumeric(): void
     {
         $this->assertEquals('0', 0);
@@ -554,13 +460,13 @@ XML;
         $this->assertIsReadable(__DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting');
     }
 
-    public function testAssertNotIsReadable(): void
+    public function testAssertIsNotReadable(): void
     {
-        $this->assertNotIsReadable(__DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting');
+        $this->assertIsNotReadable(__DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting');
 
         $this->expectException(AssertionFailedError::class);
 
-        $this->assertNotIsReadable(__FILE__);
+        $this->assertIsNotReadable(__FILE__);
     }
 
     public function testAssertIsWritable(): void
@@ -574,11 +480,11 @@ XML;
 
     public function testAssertNotIsWritable(): void
     {
-        $this->assertNotIsWritable(__DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting');
+        $this->assertIsNotWritable(__DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting');
 
         $this->expectException(AssertionFailedError::class);
 
-        $this->assertNotIsWritable(__FILE__);
+        $this->assertIsNotWritable(__FILE__);
     }
 
     public function testAssertDirectoryExists(): void
@@ -592,11 +498,11 @@ XML;
 
     public function testAssertDirectoryNotExists(): void
     {
-        $this->assertDirectoryNotExists(__DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting');
+        $this->assertDirectoryDoesNotExist(__DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting');
 
         $this->expectException(AssertionFailedError::class);
 
-        $this->assertDirectoryNotExists(__DIR__);
+        $this->assertDirectoryDoesNotExist(__DIR__);
     }
 
     public function testAssertDirectoryIsReadable(): void
@@ -628,11 +534,11 @@ XML;
 
     public function testAssertFileNotExists(): void
     {
-        $this->assertFileNotExists(__DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting');
+        $this->assertFileDoesNotExist(__DIR__ . \DIRECTORY_SEPARATOR . 'NotExisting');
 
         $this->expectException(AssertionFailedError::class);
 
-        $this->assertFileNotExists(__FILE__);
+        $this->assertFileDoesNotExist(__FILE__);
     }
 
     public function testAssertFileIsReadable(): void
@@ -653,12 +559,12 @@ XML;
 
         \chmod($tempFile, \octdec('0'));
 
-        $this->assertFileNotIsReadable($tempFile);
+        $this->assertFileIsNotReadable($tempFile);
 
         \chmod($tempFile, \octdec('755'));
 
         try {
-            $this->assertFileNotIsReadable($tempFile);
+            $this->assertFileIsNotReadable($tempFile);
         } catch (AssertionFailedError $e) {
         }
 
@@ -829,22 +735,22 @@ XML;
         $this->assertNotFalse(false);
     }
 
-    public function testAssertRegExp(): void
+    public function testAssertMatchesRegularExpression(): void
     {
-        $this->assertRegExp('/foo/', 'foobar');
+        $this->assertMatchesRegularExpression('/foo/', 'foobar');
 
         $this->expectException(AssertionFailedError::class);
 
-        $this->assertRegExp('/foo/', 'bar');
+        $this->assertMatchesRegularExpression('/foo/', 'bar');
     }
 
-    public function testAssertNotRegExp(): void
+    public function testAssertDoesNotMatchRegularExpression(): void
     {
-        $this->assertNotRegExp('/foo/', 'bar');
+        $this->assertDoesNotMatchRegularExpression('/foo/', 'bar');
 
         $this->expectException(AssertionFailedError::class);
 
-        $this->assertNotRegExp('/foo/', 'foobar');
+        $this->assertDoesNotMatchRegularExpression('/foo/', 'foobar');
     }
 
     public function testAssertSame(): void
@@ -1226,7 +1132,7 @@ XML;
 
     public function testAssertThatContains(): void
     {
-        $this->assertThat(['foo'], $this->contains('foo'));
+        $this->assertThat(['foo'], $this->containsIdentical('foo'));
     }
 
     public function testAssertThatStringContains(): void
