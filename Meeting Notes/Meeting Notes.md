@@ -186,3 +186,9 @@ Attendees = Emma, Mark, Josh, Matt, Juan
 - Matt assigned tasks to the team until the end of the task.
 
 Attendees = Emma, Mark, Josh, Matt
+
+
+## MEETING 20-04-2020
+- People to continue work on their DAOs and DTOs and code reviews.
+
+Attendees = Emma, Mark, Josh, Matt, Juan
