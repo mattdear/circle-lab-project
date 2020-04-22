@@ -1,5 +1,5 @@
 <?php
-include(__DIR__."\..\DTO\DPeLink.php");
+include(__DIR__."\..\DTO\diseasePersonLinkDTO.php");
 
 class diseasePersonLinkDAO
 {
