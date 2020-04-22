@@ -10,18 +10,18 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->setCSS("../css/smart-system");
     $webPage->writeHead();
 
-    $patient = null;
+    $patient = "NAME HERE";
     $date = date("d/m/Y");
     ?>
     <h1>Add Prescription</h1>
-    <form method="post" action="addPresciption.php">
+    <form method="post" action="addPrescription.php">
         <div class="row">
             <div class="col-25">
                 <label>Patient</label>
             </div>
             <div class="col-75">
                 <p>NAME HERE</p>
-                <input type="hidden" value="<?=$patient?>">
+                <input type="hidden" name="patient" value="<?=$patient?>">
             </div>
         </div>
         <div class="row">
@@ -30,7 +30,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <p><?=$date?></p>
-                <input type="hidden" value="<?=$date?>">
+                <input type="hidden" name="date" value="<?=$date?>">
             </div>
         </div>
         <div class="row">
@@ -39,9 +39,9 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <select class="inputs, select" name="drug">
-                    <option value="0">amoxicillin</option>
-                    <option value="1">azithromycin</option>
-                    <option value="2">doxycycline</option>
+                    <option value="amoxicillin">amoxicillin</option>
+                    <option value="azithromycin">azithromycin</option>
+                    <option value="doxycycline">doxycycline</option>
                 </select>
             </div>
         </div>
@@ -59,9 +59,9 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <select class="inputs, select" name="location">
-                    <option value="0">10 London Road</option>
-                    <option value="1">11 Rolling Road</option>
-                    <option value="2">12 Sandpark Square</option>
+                    <option value="10 London Road">10 London Road</option>
+                    <option value="11 Rolling Road">11 Rolling Road</option>
+                    <option value="12 Sandpark Square">12 Sandpark Square</option>
                 </select>
             </div>
         </div>
