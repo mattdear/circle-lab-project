@@ -1,5 +1,5 @@
 <?php
-include(locationDAO.php");
+include(locationDTO.php");
 
 class locationDAO
 {
