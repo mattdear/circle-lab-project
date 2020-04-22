@@ -1,7 +1,7 @@
 <?php
 include(__DIR__ . "\..\DTO\personDTO.php");
 
-class PersonDao
+class personDAO
 {
     private $table, $conn;
 
