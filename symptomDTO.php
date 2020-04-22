@@ -15,6 +15,11 @@ class Symptom
         return $this->id;
     }
 
+    public function setId($id)
+    {
+        $this->name = $id;
+    }
+
 
     public function getName()
     {

@@ -67,10 +67,15 @@ class SymptomDaoTest extends PHPUnit\Framework\TestCase
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $DAO = new SymptomDao($conn, "symptom");
         $symptoms = $DAO->findAllSymptoms();
-
+        $countBefore = count($symptoms);
         $this->assertIsArray($symptoms, $message = "testFindAllSymptoms, test 1");
         $this->assertNotNull($symptoms, $message = "testFindAllSymptoms, test 2");
-        $this->assertEquals(46, count($symptoms), $message = "testFindAllSymptoms, test 3");
+        $addSymptom = new Symptom(null, "limping");
+        $DAO->addSymptom($addSymptom);
+        $symptoms = $DAO->findAllSymptoms();
+        $countAfter = count($symptoms);
+        $increase = $countAfter - $countBefore;
+        $this->assertEquals(1, $increase, $message = "testFindAllSymptoms, test 3");
 
     }
 

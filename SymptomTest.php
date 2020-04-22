@@ -17,15 +17,15 @@ class SymptomTest extends PHPUnit\Framework\TestCase
     public function testSetName()
     {
         $name = "Cough";
-        $symptom = new Symptom(null, "null");
+        $symptom = new Symptom(null, null);
 
-        $this->assertEquals("null", $symptom->getName(), $message = "testSetName, test 1");
+        $this->assertEquals(null, $symptom->getName(), $message = "testSetName, test 1");
         $this->assertNotEquals("Asthma", $symptom->getName(), $message = "testSetName, test 2");
 
         $symptom->setName($name);
 
         $this->assertEquals("Cough", $symptom->getName(), $message = "testSetName, test 1");
-        $this->assertNotEquals("null", $symptom->getName(), $message = "testSetName, test 2");
+        $this->assertNotEquals(null, $symptom->getName(), $message = "testSetName, test 2");
         $this->assertIsString($symptom->getName(), $message = "testSetName, test 3");
     }
 

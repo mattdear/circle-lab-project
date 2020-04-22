@@ -38,7 +38,6 @@ class DiseaseDaoTest extends PHPUnit\Framework\TestCase
         $this->assertNotNull($returnedDisease, $message = "testAddDisease, test 4");
         $this->assertIsInt($returnedDisease->getId(), $message = "testAddDisease, test 5");
         $this->assertIsString($returnedDisease->getName(), $message = "testAddDisease, test 6");
-        $this->assertEquals(9, $returnedDisease->getId(), $message = "testAddDisease, test 7");
         $this->assertEquals("test", $returnedDisease->getName(), $message = "testAddDisease, test 7");
     }
 
@@ -114,17 +113,22 @@ class DiseaseDaoTest extends PHPUnit\Framework\TestCase
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $DAO = new DiseaseDao($conn, "disease");
         $diseases = $DAO->findAllDiseases();
-
+        $countBefore = count($diseases);
         $this->assertIsArray($diseases, $message = "testFindAllDiseases, test 1");
         $this->assertNotNull($diseases, $message = "testFindAllDiseases, test 2");
-        $this->assertEquals(8, count($diseases), $message = "testFindAllDiseases, test 3");
-        $this->assertEquals("1 broken ankle", $diseases[0]->toString(), $message = "testFindAllDiseases, test 4");
-        $this->assertEquals("2 heel pain", $diseases[1]->toString(), $message = "testFindAllDiseases, test 5");
-        $this->assertEquals("3 oedema", $diseases[2]->toString(), $message = "testFindAllDiseases, test 1");
+        $this->assertEquals("1 broken ankle", $diseases[0]->toString(), $message = "testFindAllDiseases, test 3");
+        $this->assertEquals("2 heel pain", $diseases[1]->toString(), $message = "testFindAllDiseases, test 4");
+        $this->assertEquals("3 oedema", $diseases[2]->toString(), $message = "testFindAllDiseases, test 5");
         $this->assertEquals("4 restless legs syndrome", $diseases[3]->toString(), $message = "testFindAllDiseases, test 6");
         $this->assertEquals("5 sprains and strains", $diseases[4]->toString(), $message = "testFindAllDiseases, test 7");
         $this->assertEquals("6 varicose eczema", $diseases[5]->toString(), $message = "testFindAllDiseases, test 8");
         $this->assertEquals("7 baker's cyst", $diseases[6]->toString(), $message = "testFindAllDiseases, test 9");
         $this->assertEquals("8 broken leg", $diseases[7]->toString(), $message = "testFindAllDiseases, test 10");
+        $addDisease = new Disease(null, "hernia");
+        $DAO->addDisease($addDisease);
+        $diseases = $DAO->findAllDiseases();
+        $countAfter = count($diseases);
+        $increase = $countAfter - $countBefore;
+        $this->assertEquals(1, $increase, $message = "testFindAllDiseases, test 11");
     }
 }
