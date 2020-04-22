@@ -1,5 +1,5 @@
 <?php
-include(__DIR__."\..\DTO\locationDTO.php");
+include(locationDTO.php");
 
 use PHPUnit\Framework\TestCase;
 

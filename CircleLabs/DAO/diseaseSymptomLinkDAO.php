@@ -1,5 +1,5 @@
 <?php
-include(__DIR__."\..\DTO\diseaseSymptomLinkDTO.php");
+include(diseaseSymptomLinkDTO.php");
 
 class diseaseSymptomLinkDAO
 {

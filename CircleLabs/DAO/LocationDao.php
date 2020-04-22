@@ -1,5 +1,5 @@
 <?php
-include(__DIR__."\..\DTO\locationDAO.php");
+include(locationDAO.php");
 
 class locationDAO
 {

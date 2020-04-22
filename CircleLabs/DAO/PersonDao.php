@@ -1,5 +1,5 @@
 <?php
-include(__DIR__ . "\..\DTO\personDTO.php");
+include(personDTO.php");
 
 class personDAO
 {

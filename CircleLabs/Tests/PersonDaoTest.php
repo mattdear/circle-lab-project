@@ -1,6 +1,6 @@
 <?php
 
-include(__DIR__."\..\DAO\personDAO.php");
+include(personDAO.php");
 use PHPUnit\Framework\TestCase;
 
 class personDAOTest extends PHPUnit\Framework\TestCase

@@ -1,6 +1,6 @@
 <?php
 
-include(__DIR__."\..\DAO\diseaseTreatmentLinkDAO.php");
+include(diseaseTreatmentLinkDAO.php");
 use PHPUnit\Framework\TestCase;
 
 class diseaseTreatmentLinkDAOTest extends PHPUnit\Framework\TestCase
