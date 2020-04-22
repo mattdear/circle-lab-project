@@ -1,7 +1,7 @@
 <?php
-include(__DIR__."\..\DTO\DT_Link.php");
+include(__DIR__."\..\DTO\diseaseTreatmentLinkDTO.php");
 
-class Disease_Treatment_Link_Dao
+class diseaseTreatmentLinkDAO
 {
     private $table, $conn;
 
@@ -12,13 +12,13 @@ class Disease_Treatment_Link_Dao
     }
 
     //Inserting a new Disease_Treatment_Link
-    public function insertDT_Link(DT_Link $newDT_Link){
+    public function insertDiseaseTreatmentLinkDTO(diseaseTreatmentLinkDTO $newDT_Link){
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(disease, treatment) VALUES (? , ?)");
         $stmt->execute([$newDT_Link->getDisease(), $newDT_Link->getTreatment()]);
     }
 
     //Updating a Disease_Treatment_Link
-    public function updateDT_Link(DT_Link $updatedDT_Link ,  DT_Link $oldDT_Link){
+    public function updateDiseaseTreatmentLinkDTO(diseaseTreatmentLinkDTO $updatedDT_Link ,  diseaseTreatmentLinkDTO $oldDT_Link){
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET disease= ? , treatment= ? WHERE disease =? AND treatment = ?  ");
         $stmt->execute([$updatedDT_Link->getDisease(), $updatedDT_Link->getTreatment(), $oldDT_Link->getDisease(), $oldDT_Link->getTreatment()]);
     }
@@ -29,7 +29,7 @@ class Disease_Treatment_Link_Dao
         $stmt->execute([$id]);
         $treatmentDiseases = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($treatmentDiseases, new DT_Link($row["disease"], $row["treatment"]));
+            array_push($treatmentDiseases, new diseaseTreatmentLinkDTO($row["disease"], $row["treatment"]));
         }
         return $treatmentDiseases;
     }
@@ -40,13 +40,13 @@ class Disease_Treatment_Link_Dao
         $stmt->execute([$id]);
         $treatmentsForDisease = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($treatmentsForDisease, new DT_Link($row["disease"], $row["treatment"]));
+            array_push($treatmentsForDisease, new diseaseTreatmentLinkDTO($row["disease"], $row["treatment"]));
         }
         return $treatmentsForDisease;
     }
 
     //Delete Disease_Treatment_Link
-    public function removeDT_Link(DT_Link $removedDT_Link){
+    public function removeDiseaseTreatmentLinkDTO(diseaseTreatmentLinkDTO $removedDT_Link){
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE disease =? AND treatment = ? ");
         $stmt->execute([$removedDT_Link->getDisease(), $removedDT_Link->getTreatment()]);
     }

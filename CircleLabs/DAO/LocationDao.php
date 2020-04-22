@@ -1,7 +1,7 @@
 <?php
-include(__DIR__."\..\DTO\LocationDto.php");
+include(__DIR__."\..\DTO\locationDAO.php");
 
-class LocationDao
+class locationDAO
 {
     private $table, $conn ;
 
@@ -11,7 +11,7 @@ class LocationDao
     }
 
     //Inserting a new location
-    public function insertLocation(LocationDto  $newLocation){
+    public function insertLocation(locationDTO  $newLocation){
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(name , address , type) VALUES (? , ? , ? )");
         $stmt->execute([$newLocation->getName(), $newLocation->getAddress(), $newLocation->getType()]);
         $id = (int)$this->conn->lastInsertId();
@@ -21,7 +21,7 @@ class LocationDao
     }
 
     //Updating a location
-    public function updateLocation(LocationDto $updatedLocation){
+    public function updateLocation(locationDTO $updatedLocation){
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET name= ? , address= ? , type= ?  WHERE id= ?");
         $stmt->execute([$updatedLocation->getName(), $updatedLocation->getAddress(), $updatedLocation->getType() , $updatedLocation->getId()]);
     }
@@ -31,13 +31,13 @@ class LocationDao
         $stmt = $this->conn->query("SELECT * FROM ".  $this->table);
         $locations = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($locations, new LocationDto($row["id"], $row["name"], $row["address"],$row["type"]));
+            array_push($locations, new locationDTO($row["id"], $row["name"], $row["address"],$row["type"]));
         }
         return $locations;
     }
 
     //Find location by template
-    public function findMatchingLocations(LocationDto $locationTemplate){
+    public function findMatchingLocations(locationDTO $locationTemplate){
         $locations = [];
         $allLocations = $this->findAllLocations();
         $matching = true;
@@ -71,7 +71,7 @@ class LocationDao
         $stmt->execute([$type]);
         $locations = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($locations, new LocationDto($row["id"], $row["name"], $row["address"],$row["type"]));
+            array_push($locations, new locationDTO($row["id"], $row["name"], $row["address"],$row["type"]));
         }
         return $locations;
     }
@@ -81,6 +81,6 @@ class LocationDao
         $stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE id=?");
         $stmt->execute([$id]);
         $row = $stmt->fetch();
-        return new LocationDto($row["id"], $row["name"], $row["address"],$row["type"]);
+        return new locationDTO($row["id"], $row["name"], $row["address"],$row["type"]);
     }
 }

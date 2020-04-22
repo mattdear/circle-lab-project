@@ -1,15 +1,15 @@
 <?php
 
-include(__DIR__."\..\DAO\PersonDao.php");
+include(__DIR__."\..\DAO\personDAO.php");
 use PHPUnit\Framework\TestCase;
 
-class PersonDaoTest extends PHPUnit\Framework\TestCase
+class personDAOTest extends PHPUnit\Framework\TestCase
 {
     public function testConstruct()
     {
         $conn = new PDO ("mysql:host=localhost;dbname=circlelabs", "CircleLabs", "Yf25&ZPPaAAk");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $DAO = new PersonDao($conn, "person");
+        $DAO = new personDAO($conn, "person");
 
         $this->assertNotNull($DAO, $message = "testConstruct, test 1");
     }
@@ -18,10 +18,10 @@ class PersonDaoTest extends PHPUnit\Framework\TestCase
     {
         $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $DAO = new PersonDao($conn, "person");
+        $DAO = new personDAO($conn, "person");
 
         // Test with complete template object.
-        $person = new personDto(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1, "Test_Username1", "Test_Password");
+        $person = new personDTO(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1, "Test_Username1", "Test_Password");
         $people = $DAO->findAllPeople();
         $DAO->insertPerson($person);
         $newPeople = $DAO->findAllPeople();
@@ -33,9 +33,9 @@ class PersonDaoTest extends PHPUnit\Framework\TestCase
     {
         $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $DAO = new PersonDao($conn, "person");
+        $DAO = new personDAO($conn, "person");
 
-        $person = new personDto(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1 , "Test_Username2", "Test_Password");
+        $person = new personDTO(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1 , "Test_Username2", "Test_Password");
         $newPerson = $DAO->insertPerson($person);
         $newPerson->setEmail("Updated email Test");
         $DAO->updatePerson($newPerson);
@@ -49,7 +49,7 @@ class PersonDaoTest extends PHPUnit\Framework\TestCase
     {
         $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $DAO = new PersonDao($conn, "person");
+        $DAO = new personDAO($conn, "person");
         $people = $DAO->findAllPeople();
 
         $this->assertIsArray($people, $message = "testFindAll, test 1");
@@ -61,12 +61,12 @@ class PersonDaoTest extends PHPUnit\Framework\TestCase
     {
         $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $DAO = new PersonDao($conn, "person");
+        $DAO = new personDAO($conn, "person");
 
         // Test with complete template object.
-        $person = new personDto(null, "bob", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1, "Test_Username3", "Test_Password");
+        $person = new personDTO(null, "bob", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1, "Test_Username3", "Test_Password");
         $DAO->insertPerson($person);
-        $personTemplate = new PersonDto(null, "bob" , null , null, null , null,null , null, null, null, null);
+        $personTemplate = new personDTO(null, "bob" , null , null, null , null,null , null, null, null, null);
         $matchingPeople = $DAO->findMatchingPeople($personTemplate);
         $this->assertNotNull($matchingPeople);
         $this->assertEquals(sizeof($matchingPeople), 1 );
@@ -81,8 +81,8 @@ class PersonDaoTest extends PHPUnit\Framework\TestCase
         // Test with null object.
         $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $DAO = new PersonDao($conn, "person");
-        $person = new personDto(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1, "Test_Username4", "Test_Password");
+        $DAO = new personDAO($conn, "person");
+        $person = new personDTO(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1, "Test_Username4", "Test_Password");
         $DAO->insertPerson($person);
         $people = $DAO->findByRole(1);
         $foundPerson = $people[0];
@@ -95,8 +95,8 @@ class PersonDaoTest extends PHPUnit\Framework\TestCase
         // Test with null object.
         $conn = new PDO ("mysql:host=localhost;dbname=circlelabs;", "CircleLabs", "Yf25&ZPPaAAk");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $DAO = new PersonDao($conn, "person");
-        $person = new personDto(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2 , 1 , "Test_Username5", "Test_Password");
+        $DAO = new personDAO($conn, "person");
+        $person = new personDTO(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2 , 1 , "Test_Username5", "Test_Password");
         $person = $DAO->insertPerson($person);
         $people = $DAO->findPersonById($person->getId());
         $this->assertEquals($person->getId() , $people->getId(), $message = "testFindById , test 1");

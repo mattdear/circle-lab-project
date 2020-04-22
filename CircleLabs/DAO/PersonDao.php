@@ -1,5 +1,5 @@
 <?php
-include(__DIR__ . "\..\DTO\PersonDto.php");
+include(__DIR__ . "\..\DTO\personDTO.php");
 
 class PersonDao
 {
@@ -11,7 +11,7 @@ class PersonDao
     }
 
     //Inserting a new person
-    public function insertPerson(PersonDto $newPerson){
+    public function insertPerson(personDTO $newPerson){
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(first_name , last_name , dob , gender , email , phone , address , role , username, password) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ?, ? )");
         $stmt->execute([$newPerson->getFirstName(), $newPerson->getLastName(), $newPerson->getDob() , $newPerson->getGender(), $newPerson->getEmail() , $newPerson->getPhone(), $newPerson->getAddress() , $newPerson->getRole(), $newPerson->getUsername(), $newPerson->getPassword()]);
         $id = (int)$this->conn->lastInsertId();
@@ -21,7 +21,7 @@ class PersonDao
     }
 
     //Updating a person
-    public function updatePerson(PersonDto $updatedPerson){
+    public function updatePerson(personDTO $updatedPerson){
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET first_name= ? , last_name= ? , dob= ? , gender= ? , email= ? , phone= ? , address= ? , role= ? , username= ? , password= ?  WHERE id= ?");
         $stmt->execute([$updatedPerson->getFirstName(), $updatedPerson->getLastName(), $updatedPerson->getDob() , $updatedPerson->getGender(), $updatedPerson->getEmail() , $updatedPerson->getPhone(), $updatedPerson->getAddress() , $updatedPerson->getRole(), $updatedPerson->getUsername(), $updatedPerson->getPassword(), $updatedPerson->getId()]);
     }
@@ -31,13 +31,13 @@ class PersonDao
         $stmt = $this->conn->query("SELECT * FROM ".  $this->table);
         $people = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($people, new PersonDto($row["id"], $row["first_name"], $row["last_name"],$row["dob"], $row["gender"], $row["email"],$row["phone"], $row["address"], $row["role"], $row["username"], $row["password"]));
+            array_push($people, new personDTO($row["id"], $row["first_name"], $row["last_name"],$row["dob"], $row["gender"], $row["email"],$row["phone"], $row["address"], $row["role"], $row["username"], $row["password"]));
         }
         return $people;
     }
 
     //Find person by template
-    public function findMatchingPeople(PersonDto $personTemplate){
+    public function findMatchingPeople(personDTO $personTemplate){
         $people = [];
         $allPeople = $this->findAllPeople();
         foreach ($allPeople as $p){
@@ -105,7 +105,7 @@ class PersonDao
         $stmt->execute([$role]);
         $people = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($people, new PersonDto($row["id"], $row["first_name"], $row["last_name"],$row["dob"], $row["gender"], $row["email"],$row["phone"], $row["address"], $row["role"], $row["username"], $row["password"]));
+            array_push($people, new personDTO($row["id"], $row["first_name"], $row["last_name"],$row["dob"], $row["gender"], $row["email"],$row["phone"], $row["address"], $row["role"], $row["username"], $row["password"]));
         }
         return $people;
     }
@@ -115,6 +115,6 @@ class PersonDao
         $stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE id=?");
         $stmt->execute([$id]);
         $row = $stmt->fetch();
-        return new PersonDto($row["id"], $row["first_name"], $row["last_name"],$row["dob"], $row["gender"], $row["email"],$row["phone"], $row["address"], $row["role"], $row["username"], $row["password"]);
+        return new personDTO($row["id"], $row["first_name"], $row["last_name"],$row["dob"], $row["gender"], $row["email"],$row["phone"], $row["address"], $row["role"], $row["username"], $row["password"]);
     }
 }

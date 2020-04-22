@@ -1,7 +1,7 @@
 <?php
 
 
-class DT_Link
+class diseaseTreatmentLinkDTO
 {
     private $disease, $treatment ;
 

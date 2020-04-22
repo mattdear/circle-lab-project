@@ -1,12 +1,12 @@
 <?php
-include(__DIR__."\..\DTO\DS_Link.php");
+include(__DIR__."\..\DTO\diseaseSymptomLinkDTO.php");
 use PHPUnit\Framework\TestCase;
 
-class DS_Link_Test extends PHPUnit\Framework\TestCase
+class diseaseSymptomLinkDTOTest extends PHPUnit\Framework\TestCase
 {
     public function testConstruct()
     {
-        $Link1 = new DS_Link(1,2);
+        $Link1 = new diseaseSymptomLinkDTO(1,2);
 
         $this->assertIsInt($Link1->getDisease(), $message = "testConstruct, test 1");
         $this->assertIsInt($Link1->getSymptom(), $message = "testConstruct, test 2");
@@ -16,7 +16,7 @@ class DS_Link_Test extends PHPUnit\Framework\TestCase
 
     public function testGetDiseaseId()
     {
-        $Link1 = new DS_Link(1, 2);
+        $Link1 = new diseaseSymptomLinkDTO(1, 2);
 
         $this->assertIsInt($Link1->getDisease(), $message = "testGetId, test 1");
         $this->assertEquals(1, $Link1->getDisease(), $message = "testGetId, test 2");
@@ -26,7 +26,7 @@ class DS_Link_Test extends PHPUnit\Framework\TestCase
     public function testSetDiseaseId()
     {
         $id = 2;
-        $Link1 = new DS_Link(1, 2);
+        $Link1 = new diseaseSymptomLinkDTO(1, 2);
 
         $this->assertEquals(1, $Link1->getDisease(), $message = "testSetId, test 1");
         $this->assertNotEquals(2, $Link1->getDisease(), $message = "testSetId, test 2");
@@ -40,7 +40,7 @@ class DS_Link_Test extends PHPUnit\Framework\TestCase
 
     public function testGetSymptomId()
     {
-        $Link1 = new DS_Link(1, 2);
+        $Link1 = new diseaseSymptomLinkDTO(1, 2);
 
         $this->assertIsInt($Link1->getSymptom(), $message = "testGetName, test 1");
         $this->assertEquals(2, $Link1->getSymptom(), $message = "testGetName, test 2");
@@ -50,7 +50,7 @@ class DS_Link_Test extends PHPUnit\Framework\TestCase
     public function testSetPersonId()
     {
         $id = 1;
-        $Link1 = new DS_Link(1, 2);
+        $Link1 = new diseaseSymptomLinkDTO(1, 2);
 
         $this->assertEquals(2, $Link1->getSymptom(), $message = "testSetName, test 1");
         $this->assertNotEquals(1, $Link1->getSymptom(), $message = "testSetName, test 2");
@@ -64,7 +64,9 @@ class DS_Link_Test extends PHPUnit\Framework\TestCase
 
     public function testToString()
     {
-
+      $Link1 = new diseaseSymptomLinkDTO(1, 2);
+      $this->assertIsString($Link1->toString(), $message = "testToString, test 1");
+      $this->assertEquals("1 , 2", $Link1->toString(), $message = "testToString, test 2");
     }
 
 }

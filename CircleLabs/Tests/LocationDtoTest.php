@@ -1,14 +1,14 @@
 <?php
-include(__DIR__."\..\DTO\LocationDto.php");
+include(__DIR__."\..\DTO\locationDTO.php");
 
 use PHPUnit\Framework\TestCase;
 
-class LocationDtoTest extends PHPUnit\Framework\TestCase
+class locationDTOTest extends PHPUnit\Framework\TestCase
 {
 
     public function testConstruct()
     {
-        $location = new LocationDto(1, "Southampton General", "Southampton" , "Hospital");
+        $location = new locationDTO(1, "Southampton General", "Southampton" , "Hospital");
 
         $this->assertIsInt($location->getId(), $message = "testConstruct, test 1");
         $this->assertIsString($location->getName(), $message = "testConstruct, test 2");
@@ -22,7 +22,7 @@ class LocationDtoTest extends PHPUnit\Framework\TestCase
 
     public function testGetId()
     {
-        $location = new LocationDto(1, "Southampton General", "Southampton" , "Hospital");
+        $location = new locationDTO(1, "Southampton General", "Southampton" , "Hospital");
 
         $this->assertIsInt($location->getId(), $message = "testGetId, test 1");
         $this->assertEquals(1, $location->getId(), $message = "testGetId, test 2");
@@ -32,7 +32,7 @@ class LocationDtoTest extends PHPUnit\Framework\TestCase
     public function testSetId()
     {
         $id = 2;
-        $location = new LocationDto(1, "Southampton General", "Southampton" , "Hospital");
+        $location = new locationDTO(1, "Southampton General", "Southampton" , "Hospital");
 
         $this->assertEquals(1, $location->getId(), $message = "testSetId, test 1");
         $this->assertNotEquals(2, $location->getId(), $message = "testSetId, test 2");
@@ -46,7 +46,7 @@ class LocationDtoTest extends PHPUnit\Framework\TestCase
 
     public function testGetName()
     {
-        $location = new LocationDto(1, "Southampton General", "Southampton" , "Hospital");
+        $location = new locationDTO(1, "Southampton General", "Southampton" , "Hospital");
 
         $this->assertIsString($location->getName(), $message = "testGetName, test 1");
         $this->assertEquals("Southampton General", $location->getName(), $message = "testGetName, test 2");
@@ -56,7 +56,7 @@ class LocationDtoTest extends PHPUnit\Framework\TestCase
     public function testSetName()
     {
         $name = "Portsmouth";
-        $location = new LocationDto(1, "Southampton General", "Southampton" , "Hospital");
+        $location = new locationDTO(1, "Southampton General", "Southampton" , "Hospital");
 
         $this->assertEquals("Southampton General", $location->getName(), $message = "testSetName, test 1");
         $this->assertNotEquals("Portsmouth", $location->getName(), $message = "testSetName, test 2");
@@ -69,7 +69,7 @@ class LocationDtoTest extends PHPUnit\Framework\TestCase
     }
 
     public function testGetAddress(){
-        $location = new LocationDto(1, "Southampton General", "Southampton" , "Hospital");
+        $location = new locationDTO(1, "Southampton General", "Southampton" , "Hospital");
 
         $this->assertIsString($location->getAddress(), $message = "testGetAddress, test 1");
         $this->assertEquals("Southampton", $location->getAddress(), $message = "testGetAddress, test 2");
@@ -78,7 +78,7 @@ class LocationDtoTest extends PHPUnit\Framework\TestCase
 
     public function testSetAddress(){
         $address = "Poole";
-        $location = new LocationDto(1, "Southampton General", "Southampton" , "Hospital");
+        $location = new locationDTO(1, "Southampton General", "Southampton" , "Hospital");
 
         $this->assertEquals("Southampton", $location->getAddress(), $message = "testSetAddress, test 1");
         $this->assertNotEquals("Poole", $location->getAddress(), $message = "testSetAddress, test 2");
@@ -91,7 +91,7 @@ class LocationDtoTest extends PHPUnit\Framework\TestCase
     }
 
     public function testGetType(){
-        $location = new LocationDto(1, "Southampton General", "Southampton" , "Hospital");
+        $location = new locationDTO(1, "Southampton General", "Southampton" , "Hospital");
 
         $this->assertIsString($location->getType(), $message = "testGetType, test 1");
         $this->assertEquals("Hospital", $location->getType(), $message = "testGetType, test 2");
@@ -100,7 +100,7 @@ class LocationDtoTest extends PHPUnit\Framework\TestCase
 
     public function testSetType(){
         $type = "Doctors";
-        $location = new LocationDto(1, "Southampton General", "Southampton" , "Hospital");
+        $location = new locationDTO(1, "Southampton General", "Southampton" , "Hospital");
 
         $this->assertEquals("Hospital", $location->getType(), $message = "testSetType, test 1");
         $this->assertNotEquals("Doctors", $location->getType(), $message = "testSetType, test 2");
@@ -114,7 +114,9 @@ class LocationDtoTest extends PHPUnit\Framework\TestCase
 
     public function testToString()
     {
-
+      $location = new locationDTO(1, "Southampton General", "Southampton" , "Hospital");
+      $this->assertIsString($location->toString(), $message = "testToString, test 1");
+      $this->assertEquals("1 , Southampton General , Southampton , Hospital", $Link1->toString(), $message = "testToString, test 2");
     }
 
 }

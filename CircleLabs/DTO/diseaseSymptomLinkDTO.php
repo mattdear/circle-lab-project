@@ -1,7 +1,7 @@
 <?php
 
 
-class DS_Link
+class diseaseSymptomLinkDTO
 {
     private $disease, $symptom ;
 

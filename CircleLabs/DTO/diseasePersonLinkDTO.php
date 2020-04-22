@@ -1,7 +1,7 @@
 <?php
 
 
-class DPe_Link
+class diseasePersonLinkDTO
 {
     private $disease, $person ;
 

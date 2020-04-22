@@ -1,7 +1,7 @@
 <?php
-include(__DIR__."\..\DTO\DPe_Link.php");
+include(__DIR__."\..\DTO\DPeLink.php");
 
-class Disease_Person_Link_Dao
+class diseasePersonLinkDAO
 {
     private $table, $conn;
 
@@ -12,13 +12,13 @@ class Disease_Person_Link_Dao
     }
 
     //Inserting a new Disease_Person_Link
-    public function insertDPe_Link(DPe_Link $newDPe_Link){
+    public function insertDiseasePersonLinkDTO(diseasePersonLinkDTO $newDPe_Link){
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(disease, person) VALUES (? , ?)");
         $stmt->execute([$newDPe_Link->getDisease(), $newDPe_Link->getPerson()]);
     }
 
     //Updating a Disease_Person_Link
-    public function updateDPe_Link(Dpe_Link $oldDPe_Link , DPe_Link $updatedDPe_Link){
+    public function updateDiseasePersonLinkDTO(diseasePersonLinkDTO $oldDPe_Link , diseasePersonLinkDTO $updatedDPe_Link){
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET disease= ? , person= ? WHERE disease =? AND person = ?  ");
         $stmt->execute([$updatedDPe_Link->getDisease(), $updatedDPe_Link->getPerson(), $oldDPe_Link->getDisease(), $oldDPe_Link->getPerson()]);
     }
@@ -29,7 +29,7 @@ class Disease_Person_Link_Dao
         $stmt->execute([$id]);
         $personsDiseases = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($personsDiseases, new DPe_Link($row["disease"], $row["person"]));
+            array_push($personsDiseases, new diseasePersonLinkDTO($row["disease"], $row["person"]));
         }
         return $personsDiseases;
     }
@@ -40,13 +40,13 @@ class Disease_Person_Link_Dao
         $stmt->execute([$id]);
         $diseaseInPeople = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($diseaseInPeople, new DPe_Link($row["disease"], $row["person"]));
+            array_push($diseaseInPeople, new diseasePersonLinkDTO($row["disease"], $row["person"]));
         }
         return $diseaseInPeople;
     }
 
     //Delete Disease_Person_Link
-    public function removeDPe_Link(DPe_Link $removedDPe_Link){
+    public function removeDiseasePersonLinkDTO(diseasePersonLinkDTO $removedDPe_Link){
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE disease =? AND person = ? ");
         $stmt->execute([$removedDPe_Link->getDisease(), $removedDPe_Link->getPerson()]);
     }

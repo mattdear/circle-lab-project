@@ -1,7 +1,7 @@
 <?php
 
 
-class PersonDto
+class personDTO
 {
     private $id, $first_name, $last_name , $dob, $gender, $email, $phone, $address, $role, $username , $password;
 

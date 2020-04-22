@@ -1,7 +1,7 @@
 <?php
 
 
-class LocationDto
+class locationDTO
 {
     private $id, $name, $address , $type;
 
