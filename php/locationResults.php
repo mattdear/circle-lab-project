@@ -35,7 +35,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
         </div>
     </div>
 
-    <button onclick="window.location.href = 'people.php';">Back</button>
+    <button onclick="window.location.href = 'locations.php';">Back</button>
     <br/>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>

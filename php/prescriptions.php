@@ -11,15 +11,13 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->writeHead();
     ?>
     <h1>Prescription</h1>
-    <form>
+    <form method="get" action="prescriptionResults.php">
         <label>
             <input class="inputs" name="prescriptions" placeholder="Search People">
         </label>
+        <br/>
+        <button type="submit">Search</button>
     </form>
-    <div id="locationResults">
-
-    </div>
-    <p>Click prescription for more information</p>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>
     <?php
