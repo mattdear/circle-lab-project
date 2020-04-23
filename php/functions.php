@@ -12,4 +12,10 @@ function popUpError($e){
     echo 'alert("'.$e.'");';
     echo 'window.location.href="../";';
     echo '</script>';
+
+}function popUpErrorBack($e, $location){
+    echo '<script type="text/javascript">';
+    echo 'alert("'.$e.'");';
+    echo 'window.location.href="../'.$location. '";';
+    echo '</script>';
 }

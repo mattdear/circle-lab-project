@@ -14,6 +14,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $searchDate = htmlentities($_GET["date"]);
     if ($searchDate != null) {
         $searchDate = date("d/m/Y", strtotime($searchDate));
+
     }
     ?>
     <h1>Appointment Results</h1>

@@ -14,6 +14,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
     ?>
     <h1>People Results</h1>
     <div class="searchResults">
+
         <div class="searchResult">
             <div class="searchDetails">
                 <p>Name: <?= $searchName ?></p>
@@ -23,7 +24,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="searchButtons">
                 <form method="post" action="modifyPerson.php">
-                    <input type="hidden" name="id">
+                    <input type="hidden" name="id" value="">
                     <button type="submit" class="modDelButton">Modify</button>
                 </form>
                 <form method="post" action="deletePerson.php">

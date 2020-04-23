@@ -46,9 +46,9 @@ if (!isset ($_SESSION["gatekeeper"])) {
             <button type="submit">Search</button>
         </form>
         <form method="get" action="appointmentResults.php">
-            <label>
-                <input name="personId" type="hidden">
-            </label>
+            <input name="personId" type="hidden" value="">
+            <input name="name" type="hidden" value="">
+            <input name="date" type="hidden" value="">
             <br/>
             <button type="submit">See All My Appointments</button>
         </form>
