@@ -1,5 +1,5 @@
 <?php
-include(diseaseSymptomLinkDTO.php");
+include("diseaseSymptomLinkDTO.php");
 
 class diseaseSymptomLinkDAO
 {

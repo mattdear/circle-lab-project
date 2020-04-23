@@ -1,5 +1,5 @@
 <?php
-include(diseasePersonLinkDTO.php");
+include("diseasePersonLinkDTO.php");
 use PHPUnit\Framework\TestCase;
 
 class diseasePersonLinkDTOTest extends PHPUnit\Framework\TestCase
