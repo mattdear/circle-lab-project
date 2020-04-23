@@ -2,7 +2,7 @@
 
 include ("DrugTreatmentLinkDto.php");
 use PHPUnit\Framework\TestCase;
-class Drug_Treatment_LinkTest extends PHPUnit\Framework\TestCase
+class DrugTreatmentLinkTest extends PHPUnit\Framework\TestCase
 {
   public function testConstruct()
 {
