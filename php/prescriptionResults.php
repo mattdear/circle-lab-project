@@ -21,36 +21,42 @@ if (!isset ($_SESSION["gatekeeper"])) {
     <h1>Prescription Results</h1>
     <div class="searchResults">
         <?php
-        foreach ($prescriptions as $prescription) {
-            if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) or $searchName == $fullName) {
-                $date = $prescription->getDate();
-                $fullName = $person->getFirstName() . " " . $person->getLastName();
-                $links = $service->findDrugPrescriptionLinkByPrescription(9);
-                ?>
-                <div class="searchResult">
-                    <div class="searchDetails">
-                        <p>Patient Name: <?= $fullName ?></p>
-                        <p>Date: <?= $date->format("d-m-Y") ?></p>
-                        <?php
-                        foreach ($links as $link) {
-                            $drugId = $link->getDrug();
-                            $drug = $service->findDrugById($drugId);
-                            echo "<p>Drug: " . $drug->getName() . "</p>";
-                        }
-                        ?>
-                        <p>Quantity: <?= $prescription->getQuantity() ?></p>
-                        <p>Location: 10 London Road</p>
+        if (empty($prescriptions)) {
+            echo "<p>No Results</p>";
+        } else {
+            foreach ($prescriptions as $prescription) {
+                if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) or $searchName == $fullName) {
+                    $date = $prescription->getDate();
+                    $fullName = $person->getFirstName() . " " . $person->getLastName();
+                    $links = $service->findDrugPrescriptionLinkByPrescription($prescription->getId());
+                    ?>
+                    <div class="searchResult">
+                        <div class="searchDetails">
+                            <p>Patient Name: <?= $fullName ?></p>
+                            <p>Date: <?= $date->format("d-m-Y") ?></p>
+                            <?php
+                            $i = 1;
+                            foreach ($links as $link) {
+                                $drugId = $link->getDrug();
+                                $drug = $service->findDrugById($drugId);
+                                echo "<p>Drug " .$i. ": " .$drug->getName() . "</p>";
+                                $i++;
+                            }
+                            ?>
+                            <p>Quantity: <?= $prescription->getQuantity() ?></p>
+                            <p>Location: 10 London Road</p>
+                        </div>
+                        <div class="searchButtons">
+                            <form method="post" action="deletePerson.php">
+                                <input type="hidden" name="id">
+                                <button type="submit" class="modDelButton">Delete</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="searchButtons">
-                        <form method="post" action="deletePerson.php">
-                            <input type="hidden" name="id">
-                            <button type="submit" class="modDelButton">Delete</button>
-                        </form>
-                    </div>
-                </div>
-                <?php
-            } else {
-                echo "<p>No Results Found</p>";
+                    <?php
+                } else {
+                    echo "<p>No Results Found</p>";
+                }
             }
         }
         ?>

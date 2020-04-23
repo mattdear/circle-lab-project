@@ -45,7 +45,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <select class="inputs, select" name="drug1" required>
-                    <option>Please Select Drug</option>
+                    <option value="0">Please Select Drug</option>
                     <?php
                     $drugs = $service->findAllDrugs();
                     foreach ($drugs as $drug) {
@@ -65,7 +65,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <select class="inputs, select" name="drug2">
-                    <option>Please Select Drug</option>
+                    <option value="0">Please Select Drug</option>
                     <?php
                     $drugs = $service->findAllDrugs();
                     foreach ($drugs as $drug) {
@@ -85,7 +85,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <select class="inputs, select" name="drug3">
-                    <option>Please Select Drug</option>
+                    <option value="0">Please Select Drug</option>
                     <?php
                     $drugs = $service->findAllDrugs();
                     foreach ($drugs as $drug) {
