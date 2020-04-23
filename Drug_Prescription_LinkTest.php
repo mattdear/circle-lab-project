@@ -1,6 +1,6 @@
 <?php
 
-include ("Drug_Prescription_LinkDto.php");
+include ("DrugPrescriptionLinkDto.php");
 use PHPUnit\Framework\TestCase;
 class Drug_Prescription_LinkTest extends PHPUnit\Framework\TestCase
 {
