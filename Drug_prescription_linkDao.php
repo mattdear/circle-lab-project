@@ -1,0 +1,71 @@
+<?php
+class Drug_prescription_linkDao
+{
+    private $table, $conn;
+
+    public function __construct($conn, $table)
+    {
+        $this->conn = $conn;
+        $this->table = $table;
+    }
+    //find  list by drug//
+    public function findAllDP_LinkByDrug($drug)
+    {
+        $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE drug=?");
+        $query->execute(["drug"=>$drug->getDrug()]);
+        $Drug_prescription_link = [];
+        while ($row = $query->fetch()) {
+            $Drug_prescription_link = new $Drug_prescription_link ($row["Drug_prescription_link"]);
+            $Drug_prescription_link->setDrug ($row["drug"]);
+            $Drug_prescription_link->getPrescription($row["prescription"]);
+            $Drug_prescription_link[] = $Drug_prescription_link;
+        }
+        return $Drug_prescription_link;
+    }
+    //find  list by prescription//
+    public function findAllDP_LinkByPrescription($prescription)
+    {
+        $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE prescription=?");
+        $query->execute(["prescription"=>$prescription->getPrescription()]);
+        $Drug_prescription_link = [];
+        while ($row = $query->fetch()) {
+            $Drug_prescription_link = new $Drug_prescription_link ($row["Drug_prescription_link"]);
+            $Drug_prescription_link->setDrug ($row["drug"]);
+            $Drug_prescription_link->getPrescription($row["prescription"]);
+            $Drug_prescription_link[] = $Drug_prescription_link;
+        }
+        return $Drug_prescription_link;
+    }
+    //Delete Drug_prescription_link
+    public function deleteDP_Link(DS_Link $removedDS_Link){
+        $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE = drug =? AND prescription = ? ");
+        $stmt->execute([$removedDS_Link->getDrug(), $removedDS_Link->getPrescription()]);
+    }
+    //add a new Drug_prescription_link
+    public function AddDP_Link(DP_Link $newDP_Link){
+        $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(drug, prescription) VALUES (? , ?)");
+        $stmt->execute([$newDP_Link->getDrug(), $newDP_Link->getPrescription()]);
+    }
+    //Updating a Drug_prescription_link
+    public function updateDP_Link(DS_Link $oldDP_Link,   DP_Link $updatedDP_Link){
+        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET drug= ? , prescription= ? WHERE = drug =? AND prescription = ?  ");
+        $stmt->execute([$updatedDP_Link->getDrug(), $updatedDP_Link->getPrescription(), $oldDP_Link->getDrug(), $oldDP_Link->getPrescription()]);
+    }
+    //find all list Drug_prescription//
+    public function findAllDP_Link(Drug_prescription_linkDto $findAllDP_Link)
+    {
+        $query = $this->conn->prepare("SELECT * FROM " . $this->table);
+        $query->execute();
+        $Drug_prescription_link = [];
+        while ($row = $query->fetch()) {
+            $Drug_prescription_link = new $Drug_prescription_link ($row["Drug_prescription_link"]);
+            $Drug_prescription_link->setDrug ($row["drug"]);
+            $Drug_prescription_link->getPrescription($row["prescription"]);
+            $Drug_prescription_link[] = $Drug_prescription_link;
+        }
+        return $Drug_prescription_link;
+    }
+
+
+}
+?>
