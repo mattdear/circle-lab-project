@@ -13,10 +13,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
     ?>
     <div>
     <h1>Homepage</h1>
-    <!--Only for prototype-->
-    <p>Access : <?= $_SESSION["role"] ?></p>
-    <!--Only for prototype-->
-    <?php if ($_SESSION["role"] > 6) { ?>
+        <?php if ($_SESSION["role"] > 6) { ?>
         <button onclick="window.location.href = 'diagnosis.php';">Diagnosis</button>
         <br/>
         <button onclick="window.location.href = 'people.php';">People</button>

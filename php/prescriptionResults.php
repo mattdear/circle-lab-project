@@ -25,11 +25,19 @@ if (!isset ($_SESSION["gatekeeper"])) {
             if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) or $searchName == $fullName) {
                 $date = $prescription->getDate();
                 $fullName = $person->getFirstName() . " " . $person->getLastName();
+                $links = $service->findDrugPrescriptionLinkByPrescription(9);
                 ?>
                 <div class="searchResult">
                     <div class="searchDetails">
                         <p>Patient Name: <?= $fullName ?></p>
-                        <p>Date: <?= $date->format("d-m-Y")?></p>
+                        <p>Date: <?= $date->format("d-m-Y") ?></p>
+                        <?php
+                        foreach ($links as $link) {
+                            $drugId = $link->getDrug();
+                            $drug = $service->findDrugById($drugId);
+                            echo "<p>Drug: " . $drug->getName() . "</p>";
+                        }
+                        ?>
                         <p>Quantity: <?= $prescription->getQuantity() ?></p>
                         <p>Location: 10 London Road</p>
                     </div>

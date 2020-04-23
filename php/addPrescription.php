@@ -24,6 +24,9 @@ if (!isset ($_SESSION["gatekeeper"])) {
 
     $prescription = new prescriptionDTO(null, $patientId, $dateIn, $quantity, $location, 1);
     $addedPrescription = $service->addPrescription($prescription);
+    if ($service->addDrugToPrescription($drug, $addedPrescription->getId())){
+        echo "<p> add to linking worked</p>";
+    }
     ?>
     <h1>Added Prescription</h1>
     <p>Patient Name <?=$patient->getFirstName()?> <?=$patient->getLastName()?></p>

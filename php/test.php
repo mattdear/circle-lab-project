@@ -22,7 +22,7 @@ $person = $service->findPersonById(1);
 $fullName = strtolower($person->getFirstName()) . " " . strtolower($person->getLastName());
 $prescription = new prescriptionDTO(null, $patientId, $date, $quantity, $location, 1);
 
-
+$links = $service->findDrugPrescriptionLinkByPrescription(9);
 
 
 ?>
@@ -38,6 +38,13 @@ $prescription = new prescriptionDTO(null, $patientId, $date, $quantity, $locatio
         <p>Date <?=$prescription->getDate()?></p>
         <p>Quantity <?=$prescription->getQuantity()?></p>
         <p>Location <?=$prescription->getLocation()?></p>
+        <?php
+        foreach ($links as $link){
+            $drugId = $link->getDrug();
+            $drug = $service->findDrugById($drugId);
+            echo"<p>Drug: ".$drug->getName()."</p>";
+        }
+        ?>
     </div>
 <?php
 

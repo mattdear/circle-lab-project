@@ -41,16 +41,58 @@ if (!isset ($_SESSION["gatekeeper"])) {
         </div>
         <div class="row">
             <div class="col-25">
-                <label>Drug</label>
+                <label>Drug 1</label>
             </div>
             <div class="col-75">
-                <select class="inputs, select" name="drug">
+                <select class="inputs, select" name="drug1" required>
+                    <option>Please Select Drug</option>
                     <?php
                     $drugs = $service->findAllDrugs();
                     foreach ($drugs as $drug) {
                         $name = $drug->getName();
+                        $id = $drug->getId();
                         ?>
-                        <option value="<?=$name?>"><?=$name?></option>
+                        <option value="<?=$id?>"><?=$name?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label>Drug 2</label>
+            </div>
+            <div class="col-75">
+                <select class="inputs, select" name="drug2">
+                    <option>Please Select Drug</option>
+                    <?php
+                    $drugs = $service->findAllDrugs();
+                    foreach ($drugs as $drug) {
+                        $name = $drug->getName();
+                        $id = $drug->getId();
+                        ?>
+                        <option value="<?=$id?>"><?=$name?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label>Drug 3</label>
+            </div>
+            <div class="col-75">
+                <select class="inputs, select" name="drug3">
+                    <option>Please Select Drug</option>
+                    <?php
+                    $drugs = $service->findAllDrugs();
+                    foreach ($drugs as $drug) {
+                        $name = $drug->getName();
+                        $id = $drug->getId();
+                        ?>
+                        <option value="<?=$id?>"><?=$name?></option>
                         <?php
                     }
                     ?>
