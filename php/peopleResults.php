@@ -19,7 +19,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
     <h1>People Results</h1>
     <div class="searchResults">
         <?php
-        if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) or $searchName == strtolower(""$person->getLastName()" "$person->getLastName()"") {
+        if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) ) {
             ?>
             <div class="searchResult">
                 <div class="searchDetails">
