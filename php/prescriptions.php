@@ -13,7 +13,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
     <h1>Prescriptions</h1>
     <form method="get" action="prescriptionResults.php">
         <label>
-            <input class="inputs" name="prescriptions" placeholder="Search People">
+            <input class="inputs" name="name" placeholder="Search People">
         </label>
         <br/>
         <button type="submit">Search</button>

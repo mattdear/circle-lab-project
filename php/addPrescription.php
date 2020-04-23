@@ -14,14 +14,16 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $service = new serviceFacade();
     $patientId = htmlentities($_POST["patient"]);
     $date = htmlentities($_POST["date"]);
+    $time = strtotime($date);
+    $dateIn = date("Y-m-d",$time);
     $drug = htmlentities($_POST["drug"]);
     $quantity = htmlentities($_POST["quantity"]);
     $location = htmlentities($_POST["location"]);
 
     $patient = $service->findPersonById($patientId);
 
-    $prescription = new prescriptionDTO(null, $patientId, date_create($date), $quantity, $location, 1);
-
+    $prescription = new prescriptionDTO(null, $patientId, $dateIn, $quantity, $location, 1);
+    $addedPrescription = $service->addPrescription($prescription);
     ?>
     <h1>Added Prescription</h1>
     <p>Patient Name <?=$patient->getFirstName()?> <?=$patient->getLastName()?></p>

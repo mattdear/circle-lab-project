@@ -27,7 +27,7 @@ class prescriptionDAO {
     if($prescriptionObj != null && $prescriptionObj->getId() == null && $prescriptionObj->getPatient() != null && $prescriptionObj->getDate() != null && $prescriptionObj->getQuantity() != null && $prescriptionObj->getLocation() != null && $prescriptionObj->getIsactive() == 1)
     {
       $stmt = $this->conn->prepare("INSERT INTO " .  $this->table .  " (patient, date, quantity, location, isactive) VALUES (:patient, :date, :quantity, :location, :isactive)");
-      $stmt->execute([":patient"=>$prescriptionObj->getPatient(), ":date"=>$prescriptionObj->getDate()->format("Y-m-d"), ":quantity"=>$prescriptionObj->getQuantity(), ":location"=>$prescriptionObj->getLocation(), ":isactive"=>$prescriptionObj->getIsactive()]);
+      $stmt->execute([":patient"=>$prescriptionObj->getPatient(), ":date"=>$prescriptionObj->getDate(), ":quantity"=>$prescriptionObj->getQuantity(), ":location"=>$prescriptionObj->getLocation(), ":isactive"=>$prescriptionObj->getIsactive()]);
       $id = (int)$this->conn->lastInsertId();
       $prescriptionObj->setId($id);
       return $prescriptionObj;

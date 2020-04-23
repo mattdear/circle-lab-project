@@ -97,13 +97,17 @@ footer{
 
 .searchResults{
     overflow: auto;
-    width: 55vw;
+    width: 60vw;
     margin: 0 auto;
 }
 
 .searchResult{
  overflow: auto;
     text-align: left;
+    background-color: gainsboro;
+    margin-bottom: 2vw;
+    border-radius: 2vw;
+    padding: 1vw;
 }
 
 .searchDetails{
@@ -112,6 +116,13 @@ footer{
 }
 
 .searchButtons{
+    float: left;
+    overflow: auto;
+}
+
+.modDelButton{
+    width: 20vw;
+    margin: 1vw 0;
     float: left;
 }
 
@@ -187,12 +198,12 @@ footer{
 
     .searchResult{
         overflow: auto;
-        text-align: left;
+        text-align: center;
     }
 
     .searchDetails{
         float: none;
-        width: 35vw;
+        width: 60vw;
     }
 
     .searchButtons{
@@ -201,9 +212,9 @@ footer{
     }
 
     .modDelButton{
-        width: 33vw;
-        margin: 0 1vw 0 1vw;
-        float: left;
+        width: 60vw;
+        margin: 1vw 2vw;
+        float: none;
     }
 
     .modDelButtonPatient{

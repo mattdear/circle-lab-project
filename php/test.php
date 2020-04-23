@@ -28,11 +28,10 @@ $prescription = new prescriptionDTO(null, $patientId, $date, $quantity, $locatio
 ?>
     <div>
         <h1>Test Page</h1>
-        <p><?=$name?></p>
+        <p>Get Drug Name<?=$name?></p>
 
-        <p><?=$person->getFirstName()?></p>
-        <p><?=$person->getPassword()?></p>
-        <p><?=$fullName?></p>
+        <p>Get First Name From Find<?=$person->getFirstName()?></p>
+        <p>Full name Display <?=$fullName?></p>
 
         <p>ID <?=$prescription->getId()?></p>
         <p>Patient <?=$prescription->getPatient()?></p>

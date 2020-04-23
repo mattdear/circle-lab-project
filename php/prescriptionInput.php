@@ -15,7 +15,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
 
     $patientId = htmlentities($_POST["id"]);
     $patient = $service->findPersonById($patientId);
-    $date = date("d/m/Y");
+    $date = date("d-m-Y");
 
 
     ?>
