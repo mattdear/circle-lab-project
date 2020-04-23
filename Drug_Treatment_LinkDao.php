@@ -1,7 +1,7 @@
 <?php
+include ("DrugTreatmentLinkDto.php");
 
-
-class Drug_treatment_LinkDao
+class DrugTreatmentLinkDao
 {
     private $table, $conn;
     public function __construct($conn, $table)
@@ -11,7 +11,7 @@ class Drug_treatment_LinkDao
     }
 
     //find  list by drug//
-    public function findAllDT_LinkByDrug($drug)
+    public function findAllDrugTreatmentLinkByDrug($drug)
     {
         $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE drug=?");
         $query->execute(["drug" => $drug->getDrug()]);
@@ -26,7 +26,7 @@ class Drug_treatment_LinkDao
     }
 
     //find  list by prescription//
-    public function findAllDT_LinkByTreatment($treatment)
+    public function findAllDrugTreatmentLinkByTreatment($treatment)
     {
         $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE treatment=?");
         $query->execute(["treatment" => $treatment->getTreatment()]);
@@ -40,29 +40,29 @@ class Drug_treatment_LinkDao
         return $Drug_treatment_link;
     }
 
-    //Delete Drug_treatment_LinkDao
-    public function deleteDT_Link(DT_Link $removedDT_Link)
+    //Delete Drug treatment LinkDao
+    public function deleteDrugTreatmentLink(DrugTreatmentLinkDto $removedDT_Link)
     {
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table . " WHERE = drug =? AND treatment = ? ");
         $stmt->execute([$removedDT_Link->getDrug(), $removedDT_Link->getTreatment()]);
     }
 
-    //add a new Drug_treatment_LinkDao
-    public function AddDT_Link(DT_Link $newDT_Link)
+    //add a new Drug treatment LinkDao
+    public function AddDrugTreatmentLink(DrugTreatmentLinkDto $newDT_Link)
     {
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(drug, treatment) VALUES (? , ?)");
         $stmt->execute([$newDT_Link->getDrug(), $newDT_Link->getTreatment()]);
     }
 
-    //Updating a Drug_treatment_LinkDao
-    public function updateDT_Link(DT_Link $oldDT_Link, DT_Link $updatedDT_Link)
+    //Updating a Drug treatment LinkDao
+    public function updateDrugTreatmentLink(DrugTreatmentLinkDto $oldDT_Link, DrugTreatmentLinkDto $updatedDT_Link)
     {
         $stmt = $this->conn->prepare("UPDATE " . $this->table . " SET drug= ? , treatment = ? WHERE = drug =? AND treatment = ?  ");
         $stmt->execute([$updatedDT_Link->getDrug(), $updatedDT_Link->getTreatment(), $oldDT_Link->getDrug(), $oldDT_Link->getTreatment()]);
     }
 
-    //find all list Drug_treatment_LinkDao//
-    public function findAllDT_Link(Drug_treatment_linkDto $findAllDT_Link)
+    //find all list Drug treatment LinkDao//
+    public function findAllDrugTreatmentLink(Drug_treatment_linkDto $findAllDT_Link)
     {
         $query = $this->conn->prepare("SELECT * FROM " . $this->table);
         $query->execute();

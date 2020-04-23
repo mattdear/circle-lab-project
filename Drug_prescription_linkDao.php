@@ -1,4 +1,5 @@
 <?php
+include ("DrugPrescriptionLinkDto.php")
 class Drug_prescription_linkDao
 {
     private $table, $conn;
@@ -9,7 +10,7 @@ class Drug_prescription_linkDao
         $this->table = $table;
     }
     //find  list by drug//
-    public function findAllDP_LinkByDrug($drug)
+    public function findAllDrugPrescriptionLinkByDrug($drug)
     {
         $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE drug=?");
         $query->execute(["drug"=>$drug->getDrug()]);
@@ -23,7 +24,7 @@ class Drug_prescription_linkDao
         return $Drug_prescription_link;
     }
     //find  list by prescription//
-    public function findAllDP_LinkByPrescription($prescription)
+    public function findAllDrugPrescriptionLinkByPrescription($prescription)
     {
         $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE prescription=?");
         $query->execute(["prescription"=>$prescription->getPrescription()]);
@@ -37,22 +38,22 @@ class Drug_prescription_linkDao
         return $Drug_prescription_link;
     }
     //Delete Drug_prescription_link
-    public function deleteDP_Link(DS_Link $removedDS_Link){
+    public function deleteDrugPrescriptionLink(DrugPrescriptionLink $removedDS_Link){
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE = drug =? AND prescription = ? ");
         $stmt->execute([$removedDS_Link->getDrug(), $removedDS_Link->getPrescription()]);
     }
     //add a new Drug_prescription_link
-    public function AddDP_Link(DP_Link $newDP_Link){
+    public function AddDrugPrescriptionLink(DrugPrescriptionLink $newDP_Link){
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(drug, prescription) VALUES (? , ?)");
         $stmt->execute([$newDP_Link->getDrug(), $newDP_Link->getPrescription()]);
     }
     //Updating a Drug_prescription_link
-    public function updateDP_Link(DS_Link $oldDP_Link,   DP_Link $updatedDP_Link){
+    public function updateDrugPrescriptionLink(DrugPrescriptionLink $oldDP_Link,   DrugPrescriptionLink $updatedDP_Link){
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET drug= ? , prescription= ? WHERE = drug =? AND prescription = ?  ");
         $stmt->execute([$updatedDP_Link->getDrug(), $updatedDP_Link->getPrescription(), $oldDP_Link->getDrug(), $oldDP_Link->getPrescription()]);
     }
     //find all list Drug_prescription//
-    public function findAllDP_Link(Drug_prescription_linkDto $findAllDP_Link)
+    public function findAllDrugPrescriptionLink(DrugPrescriptionLink $findAllDP_Link)
     {
         $query = $this->conn->prepare("SELECT * FROM " . $this->table);
         $query->execute();
