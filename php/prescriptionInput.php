@@ -45,10 +45,9 @@ if (!isset ($_SESSION["gatekeeper"])) {
                     <?php
                     $drugs = $service->findAllDrugs();
                     foreach ($drugs as $drug) {
+                        $name = $drug->getName();
                         ?>
-                        <option value="<?=$drug?>"><?=$drug?></option>
-                        <option value="<?=$drug?>"><?=$drug?></option>
-                        <option value="<?=$drug?>"><?=$drug?></option>
+                        <option value="<?=$name?>"><?=$name?></option>
                         <?php
                     }
                     ?>

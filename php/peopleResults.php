@@ -2,6 +2,7 @@
 session_start();
 include("../OOP/WebPage.php");
 include("mFunctions.php");
+include("../service/serviceFacade.php");
 if (!isset ($_SESSION["gatekeeper"])) {
     popUpError("Your not logged in! Please log in and try again.");
 } else {
@@ -10,33 +11,43 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->setCSS("../css/smart-system");
     $webPage->writeHead();
 
-    $searchName = htmlentities($_GET["name"]);
+    $service = new serviceFacade();
+    $person = $service->findPersonById(1);
+
+    $searchName = strtolower(htmlentities($_GET["name"]));
     ?>
     <h1>People Results</h1>
     <div class="searchResults">
-
-        <div class="searchResult">
-            <div class="searchDetails">
-                <p>Name: <?= $searchName ?></p>
-                <p>Date of Birth:</p>
-                <p>Telephone:</p>
-                <p>Email:</p>
+        <?php
+        if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) or $searchName == strtolower(""$person->getLastName()" "$person->getLastName()"") {
+            ?>
+            <div class="searchResult">
+                <div class="searchDetails">
+                    <p>Name: <?=$person->getFirstName()?> <?=$person->getLastName()?></p>
+                    <p>Date of Birth: <?=$person->getDob()?></p>
+                    <p>Telephone: <?=$person->getPhone()?></p>
+                    <p>Email: <?=$person->getEmail()?></p>
+                </div>
+                <div class="searchButtons">
+                    <form method="post" action="modifyPerson.php">
+                        <input type="hidden" name="id" value="">
+                        <button type="submit" class="modDelButton">Modify</button>
+                    </form>
+                    <form method="post" action="deletePerson.php">
+                        <input type="hidden" name="id">
+                        <button type="submit" class="modDelButton">Delete</button>
+                    </form>
+                    <form method="post" action="prescriptionInput.php">
+                        <input type="hidden" name="id">
+                        <button type="submit" class="modDelButton">Add Prescription</button>
+                    </form>
+                </div>
             </div>
-            <div class="searchButtons">
-                <form method="post" action="modifyPerson.php">
-                    <input type="hidden" name="id" value="">
-                    <button type="submit" class="modDelButton">Modify</button>
-                </form>
-                <form method="post" action="deletePerson.php">
-                    <input type="hidden" name="id">
-                    <button type="submit" class="modDelButton">Delete</button>
-                </form>
-                <form method="post" action="prescriptionInput.php">
-                    <input type="hidden" name="id">
-                    <button type="submit" class="modDelButton">Add Prescription</button>
-                </form>
-            </div>
-        </div>
+            <?php
+        } else {
+            echo "<p>No Results Found</p>";
+        }
+        ?>
     </div>
 
     <button onclick="window.location.href = 'people.php';">Back</button>
