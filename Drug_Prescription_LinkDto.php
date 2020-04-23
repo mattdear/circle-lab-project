@@ -1,7 +1,7 @@
 <?php
 
 
-class Drug_Prescription_LinkDto
+class DrugPrescriptionLinkDto
 {
 private $drug, $prescription;
     public function __construct($drug, $prescription)
