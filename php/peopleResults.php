@@ -15,11 +15,12 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $person = $service->findPersonById(1);
 
     $searchName = strtolower(htmlentities($_GET["name"]));
+    $fullName = strtolower($person->getFirstName()) . " " . strtolower($person->getLastName());
     ?>
     <h1>People Results</h1>
     <div class="searchResults">
         <?php
-        if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) ) {
+        if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) or $searchName == $fullName) {
             ?>
             <div class="searchResult">
                 <div class="searchDetails">
@@ -38,7 +39,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                         <button type="submit" class="modDelButton">Delete</button>
                     </form>
                     <form method="post" action="prescriptionInput.php">
-                        <input type="hidden" name="id">
+                        <input type="hidden" name="id" value="<?=$person->getId()?>">
                         <button type="submit" class="modDelButton">Add Prescription</button>
                     </form>
                 </div>

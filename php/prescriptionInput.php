@@ -11,10 +11,13 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->setCSS("../css/smart-system");
     $webPage->writeHead();
 
-    $patient = "NAME HERE";
+    $service = new serviceFacade();
+
+    $patientId = htmlentities($_POST["id"]);
+    $patient = $service->findPersonById($patientId);
     $date = date("d/m/Y");
 
-    $service = new serviceFacade();
+
     ?>
     <h1>Add Prescription</h1>
     <form method="post" action="addPrescription.php">
@@ -23,8 +26,8 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 <label>Patient</label>
             </div>
             <div class="col-75">
-                <p>NAME HERE</p>
-                <input type="hidden" name="patient" value="<?= $patient ?>">
+                <p><?=$patient->getFirstName()?> <?=$patient->getLastName()?></p>
+                <input type="hidden" name="patient" value="<?= $patientId ?>">
             </div>
         </div>
         <div class="row">
@@ -68,9 +71,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <select class="inputs, select" name="location">
-                    <option value="10 London Road">10 London Road</option>
-                    <option value="11 Rolling Road">11 Rolling Road</option>
-                    <option value="12 Sandpark Square">12 Sandpark Square</option>
+                    <option value="11">10 London Road</option>
                 </select>
             </div>
         </div>
