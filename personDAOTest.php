@@ -23,7 +23,7 @@ class personDAOTest extends PHPUnit\Framework\TestCase
         // Test with complete template object.
         $person = new personDTO(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1, "Test_Username1", "Test_Password");
         $people = $DAO->findAllPeople();
-        $DAO->insertPerson($person);
+        $DAO->addPerson($person);
         $newPeople = $DAO->findAllPeople();
         $this->assertEquals(sizeof($newPeople), sizeof($people) + 1, $message = "testAddPerson, test 2");
 
@@ -36,9 +36,9 @@ class personDAOTest extends PHPUnit\Framework\TestCase
         $DAO = new personDAO($conn, "person");
 
         $person = new personDTO(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1 , "Test_Username2", "Test_Password");
-        $newPerson = $DAO->insertPerson($person);
+        $newPerson = $DAO->addPerson($person);
         $newPerson->setEmail("Updated email Test");
-        $DAO->updatePerson($newPerson);
+        $DAO->modifyPerson($newPerson);
 
         $updatedPerson = $DAO->findPersonById($newPerson->getId());
 
@@ -65,7 +65,7 @@ class personDAOTest extends PHPUnit\Framework\TestCase
 
         // Test with complete template object.
         $person = new personDTO(null, "bob", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1, "Test_Username3", "Test_Password");
-        $DAO->insertPerson($person);
+        $DAO->addPerson($person);
         $personTemplate = new personDTO(null, "bob" , null , null, null , null,null , null, null, null, null);
         $matchingPeople = $DAO->findMatchingPeople($personTemplate);
         $this->assertNotNull($matchingPeople);
@@ -83,7 +83,7 @@ class personDAOTest extends PHPUnit\Framework\TestCase
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $DAO = new personDAO($conn, "person");
         $person = new personDTO(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2, 1, "Test_Username4", "Test_Password");
-        $DAO->insertPerson($person);
+        $DAO->addPerson($person);
         $people = $DAO->findByRole(1);
         $foundPerson = $people[0];
         $this->assertEquals(1, $foundPerson->getRole(), $message = "testFindByRole , test 1");
@@ -97,7 +97,7 @@ class personDAOTest extends PHPUnit\Framework\TestCase
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $DAO = new personDAO($conn, "person");
         $person = new personDTO(null, "Test_FirstName", "Test_LastName", 01/01/2020, "Female", "Test@test.com", 0000 , 2 , 1 , "Test_Username5", "Test_Password");
-        $person = $DAO->insertPerson($person);
+        $person = $DAO->addPerson($person);
         $people = $DAO->findPersonById($person->getId());
         $this->assertEquals($person->getId() , $people->getId(), $message = "testFindById , test 1");
 

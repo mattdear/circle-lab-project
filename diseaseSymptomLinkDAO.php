@@ -12,13 +12,13 @@ class diseaseSymptomLinkDAO
     }
 
     //Inserting a new Disease_Symptom_Link
-    public function insertDiseaseSymptomLinkDTO(diseaseSymptomLinkDTO $newDS_Link){
+    public function addDiseaseSymptomLinkDTO( $newDS_Link){
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(disease, symptom) VALUES (? , ?)");
         $stmt->execute([$newDS_Link->getDisease(), $newDS_Link->getSymptom()]);
     }
 
     //Updating a Disease_Symptom_Link
-    public function updateDiseaseSymptomLinkDTO(diseaseSymptomLinkDTO $oldDS_Link,   diseaseSymptomLinkDTO $updatedDS_Link){
+    public function modifyDiseaseSymptomLinkDTO($oldDS_Link, $updatedDS_Link){
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET disease= ? , treatment= ? WHERE disease =? AND symptom = ?  ");
         $stmt->execute([$updatedDS_Link->getDisease(), $updatedDS_Link->getSymptom(), $oldDS_Link->getDisease(), $oldDS_Link->getSymptom()]);
     }
@@ -46,9 +46,10 @@ class diseaseSymptomLinkDAO
     }
 
     //Delete Disease_Symptom_Link
-    public function removeDiseaseSymptomLinkDTO(diseaseSymptomLinkDTO $removedDS_Link){
+    public function deleteDiseaseSymptomLinkDTO($removedDS_Link){
             $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE disease =? AND symptom = ? ");
             $stmt->execute([$removedDS_Link->getDisease(), $removedDS_Link->getSymptom()]);
         }
 }
-?> 
+
+?>

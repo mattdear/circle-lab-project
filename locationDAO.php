@@ -11,7 +11,7 @@ class locationDAO
     }
 
     //Inserting a new location
-    public function insertLocation(locationDTO  $newLocation){
+    public function addLocation($newLocation){
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(name , address , type) VALUES (? , ? , ? )");
         $stmt->execute([$newLocation->getName(), $newLocation->getAddress(), $newLocation->getType()]);
         $id = (int)$this->conn->lastInsertId();
@@ -21,7 +21,7 @@ class locationDAO
     }
 
     //Updating a location
-    public function updateLocation(locationDTO $updatedLocation){
+    public function modifyLocation($updatedLocation){
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET name= ? , address= ? , type= ?  WHERE id= ?");
         $stmt->execute([$updatedLocation->getName(), $updatedLocation->getAddress(), $updatedLocation->getType() , $updatedLocation->getId()]);
     }
@@ -37,7 +37,7 @@ class locationDAO
     }
 
     //Find location by template
-    public function findMatchingLocations(locationDTO $locationTemplate){
+    public function findMatchingLocations($locationTemplate){
         $locations = [];
         $allLocations = $this->findAllLocations();
         $matching = true;
@@ -66,7 +66,7 @@ class locationDAO
     }
 
     //Find by type
-    public function findByType($type){
+    public function findLocationByType($type){
         $stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE type=?");
         $stmt->execute([$type]);
         $locations = [];
@@ -84,4 +84,5 @@ class locationDAO
         return new locationDTO($row["id"], $row["name"], $row["address"],$row["type"]);
     }
 }
-?> 
+
+?>

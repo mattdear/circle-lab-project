@@ -12,13 +12,13 @@ class diseaseTreatmentLinkDAO
     }
 
     //Inserting a new Disease_Treatment_Link
-    public function insertDiseaseTreatmentLinkDTO(diseaseTreatmentLinkDTO $newDT_Link){
+    public function addDiseaseTreatmentLinkDTO($newDT_Link){
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(disease, treatment) VALUES (? , ?)");
         $stmt->execute([$newDT_Link->getDisease(), $newDT_Link->getTreatment()]);
     }
 
     //Updating a Disease_Treatment_Link
-    public function updateDiseaseTreatmentLinkDTO(diseaseTreatmentLinkDTO $updatedDT_Link ,  diseaseTreatmentLinkDTO $oldDT_Link){
+    public function modifyDiseaseTreatmentLinkDTO($updatedDT_Link , $oldDT_Link){
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET disease= ? , treatment= ? WHERE disease =? AND treatment = ?  ");
         $stmt->execute([$updatedDT_Link->getDisease(), $updatedDT_Link->getTreatment(), $oldDT_Link->getDisease(), $oldDT_Link->getTreatment()]);
     }
@@ -46,9 +46,10 @@ class diseaseTreatmentLinkDAO
     }
 
     //Delete Disease_Treatment_Link
-    public function removeDiseaseTreatmentLinkDTO(diseaseTreatmentLinkDTO $removedDT_Link){
+    public function deleteDiseaseTreatmentLinkDTO($removedDT_Link){
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE disease =? AND treatment = ? ");
         $stmt->execute([$removedDT_Link->getDisease(), $removedDT_Link->getTreatment()]);
     }
 }
-?> 
+
+?>

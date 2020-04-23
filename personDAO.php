@@ -11,19 +11,19 @@ class personDAO
     }
 
     //Inserting a new person
-    public function insertPerson(personDTO $newPerson){
-      if($newPerson != null && $newPerson->getId() == null && $newPerson->getFirstName() != null && $newPerson->getLastName() && $newPerson->getDob() != null && $newPerson->getGender() != null && $newPerson->getEmail() != null && $newPerson->getPhone() != null && $newPerson->getAddress() != null && $newPerson->getRole() != null && $newPerson->getUsername() != null && $newPerson->getPassword() != null {
-        $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(first_name , last_name , dob , gender , email , phone , address , role , username, password) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ?, ? )");
-        $stmt->execute([$newPerson->getFirstName(), $newPerson->getLastName(), $newPerson->getDob() , $newPerson->getGender(), $newPerson->getEmail() , $newPerson->getPhone(), $newPerson->getAddress() , $newPerson->getRole(), $newPerson->getUsername(), $newPerson->getPassword()]);
-        $id = (int)$this->conn->lastInsertId();
-        $newPerson->setId($id);
+    public function addPerson($newPerson){
+      if($newPerson != null && $newPerson->getId() == null && $newPerson->getFirstName() != null && $newPerson->getLastName() && $newPerson->getDob() != null && $newPerson->getGender() != null && $newPerson->getEmail() != null && $newPerson->getPhone() != null && $newPerson->getAddress() != null && $newPerson->getRole() != null && $newPerson->getUsername() != null && $newPerson->getPassword() != null) {
+          $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(first_name , last_name , dob , gender , email , phone , address , role , username, password) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ?, ? )");
+          $stmt->execute([$newPerson->getFirstName(), $newPerson->getLastName(), $newPerson->getDob() , $newPerson->getGender(), $newPerson->getEmail() , $newPerson->getPhone(), $newPerson->getAddress() , $newPerson->getRole(), $newPerson->getUsername(), $newPerson->getPassword()]);
+          $id = (int)$this->conn->lastInsertId();
+          $newPerson->setId($id);
       }
         return $newPerson;
 
     }
 
     //Updating a person
-    public function updatePerson(personDTO $updatedPerson){
+    public function modifyPerson($updatedPerson){
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET first_name= ? , last_name= ? , dob= ? , gender= ? , email= ? , phone= ? , address= ? , role= ? , username= ? , password= ?  WHERE id= ?");
         $stmt->execute([$updatedPerson->getFirstName(), $updatedPerson->getLastName(), $updatedPerson->getDob() , $updatedPerson->getGender(), $updatedPerson->getEmail() , $updatedPerson->getPhone(), $updatedPerson->getAddress() , $updatedPerson->getRole(), $updatedPerson->getUsername(), $updatedPerson->getPassword(), $updatedPerson->getId()]);
     }
@@ -39,7 +39,7 @@ class personDAO
     }
 
     //Find person by template
-    public function findMatchingPeople(personDTO $personTemplate){
+    public function findMatchingPeople($personTemplate){
       if($personTemplate != null){
           $people = [];
           $allPeople = $this->findAllPeople();
@@ -125,12 +125,9 @@ class personDAO
           $stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE id=?");
           $stmt->execute([$id]);
           $row = $stmt->fetch();
-          $count = $stmn
           return new personDTO($row["id"], $row["first_name"], $row["last_name"],$row["dob"], $row["gender"], $row["email"],$row["phone"], $row["address"], $row["role"], $row["username"], $row["password"]);
         }
         return null;
     }
 }
-?> 
-
-
+?>

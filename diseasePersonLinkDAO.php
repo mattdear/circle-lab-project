@@ -12,13 +12,13 @@ class diseasePersonLinkDAO
     }
 
     //Inserting a new Disease_Person_Link
-    public function insertDiseasePersonLinkDTO(diseasePersonLinkDTO $newDPe_Link){
+    public function addDiseasePersonLinkDTO($newDPe_Link){
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(disease, person) VALUES (? , ?)");
         $stmt->execute([$newDPe_Link->getDisease(), $newDPe_Link->getPerson()]);
     }
 
     //Updating a Disease_Person_Link
-    public function updateDiseasePersonLinkDTO(diseasePersonLinkDTO $oldDPe_Link , diseasePersonLinkDTO $updatedDPe_Link){
+    public function modifyDiseasePersonLinkDTO($oldDPe_Link , $updatedDPe_Link){
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET disease= ? , person= ? WHERE disease =? AND person = ?  ");
         $stmt->execute([$updatedDPe_Link->getDisease(), $updatedDPe_Link->getPerson(), $oldDPe_Link->getDisease(), $oldDPe_Link->getPerson()]);
     }
@@ -46,9 +46,10 @@ class diseasePersonLinkDAO
     }
 
     //Delete Disease_Person_Link
-    public function removeDiseasePersonLinkDTO(diseasePersonLinkDTO $removedDPe_Link){
+    public function deleteDiseasePersonLinkDTO($removedDPe_Link){
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE disease =? AND person = ? ");
         $stmt->execute([$removedDPe_Link->getDisease(), $removedDPe_Link->getPerson()]);
     }
 }
-?> 
+
+?>

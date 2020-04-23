@@ -23,10 +23,10 @@ class diseaseTreatmentLinkDAOTest extends PHPUnit\Framework\TestCase
         $links = $DAO->findByDiseaseId(6);
         // Test with compleZte template object.
         $link = new diseasePersonLinkDTO(6,25);
-        $DAO->insertDiseaseTreatmentLinkDTO($link);
+        $DAO->addDiseaseTreatmentLinkDTO();DiseaseTreatmentLinkDTO($link);
         $newLinks = $DAO->findByDiseaseId(6);
         $this->assertEquals(sizeof($newLinks), sizeof($links) + 1, $message = "testInsert, test 1");
-        $DAO->removeDiseaseTreatmentLinkDTO($link);
+        $DAO->deleteDiseaseTreatmentLinkDTO($link);
     }
 
     public function testUpdate()
@@ -37,10 +37,10 @@ class diseaseTreatmentLinkDAOTest extends PHPUnit\Framework\TestCase
 
 
         $link = new diseasePersonLinkDTO(6,24);
-        $DAO->insertDiseaseTreatmentLinkDTO($link);
+        $DAO->addDiseaseTreatmentLinkDTO($link);
         $link->setDisease(2);
         $oldLink = new diseasePersonLinkDTO(6,24);
-        $DAO->updateDiseaseTreatmentLinkDTO($link, $oldLink );
+        $DAO->modifyDiseaseTreatmentLinkDTO($link, $oldLink );
         $links = $DAO->findByDiseaseId(2);
         foreach($links as $foundLink)
         {
@@ -49,7 +49,7 @@ class diseaseTreatmentLinkDAOTest extends PHPUnit\Framework\TestCase
             }
         }
         $this->assertEquals($link, $newLink, $message = "testUpdate, test 1");
-        $DAO->removeDiseaseTreatmentLinkDTO($newLink);
+        $DAO->deleteDiseaseTreatmentLinkDTO($newLink);
     }
 
     public function testFindByTreatmentId()
@@ -60,7 +60,7 @@ class diseaseTreatmentLinkDAOTest extends PHPUnit\Framework\TestCase
 
         $link = new diseasePersonLinkDTO(6,23);
 
-        $DAO->insertDiseasePersonLinkDTO($link);
+        $DAO->addDiseaseTreatmentLinkDTO($link);
         $links = $DAO->findByTreatmentId(23);
 
         foreach($links as $foundLink )
@@ -71,7 +71,7 @@ class diseaseTreatmentLinkDAOTest extends PHPUnit\Framework\TestCase
         }
 
         $this->assertEquals($link, $newLink, $message = "testFindByTreatmentId, test 1");
-        $DAO->removeDiseaseTreatmentLinkDTO($link);
+        $DAO->deleteDiseaseTreatmentLinkDTO($link);
     }
 
     public function testFindByDiseaseId()
@@ -82,7 +82,7 @@ class diseaseTreatmentLinkDAOTest extends PHPUnit\Framework\TestCase
 
        $link = new diseasePersonLinkDTO(6,22);
 
-        $DAO->insertDiseaseTreatmentLinkDTO($link);
+        $DAO->addDiseaseTreatmentLinkDTO($link);
         $links = $DAO->findByDiseaseId(6);
 
         foreach($links as $foundLink )
@@ -93,7 +93,7 @@ class diseaseTreatmentLinkDAOTest extends PHPUnit\Framework\TestCase
         }
 
         $this->assertEquals($link, $newLink, $message = "testFindByDiseaseId, test 1");
-        $DAO->removeDiseaseTreatmentLinkDTO($link);
+        $DAO->deleteDiseaseTreatmentLinkDTO($link);
     }
 
     public function testDelete(){
@@ -102,9 +102,9 @@ class diseaseTreatmentLinkDAOTest extends PHPUnit\Framework\TestCase
         $DAO = new diseaseTreatmentLinkDAO($conn, "disease_treatment_link");
 
         $link = new diseasePersonLinkDTO(6,21);
-        $DAO->insertDiseaseTreatmentLinkDTO($link);
+        $DAO->addDiseaseTreatmentLinkDTO($link);
         $links = $DAO->findByDiseaseId(6);
-        $DAO->removeDiseaseTreatmentLinkDTO($link);
+        $DAO->deleteDiseaseTreatmentLinkDTO($link);
         $newLinks = $DAO->findByDiseaseId(6);
         $this->assertEquals(sizeof($newLinks), sizeof($links) - 1, $message = "testInsert, test 1");
 

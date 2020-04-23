@@ -36,4 +36,5 @@ class diseaseTreatmentLinkDTO
         return $string;
     }
 }
-?> 
+
+?>
