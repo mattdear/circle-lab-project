@@ -1,6 +1,6 @@
 <?php
-
 include("ReportDto.php");
+
 class ReportDao
 {
 
@@ -13,60 +13,62 @@ class ReportDao
     }
 
 // add a Report Request//
-    public function addReportRequest(ReporDto $newReportRequest)
+    public function AddReportRequest(ReporDto $newReportRequest)
     {
         if ($newReportRequest != null && $newReportRequest->getApproved() == 0) {
             $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(id, name, requester, requester_date, start_date, finish_date,
-    max_age, min_age, male , female, disease) VALUES (? , ? , ? , ? , ? , ? , ? , ?, ?, ?, ? )");
-            $stmt->execute([$newReportRequest->getid(), $newReportRequest->getname(), $newReportRequest->getrequester(), $newReportRequest->getrequester_date(),
-                $newReportRequest->getstart_date(), $newReportRequest->getfinish_date(), $newReportRequest->getmax_age(), $newReportRequest->getapproved(),
-                $newReportRequest->getmin_age(), $newReportRequest->getmale(), $newReportRequest->getfemale(), $newReportRequest->getdisease()]);
-            return $newReportRequest;
+    max_age, min_age, male , female, disease, Isactive) VALUES (? , ? , ? , ? , ? , ? , ? , ?, ?, ?, ?, ?)");
+            $stmt->execute([$newReportRequest->getname(), $newReportRequest->getrequester(), $newReportRequest->getRequestDate(),
+                $newReportRequest->getStartDate(), $newReportRequest->getFinishDate(), $newReportRequest->getApproved(), $newReportRequest->getMaxAge(),
+                $newReportRequest->getMinAge(), $newReportRequest->getMale(), $newReportRequest->getFemale(), $newReportRequest->getDisease(), $newReportRequest->getIsactive()]);
+            $id = (int)$this->conn->lastInsertId();
+            $newReportRequest->setId($id);
+        }
+    }
+
+// find a ReportRequest//
+    public function FindAllReportRequest(ReporDto $newReportRequest)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE approved != null");
+        $stmt->execute(["approved"=>$newReportRequest->getApproved()]);
+        $newReportRequest = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($newReportRequest, new ReporDto($row["id"], $row["name"], $row["requester"],
+                $row["start_date"], $row["finish_date"], $row["max_age"], $row["min_age"], $row["male"], $row["female"], $row["disease"],$row["isactive"]));
+        }
+        return $newReportRequest;
+    }
+    public function DeleteReportRequest(ReporDto $deleteReportRequest)
+    {
+        if($deleteReportRequest != null && $deleteReportRequest->getId() != null)
+        {
+            $stmt = $this->conn->prepare("DELETE FROM " .  $this->table .  " WHERE id= id");
+            $stmt->execute([":id"=>$deleteReportRequest->getId()]);
+            $stmt = null;
+            $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE id= id");
+            $stmt->execute([":id"=>$deleteReportRequest->getId()]);
+            $count = $stmt->rowCount();
+            if($count == 0)
+            {
+                return true;
+            }
+            return false;
         }
         return false;
     }
 
-// find a ReportRequest//
-    public function findAllReportRequest()
-    {
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE approved != null");
-        $query->execute();
-        $ReportRequest = [];
-        while ($row = $query->fetch()) {
-            $ReportRequest = new ReportRequest($row["name"]);
-            $ReportRequest->setId($row["id"]);
-            $ReportRequest->setrequester($row["requester"]);
-            $ReportRequest->setrequester_date($row["requester_date"]);
-            $ReportRequest->setstart_date($row["start_date"]);
-            $ReportRequest->setfinish_date($row["finish_date"]);
-            $ReportRequest->setapproved($row["approved"]);
-            $ReportRequest->setmax_age($row["max_age"]);
-            $ReportRequest->setmin_age($row["min_age"]);
-            $ReportRequest->setmale($row["male"]);
-            $ReportRequest->setfemale($row["female"]);
-            $ReportRequest->disease($row["disease"]);
-            $ReportRequest[] = $ReportRequest;
-        }
-        return $ReportRequest;
-    }
-
-    //delete a report request//
-    public function deleteReportRequest(ReportDto $deleteReportRequest)
-    {
-        $query = $this->conn->prepare("DELETE FROM " . $this->table . " WHERE id=? AND approved = 0 ");
-        $query->execute([$deleteReportRequest->getid(), $deleteReportRequest->getapproved()]);
-    }
-
 // approve report request//
-    public function approvedReportRequest(ReportDto $approvedReportRequest)
+    public function ApproveReportRequest(ReportDto $ReportRequest, ReportDto $ApproveReportRequest)
     {
-        if ($approvedReportRequest != null && $approvedReportRequest->getApproved() == 0) {
-            $stmt = $this->conn->prepare("UPDATE FROM " . $this->table . " WHERE approved=:approved");
-            $stmt->execute([":approved" => $approvedReportRequest->getApproved()]);
-            $stmt->execute($approvedReportRequest->getid(), $approvedReportRequest->getname(), $approvedReportRequest->getrequester(), $approvedReportRequest->getrequester_date(),
-                $approvedReportRequest->getstart_date(), $approvedReportRequest->getfinish_date(), $approvedReportRequest->getapproved(), $approvedReportRequest->getmax_age(),
-                $approvedReportRequest->getmin_age(), $approvedReportRequest->getmale(), $approvedReportRequest->getfemale(), $approvedReportRequest->getdisease()]);
-                if ($approvedReportRequest->getApproved() == 1) {
+        if ($ReportRequest != null && $ReportRequest->getApproved() == 0) {
+            $stmt = $this->conn->prepare("UPDATE FROM " . $this->table . " SET approved = ? WHERE id = ?, name = ?, requester = ?, request_date = ?, start_date = ?, finish_date = ?, max_age = ?, min_age = ?, male = ?, female = ?, disease = ?, isactive = ?");
+            $stmt->execute([$ReportRequest->getname(), $ReportRequest->getrequester(), $ReportRequest->getRequestDate(),
+                $ReportRequest->getStartDate(), $ReportRequest->getFinishDate(), $ReportRequest->getApproved(), $ReportRequest->getMaxAge(),
+                $ReportRequest->getMinAge(), $ReportRequest->getMale(), $ReportRequest->getFemale(), $ReportRequest->getDisease(), $ReportRequest->getIsactive(),
+                $ApproveReportRequest->getname(), $ApproveReportRequest->getrequester(), $ApproveReportRequest->getRequestDate(),
+                $ApproveReportRequest->getStartDate(), $ApproveReportRequest->getFinishDate(), $ApproveReportRequest->getApproved(), $ApproveReportRequest->getMaxAge(),
+                $ApproveReportRequest->getMinAge(), $ApproveReportRequest->getMale(), $ApproveReportRequest->getFemale(), $ApproveReportRequest->getDisease(), $ApproveReportRequest->getIsactive()]);
+             if ($ApproveReportRequest->getApproved() == 1) {
                     return true;
                 }
         return false;
@@ -75,162 +77,124 @@ class ReportDao
     }
 
     // decline report request//
-    public function declineReportRequest(ReportDto $declineReportRequest)
+    public function DeclineReportRequest(ReportDto $ReportRequest, ReportDto $DeclineReportRequest)
     {
-        if ($declineReportRequest != null && $declineReportRequest->getApproved() == 0) {
-            $stmt = $this->conn->prepare("UPDATE FROM " . $this->table . " WHERE approved=:approved");
-            $stmt->execute([":approved" => $declineReportRequest->getApproved()]);
-            $stmt->execute($declineReportRequest->getid(), $declineReportRequest->getname(), $declineReportRequest->getrequester(), $declineReportRequest->getrequester_date(),
-                $declineReportRequest->getstart_date(), $declineReportRequest->getfinish_date(), $declineReportRequest->getapproved(), $declineReportRequest->getmax_age(),
-                $declineReportRequest->getmin_age(), $declineReportRequest->getmale(), $declineReportRequest->getfemale(), $declineReportRequest->getdisease()]);
+        if ($ReportRequest != null && $ReportRequest->getApproved() == 0) {
+            $stmt = $this->conn->prepare("UPDATE FROM " . $this->table . " SET approved = ? WHERE id = ?, name = ?, requester = ?, request_date = ?, start_date = ?, finish_date = ?, max_age = ?, min_age = ?, male = ?, female = ?, disease = ?, isactive = ?");
+            $stmt->execute([$ReportRequest->getname(), $ReportRequest->getrequester(), $ReportRequest->getRequestDate(),
+                $ReportRequest->getStartDate(), $ReportRequest->getFinishDate(), $ReportRequest->getApproved(), $ReportRequest->getMaxAge(),
+                $ReportRequest->getMinAge(), $ReportRequest->getMale(), $ReportRequest->getFemale(), $ReportRequest->getDisease(), $ReportRequest->getIsactive(),
+                $DeclineReportRequest->getname(), $DeclineReportRequest->getrequester(), $DeclineReportRequest->getRequestDate(),
+                $DeclineReportRequest->getStartDate(), $DeclineReportRequest->getFinishDate(), $DeclineReportRequest->getApproved(), $DeclineReportRequest->getMaxAge(),
+                $DeclineReportRequest->getMinAge(), $DeclineReportRequest->getMale(), $DeclineReportRequest->getFemale(), $DeclineReportRequest->getDisease(), $DeclineReportRequest->getIsactive()]);
+            if ($DeclineReportRequest->getApproved() == 2) {
+                return true;
+            }
+            return false;
         }
-        if ($declineReportRequest->getApproved() == 2) {
-            return true;
-        }
-        return false
-        }
+        return false;
+    }
 
 
 //add a new a report//
-    public function addReport(ReporDto $newReport)
+    public function AddReport(ReporDto $newReport)
     {
-        $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(id, name, requester, requester_date, start_date, finish_date,
-     approved, max_age, min_age, male , female, disease) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ?, ?, ?, ? )");
-        $stmt->execute([$newReport->getid(), $newReport->getname(), $newReport->getrequester(), $newReport->getrequester_date(),
-            $newReport->getstart_date(), $newReport->getfinish_date(), $newReport->getapproved(), $newReport->getmax_age(),
-            $newReport->getmin_age(), $newReport->getmale(), $newReport->getfemale(), $newReport->getdisease()]);
+        if ($newReport != null) {
+            $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(id, name, requester, requester_date, start_date, finish_date,
+    max_age, min_age, male , female, disease, Isactive) VALUES (? , ? , ? , ? , ? , ? , ? , ?, ?, ?, ?, ?)");
+            $stmt->execute([$newReport->getname(), $newReport->getrequester(), $newReport->getRequestDate(),
+                $newReport->getStartDate(), $newReport->getFinishDate(), $newReport->getApproved(), $newReport->getMaxAge(),
+                $newReport->getMinAge(), $newReport->getMale(), $newReport->getFemale(), $newReport->getDisease(), $newReport->getIsactive()]);
+            $id = (int)$this->conn->lastInsertId();
+            $newReport->setId($id);
+        }
     }
 
 //update a report//
-    public function updateReport(ReportDto $updateReport)
-    {
-        $query = $this->conn->prepare("UPDATE " . $this->table . " SET name=?, WHERE ID=?,requester=?,
-     requester_date=?, start_date=?, finish_date=?, approved=?, max_age=?, min_age=?, male=?, female=?, disease=?;");
-        $query->execute([$updateReport->getid(), $updateReport->getname(), $updateReport->getrequester(), $updateReport->getrequester_date(),
-            $updateReport->getstart_date(), $updateReport->getfinish_date(), $updateReport->getapproved(), $updateReport->getmax_age(),
-            $updateReport->getmin_age(), $updateReport->getmale(), $updateReport->getfemale(), $updateReport->getdisease()]);
-    }
+public function UpdateReport(ReportDto $oldReport, ReportDto $updateReport)
+{
+        $stmt = $this->conn->prepare("UPDATE FROM " . $this->table . "  WHERE id = ?, name = ?, requester = ?, request_date = ?, start_date = ?, finish_date = ?, approved = ?, max_age = ?, min_age = ?, male = ?, female = ?, disease = ?, isactive = ?");
+        $stmt->execute([$updateReport->getname(), $updateReport->getrequester(), $updateReport->getRequestDate(),
+            $updateReport->getStartDate(), $updateReport->getFinishDate(), $updateReport->getApproved(),
+            $updateReport->getMaxAge(), $updateReport->getMinAge(), $updateReport->getMale(), $updateReport->getFemale(),
+            $updateReport->getDisease(),$updateReport->getIsactive(),
+            $oldReport->getname(), $oldReport->getrequester(), $oldReport->getRequestDate(), $oldReport->getStartDate(),
+            $oldReport->getFinishDate(), $oldReport->getApproved(), $oldReport->getMaxAge(), $oldReport->getMinAge(),
+            $oldReport->getMale(), $oldReport->getFemale(), $oldReport->getDisease(), $oldReport->getIsactive()]);
+}
 
-//delete a report//
-    public function deleteReport(ReportDto $deleteReport)
-    {
-        $query = $this->conn->prepare("DELETE FROM " . $this->table . " WHERE id=?");
-        $query->execute([$deleteReport->getid()]);
-        $count = $query->rowCount();
-        if ($count > 0) {
-            return true;
-        } else {
-            return false;
+//find report by id//
+    public function FindReportById(ReportDto $id)
+        {
+            $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . "  WHERE id = ?");
+            $stmt->execute(["id"=>$id->getId()]);
+            $count = $stmt->rowCount();
+            $Report = [];
+            if($count == 1)
+            {
+                ($row = $stmt->fetch(PDO::FETCH_ASSOC));
+                new ReporDto($row["id"], $row["name"], $row["requester"],
+                    $row["start_date"], $row["finish_date"], $row["max_age"], $row["min_age"], $row["male"], $row["female"], $row["disease"],$row["isactive"]));
         }
-    }
-
-//find a single report by id//
-    public function findReportById(ReportDto $findReportById)
-    {
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE TRUE=TRUE");
-        if ($findReportById->getId != null) {
-            $query = $query + " AND id = ?";
+            return $Report;
         }
-        $findReportById = $query->execute([$findReportById->getId()]);
-        return $findReportById;
-    }
-
-//find all reports//
-    public function findAllReport()
+//find report by requester//
+    public function FindReportByRequester(ReportDto $findReportByRequester)
     {
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table);
-        $query->execute();
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE requester=:requester");
+        $stmt->execute(["requester"=>$findReportByRequester->getRequester()]);
+        $count = $stmt->rowCount();
+        if($count == 1)
+        {
+            ($row = $stmt->fetch(PDO::FETCH_ASSOC));
+            new ReporDto($row["id"], $row["name"], $row["requester"],
+                $row["start_date"], $row["finish_date"], $row["max_age"], $row["min_age"], $row["male"], $row["female"], $row["disease"],$row["isactive"]));
+        }
+        return new ReporDto;
+    }
+    //find all//
+    public function FindAllReport(ReportDto){
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table);
         $Report = [];
-        while ($row = $query->fetch()) {
-            $Report = new Report($row["name"]);
-            $Report->setId($row["id"]);
-            $Report->setrequester($row["requester"]);
-            $Report->setrequester_date($row["requester_date"]);
-            $Report->setstart_date($row["start_date"]);
-            $Report->setfinish_date($row["finish_date"]);
-            $Report->setapproved($row["approved"]);
-            $Report->setmax_age($row["max_age"]);
-            $Report->setmin_age($row["min_age"]);
-            $Report->setmale($row["male"]);
-            $Report->setfemale($row["female"]);
-            $Report->disease($row["disease"]);
-            $Report[] = $Report;
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($Report, new ReporDto($row["id"], $row["name"], $row["requester"],
+                $row["start_date"], $row["finish_date"], $row["max_age"], $row["min_age"], $row["male"], $row["female"], $row["disease"], $row["isactive"]));
         }
         return $Report;
     }
-//find report by requester//
-    public function findReportByRequester(ReportDto $findReportByRequester)
+    //find by approval status.
+    public function FindByApproveStatus(ReportDto $findByApproveStatus)
     {
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE TRUE=TRUE");
-        if ($findReportByRequester->getRequester != null) {
-            $query = $query + " AND requester = ?";
+        $stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE approved=: 1 AND 2");
+        $stmt->execute(["approved"=>$findByApproveStatus->getApproved()]);
+        $Report = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($Report, new ReportDto($row["id"], $row["description"], $row["patient"],
+                $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
         }
-        $findReportByRequester = $query->execute([$findReportByRequester->getRequester()]);
-        return $findReportByRequester;
+        return $Report;
     }
-    public function findByAwaitingApproval(ReportDto $approvalStatus){
-            $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE approved= 0");
-            $query->execute();
-        $approvalStatus = [];
-            while ($row = $query->fetch()) {
-                $approvalStatus = new ReportRequest($row["name"]);
-                $approvalStatus->setId($row["id"]);
-                $approvalStatus->setrequester($row["requester"]);
-                $approvalStatus->setrequester_date($row["requester_date"]);
-                $approvalStatus->setstart_date($row["start_date"]);
-                $approvalStatus->setfinish_date($row["finish_date"]);
-                $approvalStatus->setapproved($row["approved"]);
-                $approvalStatus->setmax_age($row["max_age"]);
-                $approvalStatus->setmin_age($row["min_age"]);
-                $approvalStatus->setmale($row["male"]);
-                $approvalStatus->setfemale($row["female"]);
-                $approvalStatus->disease($row["disease"]);
-                $approvalStatus[] = $approvalStatus;
+    public function FindByDeclined(ReportDto $declined)
+        {
+            $stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE approved=: 2");
+            $stmt->execute(["approved"=>$declined->getApproved()]);
+            $Report = [];
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                array_push($Report, new ReportDto($row["id"], $row["description"], $row["patient"],
+                    $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
             }
-            return $approvalStatus;
+            return $Report;
         }
-    public function findByDeclined(ReportDto $approvalStatus){
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE approved= 1");
-        $query->execute();
-        $approvalStatus = [];
-        while ($row = $query->fetch()) {
-            $approvalStatus = new ReportRequest($row["name"]);
-            $approvalStatus->setId($row["id"]);
-            $approvalStatus->setrequester($row["requester"]);
-            $approvalStatus->setrequester_date($row["requester_date"]);
-            $approvalStatus->setstart_date($row["start_date"]);
-            $approvalStatus->setfinish_date($row["finish_date"]);
-            $approvalStatus->setapproved($row["approved"]);
-            $approvalStatus->setmax_age($row["max_age"]);
-            $approvalStatus->setmin_age($row["min_age"]);
-            $approvalStatus->setmale($row["male"]);
-            $approvalStatus->setfemale($row["female"]);
-            $approvalStatus->disease($row["disease"]);
-            $approvalStatus[] = $approvalStatus;
+    public function FindByApproved(ReportDto $approved)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE approved=: 1");
+        $stmt->execute(["approved"=>$approved->getApproved()]);
+        $Report = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($Report, new ReportDto($row["id"], $row["description"], $row["patient"],
+                $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
         }
-        return $approvalStatus;
+        return $Report;
     }
-    public function findByApproved(ReportDto $approvalStatus){
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE approved= 2");
-        $query->execute();
-        $approvalStatus = [];
-        while ($row = $query->fetch()) {
-            $approvalStatus = new ReportRequest($row["name"]);
-            $approvalStatus->setId($row["id"]);
-            $approvalStatus->setrequester($row["requester"]);
-            $approvalStatus->setrequester_date($row["requester_date"]);
-            $approvalStatus->setstart_date($row["start_date"]);
-            $approvalStatus->setfinish_date($row["finish_date"]);
-            $approvalStatus->setapproved($row["approved"]);
-            $approvalStatus->setmax_age($row["max_age"]);
-            $approvalStatus->setmin_age($row["min_age"]);
-            $approvalStatus->setmale($row["male"]);
-            $approvalStatus->setfemale($row["female"]);
-            $approvalStatus->disease($row["disease"]);
-            $approvalStatus[] = $approvalStatus;
-        }
-        return $approvalStatus;
-    }
-}
 
 ?>

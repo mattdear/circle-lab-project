@@ -11,69 +11,46 @@ class DrugTreatmentLinkDao
     }
 
     //find  list by drug//
-    public function findAllDrugTreatmentLinkByDrug($drug)
+    public function FindAllDrugTreatmentLinkByPrescription($id)
     {
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE drug=?");
-        $query->execute(["drug" => $drug->getDrug()]);
-        $Drugtreatmentlink = [];
-        while ($row = $query->fetch()) {
-            $Drugtreatmentlink = new $Drugtreatmentlink ($row["Drug_treatment_Link"]);
-            $Drugtreatmentlink->setDrug($row["drug"]);
-            $Drugtreatmentlink->getTreatment($row["treatment"]);
-            $Drugtreatmentlink[] = $Drugtreatmentlink;
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE treatment=?");
+        $stmt->execute([$id]);
+        $DrugTreatmentLink = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($DrugTreatmentLink, new DrugTreatmentLinkDto($row["drug"], $row["treatment"]));
         }
-        return $Drugtreatmentlink;
+        return $DrugTreatmentLink;
     }
 
-    //find  list by prescription//
-    public function findAllDrugTreatmentLinkByTreatment($treatment)
-    {
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE treatment=?");
-        $query->execute(["treatment" => $treatment->getTreatment()]);
-        $Drugtreatmentlink = [];
-        while ($row = $query->fetch()) {
-            $Drugtreatmentlink = new $Drugtreatmentlink ($row["$Drugtreatmentlink"]);
-            $Drugtreatmentlink->setDrug($row["drug"]);
-            $Drugtreatmentlink->getTreatment($row["treatment"]);
-            $Drugtreatmentlink[] = $Drugtreatmentlink;
-        }
-        return $Drugtreatmentlink;
+    //Delete Drug treatment link
+    public function DeleteDrugTreatmentLink(DrugTreatmentLinkDto $removedDrugTreatmentLink){
+        $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE = drug =? AND Treatment = ? ");
+        $stmt->execute([$removedDrugTreatmentLink->getDrug(), $removedDrugTreatmentLink->getTreatment()]);
     }
 
-    //Delete Drug treatment LinkDao
-    public function deleteDrugTreatmentLink(DrugTreatmentLinkDto $removedDrugTreatmentLink)
-    {
-        $stmt = $this->conn->prepare("DELETE FROM " . $this->table . " WHERE = drug =? AND treatment = ? ");
-        $stmt->execute([$removedrugTreatmentLink->getDrug(), $removedrugTreatmentLink->getTreatment()]);
-    }
 
-    //add a new Drug treatment LinkDao
-    public function AddDrugTreatmentLink(DrugTreatmentLinkDto $newDrugTreatmentLink)
-    {
-        $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(drug, treatment) VALUES (? , ?)");
+    //add a new Drug treatment link
+    public function AddDrugTreatmentLink(DrugTreatmentLinkDto $newDrugTreatmentLink){
+        $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(drug, Treatment) VALUES (? , ?)");
         $stmt->execute([$newDrugTreatmentLink->getDrug(), $newDrugTreatmentLink->getTreatment()]);
     }
 
-    //Updating a Drug treatment LinkDao
-    public function updateDrugTreatmentLink(DrugTreatmentLinkDto $oldDT_Link, DrugTreatmentLinkDto $updatedDT_Link)
-    {
-        $stmt = $this->conn->prepare("UPDATE " . $this->table . " SET drug= ? , treatment = ? WHERE = drug =? AND treatment = ?  ");
-        $stmt->execute([$updatedDrugTreatmentLink->getDrug(), $updatedDrugTreatmentLink->getTreatment(), $oldDrugTreatmentLink->getDrug(), $oldDrugTreatmentLink->getTreatment()]);
+    //Updating a Drug_prescription_link
+    public function UpdateDrugTreatmentLink(DrugTreatmentLinkDto $oldDrugTreatmentLink, DrugTreatmentLinkDto $updatedDrugTreatmentLink){
+        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET drug= ? , prescription= ? WHERE = drug =? AND prescription = ?  ");
+        $stmt->execute([$updatedDrugTreatmentLink->getDrug(), $updatedDrugTreatmentLink->getPrescription(), $oldDrugTreatmentLink->getDrug(), $oldDrugTreatmentLink->getPrescription()]);
     }
 
-    //find all list Drug treatment LinkDao//
-    public function findAllDrugTreatmentLink(DrugtreatmentlinkDto $findAllDT_Link)
+    //find all by drug
+    public function FindAllDrugTreatmentLinkByDrug($id)
     {
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table);
-        $query->execute();
-        $Drugtreatmentlink = [];
-        while ($row = $query->fetch()) {
-            $Drugtreatmentlink = new $Drugtreatmentlink ($row["Drug_treatment_link"]);
-            $Drugtreatmentlink->setDrug($row["drug"]);
-            $Drugtreatmentlink->getTreatment($row["treatment"]);
-            $Drugtreatmentlink[] = $Drugtreatmentlink;
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE drug=?");
+        $stmt->execute([$id]);
+        $DrugTreatmentLink = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($DrugPrescriptionLink, new DrugTreatmentLinkDto($row["drug"], $row["prescription"]));
         }
-        return $Drugtreatmentlink;
+        return $DrugTreatmentLink;
     }
 
 }

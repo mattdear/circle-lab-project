@@ -12,37 +12,41 @@ class AppointmentDao
     }
 
 //add a new Appointment//
-    public function addAppointment(AppointmentDto $newAppointment)
+    public function AddAppointment(AppointmentDto $newAppointment)
     {
-        $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(id, description, patient, staff_member, date_time, location,
-     duration, isactive) VALUES (?,?,?,?,?,?,?,?)");
-        $stmt->execute([$newAppointment->getid(), $newAppointment->getdescription(), $newAppointment->getpatient(), $newAppointment->getstaff_member(),
+        $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "( description, patient, staff_member, date_time, location,
+     duration, isactive) VALUES (?,?,?,?,?,?,?)");
+        $stmt->execute([$newAppointment->getdescription(), $newAppointment->getpatient(), $newAppointment->getstaff_member(),
             $newAppointment->getdate_time(), $newAppointment->getlocation(), $newAppointment->getIsactive()]);
+        $id = (int)$this->conn->lastInsertId();
+        $newAppointment->setId($id);
     }
 
     //find all Appointment List//
-    public function findAllAppointment(AppointmentDto $findAppointment)
+    public function FindAllAppointment(AppointmentDto)
     {
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table);
-        $query->execute();
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table);
         $Appointment = [];
-        while ($row = $query->fetch()) {
-            $Appointment = new $Appointment ($row["Appointment"]);
-            $Appointment->setId ($row["id"]);
-            $Appointment->setdescription($row["description"]);
-            $Appointment->setpatient($row["patient"]);
-            $Appointment->setstaff_member($row["staff_member"]);
-            $Appointment->setdate_time($row["date_time"]);
-            $Appointment->setlocation($row["location"]);
-            $Appointment->setduration($row["duration"]);
-            $Appointment->setIsactive($row["isactive"]);
-            $Appointment[] = $Appointment;
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($people, new AppointmentDto($row["id"], $row["description"], $row["patient"],
+                $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
+        }
+        return $Appointment;
+        }
+    public function FindAllAppointmentByPatient(AppointmentDto $findAllAppointmentByPatient)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table.  " WHERE patient= id");
+        $stmt->execute(["id"=>$findAllAppointmentByPatient->getId()]);
+        $Appointment = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($people, new AppointmentDto($row["id"], $row["description"], $row["patient"],
+                $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
         }
         return $Appointment;
     }
 
     //delete an Appointment//
-    public function deleteAppointment(AppointmentDto $deleteAppointment)
+    public function DeleteAppointment(AppointmentDto $deleteAppointment)
     {
         if($deleteAppointment != null && $deleteAppointment->getId() != null)
         {
@@ -60,59 +64,32 @@ class AppointmentDao
         }
         return false;
     }
-
 //Modify an Appointment//
-    public function updateAppointment(AppointmentDto $updateAppointment)
+    public function UpdateAppointment(AppointmentDto $OldAppointment, AppointmentDto $updatedAppointment)
     {
-        $query = $this->conn->prepare("UPDATE " . $this->table . " SET patient=?, WHERE ID=?,description=?,
+        $stmt = $this->conn->prepare("UPDATE " . $this->table . " SET patient=?, WHERE ID=?,description=?,
      staff_member=?, date_time=?, location=?;");
-        $query->execute([$updateAppointment->getid(), $updateAppointment->getdescription(), $updateAppointment->getpatient(), $updateAppointment->getstaff_member(),
-            $updateAppointment->getdate_time(), $updateAppointment->getlocation(), $updateAppointment->getIsactive()])
+        $stmt->execute([$updatedAppointment->getid(), $updatedAppointment->getdescription(), $updatedAppointment->getpatient(), $updatedAppointment->getstaff_member(),
+            $updatedAppointment->getdate_time(), $updatedAppointment->getlocation(), $updatedAppointment->getIsactive(),
+            $OldAppointment->getid(), $OldAppointment->getdescription(), $OldAppointment->getpatient(), $OldAppointment->getstaff_member(),
+            $OldAppointment->getdate_time(), $OldAppointment->getlocation(), $OldAppointment->getIsactive()]);
 
-    }
-
-
-//find all Appointment by patient//
-    public function findAllAppointmentByPatient(AppointmentDto $findAllAppointmentByPatient)
-    {
-        $query = $this->conn->prepare("SELECT * FROM " . $this->table.  " WHERE patient= id");
-        $query->execute(["id"=>$findAllAppointmentByPatient->getId()]);
-        $Appointment = [];
-        while ($row = $query->fetch()) {
-            $Appointment = new $Appointment ($row["Appointment"]);
-            $Appointment->setId ($row["id"]);
-            $Appointment->setdescription($row["description"]);
-            $Appointment->setpatient($row["patient"]);
-            $Appointment->setstaff_member($row["staff_member"]);
-            $Appointment->setdate_time($row["date_time"]);
-            $Appointment->setlocation($row["location"]);
-            $Appointment->setduration($row["duration"]);
-            $Appointment->setIsactive($row["isactive"]);
-            $Appointment[] = $Appointment;
-        }
-        return $Appointment;
     }
 
     //find appointmentDTO by id //
-    public function findAppointmentById($id)
-  {
-      if($id != null)
-      {
-          $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE id=:id");
-          $stmt->execute(["id"=>$id]);
-          $count = $stmt->rowCount();
-          if($count == 1)
-          {
-              $row = $stmt->fetch();
-              return new AppointmentDto($row["id"], $row["description"],$row["patient"],$row["staff_member"],$row["date_time"]
-                  ,$row["location"],$row["duration"],$row["isactive"]);
-          }
-          return null;
-      }
-      return null;
-  }
+    public function FindAppointmentById(AppointmentDto $id)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table.  " WHERE id=: id");
+        $stmt->execute(["id"=>$id->getId()]);
+        $Appointment = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($people, new AppointmentDto($row["id"], $row["description"], $row["patient"],
+                $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
+        }
+        return $Appointment;
+    }
 // findAppointment(appointmentDTO)//
-public function findAppointment(AppointmentDto $findAppointment)
+public function FindAppointment(AppointmentDto $findAppointment)
 {
     if($findAppointment != null)
     {
@@ -120,14 +97,15 @@ public function findAppointment(AppointmentDto $findAppointment)
         {
             $stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE id=:id");
             $stmt->execute([":id"=>$findAppointment->getId()]);
+            $Appointment = [];
             $count = $stmt->rowCount();
             if($count == 1)
             {
-                $row = $stmt->fetch();
+                ($row = $stmt->fetch(PDO::FETCH_ASSOC));
                 return new AppointmentDto($row["id"], $row["description"],$row["patient"],$row["staff_member"],$row["date_time"]
                     ,$row["location"],$row["duration"],$row["isactive"]);
             }
-            return null;
+            return $Appointment;
         }
         return null;
     }
