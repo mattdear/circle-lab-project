@@ -6,7 +6,7 @@ class Drug_Prescription_LinkTest extends PHPUnit\Framework\TestCase
 {
   public function testConstruct()
 {
-    $Link = new Drug_Prescription_LinkDto(1, 2);
+    $Link = new DrugPrescriptionLinkDto(1, 2);
 
     $this->assertIsInt($Link->getDrug(), $message = "testConstruct, test 1");
     $this->assertIsInt($Link->getPrescription(), $message = "testConstruct, test 2");
@@ -15,7 +15,7 @@ class Drug_Prescription_LinkTest extends PHPUnit\Framework\TestCase
 }
 public function testGetDrugId()
 {
-    $Link = new Drug_Prescription_LinkDto(1, 2);
+    $Link = new DrugPrescriptionLinkDto(1, 2);
 
     $this->assertIsInt($Link->getDrug(), $message = "testGetDrugId, test 1");
     $this->assertEquals(1, $Link->getDrug(), $message = "testGetDrugId, test 2");
@@ -25,7 +25,7 @@ public function testGetDrugId()
 public function testSetDrugId()
 {
     $id = 2;
-    $Link = new Drug_Prescription_LinkDto(1, 2);
+    $Link = new DrugPrescriptionLinkDto(1, 2);
 
     $this->assertEquals(1, $Link->getDrug(), $message = "testSetDrugId, test 1");
     $this->assertNotEquals(2, $Link->getDrug(), $message = "testSetDrugId, test 2");
@@ -39,7 +39,7 @@ public function testSetDrugId()
 
 public function testGetTreatmentId()
 {
-    $Link = new Drug_Prescription_LinkDto(1, 2);
+    $Link = new DrugPrescriptionLinkDto(1, 2);
 
     $this->assertIsInt($Link->getPrescription(), $message = "testGetName, test 1");
     $this->assertEquals(2, $Link->getPrescription(), $message = "testGetName, test 2");
@@ -49,7 +49,7 @@ public function testGetTreatmentId()
 public function testSetTreatmentId()
 {
     $id = 1;
-    $Link = new Drug_Prescription_LinkDto(1, 2);
+    $Link = new DrugPrescriptionLinkDto(1, 2);
 
     $this->assertEquals(2, $Link->getPrescription(), $message = "testSetName, test 1");
     $this->assertNotEquals(1, $Link->getPrescription(), $message = "testSetName, test 2");
@@ -63,7 +63,7 @@ public function testSetTreatmentId()
 
 public function testToString()
 {
-    $Link = new Drug_Prescription_LinkDto(1, 2);
+    $Link = new DrugPrescriptionLinkDto(1, 2);
     $this->assertIsString($Link->toString(), $message = "testToString, test 1");
     $this->assertEquals("1 , 2", $Link->toString(), $message = "testToString, test 2");
 }
