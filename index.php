@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("php/functions.php");
+include("php/mFunctions.php");
 include("OOP/WebPage.php");
 if (!isset ($_SESSION["gatekeeper"])) {
     $webPage = new WebPage("Login", "Circle Lab", 2020);

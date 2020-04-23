@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../OOP/WebPage.php");
-include("functions.php");
+include("mFunctions.php");
 
 if (!isset ($_SESSION["gatekeeper"])) {
     popUpError("Your not logged in! Please log in and try again.");

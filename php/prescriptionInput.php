@@ -1,7 +1,8 @@
 <?php
 session_start();
 include("../OOP/WebPage.php");
-include("functions.php");
+include("mFunctions.php");
+include("../service/serviceFacade.php");
 if (!isset ($_SESSION["gatekeeper"])) {
     popUpError("Your not logged in! Please log in and try again.");
 } else {
@@ -12,6 +13,8 @@ if (!isset ($_SESSION["gatekeeper"])) {
 
     $patient = "NAME HERE";
     $date = date("d/m/Y");
+
+    $service = new serviceFacade();
     ?>
     <h1>Add Prescription</h1>
     <form method="post" action="addPrescription.php">
@@ -21,7 +24,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <p>NAME HERE</p>
-                <input type="hidden" name="patient" value="<?=$patient?>">
+                <input type="hidden" name="patient" value="<?= $patient ?>">
             </div>
         </div>
         <div class="row">
@@ -30,7 +33,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <p><?=$date?></p>
-                <input type="hidden" name="date" value="<?=$date?>">
+                <input type="hidden" name="date" value="<?= $date ?>">
             </div>
         </div>
         <div class="row">
@@ -39,9 +42,16 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <select class="inputs, select" name="drug">
-                    <option value="amoxicillin">amoxicillin</option>
-                    <option value="azithromycin">azithromycin</option>
-                    <option value="doxycycline">doxycycline</option>
+                    <?php
+                    $drugs = $service->findAllDrugs();
+                    foreach ($drugs as $drug) {
+                        ?>
+                        <option value="<?=$drug?>"><?=$drug?></option>
+                        <option value="<?=$drug?>"><?=$drug?></option>
+                        <option value="<?=$drug?>"><?=$drug?></option>
+                        <?php
+                    }
+                    ?>
                 </select>
             </div>
         </div>
