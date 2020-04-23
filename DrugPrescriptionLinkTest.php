@@ -2,7 +2,7 @@
 
 include ("DrugPrescriptionLinkDto.php");
 use PHPUnit\Framework\TestCase;
-class Drug_Prescription_LinkTest extends PHPUnit\Framework\TestCase
+class DrugPrescriptionLinkTest extends PHPUnit\Framework\TestCase
 {
   public function testConstruct()
 {
