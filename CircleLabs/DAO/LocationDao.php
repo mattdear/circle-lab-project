@@ -84,3 +84,4 @@ class locationDAO
         return new locationDTO($row["id"], $row["name"], $row["address"],$row["type"]);
     }
 }
+?> 

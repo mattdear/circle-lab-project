@@ -51,3 +51,4 @@ class diseaseSymptomLinkDAO
             $stmt->execute([$removedDS_Link->getDisease(), $removedDS_Link->getSymptom()]);
         }
 }
+?> 

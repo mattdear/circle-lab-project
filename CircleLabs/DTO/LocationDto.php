@@ -58,3 +58,4 @@ class locationDTO
         return $string;
     }
 }
+?> 

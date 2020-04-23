@@ -134,3 +134,4 @@ class personDTO
             return $string;
         }
 }
+?> 

@@ -51,3 +51,4 @@ class diseaseTreatmentLinkDAO
         $stmt->execute([$removedDT_Link->getDisease(), $removedDT_Link->getTreatment()]);
     }
 }
+?> 

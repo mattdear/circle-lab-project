@@ -51,3 +51,4 @@ class diseasePersonLinkDAO
         $stmt->execute([$removedDPe_Link->getDisease(), $removedDPe_Link->getPerson()]);
     }
 }
+?> 

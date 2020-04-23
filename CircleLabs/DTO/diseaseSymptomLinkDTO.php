@@ -36,3 +36,4 @@ class diseaseSymptomLinkDTO
         return $string;
     }
 }
+?> 
