@@ -113,7 +113,13 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <select class="inputs, select" name="location">
-                    <option value="11">10 London Road</option>
+                    <option value="0">Please Select Location</option>
+                    <option value="1">1 London Road</option>
+                    <option value="10">10 London Road</option>
+                    <option value="11">10 The High Street</option>
+                    <option value="12">11 Rolling Road</option>
+                    <option value="13">12 Sandpark Square</option>
+
                 </select>
             </div>
         </div>

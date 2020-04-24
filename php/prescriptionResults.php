@@ -29,31 +29,33 @@ if (!isset ($_SESSION["gatekeeper"])) {
                     $date = $prescription->getDate();
                     $fullName = $person->getFirstName() . " " . $person->getLastName();
                     $links = $service->findDrugPrescriptionLinkByPrescription($prescription->getId());
-                    ?>
-                    <div class="searchResult">
-                        <div class="searchDetails">
-                            <p>Patient Name: <?= $fullName ?></p>
-                            <p>Date: <?= $date->format("d-m-Y") ?></p>
-                            <?php
-                            $i = 1;
-                            foreach ($links as $link) {
-                                $drugId = $link->getDrug();
-                                $drug = $service->findDrugById($drugId);
-                                echo "<p>Drug " .$i. ": " .$drug->getName() . "</p>";
-                                $i++;
-                            }
-                            ?>
-                            <p>Quantity: <?= $prescription->getQuantity() ?></p>
-                            <p>Location: 10 London Road</p>
+                    if ($prescription->getIsActive() == 1) {
+                        ?>
+                        <div class="searchResult">
+                            <div class="searchDetails">
+                                <p>Patient Name: <?= $fullName ?></p>
+                                <p>Date: <?= $date->format("d-m-Y") ?></p>
+                                <?php
+                                $i = 1;
+                                foreach ($links as $link) {
+                                    $drugId = $link->getDrug();
+                                    $drug = $service->findDrugById($drugId);
+                                    echo "<p>Drug " . $i . ": " . $drug->getName() . "</p>";
+                                    $i++;
+                                }
+                                ?>
+                                <p>Quantity: <?= $prescription->getQuantity() ?></p>
+                                <p>Location: 10 London Road</p>
+                            </div>
+                            <div class="searchButtons">
+                                <form method="post" action="deletePrescription.php">
+                                    <input type="hidden" name="id" value="<?= $prescription->getId() ?>">
+                                    <button type="submit" class="modDelButton">Delete</button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="searchButtons">
-                            <form method="post" action="deletePerson.php">
-                                <input type="hidden" name="id">
-                                <button type="submit" class="modDelButton">Delete</button>
-                            </form>
-                        </div>
-                    </div>
-                    <?php
+                        <?php
+                    }
                 } else {
                     echo "<p>No Results Found</p>";
                 }
