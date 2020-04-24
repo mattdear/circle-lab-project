@@ -23,7 +23,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $location = htmlentities($_POST["location"]);
 
     $patient = $service->findPersonById($patientId);
-    if ($drug1 == 0 or $quantity == null) {
+    if ($drug1 == 0 or $quantity == null or $location == 0) {
         popUpErrorBack("Invalid Prescription added", "php/people.php");
     } else {
         $prescription = new prescriptionDTO(null, $patientId, $dateIn, $quantity, $location, 1);

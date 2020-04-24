@@ -21,6 +21,7 @@ try {
         $_SESSION["gatekeeper"] = $un;
         $_SESSION["role"] = 0;
 
+
         header("Location: homepage.php");
     } else {
         // The no matching records supplied!
