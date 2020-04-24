@@ -4,5 +4,7 @@
   include ("prescriptionDAO.php");
   include ("roleDAO.php");
   include ("functions.php");
+  include ("locationDAO.php");
   include ("drugPrescriptionLinkDTO.php");
+  include ("diseasePersonLinkDAO.php");
 ?>

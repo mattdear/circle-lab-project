@@ -932,8 +932,15 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $serviceFacade = new serviceFacade();
 
     $bool = $serviceFacade->addDrugToPrescription(1, 3);
-
     $this->assertTrue($bool, $message = "testAddDrugToPrescription, test 1");
+    $bool = $serviceFacade->addDrugToPrescription(1, 3);
+    $this->assertNull($bool, $message = "testAddDrugToPrescription, test 2");
+    $bool = $serviceFacade->addDrugToPrescription(1, null);
+    $this->assertNull($bool, $message = "testAddDrugToPrescription, test 3");
+    $bool = $serviceFacade->addDrugToPrescription(null, 3);
+    $this->assertNull($bool, $message = "testAddDrugToPrescription, test 4");
+    $bool = $serviceFacade->addDrugToPrescription(null, null);
+    $this->assertNull($bool, $message = "testAddDrugToPrescription, test 5");
   }
 
   public function testFindDrugPrescriptionLinkByPrescription()
@@ -954,6 +961,23 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $this->assertEquals(3, $returnedLinks[1]->getPrescription(), $message = "testFindDrugPrescriptionLinkByPrescription, test 11");
     $this->assertNotEquals(2, $returnedLinks[1]->getPrescription(), $message = "testFindDrugPrescriptionLinkByPrescription, test 12");
   }
+
+  public function testAddDiseasePersonLinkDTO()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $bool = $serviceFacade->addDiseasePersonLinkDTO(1, 3);
+    $this->assertTrue($bool, $message = "testAddDiseasePersonLinkDTO, test 1");
+    $bool = $serviceFacade->addDiseasePersonLinkDTO(1, 3);
+    $this->assertNull($bool, $message = "testAddDiseasePersonLinkDTO, test 2");
+    $bool = $serviceFacade->addDiseasePersonLinkDTO(1, null);
+    $this->assertNull($bool, $message = "testAddDiseasePersonLinkDTO, test 3");
+    $bool = $serviceFacade->addDiseasePersonLinkDTO(null, 3);
+    $this->assertNull($bool, $message = "testAddDiseasePersonLinkDTO, test 4");
+    $bool = $serviceFacade->addDiseasePersonLinkDTO(null, null);
+    $this->assertNull($bool, $message = "testAddDiseasePersonLinkDTO, test 5");
+  }
+
 }
 
 ?>

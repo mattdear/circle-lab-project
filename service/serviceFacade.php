@@ -14,7 +14,7 @@ class serviceFacade
   $this->drugDAO = new drugDAO(getDatabase(), "Drug");
   $this->treatmentDAO = new treatmentDAO(getDatabase(), "Treatment");
   $this->prescriptionDAO = new prescriptionDAO(getDatabase(), "Prescription");
-  // $this->locationDAO = new locationDAO(getDatabase(), "Location");
+  $this->locationDAO = new locationDAO(getDatabase(), "Location");
   // $this->symptomDAO = new symptomDAO(getDatabase(), "Symptom");
   // $this->diseaseDAO = new diseaseDAO(getDatabase(), "Disease");
   // $this->appointmentDAO = new appointmentDAO(getDatabase(), "Appointment");
@@ -25,7 +25,7 @@ class serviceFacade
   // $this->drugTreatmentLinkDAO = new drugTreatmentLinkDAO(getDatabase(), "Drug_Treatment_Link");
   // $this->diseaseTreatmentLinkDAO = new diseaseTreatmentLinkDAO(getDatabase(), "Disease_Treatment_Link");
   // $this->diseaseSymptomLinkDAO = new diseaseSymptomLinkDAO(getDatabase(), "Disease_Symptom_Link");
-  // $this->diseasePersonLinkDAO = new diseasePersonLinkDAO(getDatabase(), "Disease_Person_Link");
+  $this->diseasePersonLinkDAO = new diseasePersonLinkDAO(getDatabase(), "Disease_Person_Link");
   }
 
   public function addTreatment($treatmentObj)
@@ -475,6 +475,286 @@ class serviceFacade
     }
   }
 
+  public function addLocation($locationObj)
+  {
+    try
+    {
+      if($locationObj != null && $locationObj->getId() == null && $locationObj->getAddress() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType != null && $locationObj->getIsactive() != null)
+      {
+        $allLocations = $this->locationDAO->findAllLocations();
+        $unique = TRUE;
+        foreach ($allLocations as $location)
+        {
+          if($location->getAddress() == $locationObj->getAddress())
+          {
+            $unique = FALSE;
+          }
+        }
+        if($unique == TRUE)
+        {
+          return $this->locationDAO->addLocation($locationObj);
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function modifyLocation($locationObj)
+  {
+    try
+    {
+      if($locationObj != null && $locationObj->getId() == null && $locationObj->getAddress() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType != null && $locationObj->getIsactive() != null)
+      {
+        $originalObj = $this->prescriptionDAO->findLocationById($locationObj->getId());
+        if($originalObj != null)
+        {
+          return $this->locationDAO->modifyLocation($locationObj);
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findLocationsByType($type)
+  {
+    try
+    {
+      if($type != null)
+      {
+        $locations = $this->locationDAO->findLocationByType($type);
+        $activeLocations = null;
+
+        foreach ($locations as $location)
+        {
+          if($location->getIsactive() == 1)
+          {
+            $activeLocations[] = $location;
+          }
+        }
+        return $locations;
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findMatchingLocations($locationObj)
+  {
+    try
+    {
+      $returnedObj = null;
+      if($locationObj != null && $locationObj->getId() == null && $locationObj->getAddress() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType != null && $locationObj->getIsactive() != null)
+      {
+        return $this->locationDAO->findMatchingLocations($locationObj);
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findLocationById($id)
+  {
+    try {
+      if($id != null)
+      {
+        return $this->locationDAO->findLocationById();
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e) {
+      echo "Error: $e";
+    }
+  }
+
+  public function addDiseasePersonLinkDTO($dpeLink)
+  {
+    try
+    {
+      if($dpeLink != null && $dpeLink->getDisease() != null && $dpeLink->getPerson() != null)
+      {
+        $links = $this->diseasePersonLinkDAO->findByPersonId($dpeLink->getPerson());
+        $unique = TRUE;
+        foreach ($links as $link)
+        {
+          if($link->getDisease() == $dpeLink->getDisease())
+          {
+            $unique = FALSE;
+          }
+        }
+        if($unique == TRUE)
+        {
+          $this->diseasePersonLinkDAO->addDiseasePersonLinkDTO($dpeLink);
+          return TRUE;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e) {
+      echo "Error: $e";
+    }
+  }
+
+  public function modifyDiseasePersonLinkDTO($oldLink , $newLink)
+  {
+    try
+    {
+      if($oldLink != null && $oldLink->getDisease() != null && $oldLink->getPerson() != null && $newLink != null && $newLink->getDisease() != null && $newLink->getPerson() != null)
+      {
+        $links = $this->diseasePersonLinkDAO->findByPersonId($newLink->getPerson());
+        $unique = TRUE;
+        foreach ($links as $link)
+        {
+          if($link->getDisease() == $newLink->getDisease())
+          {
+            $unique = FALSE;
+          }
+        }
+        if($unique == TRUE)
+        {
+          $this->diseasePersonLinkDAO->addDiseasePersonLinkDTO($newLink);
+          return TRUE;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findByPersonId($id)
+  {
+    try
+    {
+      if($id != null)
+      {
+        return $this->diseasePersonLinkDAO->findByPersonId($id);
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findByDiseaseId($id)
+  {
+    try
+    {
+      if($id != null)
+      {
+        return $this->diseasePersonLinkDAO->findByDiseaseId($id);
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function deleteDiseasePersonLinkDTO($link)
+  {
+    try
+    {
+      if($link != null && $link->getDisease() != null && $link->getPerson() != null)
+      {
+        $this->diseasePersonLinkDAO->deleteDiseasePersonLinkDTO($link);
+        return TRUE;
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Here are some makeshift functions for the presentation. TODO replace these.
   public function findPersonById($id)
   {
     try
@@ -518,7 +798,7 @@ class serviceFacade
         $unique = $conn->prepare("SELECT * FROM " .  $table .  " WHERE drug=:drug AND prescription=:prescription");
         $unique->execute([":drug"=>$drugId, ":prescription"=>$prescriptionId]);
         $count = $unique->rowCount();
-          if($count == 0)
+        if($count == 0)
         {
           $stmt = $conn->prepare("INSERT INTO " .  $table .  " (drug, prescription) VALUES (:drug, :prescription)");
           $stmt->execute([":drug"=>$drugId, "prescription"=>$prescriptionId]);
