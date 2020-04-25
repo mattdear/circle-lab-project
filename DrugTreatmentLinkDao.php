@@ -38,9 +38,17 @@ class DrugTreatmentLinkDao
 
 
     //add a new Drug treatment link
-    public function AddDrugTreatmentLink(DrugTreatmentLinkDto $newDrugTreatmentLink){
+    public function AddDrugTreatmentLink($newDrugTreatmentLink)
+    {
+        if ($newDrugTreatmentLink->getDrug() != null)  && $newDrugTreatmentLink->getTreatment() != null) 
+        {
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(drug, Treatment) VALUES (? , ?)");
         $stmt->execute([$newDrugTreatmentLink->getDrug(), $newDrugTreatmentLink->getTreatment()]);
+        $idInt = (int)$this->conn->lastInsertId();
+        $newDrugTreatmentLink->setId($idInt);
+        return $newDrugTreatmentLink;
+        }
+        return null;
     }
 
     //Updating a Drug_prescription_link
