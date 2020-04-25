@@ -22,8 +22,9 @@ class DrugPrescriptionLinkDao
         }
         return $DrugPrescriptionLink;
 	}
-	return null;
-	}
+	else{
+			return null;
+		}
 	
     //Delete Drug prescription link
     public function DeleteDrugPrescriptionLink($removedDrugPrescriptionLink)
@@ -33,8 +34,9 @@ class DrugPrescriptionLinkDao
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE = drug =? AND prescription = ? ");
         $stmt->execute([$removedDrugPrescriptionLink->getDrug(), $removedDrugPrescriptionLink->getPrescription()]);
 	}
-	return null;
-    }
+	    else{
+			return null;
+		}
 	
     //add a new Drug prescription link
     public function AddDrugPrescriptionLink($newDrugPrescriptionLink)
@@ -43,9 +45,10 @@ class DrugPrescriptionLinkDao
 	{
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(drug, prescription) VALUES (? , ?)");
         $stmt->execute([$newDrugPrescriptionLink->getDrug(), $newDrugPrescriptionLink->getPrescription()]);
-    	}
-	return null;
-    }
+	}
+	    else{
+			return null;
+		}
 	
     //Updating a Drug_prescription_link
     public function UpdateDrugPrescriptionLink($oldDrugPrescriptionLink, $updatedDrugPrescriptionLink)
@@ -54,9 +57,10 @@ class DrugPrescriptionLinkDao
 	{
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET drug= ? , prescription= ? WHERE = drug =? AND prescription = ?  ");
         $stmt->execute([$updatedDrugPrescriptionLink->getDrug(), $updatedDrugPrescriptionLink->getPrescription(), $oldDrugPrescriptionLink->getDrug(), $oldDrugPrescriptionLink->getPrescription()]);
-        }
-    return null;
-    }
+	}
+	    else{
+			return null;
+		}
 	
     //find all by drug
     public function FindAllDrugPrescriptionLinkByDrug($id)
@@ -70,11 +74,23 @@ class DrugPrescriptionLinkDao
             array_push($DrugPrescriptionLink, new DrugPrescriptionLinkDto($row["drug"], $row["prescription"]));
         }
         return $DrugPrescriptionLink;
-	if else
-	{
-		return null;
 	}
-
+	else{
+			return null;
+		}
+	public function findByObject($link){
+		$stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE = drug =? AND prescription = ? ");
+		$stmt->execute([$link->getDrug() , $link->getPrescription()]);
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		$uniqueCount = $stmt->rowCount();
+		if($uniqueCount == 1){
+			array_push($DrugPrescriptionLink, new DrugPrescriptionLinkDto($row["drug"], $row["prescription"]));
+			return $foundLink;
+		}
+		else{
+			return null;
+		}
+	}
 		
 		
 	}
