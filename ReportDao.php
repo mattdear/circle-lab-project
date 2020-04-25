@@ -107,7 +107,7 @@ class ReportDao
 
 
 //add a new a report//
-    public function AddReport(ReporDto $newReport)
+    public function AddReport($newReport)
     {
         if ($newReport != null) {
             $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(id, name, requester, requester_date, start_date, finish_date,
