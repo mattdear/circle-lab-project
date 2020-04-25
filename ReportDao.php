@@ -146,7 +146,7 @@ public function UpdateReport($oldReport, $updateReport)
 	return null;
 }
 //find report by requester//
-    public function FindReportByRequester(ReportDto $findReportByRequester)
+    public function FindReportByRequester($findReportByRequester)
     {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE requester=:requester");
         $stmt->execute(["requester"=>$findReportByRequester->getRequester()]);
