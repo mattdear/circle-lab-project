@@ -100,11 +100,11 @@ class AppointmentDao
             $OldAppointment->getid(), $OldAppointment->getdescription(), $OldAppointment->getpatient(), $OldAppointment->getstaff_member(),
             $OldAppointment->getdate_time(), $OldAppointment->getlocation(), $OldAppointment->getIsactive()]);
             }
-            
-    }
+        return null;
+        }
 
     //find appointmentDTO by id //
-    public function FindAppointmentById(AppointmentDto $id)
+    public function FindAppointmentById($id)
     {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table.  " WHERE id=: id");
         $stmt->execute(["id"=>$id->getId()]);
