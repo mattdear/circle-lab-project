@@ -105,16 +105,22 @@ class AppointmentDao
 
     //find appointmentDTO by id //
     public function FindAppointmentById($id)
-    {
+     {
+    if($id != null)
+        {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table.  " WHERE id=: id");
         $stmt->execute(["id"=>$id->getId()]);
         $Appointment = [];
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($people, new AppointmentDto($row["id"], $row["description"], $row["patient"],
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
+                {
+                array_push($people, new AppointmentDto($row["id"], $row["description"], $row["patient"],
                 $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
-        }
+                }
         return $Appointment;
+        }
+     return null;
     }
+        
 // findAppointment(appointmentDTO)//
 public function FindAppointment(AppointmentDto $findAppointment)
 {
