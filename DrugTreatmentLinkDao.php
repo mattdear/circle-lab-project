@@ -63,15 +63,35 @@ class DrugTreatmentLinkDao
 
     //find all by drug
     public function FindAllDrugTreatmentLinkByDrug($id)
-    {
-        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE drug=?");
-        $stmt->execute([$id]);
-        $DrugTreatmentLink = [];
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($DrugPrescriptionLink, new DrugTreatmentLinkDto($row["drug"], $row["prescription"]));
-        }
-        return $DrugTreatmentLink;
-    }
+     {
+            if ($id != null) 
+            {
+            $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE drug=?");
+            $stmt->execute([$id]);
+            $DrugTreatmentLink = [];
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
+                {
+                array_push($DrugPrescriptionLink, new DrugTreatmentLinkDto($row["drug"], $row["prescription"]));
+                }
+            return $DrugTreatmentLink;
+            }
+        return null;
+      }    
 
+    	public function findByObject($link)
+        {
+		$stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE drug = ? AND treatment = ?");
+		$stmt->execute([$link->getDrug() , $link->getTreatment()]);
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		$uniqueCount = $stmt->rowCount();
+		if($uniqueCount == 1)
+        {
+			$foundLink = new DrugTreatmentLinkDto($row["drug"], $row["prescription"]));
+			return $foundLink;
+		}
+		else{
+			return null;
+		}
+	}
 }
 ?>
