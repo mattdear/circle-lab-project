@@ -37,9 +37,14 @@ class DrugPrescriptionLinkDao
     }
 	
     //add a new Drug prescription link
-    public function AddDrugPrescriptionLink(DrugPrescriptionLinkDto $newDrugPrescriptionLink){
+    public function AddDrugPrescriptionLink($newDrugPrescriptionLink)
+    {
+        if ($newDrugPrescriptionLink->getDrug() != null && $newDrugPrescriptionLink->getPrescription()]) != null)
+	{
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(drug, prescription) VALUES (? , ?)");
         $stmt->execute([$newDrugPrescriptionLink->getDrug(), $newDrugPrescriptionLink->getPrescription()]);
+    	}
+	return null;
     }
 	
     //Updating a Drug_prescription_link
