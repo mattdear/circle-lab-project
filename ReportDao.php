@@ -68,7 +68,7 @@ class ReportDao
     }
 
 // approve report request//
-    public function ApproveReportRequest(ReportDto $ReportRequest, ReportDto $ApproveReportRequest)
+    public function ApproveReportRequest($ReportRequest, $ApproveReportRequest)
     {
         if ($ReportRequest != null && $ReportRequest->getApproved() == 0) {
             $stmt = $this->conn->prepare("UPDATE FROM " . $this->table . " SET approved = ? WHERE id = ?, name = ?, requester = ?, request_date = ?, start_date = ?, finish_date = ?, max_age = ?, min_age = ?, male = ?, female = ?, disease = ?, isactive = ?");
