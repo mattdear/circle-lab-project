@@ -56,7 +56,9 @@ class AppointmentDao
                     $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
             }
             return $Appointment;
-        } else if ($Appointment->getId()=null) {
+        } 
+        else
+        {
             return null;
         }
     }
