@@ -26,11 +26,15 @@ class DrugPrescriptionLinkDao
 	}
 	
     //Delete Drug prescription link
-    public function DeleteDrugPrescriptionLink(DrugPrescriptionLinkDto $removedDrugPrescriptionLink){
+    public function DeleteDrugPrescriptionLink($removedDrugPrescriptionLink)
+      {
+        if ($removedDrugPrescriptionLink != null && $removedDrugPrescriptionLink->getId() != null)
+	{
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE = drug =? AND prescription = ? ");
         $stmt->execute([$removedDrugPrescriptionLink->getDrug(), $removedDrugPrescriptionLink->getPrescription()]);
+	}
+	return null;
     }
-	
 	
     //add a new Drug prescription link
     public function AddDrugPrescriptionLink(DrugPrescriptionLinkDto $newDrugPrescriptionLink){
