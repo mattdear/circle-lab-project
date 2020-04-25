@@ -87,7 +87,7 @@ class AppointmentDao
         return false;
     }
 //Modify an Appointment//
-    public function UpdateAppointment(AppointmentDto $OldAppointment, AppointmentDto $updatedAppointment)
+    public function UpdateAppointment($OldAppointment, $updatedAppointment)
     {
         $stmt = $this->conn->prepare("UPDATE " . $this->table . " SET patient=?, WHERE ID=?,description=?,
      staff_member=?, date_time=?, location=?;");
