@@ -88,14 +88,19 @@ class AppointmentDao
     }
 //Modify an Appointment//
     public function UpdateAppointment($OldAppointment, $updatedAppointment)
-    {
+        {
+       if($updatedAppointment->getId() != null && $updatedAppointment->getdescription() != null &&
+          $updatedAppointment->getpatient() != null && $updatedAppointment->getstaff_member() != null &&
+          $updatedAppointment->getdate_time() != null &&$updatedAppointment->getlocation() != null && $updatedAppointment->getIsactive() != null)
+            {
         $stmt = $this->conn->prepare("UPDATE " . $this->table . " SET patient=?, WHERE ID=?,description=?,
      staff_member=?, date_time=?, location=?;");
         $stmt->execute([$updatedAppointment->getid(), $updatedAppointment->getdescription(), $updatedAppointment->getpatient(), $updatedAppointment->getstaff_member(),
             $updatedAppointment->getdate_time(), $updatedAppointment->getlocation(), $updatedAppointment->getIsactive(),
             $OldAppointment->getid(), $OldAppointment->getdescription(), $OldAppointment->getpatient(), $OldAppointment->getstaff_member(),
             $OldAppointment->getdate_time(), $OldAppointment->getlocation(), $OldAppointment->getIsactive()]);
-
+            }
+            
     }
 
     //find appointmentDTO by id //
