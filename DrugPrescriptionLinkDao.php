@@ -48,9 +48,14 @@ class DrugPrescriptionLinkDao
     }
 	
     //Updating a Drug_prescription_link
-    public function UpdateDrugPrescriptionLink(DrugPrescriptionLinkDto $oldDrugPrescriptionLink, DrugPrescriptionLink $updatedDrugPrescriptionLink){
+    public function UpdateDrugPrescriptionLink($oldDrugPrescriptionLink, $updatedDrugPrescriptionLink)
+    {
+        if ($updatedDrugPrescriptionLink->getDrug() != null && $updatedDrugPrescriptionLink->getPrescription()]) != null)
+	{
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET drug= ? , prescription= ? WHERE = drug =? AND prescription = ?  ");
         $stmt->execute([$updatedDrugPrescriptionLink->getDrug(), $updatedDrugPrescriptionLink->getPrescription(), $oldDrugPrescriptionLink->getDrug(), $oldDrugPrescriptionLink->getPrescription()]);
+        }
+    return null;
     }
 	
     //find all by drug
