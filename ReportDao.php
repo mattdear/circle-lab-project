@@ -180,17 +180,23 @@ public function UpdateReport($oldReport, $updateReport)
 	return null;
     }
     //find by approval status.
-    public function FindByApproveStatus(ReportDto $findByApproveStatus)
+    public function FindByApproveStatus($findByApproveStatus)
     {
+	    if ($findByApproveStatus != null && $findByApproveStatus->getApproved() != null)
+	    {
         $stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE approved=: 1 AND 2");
         $stmt->execute(["approved"=>$findByApproveStatus->getApproved()]);
         $Report = [];
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+	{
             array_push($Report, new ReportDto($row["id"], $row["description"], $row["patient"],
                 $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
         }
         return $Report;
+    	     }
+	    return null;
     }
+	
     public function FindByDeclined(ReportDto $declined)
         {
             $stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE approved=: 2");
@@ -202,7 +208,7 @@ public function UpdateReport($oldReport, $updateReport)
             }
             return $Report;
         }
-    public function FindByApproved(ReportDto $approved)
+    public function FindByApproved($approved)
     {
         $stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE approved=: 1");
         $stmt->execute(["approved"=>$approved->getApproved()]);
