@@ -48,7 +48,7 @@ class ReportDao
     }
         
         
-    public function DeleteReportRequest(ReporDto $deleteReportRequest)
+    public function DeleteReportRequest($deleteReportRequest)
     {
         if($deleteReportRequest != null && $deleteReportRequest->getId() != null)
         {
