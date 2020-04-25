@@ -50,7 +50,7 @@ class ReportDtoTest extends PHPUnit\Framework\TestCase
     }
     public function testGetId()
     {
-        $Report = new ReportDto(null, "Broken Ankle Men Only", 9 , "2020-04-03" , "2020-07-18", "2020-07-19", 1, 80, 10, 1, 2, 3, 4);
+        $Report = new ReportDto(1, "Broken Ankle Men Only", 9 , "2020-04-03" , "2020-07-18", "2020-07-19", 1, 80, 10, 1, 2, 3, 4);
 
         $this->assertIsInt($Report->getId(), $message = "testGetId, test 1");
         $this->assertEquals(1, $Report->getId(), $message = "testGetId, test 2");
