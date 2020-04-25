@@ -76,7 +76,7 @@ class ReportDtoTest extends PHPUnit\Framework\TestCase
 
         $this->assertIsString($Report->getName(), $message = "testgetName, test 1");
         $this->assertEquals("Broken Ankle Men Only", $Report->getName(), $message = "testgetName, test 2");
-        $this->assertNotEquals("Broken Ankle Men Only", $Report->getName(), $message = "testgetName, test 3");
+        $this->assertNotEquals("Arm Twisted", $Report->getName(), $message = "testgetName, test 3");
     }
     public function testSetName()
     {
