@@ -17,7 +17,7 @@ class ReportDtoTest extends PHPUnit\Framework\TestCase
         $this->assertIsInt($Report->getApproved(), $message = "testConstruct, test 7");
         $this->assertIsInt($Report->getMaxAge(), $message = "testConstruct, test 8");
         $this->assertIsInt($Report->getMinAge(), $message = "testConstruct, test 9");
-        $this->assertIsInt($Report->getMale(), $message = "testConstruct, test 10")
+        $this->assertIsInt($Report->getMale(), $message = "testConstruct, test 10");
         $this->assertIsInt($Report->getFemale(), $message = "testConstruct, test 11");
         $this->assertIsInt($Report->getDisease(), $message = "testConstruct, test 12");
         $this->assertIsInt($Report->getIsactive(), $message = "testConstruct, test 13");
