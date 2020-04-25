@@ -13,7 +13,7 @@ class ReportDao
     }
 
 // add a Report Request//
-    public function AddReportRequest(ReporDto $newReportRequest)
+    public function AddReportRequest(ReporDto)
     {
         if ($newReportRequest != null && $newReportRequest->getApproved() == 0) {
             $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(id, name, requester, requester_date, start_date, finish_date,
