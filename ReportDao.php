@@ -13,7 +13,7 @@ class ReportDao
     }
 
 // add a Report Request//
-    public function AddReportRequest(ReporDto)
+    public function AddReportRequest($newReportRequest)
     {
         if ($newReportRequest != null && $newReportRequest->getApproved() == 0) {
             $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(id, name, requester, requester_date, start_date, finish_date,
@@ -27,17 +27,27 @@ class ReportDao
     }
 
 // find a ReportRequest//
-    public function FindAllReportRequest(ReporDto $newReportRequest)
+    public function FindAllReportRequest($newReportRequest)
     {
+        if($newReportRequest->getApproved() = 0 && $newReportRequest->getId() != null)
+            {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE approved != null");
         $stmt->execute(["approved"=>$newReportRequest->getApproved()]);
         $newReportRequest = [];
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
+        {
             array_push($newReportRequest, new ReporDto($row["id"], $row["name"], $row["requester"],
                 $row["start_date"], $row["finish_date"], $row["max_age"], $row["min_age"], $row["male"], $row["female"], $row["disease"],$row["isactive"]));
         }
-        return $newReportRequest;
+                 return $newReportRequest;
+             }
+        else
+        {
+	    return null;
+		}
     }
+        
+        
     public function DeleteReportRequest(ReporDto $deleteReportRequest)
     {
         if($deleteReportRequest != null && $deleteReportRequest->getId() != null)
