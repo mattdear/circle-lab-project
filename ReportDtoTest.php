@@ -339,10 +339,10 @@ public function TestGetMinAge()
 
     public function testToString()
     {
-        $Report = new ReportDto(null, "Broken Ankle Men Only", 9 , "2020-04-03" , "2020-07-18", "2020-07-19", 1, 80, 10, 1, 2, 3, 4);
+        $Report = new ReportDto(1, "Broken Ankle Men Only", 9 , "2020-04-03" , "2020-07-18", "2020-07-19", 1, 80, 10, 1, 2, 3, 4);
 
         $this->assertIsString($Report->toString(), $message = "testToString, test 1");
-        $this->assertEquals(" null GP appointment 2 10 2020-05-01 09:00:00 4 5 6 ", $Report->toString(), $message = "testToString, test 2");
+        $this->assertEquals(" 1 GP appointment 2 10 2020-05-01 09:00:00 4 5 6 ", $Report->toString(), $message = "testToString, test 2");
         $this->assertNotEquals(" 2, Nurse appointment, 3 , 4, 1111-11-11 11:11:11, null, null, null ", $Report->toString(), $message = "testToString, test 3");
     }
 }
