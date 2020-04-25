@@ -148,6 +148,8 @@ public function UpdateReport($oldReport, $updateReport)
 //find report by requester//
     public function FindReportByRequester($findReportByRequester)
     {
+        if ($requester != null)
+		{
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE requester=:requester");
         $stmt->execute(["requester"=>$findReportByRequester->getRequester()]);
         $count = $stmt->rowCount();
@@ -158,6 +160,8 @@ public function UpdateReport($oldReport, $updateReport)
                 $row["start_date"], $row["finish_date"], $row["max_age"], $row["min_age"], $row["male"], $row["female"], $row["disease"],$row["isactive"]));
         }
         return new ReporDto;
+    		}
+	    return null;
     }
     //find all//
     public function FindAllReport(ReportDto){
