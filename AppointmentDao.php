@@ -32,9 +32,9 @@ class AppointmentDao
     //find all Appointment List//
     public function FindAllAppointment()
      {
-       if($newAppointment->getId() != null && $newAppointment->getdescription() != null && $newAppointment->getpatient() != null
-          && $newAppointment->getstaff_member() != null && $newAppointment->getdate_time() != null &&
-          $newAppointment->getlocation() != null && $newAppointment->getIsactive() != null)
+       if($Appointment->getId() != null && $Appointment->getdescription() != null && $Appointment->getpatient() != null
+          && $Appointment->getstaff_member() != null && $Appointment->getdate_time() != null &&
+          $Appointment->getlocation() != null && $Appointment->getIsactive() != null)
             {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table);
         $Appointment = [];
@@ -48,15 +48,20 @@ class AppointmentDao
       return null;
       }
     public function FindAllAppointmentByPatient($findAllAppointmentByPatient)
-    {
-        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table.  " WHERE patient= id");
-        $stmt->execute(["id"=>$findAllAppointmentByPatient->getId()]);
-        $Appointment = [];
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            array_push($people, new AppointmentDto($row["id"], $row["description"], $row["patient"],
+    {   
+        if($Appointment->getId() != null)
+        {
+            $stmt = $this->conn->prepare("SELECT * FROM " . $this->table.  " WHERE patient= id");
+            $stmt->execute(["id"=>$findAllAppointmentByPatient->getId()]);
+            $Appointment = [];
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
+                {
+                array_push($people, new AppointmentDto($row["id"], $row["description"], $row["patient"],
                 $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
-        }
-        return $Appointment;
+                }
+                    return $Appointment;
+         }
+    return null
     }
 
     //delete an Appointment//
