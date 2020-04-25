@@ -7,4 +7,6 @@
   include ("locationDAO.php");
   include ("drugPrescriptionLinkDTO.php");
   include ("diseasePersonLinkDAO.php");
+  include ("diseaseSymptomLinkDAO.php");
+  include ("diseaseTreatmentLinkDAO.php");
 ?>

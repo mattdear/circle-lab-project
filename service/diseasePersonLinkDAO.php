@@ -50,6 +50,24 @@ class diseasePersonLinkDAO
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE disease =? AND person = ? ");
         $stmt->execute([$removedDPe_Link->getDisease(), $removedDPe_Link->getPerson()]);
     }
+
+    //Find by Object
+    public function findByObject($link)
+    {
+      $stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE disease=? AND person=?");
+      $stmt->execute([$link->getDisease(), $link->getPerson()]);
+      $row = $stmt->fetch(PDO::FETCH_ASSOC);
+      $uniqueCount = $stmt->rowCount();
+      if($uniqueCount == 1)
+      {
+        $foundLink = new diseasePersonLinkDTO((int)$row["disease"], (int)$row["person"]);;
+        return $foundLink;
+      }
+      else
+      {
+        return null;
+      }
+    }
 }
 
 ?>

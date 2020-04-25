@@ -23,8 +23,8 @@ class serviceFacade
   // $this->reportDAO = new reportDAO(getDatabase(), "Report");
   // $this->drugPrescriptionLinkDAO = new drugPrescriptionLinkDAO(getDatabase(), "Drug_Prescription_Link");
   // $this->drugTreatmentLinkDAO = new drugTreatmentLinkDAO(getDatabase(), "Drug_Treatment_Link");
-  // $this->diseaseTreatmentLinkDAO = new diseaseTreatmentLinkDAO(getDatabase(), "Disease_Treatment_Link");
-  // $this->diseaseSymptomLinkDAO = new diseaseSymptomLinkDAO(getDatabase(), "Disease_Symptom_Link");
+  $this->diseaseTreatmentLinkDAO = new diseaseTreatmentLinkDAO(getDatabase(), "Disease_Treatment_Link");
+  $this->diseaseSymptomLinkDAO = new diseaseSymptomLinkDAO(getDatabase(), "Disease_Symptom_Link");
   $this->diseasePersonLinkDAO = new diseasePersonLinkDAO(getDatabase(), "Disease_Person_Link");
   }
 
@@ -603,24 +603,15 @@ class serviceFacade
     }
   }
 
-  public function addDiseasePersonLinkDTO($dpeLink)
+  public function addDiseasePersonLinkDTO($link)
   {
     try
     {
-      if($dpeLink != null && $dpeLink->getDisease() != null && $dpeLink->getPerson() != null)
+      if($link != null && $link->getDisease() != null && $link->getPerson() != null)
       {
-        $links = $this->diseasePersonLinkDAO->findByPersonId($dpeLink->getPerson());
-        $unique = TRUE;
-        foreach ($links as $link)
+        if($this->diseasePersonLinkDAO->findByObject($link) == null)
         {
-          if($link->getDisease() == $dpeLink->getDisease())
-          {
-            $unique = FALSE;
-          }
-        }
-        if($unique == TRUE)
-        {
-          $this->diseasePersonLinkDAO->addDiseasePersonLinkDTO($dpeLink);
+          $this->diseasePersonLinkDAO->addDiseasePersonLinkDTO($link);
           return TRUE;
         }
         else
@@ -644,18 +635,9 @@ class serviceFacade
     {
       if($oldLink != null && $oldLink->getDisease() != null && $oldLink->getPerson() != null && $newLink != null && $newLink->getDisease() != null && $newLink->getPerson() != null)
       {
-        $links = $this->diseasePersonLinkDAO->findByPersonId($newLink->getPerson());
-        $unique = TRUE;
-        foreach ($links as $link)
+        if($this->diseasePersonLinkDAO->findByObject($oldLink) != null && $this->diseasePersonLinkDAO->findByObject($newLink) == null)
         {
-          if($link->getDisease() == $newLink->getDisease())
-          {
-            $unique = FALSE;
-          }
-        }
-        if($unique == TRUE)
-        {
-          $this->diseasePersonLinkDAO->addDiseasePersonLinkDTO($newLink);
+          $this->diseasePersonLinkDAO->modifyDiseasePersonLinkDTO($oldLink, $newLink);
           return TRUE;
         }
         else
@@ -674,7 +656,7 @@ class serviceFacade
     }
   }
 
-  public function findByPersonId($id)
+  public function findDiseasePersonLinkByPersonId($id)
   {
     try
     {
@@ -693,7 +675,7 @@ class serviceFacade
     }
   }
 
-  public function findByDiseaseId($id)
+  public function findDiseasePersonLinkByDiseaseId($id)
   {
     try
     {
@@ -716,7 +698,7 @@ class serviceFacade
   {
     try
     {
-      if($link != null && $link->getDisease() != null && $link->getPerson() != null)
+      if($link != null && $link->getDisease() != null && $link->getPerson() != null && $this->diseasePersonLinkDAO->findByObject($link) != null)
       {
         $this->diseasePersonLinkDAO->deleteDiseasePersonLinkDTO($link);
         return TRUE;
@@ -732,48 +714,21 @@ class serviceFacade
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Here are some makeshift functions for the presentation. TODO replace these.
-  public function findPersonById($id)
+  public function findByDiseasePersonLinkObject($link)
   {
     try
     {
-      $table = "person";
-      $conn = getDatabase();
-
-      if($id != null)
+      if($link != null && $link->getDisease() != null && $link->getPerson() != null)
       {
-
-        $stmt = $conn->prepare("SELECT * FROM " .  $table .  " WHERE id=:id");
-        $stmt->execute([":id"=>$id]);
-        $count = $stmt->rowCount();
-        if($count == 1)
+        $foundLink = $this->diseasePersonLinkDAO->findByObject($link);
+        if($foundLink != null)
         {
-          $row = $stmt->fetch();
-          return new personDTO((int)$row["id"], $row["first_name"], $row["last_name"], $row["dob"], $row["gender"], $row["email"], $row["phone"], $row["address"], $row["role"], $row["username"], $row["password"]);
+          return $foundLink;
         }
-        return null;
+        else
+        {
+          return null;
+        }
       }
       else
       {
@@ -786,23 +741,16 @@ class serviceFacade
     }
   }
 
-  public function addDrugToPrescription($drugId, $prescriptionId)
+  public function addDiseaseSymptomLinkDTO($link)
   {
     try
     {
-      $table = "Drug_Prescription_Link";
-      $conn = getDatabase();
-
-      if($drugId != null && $prescriptionId != null)
+      if($link != null && $link->getDisease() != null && $link->getSymptom() != null)
       {
-        $unique = $conn->prepare("SELECT * FROM " .  $table .  " WHERE drug=:drug AND prescription=:prescription");
-        $unique->execute([":drug"=>$drugId, ":prescription"=>$prescriptionId]);
-        $count = $unique->rowCount();
-        if($count == 0)
+        if($this->diseaseSymptomLinkDAO->findByObject($link) == null)
         {
-          $stmt = $conn->prepare("INSERT INTO " .  $table .  " (drug, prescription) VALUES (:drug, :prescription)");
-          $stmt->execute([":drug"=>$drugId, "prescription"=>$prescriptionId]);
-          return true;
+          $this->diseaseSymptomLinkDAO->addDiseaseSymptomLinkDTO($link);
+          return TRUE;
         }
         else
         {
@@ -814,40 +762,275 @@ class serviceFacade
         return null;
       }
     }
-    catch(PDOException $e)
-    {
+    catch (PDOException $e) {
       echo "Error: $e";
     }
   }
 
-  public function findDrugPrescriptionLinkByPrescription($id)
+  public function modifyDiseaseSymptomLinkDTO($oldLink , $newLink)
   {
     try
     {
-      $table = "Drug_Prescription_Link";
-      $conn = getDatabase();
-
-      if($id != null)
+      if($oldLink != null && $oldLink->getDisease() != null && $oldLink->getSymptom() != null && $newLink != null && $newLink->getDisease() != null && $newLink->getSymptom() != null)
       {
-        $stmt = $conn->prepare("SELECT * FROM " .  $table .  " WHERE prescription=:id");
-        $stmt->execute([":id"=>$id]);
-        while($row = $stmt->fetch())
+        if($this->diseaseSymptomLinkDAO->findByObject($oldLink) != null && $this->diseaseSymptomLinkDAO->findByObject($newLink) == null)
         {
-          $link = new drugPrescriptionLinkDTO((int)$row["drug"], (int)$row["prescription"]);
-          $links[] = $link;
+          $this->diseaseSymptomLinkDAO->modifyDiseaseSymptomLinkDTO($oldLink, $newLink);
+          return TRUE;
         }
-        return $links;
+        else
+        {
+          return null;
+        }
       }
       else
       {
         return null;
       }
     }
-    catch(PDOException $e)
+    catch (PDOException $e)
     {
       echo "Error: $e";
     }
   }
+
+  public function findDiseaseSymptomLinkBySymptomId($id)
+  {
+    try
+    {
+      if($id != null)
+      {
+        return $this->diseaseSymptomLinkDAO->findBySymptomId($id);
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findDiseaseSymptomLinkByDiseaseId($id)
+  {
+    try
+    {
+      if($id != null)
+      {
+        return $this->diseaseSymptomLinkDAO->findByDiseaseId($id);
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function deleteDiseaseSymptomLinkDTO($link)
+  {
+    try
+    {
+      if($link != null && $link->getDisease() != null && $link->getSymptom() != null && $this->diseaseSymptomLinkDAO->findByObject($link) != null)
+      {
+        $this->diseaseSymptomLinkDAO->deleteDiseaseSymptomLinkDTO($link);
+        return TRUE;
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findByDiseaseSymptomLinkObject($link)
+  {
+    try
+    {
+      if($link != null && $link->getDisease() != null && $link->getSymptom() != null)
+      {
+        $foundLink = $this->diseaseSymptomLinkDAO->findByObject($link);
+        if($foundLink != null)
+        {
+          return $foundLink;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function addDiseaseTreatmentLinkDTO($link)
+  {
+    try
+    {
+      if($link != null && $link->getDisease() != null && $link->getTreatment() != null)
+      {
+        if($this->diseaseTreatmentLinkDAO->findByObject($link) == null)
+        {
+          $this->diseaseTreatmentLinkDAO->addDiseaseTreatmentLinkDTO($link);
+          return TRUE;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e) {
+      echo "Error: $e";
+    }
+  }
+
+  public function modifyDiseaseTreatmentLinkDTO($oldLink , $newLink)
+  {
+    try
+    {
+      if($oldLink != null && $oldLink->getDisease() != null && $oldLink->getTreatment() != null && $newLink != null && $newLink->getDisease() != null && $newLink->getTreatment() != null)
+      {
+        if($this->diseaseTreatmentLinkDAO->findByObject($oldLink) != null && $this->diseaseTreatmentLinkDAO->findByObject($newLink) == null)
+        {
+          $this->diseaseTreatmentLinkDAO->modifyDiseaseTreatmentLinkDTO($oldLink, $newLink);
+          return TRUE;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findDiseaseTreatmentLinkByTreatmentId($id)
+  {
+    try
+    {
+      if($id != null)
+      {
+        return $this->diseaseTreatmentLinkDAO->findByTreatmentId($id);
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findDiseaseTreatmentLinkByDiseaseId($id)
+  {
+    try
+    {
+      if($id != null)
+      {
+        return $this->diseaseTreatmentLinkDAO->findByDiseaseId($id);
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function deleteDiseaseTreatmentLinkDTO($link)
+  {
+    try
+    {
+      if($link != null && $link->getDisease() != null && $link->getTreatment() != null && $this->diseaseTreatmentLinkDAO->findByObject($link) != null)
+      {
+        $this->diseaseTreatmentLinkDAO->deleteDiseaseTreatmentLinkDTO($link);
+        return TRUE;
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findByDiseaseTreatmentLinkObject($link)
+  {
+    try
+    {
+      if($link != null && $link->getDisease() != null && $link->getTreatment() != null)
+      {
+        $foundLink = $this->diseaseTreatmentLinkDAO->findByObject($link);
+        if($foundLink != null)
+        {
+          return $foundLink;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 ?>

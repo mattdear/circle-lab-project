@@ -25,8 +25,8 @@ class locationDAO
 
     //Updating a location
     public function modifyLocation($updatedLocation){
-        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET address_line= ? , city= ? , postcode= ? , type=? , isactive = ? WHERE id= ?");
-		$stmt->execute([$updatedLocation->getAddressLine(), $updatedLocation->getCity(), $updatedLocation->getCity() , $updatedLocation->getPostcode(), $updatedLocation->getType() , $updatedLocation->getIsactive(), $updatedLocation->getId()]);
+      $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET address_line= ? , city= ? , postcode= ? , type=? , isactive = ? WHERE id= ?");
+		  $stmt->execute([$updatedLocation->getAddressLine(), $updatedLocation->getCity(), $updatedLocation->getCity() , $updatedLocation->getPostcode(), $updatedLocation->getType() , $updatedLocation->getIsactive(), $updatedLocation->getId()]);
     }
 
     //Find and return all locations

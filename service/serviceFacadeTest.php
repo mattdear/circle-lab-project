@@ -19,7 +19,7 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $serviceFacade = new serviceFacade();
 
     // Test with null template object.
-    $drug = new drugDTO(null, null);
+    $$formattedDate = new drugDTO(null, null);
     $returnedDrug = $serviceFacade->addDrug($drug);
 
     $this->assertNull($returnedDrug, $message = "testAddDrug, test 1");
@@ -589,17 +589,19 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     // Test with null template object.
     $prescription = new prescriptionDTO(null, null, null, null, null, null);
     $returnedPrescription = $serviceFacade->addPrescription($prescription);
+    $date = date_create("2020-04-10");
+    $formattedDate = date_format($date,"Y/m/d");
 
     $this->assertNull($returnedPrescription, $message = "testAddPrescription, test 1");
 
     //Test with template object has id attribute.
-    $prescription = new prescriptionDTO(4, 6, date_create("2020-04-10"), 14, 11, 1);
+    $prescription = new prescriptionDTO(4, 6, $formattedDate, 14, 11, 1);
     $returnedPrescription = $serviceFacade->addPrescription($prescription);
 
     $this->assertNull($returnedPrescription, $message = "testAddPrescription, test 2");
 
     //Test with template object and null patient attribute.
-    $prescription = new prescriptionDTO(null, null, date_create("2020-04-10"), 14, 11, 1);
+    $prescription = new prescriptionDTO(null, null, $formattedDate, 14, 11, 1);
     $returnedPrescription = $serviceFacade->addPrescription($prescription);
 
     $this->assertNull($returnedPrescription, $message = "testAddPrescription, test 3");
@@ -611,31 +613,31 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $this->assertNull($returnedPrescription, $message = "testAddPrescription, test 4");
 
     // Test with template object and null quantity attribute.
-    $prescription = new prescriptionDTO(null, 6, date_create("2020-04-10"), null, 11, 1);
+    $prescription = new prescriptionDTO(null, 6, $formattedDate, null, 11, 1);
     $returnedPrescription = $serviceFacade->addPrescription($prescription);
 
     $this->assertNull($returnedPrescription, $message = "testAddPrescription, test 5");
 
     // Test with template object and null location attribute.
-    $prescription = new prescriptionDTO(null, 6, date_create("2020-04-10"), 14, null, 1);
+    $prescription = new prescriptionDTO(null, 6, $formattedDate, 14, null, 1);
     $returnedPrescription = $serviceFacade->addPrescription($prescription);
 
     $this->assertNull($returnedPrescription, $message = "testAddPrescription, test 6");
 
     // Test with template object and null isactive attribute.
-    $prescription = new prescriptionDTO(null, 6, date_create("2020-04-10"), 14, 11, null);
+    $prescription = new prescriptionDTO(null, 6, $formattedDate, 14, 11, null);
     $returnedPrescription = $serviceFacade->addPrescription($prescription);
 
     $this->assertNull($returnedPrescription, $message = "testAddPrescription, test 7");
 
     // Test with template object and isactive set to 0.
-    $prescription = new prescriptionDTO(null, 6, date_create("2020-04-10"), 14, 11, 0);
+    $prescription = new prescriptionDTO(null, 6, $formattedDate, 14, 11, 0);
     $returnedPrescription = $serviceFacade->addPrescription($prescription);
 
     $this->assertNull($returnedPrescription, $message = "testAddPrescription, test 8");
 
     // Test with complete template object.
-    $prescription = new prescriptionDTO(null, 6, date_create("2020-04-10"), 14, 11, 1);
+    $prescription = new prescriptionDTO(null, 6, $formattedDate, 14, 11, 1);
     $returnedPrescription = $serviceFacade->addPrescription($prescription);
 
     $this->assertIsInt($returnedPrescription->getId(), $message = "testAddPrescription, test 9");
@@ -645,7 +647,7 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $this->assertIsInt($returnedPrescription->getIsactive(), $message = "testAddPrescription, test 13");
     $this->assertEquals(4, $returnedPrescription->getId(), $message = "testAddPrescription, test 14");
     $this->assertEquals(6, $returnedPrescription->getPatient(), $message = "testAddPrescription, test 15");
-    $this->assertEquals(date_create("2020-04-10"), $returnedPrescription->getDate(), $message = "testAddPrescription, test 16");
+    $this->assertEquals($formattedDate, $returnedPrescription->getDate(), $message = "testAddPrescription, test 16");
     $this->assertEquals(14, $returnedPrescription->getQuantity(), $message = "testAddPrescription, test 17");
     $this->assertEquals(11, $returnedPrescription->getLocation(), $message = "testAddPrescription, test 18");
     $this->assertEquals(1, $returnedPrescription->getIsactive(), $message = "testAddPrescription, test 19");
@@ -656,7 +658,7 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $this->assertNotEquals(10, $returnedPrescription->getLocation(), $message = "testAddPrescription, test 24");
     $this->assertNotEquals(0, $returnedPrescription->getIsactive(), $message = "testAddPrescription, test 25");
   }
-
+  //
   public function testFindPrescription()
   {
     $serviceFacade = new serviceFacade();
@@ -927,55 +929,641 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $this->assertNotEquals(0, $returnedPrescription->getIsactive(), $message = "testModifyPrescription, test 104");
   }
 
-  public function testAddDrugToPrescription()
-  {
-    $serviceFacade = new serviceFacade();
-
-    $bool = $serviceFacade->addDrugToPrescription(1, 3);
-    $this->assertTrue($bool, $message = "testAddDrugToPrescription, test 1");
-    $bool = $serviceFacade->addDrugToPrescription(1, 3);
-    $this->assertNull($bool, $message = "testAddDrugToPrescription, test 2");
-    $bool = $serviceFacade->addDrugToPrescription(1, null);
-    $this->assertNull($bool, $message = "testAddDrugToPrescription, test 3");
-    $bool = $serviceFacade->addDrugToPrescription(null, 3);
-    $this->assertNull($bool, $message = "testAddDrugToPrescription, test 4");
-    $bool = $serviceFacade->addDrugToPrescription(null, null);
-    $this->assertNull($bool, $message = "testAddDrugToPrescription, test 5");
-  }
-
-  public function testFindDrugPrescriptionLinkByPrescription()
-  {
-    $serviceFacade = new serviceFacade();
-
-    $returnedLinks = $serviceFacade->findDrugPrescriptionLinkByPrescription(3);
-    $this->assertIsArray($returnedLinks, $message = "testFindDrugPrescriptionLinkByPrescription, test 1");
-    $this->assertNotNull($returnedLinks, $message = "testFindDrugPrescriptionLinkByPrescription, test 2");
-    $this->assertIsInt($returnedLinks[0]->getDrug(), $message = "testFindDrugPrescriptionLinkByPrescription, test 3");
-    $this->assertEquals(1, $returnedLinks[0]->getDrug(), $message = "testFindDrugPrescriptionLinkByPrescription, test 4");
-    $this->assertNotEquals(2, $returnedLinks[0]->getDrug(), $message = "testFindDrugPrescriptionLinkByPrescription, test 5");
-    $this->assertEquals(3, $returnedLinks[0]->getPrescription(), $message = "testFindDrugPrescriptionLinkByPrescription, test 6");
-    $this->assertNotEquals(2, $returnedLinks[0]->getPrescription(), $message = "testFindDrugPrescriptionLinkByPrescription, test 7");
-    $this->assertIsInt($returnedLinks[1]->getDrug(), $message = "testFindDrugPrescriptionLinkByPrescription, test 8");
-    $this->assertEquals(3, $returnedLinks[1]->getDrug(), $message = "testFindDrugPrescriptionLinkByPrescription, test 9");
-    $this->assertNotEquals(2, $returnedLinks[1]->getDrug(), $message = "testFindDrugPrescriptionLinkByPrescription, test 10");
-    $this->assertEquals(3, $returnedLinks[1]->getPrescription(), $message = "testFindDrugPrescriptionLinkByPrescription, test 11");
-    $this->assertNotEquals(2, $returnedLinks[1]->getPrescription(), $message = "testFindDrugPrescriptionLinkByPrescription, test 12");
-  }
-
   public function testAddDiseasePersonLinkDTO()
   {
     $serviceFacade = new serviceFacade();
 
-    $bool = $serviceFacade->addDiseasePersonLinkDTO(1, 3);
+    $linkObj = new diseasePersonLinkDTO(1, 3);
+
+    $bool = $serviceFacade->addDiseasePersonLinkDTO($linkObj);
     $this->assertTrue($bool, $message = "testAddDiseasePersonLinkDTO, test 1");
-    $bool = $serviceFacade->addDiseasePersonLinkDTO(1, 3);
+    $bool = $serviceFacade->addDiseasePersonLinkDTO($linkObj);
     $this->assertNull($bool, $message = "testAddDiseasePersonLinkDTO, test 2");
-    $bool = $serviceFacade->addDiseasePersonLinkDTO(1, null);
+
+    $linkObj = new diseasePersonLinkDTO(1, null);
+
+    $bool = $serviceFacade->addDiseasePersonLinkDTO($linkObj);
     $this->assertNull($bool, $message = "testAddDiseasePersonLinkDTO, test 3");
-    $bool = $serviceFacade->addDiseasePersonLinkDTO(null, 3);
+
+    $linkObj = new diseasePersonLinkDTO(null, 3);
+
+    $bool = $serviceFacade->addDiseasePersonLinkDTO($linkObj);
     $this->assertNull($bool, $message = "testAddDiseasePersonLinkDTO, test 4");
-    $bool = $serviceFacade->addDiseasePersonLinkDTO(null, null);
+
+    $linkObj = new diseasePersonLinkDTO(null, null);
+
+    $bool = $serviceFacade->addDiseasePersonLinkDTO($linkObj);
     $this->assertNull($bool, $message = "testAddDiseasePersonLinkDTO, test 5");
+  }
+
+  public function testModifyDiseasePersonLinkDTO()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $oldLinkObj = new diseasePersonLinkDTO(1, 3);
+    $newLinkObj = new diseasePersonLinkDTO(5, 3);
+
+    $bool = $serviceFacade->modifyDiseasePersonLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertTrue($bool, $message = "testModifyDiseasePersonLinkDTO, Test 1");
+
+    $oldLinkObj = new diseasePersonLinkDTO(5, 3);
+    $newLinkObj = new diseasePersonLinkDTO(5, 3);
+
+    $bool = $serviceFacade->modifyDiseasePersonLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseasePersonLinkDTO, Test 2");
+
+    $oldLinkObj = new diseasePersonLinkDTO(null, 3);
+    $newLinkObj = new diseasePersonLinkDTO(5, 3);
+
+    $bool = $serviceFacade->modifyDiseasePersonLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseasePersonLinkDTO, Test 3");
+
+    $oldLinkObj = new diseasePersonLinkDTO(5, null);
+    $newLinkObj = new diseasePersonLinkDTO(5, 3);
+
+    $bool = $serviceFacade->modifyDiseasePersonLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseasePersonLinkDTO, Test 4");
+
+    $oldLinkObj = new diseasePersonLinkDTO(5, 3);
+    $newLinkObj = new diseasePersonLinkDTO(null, 3);
+
+    $bool = $serviceFacade->modifyDiseasePersonLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseasePersonLinkDTO, Test 5");
+
+    $oldLinkObj = new diseasePersonLinkDTO(5, 3);
+    $newLinkObj = new diseasePersonLinkDTO(5, null);
+
+    $bool = $serviceFacade->modifyDiseasePersonLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseasePersonLinkDTO, Test 6");
+
+    $oldLinkObj = new diseasePersonLinkDTO(null, null);
+    $newLinkObj = new diseasePersonLinkDTO(null, null);
+
+    $bool = $serviceFacade->modifyDiseasePersonLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseasePersonLinkDTO, Test 7");
+
+    $oldLinkObj = new diseasePersonLinkDTO(70, 70);
+    $newLinkObj = new diseasePersonLinkDTO(70, 70);
+
+    $bool = $serviceFacade->modifyDiseasePersonLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseasePersonLinkDTO, Test 8");
+  }
+
+  public function testFindDiseasePersonLinkByPersonId()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $id = 6;
+    $retLinks = $serviceFacade->findDiseasePersonLinkByPersonId($id);
+
+    $this->assertEquals(1, $retLinks[0]->getDisease(), $message = "testFindDiseasePersonLinkByPersonId, Test 1");
+    $this->assertEquals(6, $retLinks[0]->getPerson(), $message = "testFindDiseasePersonLinkByPersonId, Test 2");
+
+    $this->assertEquals(2, $retLinks[1]->getDisease(), $message = "testFindDiseasePersonLinkByPersonId, Test 3");
+    $this->assertEquals(6, $retLinks[1]->getPerson(), $message = "testFindDiseasePersonLinkByPersonId, Test 4");
+
+    $this->assertEquals(5, $retLinks[2]->getDisease(), $message = "testFindDiseasePersonLinkByPersonId, Test 5");
+    $this->assertEquals(6, $retLinks[2]->getPerson(), $message = "testFindDiseasePersonLinkByPersonId, Test 6");
+
+    $this->assertEquals(3, sizeOf($retLinks), $message = "testFindDiseasePersonLinkByPersonId, Test 7");
+
+    $id = null;
+    $retLinks = $serviceFacade->findDiseasePersonLinkByPersonId($id);
+
+    $this->assertNull($retLinks, $message = "testFindByPersonId, Test 8");
+
+    $id = 10;
+    $retLinks = $serviceFacade->findDiseasePersonLinkByPersonId($id);
+
+    $this->assertEquals(0, sizeOf($retLinks), $message = "testFindByPersonId, Test 9");
+  }
+
+  public function testFindDiseasePersonLinkByDiseaseId()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $id = 5;
+    $retLinks = $serviceFacade->findDiseasePersonLinkByDiseaseId($id);
+
+    $this->assertEquals(5, $retLinks[0]->getDisease(), $message = "testFindDiseasePersonLinkByDiseaseId, Test 1");
+    $this->assertEquals(3, $retLinks[0]->getPerson(), $message = "testFindDiseasePersonLinkByDiseaseId, Test 2");
+
+    $this->assertEquals(5, $retLinks[1]->getDisease(), $message = "testFindDiseasePersonLinkByDiseaseId, Test 3");
+    $this->assertEquals(6, $retLinks[1]->getPerson(), $message = "testFindDiseasePersonLinkByDiseaseId, Test 4");
+
+    $this->assertEquals(2, sizeOf($retLinks), $message = "testFindDiseasePersonLinkByDiseaseId, Test 7");
+
+    $id = null;
+    $retLinks = $serviceFacade->findDiseasePersonLinkByDiseaseId($id);
+
+    $this->assertNull($retLinks, $message = "testFindDiseasePersonLinkByDiseaseId, Test 8");
+
+    $id = 10;
+    $retLinks = $serviceFacade->findDiseasePersonLinkByDiseaseId($id);
+
+    $this->assertEquals(0, sizeOf($retLinks), $message = "testFindDiseasePersonLinkByDiseaseId, Test 9");
+  }
+
+  public function testDeleteDiseasePersonLinkDTO()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $link = new diseasePersonLinkDTO(5, 3);
+    $bool = $serviceFacade->deleteDiseasePersonLinkDTO($link);
+
+    $this->assertTrue($bool, $message = "testDeleteDiseasePersonLinkDTO, Test 1");
+
+    $bool = $serviceFacade->deleteDiseasePersonLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseasePersonLinkDTO, Test 2");
+
+    $link = new diseasePersonLinkDTO(null, 3);
+    $bool = $serviceFacade->deleteDiseasePersonLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseasePersonLinkDTO, Test 3");
+
+    $link = new diseasePersonLinkDTO(5, null);
+    $bool = $serviceFacade->deleteDiseasePersonLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseasePersonLinkDTO, Test 3");
+
+    $link = new diseasePersonLinkDTO(null, null);
+    $bool = $serviceFacade->deleteDiseasePersonLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseasePersonLinkDTO, Test 3");
+
+    $link = new diseasePersonLinkDTO(70, 3);
+    $bool = $serviceFacade->deleteDiseasePersonLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseasePersonLinkDTO, Test 4");
+
+    $link = new diseasePersonLinkDTO(5, 70);
+    $bool = $serviceFacade->deleteDiseasePersonLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseasePersonLinkDTO, Test 5");
+  }
+
+  public function testFindByDiseasePersonLinkObject()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $linkObj = new diseasePersonLinkDTO(2, 6);
+    $returnedObj = $serviceFacade->findByDiseasePersonLinkObject($linkObj);
+    $this->assertEquals(2, $returnedObj->getDisease(), $message = "testFindByDiseasePersonLinkObject, Test 1");
+    $this->assertEquals(6, $returnedObj->getPerson(), $message = "testFindByDiseasePersonLinkObject, Test 2");
+
+    $linkObj = new diseasePersonLinkDTO(20, 6);
+    $returnedObj = $serviceFacade->findByDiseasePersonLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseasePersonLinkObject, Test 3");
+
+    $linkObj = new diseasePersonLinkDTO(null, 6);
+    $returnedObj = $serviceFacade->findByDiseasePersonLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseasePersonLinkObject, Test 4");
+
+    $linkObj = new diseasePersonLinkDTO(2, null);
+    $returnedObj = $serviceFacade->findByDiseasePersonLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseasePersonLinkObject, Test 5");
+
+    $linkObj = new diseasePersonLinkDTO(null, null);
+    $returnedObj = $serviceFacade->findByDiseasePersonLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseasePersonLinkObject, Test 6");
+  }
+
+  public function testAddDiseaseSymptomLinkDTO()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $linkObj = new diseaseSymptomLinkDTO(1, 10);
+
+    $bool = $serviceFacade->addDiseaseSymptomLinkDTO($linkObj);
+    $this->assertTrue($bool, $message = "testAddDiseaseSymptomLinkDTO, test 1");
+    $bool = $serviceFacade->addDiseaseSymptomLinkDTO($linkObj);
+    $this->assertNull($bool, $message = "testAddDiseaseSymptomLinkDTO, test 2");
+
+    $linkObj = new diseaseSymptomLinkDTO(1, null);
+
+    $bool = $serviceFacade->addDiseaseSymptomLinkDTO($linkObj);
+    $this->assertNull($bool, $message = "testAddDiseaseSymptomLinkDTO, test 3");
+
+    $linkObj = new diseaseSymptomLinkDTO(null, 3);
+
+    $bool = $serviceFacade->addDiseaseSymptomLinkDTO($linkObj);
+    $this->assertNull($bool, $message = "testAddDiseaseSymptomLinkDTO, test 4");
+
+    $linkObj = new diseaseSymptomLinkDTO(null, null);
+
+    $bool = $serviceFacade->addDiseaseSymptomLinkDTO($linkObj);
+    $this->assertNull($bool, $message = "testAddDiseaseSymptomLinkDTO, test 5");
+
+    $linkObj = new diseaseSymptomLinkDTO(1, 3);
+
+    $bool = $serviceFacade->addDiseaseSymptomLinkDTO($linkObj);
+    $this->assertNull($bool, $message = "testAddDiseaseSymptomLinkDTO, test 6");
+  }
+
+  public function testModifyDiseaseSymptomLinkDTO()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $oldLinkObj = new diseaseSymptomLinkDTO(1, 10);
+    $newLinkObj = new diseaseSymptomLinkDTO(2, 15);
+
+    $bool = $serviceFacade->modifyDiseaseSymptomLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertTrue($bool, $message = "testModifyDiseaseSymptomLinkDTO, Test 1");
+
+    $oldLinkObj = new diseaseSymptomLinkDTO(1, 1);
+    $newLinkObj = new diseaseSymptomLinkDTO(1, 1);
+
+    $bool = $serviceFacade->modifyDiseaseSymptomLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseSymptomLinkDTO, Test 2");
+
+    $oldLinkObj = new diseaseSymptomLinkDTO(null, 3);
+    $newLinkObj = new diseaseSymptomLinkDTO(1, 3);
+
+    $bool = $serviceFacade->modifyDiseaseSymptomLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseSymptomLinkDTO, Test 3");
+
+    $oldLinkObj = new diseaseSymptomLinkDTO(5, null);
+    $newLinkObj = new diseaseSymptomLinkDTO(1, 3);
+
+    $bool = $serviceFacade->modifyDiseaseSymptomLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseSymptomLinkDTO, Test 4");
+
+    $oldLinkObj = new diseaseSymptomLinkDTO(1, 3);
+    $newLinkObj = new diseaseSymptomLinkDTO(null, 3);
+
+    $bool = $serviceFacade->modifyDiseaseSymptomLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseSymptomLinkDTO, Test 5");
+
+    $oldLinkObj = new diseaseSymptomLinkDTO(1, 3);
+    $newLinkObj = new diseaseSymptomLinkDTO(1, null);
+
+    $bool = $serviceFacade->modifyDiseaseSymptomLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseSymptomLinkDTO, Test 6");
+
+    $oldLinkObj = new diseaseSymptomLinkDTO(null, null);
+    $newLinkObj = new diseaseSymptomLinkDTO(null, null);
+
+    $bool = $serviceFacade->modifyDiseaseSymptomLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseSymptomLinkDTO, Test 7");
+
+    $oldLinkObj = new diseaseSymptomLinkDTO(70, 70);
+    $newLinkObj = new diseaseSymptomLinkDTO(70, 70);
+
+    $bool = $serviceFacade->modifyDiseaseSymptomLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseSymptomLinkDTO, Test 8");
+  }
+
+  public function testFindDiseaseSymptomLinkBySymptomId()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $id = 10;
+    $retLinks = $serviceFacade->findDiseaseSymptomLinkBySymptomId($id);
+
+    $this->assertEquals(3, $retLinks[0]->getDisease(), $message = "testFindDiseaseSymptomLinkBySymptomId, Test 1");
+    $this->assertEquals(10, $retLinks[0]->getSymptom(), $message = "testFindDiseaseSymptomLinkBySymptomId, Test 2");
+
+    $this->assertEquals(1, sizeOf($retLinks), $message = "testFindDiseaseSymptomLinkBySymptomId, Test 3");
+
+    $id = null;
+    $retLinks = $serviceFacade->findDiseaseSymptomLinkBySymptomId($id);
+    $this->assertNull($retLinks, $message = "testFindDiseaseSymptomLinkBySymptomId, Test 4");
+
+    $id = 50;
+    $retLinks = $serviceFacade->findDiseaseSymptomLinkBySymptomId($id);
+
+    $this->assertEquals(0, sizeOf($retLinks), $message = "testFindDiseaseSymptomLinkBySymptomId, Test 5");
+  }
+
+  public function testFindDiseaseSymptomLinkByDiseaseId()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $id = 3;
+    $retLinks = $serviceFacade->findDiseaseSymptomLinkByDiseaseId($id);
+
+    $this->assertEquals(3, $retLinks[0]->getDisease(), $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 1");
+    $this->assertEquals(10, $retLinks[0]->getSymptom(), $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 2");
+
+    $this->assertEquals(3, $retLinks[1]->getDisease(), $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 3");
+    $this->assertEquals(11, $retLinks[1]->getSymptom(), $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 4");
+
+    $this->assertEquals(3, $retLinks[2]->getDisease(), $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 5");
+    $this->assertEquals(12, $retLinks[2]->getSymptom(), $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 6");
+
+    $this->assertEquals(3, $retLinks[3]->getDisease(), $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 7");
+    $this->assertEquals(13, $retLinks[3]->getSymptom(), $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 8");
+
+    $this->assertEquals(3, $retLinks[4]->getDisease(), $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 9");
+    $this->assertEquals(14, $retLinks[4]->getSymptom(), $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 10");
+
+    $this->assertEquals(5, sizeOf($retLinks), $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 11");
+
+    $id = null;
+    $retLinks = $serviceFacade->findDiseaseSymptomLinkByDiseaseId($id);
+
+    $this->assertNull($retLinks, $message = "testFindDiseaseSymptomLinkByDiseaseId, Test 12");
+
+    $id = 50;
+    $retLinks = $serviceFacade->findDiseaseSymptomLinkByDiseaseId($id);
+
+    $this->assertEquals(0, sizeOf($retLinks), $message = "testFindDiseaseSymptomLinkBySymptomId, Test 13");
+  }
+
+  public function testDeleteDiseaseSymptomLinkDTO()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $link = new diseaseSymptomLinkDTO(2, 15);
+    $bool = $serviceFacade->deleteDiseaseSymptomLinkDTO($link);
+
+    $this->assertTrue($bool, $message = "testDeleteDiseaseSymptomLinkDTO, Test 1");
+
+    $bool = $serviceFacade->deleteDiseaseSymptomLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseSymptomLinkDTO, Test 2");
+
+    $link = new diseaseSymptomLinkDTO(null, 3);
+    $bool = $serviceFacade->deleteDiseaseSymptomLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseSymptomLinkDTO, Test 3");
+
+    $link = new diseaseSymptomLinkDTO(5, null);
+    $bool = $serviceFacade->deleteDiseaseSymptomLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseSymptomLinkDTO, Test 3");
+
+    $link = new diseaseSymptomLinkDTO(null, null);
+    $bool = $serviceFacade->deleteDiseaseSymptomLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseSymptomLinkDTO, Test 3");
+
+    $link = new diseaseSymptomLinkDTO(70, 3);
+    $bool = $serviceFacade->deleteDiseaseSymptomLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseSymptomLinkDTO, Test 4");
+
+    $link = new diseaseSymptomLinkDTO(5, 70);
+    $bool = $serviceFacade->deleteDiseaseSymptomLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseSymptomLinkDTO, Test 5");
+  }
+
+  public function testFindByDiseaseSymptomLinkObject()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $linkObj = new diseaseSymptomLinkDTO(2, 9);
+    $returnedObj = $serviceFacade->findByDiseaseSymptomLinkObject($linkObj);
+    $this->assertEquals(2, $returnedObj->getDisease(), $message = "testFindByDiseaseSymptomLinkObject, Test 1");
+    $this->assertEquals(9, $returnedObj->getSymptom(), $message = "testFindByDiseaseSymptomLinkObject, Test 2");
+
+    $linkObj = new diseaseSymptomLinkDTO(20, 6);
+    $returnedObj = $serviceFacade->findByDiseaseSymptomLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseaseSymptomLinkObject, Test 3");
+
+    $linkObj = new diseaseSymptomLinkDTO(null, 6);
+    $returnedObj = $serviceFacade->findByDiseaseSymptomLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseaseSymptomLinkObject, Test 4");
+
+    $linkObj = new diseaseSymptomLinkDTO(2, null);
+    $returnedObj = $serviceFacade->findByDiseaseSymptomLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseaseSymptomLinkObject, Test 5");
+
+    $linkObj = new diseaseSymptomLinkDTO(null, null);
+    $returnedObj = $serviceFacade->findByDiseaseSymptomLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseaseSymptomLinkObject, Test 6");
+  }
+
+  public function testAddDiseaseTreatmentLinkDTO()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $linkObj = new diseaseTreatmentLinkDTO(1, 10);
+
+    $bool = $serviceFacade->addDiseaseTreatmentLinkDTO($linkObj);
+    $this->assertTrue($bool, $message = "testAddDiseaseTreatmentLinkDTO, test 1");
+    $bool = $serviceFacade->addDiseaseTreatmentLinkDTO($linkObj);
+    $this->assertNull($bool, $message = "testAddDiseaseTreatmentLinkDTO, test 2");
+
+    $linkObj = new diseaseTreatmentLinkDTO(1, null);
+
+    $bool = $serviceFacade->addDiseaseTreatmentLinkDTO($linkObj);
+    $this->assertNull($bool, $message = "testAddDiseaseTreatmentLinkDTO, test 3");
+
+    $linkObj = new diseaseTreatmentLinkDTO(null, 3);
+
+    $bool = $serviceFacade->addDiseaseTreatmentLinkDTO($linkObj);
+    $this->assertNull($bool, $message = "testAddDiseaseTreatmentLinkDTO, test 4");
+
+    $linkObj = new diseaseTreatmentLinkDTO(null, null);
+
+    $bool = $serviceFacade->addDiseaseTreatmentLinkDTO($linkObj);
+    $this->assertNull($bool, $message = "testAddDiseaseTreatmentLinkDTO, test 5");
+
+    $linkObj = new diseaseTreatmentLinkDTO(1, 3);
+
+    $bool = $serviceFacade->addDiseaseTreatmentLinkDTO($linkObj);
+    $this->assertNull($bool, $message = "testAddDiseaseTreatmentLinkDTO, test 6");
+  }
+
+  public function testModifyDiseaseTreatmentLinkDTO()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $oldLinkObj = new diseaseTreatmentLinkDTO(1, 10);
+    $newLinkObj = new diseaseTreatmentLinkDTO(2, 15);
+
+    $bool = $serviceFacade->modifyDiseaseTreatmentLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertTrue($bool, $message = "testModifyDiseaseTreatmentLinkDTO, Test 1");
+
+    $oldLinkObj = new diseaseTreatmentLinkDTO(1, 1);
+    $newLinkObj = new diseaseTreatmentLinkDTO(1, 1);
+
+    $bool = $serviceFacade->modifyDiseaseTreatmentLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseTreatmentLinkDTO, Test 2");
+
+    $oldLinkObj = new diseaseTreatmentLinkDTO(null, 3);
+    $newLinkObj = new diseaseTreatmentLinkDTO(1, 3);
+
+    $bool = $serviceFacade->modifyDiseaseTreatmentLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseTreatmentLinkDTO, Test 3");
+
+    $oldLinkObj = new diseaseTreatmentLinkDTO(5, null);
+    $newLinkObj = new diseaseTreatmentLinkDTO(1, 3);
+
+    $bool = $serviceFacade->modifyDiseaseTreatmentLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseTreatmentLinkDTO, Test 4");
+
+    $oldLinkObj = new diseaseTreatmentLinkDTO(1, 3);
+    $newLinkObj = new diseaseTreatmentLinkDTO(null, 3);
+
+    $bool = $serviceFacade->modifyDiseaseTreatmentLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseTreatmentLinkDTO, Test 5");
+
+    $oldLinkObj = new diseaseTreatmentLinkDTO(1, 3);
+    $newLinkObj = new diseaseTreatmentLinkDTO(1, null);
+
+    $bool = $serviceFacade->modifyDiseaseTreatmentLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseTreatmentLinkDTO, Test 6");
+
+    $oldLinkObj = new diseaseTreatmentLinkDTO(null, null);
+    $newLinkObj = new diseaseTreatmentLinkDTO(null, null);
+
+    $bool = $serviceFacade->modifyDiseaseTreatmentLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseTreatmentLinkDTO, Test 7");
+
+    $oldLinkObj = new diseaseTreatmentLinkDTO(70, 70);
+    $newLinkObj = new diseaseTreatmentLinkDTO(70, 70);
+
+    $bool = $serviceFacade->modifyDiseaseTreatmentLinkDTO($oldLinkObj, $newLinkObj);
+    $this->assertNull($bool, $message = "testModifyDiseaseTreatmentLinkDTO, Test 8");
+  }
+
+  public function testFindDiseaseTreatmentLinkByTreatmentId()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $id = 6;
+    $retLinks = $serviceFacade->findDiseaseTreatmentLinkByTreatmentId($id);
+
+    $this->assertEquals(1, $retLinks[0]->getDisease(), $message = "findDiseaseTreatmentLinkByTreatmentId, Test 1");
+    $this->assertEquals(6, $retLinks[0]->getTreatment(), $message = "findDiseaseTreatmentLinkByTreatmentId, Test 2");
+
+    $this->assertEquals(8, $retLinks[1]->getDisease(), $message = "findDiseaseTreatmentLinkByTreatmentId, Test 3");
+    $this->assertEquals(6, $retLinks[1]->getTreatment(), $message = "findDiseaseTreatmentLinkByTreatmentId, Test 4");
+
+    $this->assertEquals(2, sizeOf($retLinks), $message = "findDiseaseTreatmentLinkByTreatmentId, Test 5");
+
+    $id = null;
+    $retLinks = $serviceFacade->findDiseaseTreatmentLinkByTreatmentId($id);
+    $this->assertNull($retLinks, $message = "findDiseaseTreatmentLinkByTreatmentId, Test 6");
+
+    $id = 50;
+    $retLinks = $serviceFacade->findDiseaseTreatmentLinkByTreatmentId($id);
+
+    $this->assertEquals(0, sizeOf($retLinks), $message = "findDiseaseTreatmentLinkByTreatmentId, Test 7");
+  }
+
+  public function testFindDiseaseTreatmentLinkByDiseaseId()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $id = 5;
+    $retLinks = $serviceFacade->findDiseaseTreatmentLinkByDiseaseId($id);
+
+    $this->assertEquals(5, $retLinks[0]->getDisease(), $message = "testFindDiseaseTreatmentLinkByDiseaseId, Test 1");
+    $this->assertEquals(1, $retLinks[0]->getTreatment(), $message = "testFindDiseaseTreatmentLinkByDiseaseId, Test 2");
+
+    $this->assertEquals(5, $retLinks[1]->getDisease(), $message = "testFindDiseaseTreatmentLinkByDiseaseId, Test 3");
+    $this->assertEquals(17, $retLinks[1]->getTreatment(), $message = "testFindDiseaseTreatmentLinkByDiseaseId, Test 4");
+
+    $this->assertEquals(5, $retLinks[2]->getDisease(), $message = "testFindDiseaseTreatmentLinkByDiseaseId, Test 5");
+    $this->assertEquals(18, $retLinks[2]->getTreatment(), $message = "testFindDiseaseTreatmentLinkByDiseaseId, Test 6");
+
+    $this->assertEquals(5, $retLinks[3]->getDisease(), $message = "testFindDiseaseTreatmentLinkByDiseaseId, Test 7");
+    $this->assertEquals(19, $retLinks[3]->getTreatment(), $message = "testFindDiseaseTreatmentLinkByDiseaseId, Test 8");
+
+    $this->assertEquals(4, sizeOf($retLinks), $message = "testFindDiseaseTreatmentLinkByDiseaseId, Test 9");
+
+    $id = null;
+    $retLinks = $serviceFacade->findDiseaseTreatmentLinkByDiseaseId($id);
+
+    $this->assertNull($retLinks, $message = "testFindDiseaseTreatmentLinkByDiseaseId, Test 10");
+
+    $id = 50;
+    $retLinks = $serviceFacade->findDiseaseTreatmentLinkByDiseaseId($id);
+
+    $this->assertEquals(0, sizeOf($retLinks), $message = "testFindDiseaseTreatmentLinkByDiseaseId, Test 11");
+  }
+
+  public function testDeleteDiseaseTreatmentLinkDTO()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $link = new diseaseTreatmentLinkDTO(2, 15);
+    $bool = $serviceFacade->deleteDiseaseTreatmentLinkDTO($link);
+
+    $this->assertTrue($bool, $message = "testDeleteDiseaseTreatmentLinkDTO, Test 1");
+
+    $bool = $serviceFacade->deleteDiseaseTreatmentLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseTreatmentLinkDTO, Test 2");
+
+    $link = new diseaseTreatmentLinkDTO(null, 3);
+    $bool = $serviceFacade->deleteDiseaseTreatmentLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseTreatmentLinkDTO, Test 3");
+
+    $link = new diseaseTreatmentLinkDTO(5, null);
+    $bool = $serviceFacade->deleteDiseaseTreatmentLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseTreatmentLinkDTO, Test 3");
+
+    $link = new diseaseTreatmentLinkDTO(null, null);
+    $bool = $serviceFacade->deleteDiseaseTreatmentLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseTreatmentLinkDTO, Test 3");
+
+    $link = new diseaseTreatmentLinkDTO(70, 3);
+    $bool = $serviceFacade->deleteDiseaseTreatmentLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseTreatmentLinkDTO, Test 4");
+
+    $link = new diseaseTreatmentLinkDTO(5, 70);
+    $bool = $serviceFacade->deleteDiseaseTreatmentLinkDTO($link);
+    $this->assertNull($bool, $message = "testDeleteDiseaseTreatmentLinkDTO, Test 5");
+  }
+
+  public function testFindByDiseaseTreatmentLinkObject()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $linkObj = new diseaseTreatmentLinkDTO(2, 9);
+    $returnedObj = $serviceFacade->findByDiseaseTreatmentLinkObject($linkObj);
+    $this->assertEquals(2, $returnedObj->getDisease(), $message = "testFindByDiseaseTreatmentLinkObject, Test 1");
+    $this->assertEquals(9, $returnedObj->getTreatment(), $message = "testFindByDiseaseTreatmentLinkObject, Test 2");
+
+    $linkObj = new diseaseTreatmentLinkDTO(20, 6);
+    $returnedObj = $serviceFacade->findByDiseaseTreatmentLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseaseTreatmentLinkObject, Test 3");
+
+    $linkObj = new diseaseTreatmentLinkDTO(null, 6);
+    $returnedObj = $serviceFacade->findByDiseaseTreatmentLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseaseTreatmentLinkObject, Test 4");
+
+    $linkObj = new diseaseTreatmentLinkDTO(2, null);
+    $returnedObj = $serviceFacade->findByDiseaseTreatmentLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseaseTreatmentLinkObject, Test 5");
+
+    $linkObj = new diseaseTreatmentLinkDTO(null, null);
+    $returnedObj = $serviceFacade->findByDiseaseTreatmentLinkObject($linkObj);
+    $this->assertNull($returnedObj, $message = "testFindByDiseaseTreatmentLinkObject, Test 6");
+  }
+
+  public function testAddLocation()
+  {
+    $serviceFacade = new serviceFacade();
+
+    // Test with null template object.
+    $location = new locationDTO(null, null);
+    $returnedLocation = $serviceFacade->addLocation($location);
+
+    $this->assertNull($returnedLocation, $message = "testAddLocation, test 1");
+
+    // Test with template object has id attribute.
+    $location = new locationDTO(1, "testInput");
+    $returnedLocation = $serviceFacade->addLocation($location);
+
+    $this->assertNull($returnedLocation, $message = "testAddLocation, test 2");
+
+    // Test with template object and null name attribute.
+    $location = new locationDTO(null, null);
+    $returnedLocation = $serviceFacade->addLocation($location);
+
+    $this->assertNull($returnedLocation, $message = "testAddLocation, test 3");
+
+    // Test with complete template object.
+    $location = new locationDTO(null, "testInput");
+
+    $returnedLocation = $serviceFacade->addLocation($location);
+
+    $this->assertIsInt($returnedLocation->getId(), $message = "testAddLocation, test 4");
+    $this->assertIsString($returnedLocation->getName(), $message = "testAddLocation, test 5");
+    $this->assertEquals(8, $returnedLocation->getId(), $message = "testAddLocation, test 6");
+    $this->assertEquals("testInput", $returnedLocation->getName(), $message = "testAddLocation, test 7");
+    $this->assertNotEquals(4, $returnedLocation->getId(), $message = "testAddLocation, test 8");
+    $this->assertNotEquals("Nurse", $returnedLocation->getName(), $message = "testAddLocation, test 9");
+
+    // Test with template object and same name attribute as existing database entity.
+    $location = new locationDTO(null, "testInput");
+    $returnedLocation = $serviceFacade->addLocation($location);
+
+    $this->assertNull($returnedLocation, $message = "testAddDrug, test 10");
   }
 
 }

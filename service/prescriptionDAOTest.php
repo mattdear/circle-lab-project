@@ -10,7 +10,7 @@
 */
 
 include ("prescriptionDAO.php");
-include ("personDTO.php");
+// include ("personDTO.php");
 use PHPUnit\Framework\TestCase;
 
 class prescriptionDAOTest extends PHPUnit\Framework\TestCase
