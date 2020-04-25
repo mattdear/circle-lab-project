@@ -197,27 +197,35 @@ public function UpdateReport($oldReport, $updateReport)
 	    return null;
     }
 	
-    public function FindByDeclined(ReportDto $declined)
+    public function FindByDeclined($declined)
         {
+	    if ($declined != null && $declined->getApproved() != null)
+	    {
             $stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE approved=: 2");
             $stmt->execute(["approved"=>$declined->getApproved()]);
             $Report = [];
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 array_push($Report, new ReportDto($row["id"], $row["description"], $row["patient"],
                     $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
-            }
-            return $Report;
-        }
+             }
+        return $Report;
+    	     }
+	    return null;
+    }
     public function FindByApproved($approved)
     {
+	    if ($declined != null && $declined->getApproved() != null)
+	    {
         $stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE approved=: 1");
         $stmt->execute(["approved"=>$approved->getApproved()]);
         $Report = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             array_push($Report, new ReportDto($row["id"], $row["description"], $row["patient"],
                 $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
-        }
+       }
         return $Report;
+    	     }
+	    return null;
     }
 
 ?>
