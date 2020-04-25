@@ -28,7 +28,7 @@ class AppointmentDao
     }
 
     //find all Appointment List//
-    public function FindAllAppointment(AppointmentDto)
+    public function FindAllAppointment()
     {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table);
         $Appointment = [];
