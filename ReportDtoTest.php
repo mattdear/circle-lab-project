@@ -6,7 +6,7 @@ class ReportDtoTest extends PHPUnit\Framework\TestCase
 {
     public function testConstruct()
     {
-        $Report = new ReportDTO(null, "Broken Ankle Men Only", 9 , "2020-04-03" , "2020-07-18", "2020-07-19", 1, 80, 10, 1, 2, 3, 4);
+        $Report = new ReportDTO(1, "Broken Ankle Men Only", 9 , "2020-04-03" , "2020-07-18", "2020-07-19", 1, 80, 10, 1, 2, 3, 4);
 
         $this->assertIsInt($Report->getId(), $message = "testConstruct, test 1");
         $this->assertIsString($Report->getName(), $message = "testConstruct, test 2");
@@ -21,7 +21,7 @@ class ReportDtoTest extends PHPUnit\Framework\TestCase
         $this->assertIsInt($Report->getFemale(), $message = "testConstruct, test 11");
         $this->assertIsInt($Report->getDisease(), $message = "testConstruct, test 12");
         $this->assertIsInt($Report->getIsactive(), $message = "testConstruct, test 13");
-        $this->assertEquals(null, $Report->getId(), $message = "testConstruct, test 14");
+        $this->assertEquals(1, $Report->getId(), $message = "testConstruct, test 14");
         $this->assertEquals("Broken Ankle Men Only", $Report->getName(), $message = "testConstruct, test 10");
         $this->assertEquals(9, $Report->getRequester(), $message = "testConstruct, test 11");
         $this->assertEquals("2020-04-03", $Report->getRequestDate(), $message = "testConstruct, test 12");
@@ -47,7 +47,6 @@ class ReportDtoTest extends PHPUnit\Framework\TestCase
         $this->assertNotEquals(12, $Report->getDisease(), $message = "testConstruct, test 32");
         $this->assertNotEquals(11, $Report->getIsactive(), $message = "testConstruct, test 33");
         $this->assertNotEquals(10, $Report->getApproved(), $message = "testConstruct, test 34");
-
     }
     public function testGetId()
     {
