@@ -131,18 +131,20 @@ public function UpdateReport($oldReport, $updateReport)
 //find report by id//
     public function FindReportById($id)
         {
+        if ($id != null) {
             $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . "  WHERE id = ?");
             $stmt->execute(["id"=>$id->getId()]);
             $count = $stmt->rowCount();
             $Report = [];
-            if($count == 1)
-            {
-                ($row = $stmt->fetch(PDO::FETCH_ASSOC));
+		$stmt = $this->conn->prepare("INSERT INTO " .  $this->table .  " (name) VALUES (:name)");
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC));
                 new ReporDto($row["id"], $row["name"], $row["requester"],
                     $row["start_date"], $row["finish_date"], $row["max_age"], $row["min_age"], $row["male"], $row["female"], $row["disease"],$row["isactive"]));
         }
             return $Report;
         }
+	return null;
+}
 //find report by requester//
     public function FindReportByRequester(ReportDto $findReportByRequester)
     {
