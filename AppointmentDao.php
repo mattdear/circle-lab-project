@@ -68,7 +68,7 @@ class AppointmentDao
     }
 
     //delete an Appointment//
-    public function DeleteAppointment(AppointmentDto $deleteAppointment)
+    public function DeleteAppointment($deleteAppointment)
     {
         if($deleteAppointment != null && $deleteAppointment->getId() != null)
         {
