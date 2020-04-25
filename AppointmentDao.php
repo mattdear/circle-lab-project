@@ -14,12 +14,17 @@ class AppointmentDao
 //add a new Appointment//
     public function AddAppointment($newAppointment)
     {
+       if($newAppointment != null && $newAppointment->getId() == null && $newAppointment->getName() != null)
+            {
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "( description, patient, staff_member, date_time, location,
-     duration, isactive) VALUES (?,?,?,?,?,?,?)");
+            duration, isactive) VALUES (?,?,?,?,?,?,?)");
         $stmt->execute([$newAppointment->getdescription(), $newAppointment->getpatient(), $newAppointment->getstaff_member(),
             $newAppointment->getdate_time(), $newAppointment->getlocation(), $newAppointment->getIsactive()]);
         $id = (int)$this->conn->lastInsertId();
         $newAppointment->setId($id);
+           return $newAppointment;
+             }
+        return null;
     }
 
     //find all Appointment List//
