@@ -121,7 +121,7 @@ class ReportDao
     }
 
 //update a report//
-public function UpdateReport(ReportDto $oldReport, ReportDto $updateReport)
+public function UpdateReport($oldReport, $updateReport)
 {
         $stmt = $this->conn->prepare("UPDATE FROM " . $this->table . "  WHERE id = ?, name = ?, requester = ?, request_date = ?, start_date = ?, finish_date = ?, approved = ?, max_age = ?, min_age = ?, male = ?, female = ?, disease = ?, isactive = ?");
         $stmt->execute([$updateReport->getname(), $updateReport->getrequester(), $updateReport->getRequestDate(),
