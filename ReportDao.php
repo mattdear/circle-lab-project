@@ -87,7 +87,7 @@ class ReportDao
     }
 
     // decline report request//
-    public function DeclineReportRequest(ReportDto $ReportRequest, ReportDto $DeclineReportRequest)
+    public function DeclineReportRequest($ReportRequest, $DeclineReportRequest)
     {
         if ($ReportRequest != null && $ReportRequest->getApproved() == 0) {
             $stmt = $this->conn->prepare("UPDATE FROM " . $this->table . " SET approved = ? WHERE id = ?, name = ?, requester = ?, request_date = ?, start_date = ?, finish_date = ?, max_age = ?, min_age = ?, male = ?, female = ?, disease = ?, isactive = ?");
