@@ -45,9 +45,9 @@ class AppointmentDao
             }
         return $Appointment;
             }
-      return false
+      return null;
       }
-    public function FindAllAppointmentByPatient(AppointmentDto $findAllAppointmentByPatient)
+    public function FindAllAppointmentByPatient($findAllAppointmentByPatient)
     {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table.  " WHERE patient= id");
         $stmt->execute(["id"=>$findAllAppointmentByPatient->getId()]);
