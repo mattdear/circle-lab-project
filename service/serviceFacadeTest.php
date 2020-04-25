@@ -19,7 +19,7 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $serviceFacade = new serviceFacade();
 
     // Test with null template object.
-    $$formattedDate = new drugDTO(null, null);
+    $drug = new drugDTO(null, null);
     $returnedDrug = $serviceFacade->addDrug($drug);
 
     $this->assertNull($returnedDrug, $message = "testAddDrug, test 1");
@@ -1530,40 +1530,25 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $serviceFacade = new serviceFacade();
 
     // Test with null template object.
-    $location = new locationDTO(null, null);
+    $location = new locationDTO(null, null, null, null, null, null);
     $returnedLocation = $serviceFacade->addLocation($location);
 
     $this->assertNull($returnedLocation, $message = "testAddLocation, test 1");
-
-    // Test with template object has id attribute.
-    $location = new locationDTO(1, "testInput");
+    //Test with pre set id
+    $location = new locationDTO(1, "6 road road", "city", "postcode", "type", 1);
     $returnedLocation = $serviceFacade->addLocation($location);
 
     $this->assertNull($returnedLocation, $message = "testAddLocation, test 2");
-
-    // Test with template object and null name attribute.
-    $location = new locationDTO(null, null);
+    //Test complete object
+    $location = new locationDTO(null, "6 road road", "city", "postcode", "type", 1);
     $returnedLocation = $serviceFacade->addLocation($location);
 
-    $this->assertNull($returnedLocation, $message = "testAddLocation, test 3");
+    $this->assertEquals("6 road road", $returnedLocation->getAddressLine(), $message = "testAddLocation, test 3");
+    $this->assertEquals("city", $returnedLocation->getCity(), $message = "testAddLocation, test 4");
+    $this->assertEquals("postcode", $returnedLocation->getPostcode(), $message = "testAddLocation, test 5");
+    $this->assertEquals("type", $returnedLocation->getType(), $message = "testAddLocation, test 6");
+    $this->assertEquals(1, $returnedLocation->getIsactive(), $message = "testAddLocation, test 7");
 
-    // Test with complete template object.
-    $location = new locationDTO(null, "testInput");
-
-    $returnedLocation = $serviceFacade->addLocation($location);
-
-    $this->assertIsInt($returnedLocation->getId(), $message = "testAddLocation, test 4");
-    $this->assertIsString($returnedLocation->getName(), $message = "testAddLocation, test 5");
-    $this->assertEquals(8, $returnedLocation->getId(), $message = "testAddLocation, test 6");
-    $this->assertEquals("testInput", $returnedLocation->getName(), $message = "testAddLocation, test 7");
-    $this->assertNotEquals(4, $returnedLocation->getId(), $message = "testAddLocation, test 8");
-    $this->assertNotEquals("Nurse", $returnedLocation->getName(), $message = "testAddLocation, test 9");
-
-    // Test with template object and same name attribute as existing database entity.
-    $location = new locationDTO(null, "testInput");
-    $returnedLocation = $serviceFacade->addLocation($location);
-
-    $this->assertNull($returnedLocation, $message = "testAddDrug, test 10");
   }
 
 }

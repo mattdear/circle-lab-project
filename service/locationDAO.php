@@ -15,7 +15,7 @@ class locationDAO
 		if($newLocation != null && $newLocation->getId() == null && $newLocation->getAddressLine() != null && $newLocation->getCity() != null && $newLocation->getPostcode() != null && $newLocation->getType() != null && $newLocation->getIsactive() == 1)
     {
 			$stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(address_line , city , postcode, type, isactive) VALUES (? , ? , ? , ? , ?)");
-			$stmt->execute([$newLocation->getAddressLine(), $newLocation->getCity(), $newLocation->getCity() , $newLocation->getPostcode(), $newLocation->getType() , $newLocation->getIsactive()]);
+			$stmt->execute([$newLocation->getAddressLine(), $newLocation->getCity(), $newLocation->getPostcode(), $newLocation->getType() , $newLocation->getIsactive()]);
 			$id = (int)$this->conn->lastInsertId();
 			$newLocation->setId($id);
 			return $newLocation;
@@ -26,7 +26,7 @@ class locationDAO
     //Updating a location
     public function modifyLocation($updatedLocation){
       $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET address_line= ? , city= ? , postcode= ? , type=? , isactive = ? WHERE id= ?");
-		  $stmt->execute([$updatedLocation->getAddressLine(), $updatedLocation->getCity(), $updatedLocation->getCity() , $updatedLocation->getPostcode(), $updatedLocation->getType() , $updatedLocation->getIsactive(), $updatedLocation->getId()]);
+		  $stmt->execute([$updatedLocation->getAddressLine(), $updatedLocation->getCity() , $updatedLocation->getPostcode(), $updatedLocation->getType() , $updatedLocation->getIsactive(), $updatedLocation->getId()]);
     }
 
     //Find and return all locations

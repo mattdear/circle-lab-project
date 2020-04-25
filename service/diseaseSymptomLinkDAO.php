@@ -47,27 +47,24 @@ class diseaseSymptomLinkDAO
 
     //Delete Disease_Symptom_Link
     public function deleteDiseaseSymptomLinkDTO($removedDS_Link){
-        $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE disease =? AND symptom =? ");
+        $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE disease =? AND symptom = ? ");
         $stmt->execute([$removedDS_Link->getDisease(), $removedDS_Link->getSymptom()]);
     }
 
-    //Find by Object
-    public function findByObject($link)
-    {
-      $stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE disease=? AND symptom=?");
-      $stmt->execute([$link->getDisease(), $link->getSymptom()]);
-      $row = $stmt->fetch(PDO::FETCH_ASSOC);
-      $uniqueCount = $stmt->rowCount();
-      if($uniqueCount == 1)
-      {
-        $foundLink = new diseaseSymptomLinkDTO((int)$row["disease"], (int)$row["symptom"]);;
-        return $foundLink;
-      }
-      else
-      {
-        return null;
-      }
-    }
+	public function findByObject($link){
+		$stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE disease = ? AND symptom = ?");
+		$stmt->execute([$link->getDisease() , $link->getSymptom()]);
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		$uniqueCount = $stmt->rowCount();
+		if($uniqueCount == 1){
+			$foundLink = new diseaseSymptomLinkDTO((int)$row["disease"], (int)$row["symptom"]);
+			return $foundLink;
+		}
+		else{
+			return null;
+		}
+	}
 }
+
 
 ?>

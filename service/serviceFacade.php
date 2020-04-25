@@ -479,13 +479,13 @@ class serviceFacade
   {
     try
     {
-      if($locationObj != null && $locationObj->getId() == null && $locationObj->getAddress() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType != null && $locationObj->getIsactive() != null)
+      if($locationObj != null && $locationObj->getId() == null && $locationObj->getAddressLine() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType() != null && $locationObj->getIsactive() != null)
       {
         $allLocations = $this->locationDAO->findAllLocations();
         $unique = TRUE;
         foreach ($allLocations as $location)
         {
-          if($location->getAddress() == $locationObj->getAddress())
+          if($location->getAddressLine() == $locationObj->getAddressLine())
           {
             $unique = FALSE;
           }

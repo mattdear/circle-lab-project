@@ -18,7 +18,7 @@ class diseaseTreatmentLinkDAO
     }
 
     //Updating a Disease_Treatment_Link
-    public function modifyDiseaseTreatmentLinkDTO($oldDT_Link, $updatedDT_Link ){
+    public function modifyDiseaseTreatmentLinkDTO($oldDT_Link , $updatedDT_Link){
         $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET disease= ? , treatment= ? WHERE disease =? AND treatment = ?  ");
         $stmt->execute([$updatedDT_Link->getDisease(), $updatedDT_Link->getTreatment(), $oldDT_Link->getDisease(), $oldDT_Link->getTreatment()]);
     }
@@ -51,23 +51,19 @@ class diseaseTreatmentLinkDAO
         $stmt->execute([$removedDT_Link->getDisease(), $removedDT_Link->getTreatment()]);
     }
 
-    //Find by Object
-    public function findByObject($link)
-    {
-      $stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE disease=? AND treatment=?");
-      $stmt->execute([$link->getDisease(), $link->getTreatment()]);
-      $row = $stmt->fetch(PDO::FETCH_ASSOC);
-      $uniqueCount = $stmt->rowCount();
-      if($uniqueCount == 1)
-      {
-        $foundLink = new diseaseTreatmentLinkDTO((int)$row["disease"], (int)$row["treatment"]);;
-        return $foundLink;
-      }
-      else
-      {
-        return null;
-      }
-    }
+	public function findByObject($link){
+		$stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE disease = ? AND treatment = ?");
+		$stmt->execute([$link->getDisease() , $link->getTreatment()]);
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		$uniqueCount = $stmt->rowCount();
+		if($uniqueCount == 1){
+			$foundLink = new diseaseTreatmentLinkDTO((int)$row["disease"], (int)$row["treatment"]);
+			return $foundLink;
+		}
+		else{
+			return null;
+		}
+	}
 }
 
 ?>
