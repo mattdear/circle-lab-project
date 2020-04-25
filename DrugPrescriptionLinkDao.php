@@ -13,6 +13,7 @@ class DrugPrescriptionLinkDao
     //find  list by prescription//
     public function FindAllDrugPrescriptionLinkByPrescription($id)
     {
+	if ($DrugPrescriptionLink->getId() != null)
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE prescription=?");
         $stmt->execute([$id]);
         $DrugPrescriptionLink = [];
@@ -20,6 +21,8 @@ class DrugPrescriptionLinkDao
             array_push($DrugPrescriptionLink, new DrugPrescriptionLinkDto($row["drug"], $row["prescription"]));
         }
         return $DrugPrescriptionLink;
+	}
+	return null;
 	}
 	
     //Delete Drug prescription link
