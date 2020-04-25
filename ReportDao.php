@@ -124,13 +124,8 @@ class ReportDao
 public function UpdateReport($oldReport, $updateReport)
 {
         $stmt = $this->conn->prepare("UPDATE FROM " . $this->table . "  WHERE id = ?, name = ?, requester = ?, request_date = ?, start_date = ?, finish_date = ?, approved = ?, max_age = ?, min_age = ?, male = ?, female = ?, disease = ?, isactive = ?");
-        $stmt->execute([$updateReport->getname(), $updateReport->getrequester(), $updateReport->getRequestDate(),
-            $updateReport->getStartDate(), $updateReport->getFinishDate(), $updateReport->getApproved(),
-            $updateReport->getMaxAge(), $updateReport->getMinAge(), $updateReport->getMale(), $updateReport->getFemale(),
-            $updateReport->getDisease(),$updateReport->getIsactive(),
-            $oldReport->getname(), $oldReport->getrequester(), $oldReport->getRequestDate(), $oldReport->getStartDate(),
-            $oldReport->getFinishDate(), $oldReport->getApproved(), $oldReport->getMaxAge(), $oldReport->getMinAge(),
-            $oldReport->getMale(), $oldReport->getFemale(), $oldReport->getDisease(), $oldReport->getIsactive()]);
+        $stmt->execute([$updateReport->getname(), $updateReport->getrequester(), $updateReport->getRequestDate(),$updateReport->getStartDate(), $updateReport->getFinishDate(), $updateReport->getApproved(),$updateReport->getMaxAge(), $updateReport->getMinAge(), $updateReport->getMale(), $updateReport->getFemale(),$updateReport->getDisease(),$updateReport->getIsactive(),
+        $oldReport->getname(), $oldReport->getrequester(), $oldReport->getRequestDate(), $oldReport->getStartDate(),$oldReport->getFinishDate(), $oldReport->getApproved(), $oldReport->getMaxAge(), $oldReport->getMinAge(),$oldReport->getMale(), $oldReport->getFemale(), $oldReport->getDisease(), $oldReport->getIsactive()]);
 }
 
 //find report by id//
