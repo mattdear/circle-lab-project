@@ -122,7 +122,7 @@ class AppointmentDao
     }
         
 // findAppointment(appointmentDTO)//
-public function FindAppointment(AppointmentDto $findAppointment)
+public function FindAppointment($findAppointment)
 {
     if($findAppointment != null)
     {
