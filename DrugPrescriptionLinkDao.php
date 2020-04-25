@@ -60,7 +60,9 @@ class DrugPrescriptionLinkDao
 	
     //find all by drug
     public function FindAllDrugPrescriptionLinkByDrug($id)
-    {
+     {
+        if ($id != null) 
+	{
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE drug=?");
         $stmt->execute([$id]);
         $DrugPrescriptionLink = [];
@@ -68,7 +70,12 @@ class DrugPrescriptionLinkDao
             array_push($DrugPrescriptionLink, new DrugPrescriptionLinkDto($row["drug"], $row["prescription"]));
         }
         return $DrugPrescriptionLink;
+	if else
+	{
+		return null;
 	}
 
-}
+		
+		
+	}
 ?>
