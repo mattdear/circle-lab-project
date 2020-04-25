@@ -61,7 +61,10 @@ class AppointmentDao
                 }
                     return $Appointment;
          }
-         return null
+         else if($Appointment->getId() = null)
+         {
+            return null;
+         }
     }
 
     //delete an Appointment//
