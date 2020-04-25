@@ -18,7 +18,7 @@ class ReportDao
         if ($newReportRequest != null && $newReportRequest->getApproved() == 0) {
             $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(id, name, requester, requester_date, start_date, finish_date,
     max_age, min_age, male , female, disease, Isactive) VALUES (? , ? , ? , ? , ? , ? , ? , ?, ?, ?, ?, ?)");
-            $stmt->execute([$newReportRequest->getname(), $newReportRequest->getrequester(), $newReportRequest->getRequestDate(),
+            $stmt->execute([$newReportRequest->getName(), $newReportRequest->getRequester(), $newReportRequest->getRequestDate(),
                 $newReportRequest->getStartDate(), $newReportRequest->getFinishDate(), $newReportRequest->getApproved(), $newReportRequest->getMaxAge(),
                 $newReportRequest->getMinAge(), $newReportRequest->getMale(), $newReportRequest->getFemale(), $newReportRequest->getDisease(), $newReportRequest->getIsactive()]);
             $id = (int)$this->conn->lastInsertId();
@@ -91,10 +91,10 @@ class ReportDao
     {
         if ($ReportRequest != null && $ReportRequest->getApproved() == 0) {
             $stmt = $this->conn->prepare("UPDATE FROM " . $this->table . " SET approved = ? WHERE id = ?, name = ?, requester = ?, request_date = ?, start_date = ?, finish_date = ?, max_age = ?, min_age = ?, male = ?, female = ?, disease = ?, isactive = ?");
-            $stmt->execute([$ReportRequest->getname(), $ReportRequest->getrequester(), $ReportRequest->getRequestDate(),
+            $stmt->execute([$ReportRequest->getName(), $ReportRequest->getRequester(), $ReportRequest->getRequestDate(),
                 $ReportRequest->getStartDate(), $ReportRequest->getFinishDate(), $ReportRequest->getApproved(), $ReportRequest->getMaxAge(),
                 $ReportRequest->getMinAge(), $ReportRequest->getMale(), $ReportRequest->getFemale(), $ReportRequest->getDisease(), $ReportRequest->getIsactive(),
-                $DeclineReportRequest->getname(), $DeclineReportRequest->getrequester(), $DeclineReportRequest->getRequestDate(),
+                $DeclineReportRequest->getName(), $DeclineReportRequest->getRequester(), $DeclineReportRequest->getRequestDate(),
                 $DeclineReportRequest->getStartDate(), $DeclineReportRequest->getFinishDate(), $DeclineReportRequest->getApproved(), $DeclineReportRequest->getMaxAge(),
                 $DeclineReportRequest->getMinAge(), $DeclineReportRequest->getMale(), $DeclineReportRequest->getFemale(), $DeclineReportRequest->getDisease(), $DeclineReportRequest->getIsactive()]);
             if ($DeclineReportRequest->getApproved() == 2) {
@@ -112,7 +112,7 @@ class ReportDao
         if ($newReport != null) {
             $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(id, name, requester, requester_date, start_date, finish_date,
     max_age, min_age, male , female, disease, Isactive) VALUES (? , ? , ? , ? , ? , ? , ? , ?, ?, ?, ?, ?)");
-            $stmt->execute([$newReport->getname(), $newReport->getrequester(), $newReport->getRequestDate(),
+            $stmt->execute([$newReport->getName(), $newReport->getRequester(), $newReport->getRequestDate(),
                 $newReport->getStartDate(), $newReport->getFinishDate(), $newReport->getApproved(), $newReport->getMaxAge(),
                 $newReport->getMinAge(), $newReport->getMale(), $newReport->getFemale(), $newReport->getDisease(), $newReport->getIsactive()]);
             $id = (int)$this->conn->lastInsertId();
@@ -164,14 +164,20 @@ public function UpdateReport($oldReport, $updateReport)
 	    return null;
     }
     //find all//
-    public function FindAllReport(ReportDto){
+    public function FindAllReport()
+    {
+	    if ($Report->getId() != null && $Report->getName() != null)
+	    {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table);
         $Report = [];
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+			{
             array_push($Report, new ReporDto($row["id"], $row["name"], $row["requester"],
                 $row["start_date"], $row["finish_date"], $row["max_age"], $row["min_age"], $row["male"], $row["female"], $row["disease"], $row["isactive"]));
-        }
+        		}
         return $Report;
+    	     }
+	return null;
     }
     //find by approval status.
     public function FindByApproveStatus(ReportDto $findByApproveStatus)
