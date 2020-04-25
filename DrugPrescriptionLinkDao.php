@@ -79,7 +79,7 @@ class DrugPrescriptionLinkDao
 			return null;
 		}
 	public function findByObject($link){
-		$stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE = drug =? AND prescription = ? ");
+		$stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE = drug =? AND prescription = ? ");
 		$stmt->execute([$link->getDrug() , $link->getPrescription()]);
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		$uniqueCount = $stmt->rowCount();
