@@ -26,9 +26,14 @@ class DrugTreatmentLinkDao
     }
 
     //Delete Drug treatment link
-    public function DeleteDrugTreatmentLink(DrugTreatmentLinkDto $removedDrugTreatmentLink){
+    public function DeleteDrugTreatmentLink($removedDrugTreatmentLink)
+   {
+        if ($removedDrugTreatmentLink != null && $removedDrugTreatmentLink->getId() != null) 
+        {
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE = drug =? AND Treatment = ? ");
         $stmt->execute([$removedDrugTreatmentLink->getDrug(), $removedDrugTreatmentLink->getTreatment()]);
+        }
+        return null;
     }
 
 
