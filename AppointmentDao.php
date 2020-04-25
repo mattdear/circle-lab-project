@@ -12,7 +12,7 @@ class AppointmentDao
     }
 
 //add a new Appointment//
-    public function AddAppointment(AppointmentDto $newAppointment)
+    public function AddAppointment($newAppointment)
     {
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "( description, patient, staff_member, date_time, location,
      duration, isactive) VALUES (?,?,?,?,?,?,?)");
