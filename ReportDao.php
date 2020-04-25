@@ -129,7 +129,7 @@ public function UpdateReport($oldReport, $updateReport)
 }
 
 //find report by id//
-    public function FindReportById(ReportDto $id)
+    public function FindReportById($id)
         {
             $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . "  WHERE id = ?");
             $stmt->execute(["id"=>$id->getId()]);
