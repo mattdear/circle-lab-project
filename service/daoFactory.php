@@ -9,4 +9,5 @@
   include ("diseasePersonLinkDAO.php");
   include ("diseaseSymptomLinkDAO.php");
   include ("diseaseTreatmentLinkDAO.php");
+  include ("symptomDAO.php");
 ?>

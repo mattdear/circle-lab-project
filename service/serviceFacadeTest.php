@@ -1539,7 +1539,7 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $returnedLocation = $serviceFacade->addLocation($location);
 
     $this->assertNull($returnedLocation, $message = "testAddLocation, test 2");
-    //Test complete object
+    // Test complete object
     $location = new locationDTO(null, "6 road road", "city", "postcode", "type", 1);
     $returnedLocation = $serviceFacade->addLocation($location);
 
@@ -1549,6 +1549,167 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $this->assertEquals("type", $returnedLocation->getType(), $message = "testAddLocation, test 6");
     $this->assertEquals(1, $returnedLocation->getIsactive(), $message = "testAddLocation, test 7");
 
+    //Test with null addressline
+    $location = new locationDTO(null, null, "city", "postcode", "type", 1);
+    $returnedLocation = $serviceFacade->addLocation($location);
+    $this->assertNull($returnedLocation, $message = "testAddLocation, test 8");
+
+    //Test with null city
+    $location = new locationDTO(null, "6 road road", null, "postcode", "type", 1);
+    $returnedLocation = $serviceFacade->addLocation($location);
+    $this->assertNull($returnedLocation, $message = "testAddLocation, test 9");
+
+    //Test with null postcode
+    $location = new locationDTO(null, "6 road road", "city", null, "type", 1);
+    $returnedLocation = $serviceFacade->addLocation($location);
+    $this->assertNull($returnedLocation, $message = "testAddLocation, test 10");
+
+    //Test with null type
+    $location = new locationDTO(null, "6 road road", "city", "postcode", null, 1);
+    $returnedLocation = $serviceFacade->addLocation($location);
+    $this->assertNull($returnedLocation, $message = "testAddLocation, test 11");
+
+    //Test with null isactive
+    $location = new locationDTO(null, "6 road road", "city", "postcode", "type", null);
+    $returnedLocation = $serviceFacade->addLocation($location);
+    $this->assertNull($returnedLocation, $message = "testAddLocation, test 12");
+
+    //Test with complete object with same addressline as in database
+    $location = new locationDTO(null, "6 road road", "city", "postcode", "type", 1);
+    $returnedLocation = $serviceFacade->addLocation($location);
+    $this->assertNull($returnedLocation, $message = "testAddLocation, test 13");
+  }
+
+  public function testModifyLocation()
+  {
+    $serviceFacade = new serviceFacade();
+
+    //Test with object with null values
+    $location = new locationDTO(null, null, null, null, null, null);
+    $returnedLocation = $serviceFacade->modifyLocation($location);
+    $this->assertNull($returnedLocation, $message = "testModifyLocation, test 1");
+
+    //Test with null
+    $location = null;
+    $returnedLocation = $serviceFacade->modifyLocation($location);
+    $this->assertNull($returnedLocation, $message = "testModifyLocation, test 2");
+
+    //Test with object with null id
+    $location = new locationDTO(null, "road", "city", "postcode", "type", 1);
+    $returnedLocation = $serviceFacade->modifyLocation($location);
+    $this->assertNull($returnedLocation, $message = "testModifyLocation, test 3");
+
+    //Test with complete object
+    $location = new locationDTO(17, "uniqueAddress", "big city", "new postcode", "new type", 0);
+    $bool = $serviceFacade->modifyLocation($location);
+    $returnedLocation = $serviceFacade->findLocationById(17);
+
+    $this->assertTrue($bool, $message = "testModifyLocation, test 4");
+    $this->assertEquals(17, $returnedLocation->getId(), $message = "testModifyLocation, test 5");
+    $this->assertEquals("uniqueAddress", $returnedLocation->getAddressLine(), $message = "testModifyLocation, test 6");
+    $this->assertEquals("big city", $returnedLocation->getCity(), $message = "testModifyLocation, test 7");
+    $this->assertEquals("new postcode", $returnedLocation->getPostcode(), $message = "testModifyLocation, test 8");
+    $this->assertEquals("new type", $returnedLocation->getType(), $message = "testModifyLocation, test 9");
+    $this->assertEquals(0, $returnedLocation->getIsactive(), $message = "testModifyLocation, test 10");
+  }
+
+  public function testFindLocationByType()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $locations = $serviceFacade->findLocationsByType("Hospital");
+
+    $this->assertEquals(15, $locations[0]->getId(), $message = "testFindLocationByType, test 1");
+    $this->assertEquals("14 Cresent Place", $locations[0]->getAddressLine(), $message = "testFindLocationByType, test 2");
+    $this->assertEquals("Southampton", $locations[0]->getCity(), $message = "testFindLocationByType, test 3");
+    $this->assertEquals("SO01 9UI", $locations[0]->getPostcode(), $message = "testFindLocationByType, test 4");
+    $this->assertEquals("Hospital", $locations[0]->getType(), $message = "testFindLocationByType, test 5");
+    $this->assertEquals(1, $locations[0]->getIsactive(), $message = "testFindLocationByType, test 6");
+
+    $this->assertEquals(16, $locations[1]->getId(), $message = "testFindLocationByType, test 7");
+    $this->assertEquals("15 London Road", $locations[1]->getAddressLine(), $message = "testFindLocationByType, test 8");
+    $this->assertEquals("Southampton", $locations[1]->getCity(), $message = "testFindLocationByType, test 9");
+    $this->assertEquals("SO23 6YP", $locations[1]->getPostcode(), $message = "testFindLocationByType, test 10");
+    $this->assertEquals("Hospital", $locations[1]->getType(), $message = "testFindLocationByType, test 11");
+    $this->assertEquals(1, $locations[1]->getIsactive(), $message = "testFindLocationByType, test 12");
+
+    $locations = $serviceFacade->findLocationsByType(null);
+    $this->assertNull($locations, $message = "testFindLocationByType, test 13");
+  }
+
+  // public function testFindMatchingLocations()
+  // {
+  //   $serviceFacade = new serviceFacade();
+  //   $input = new locationDTO(null, "15 London Road", null, null, null, null);
+  //   $locations = $serviceFacade->findMatchingLocations($input);
+  //
+  //   $this->assertEquals(16, $locations[0]->getId(), $message = "testFindMatchingLocations, test 1");
+  //   $this->assertEquals("15 London Road", $locations[0]->getAddressLine(), $message = "testFindMatchingLocations, test 2");
+  //   $this->assertEquals("Southampton", $locations[0]->getCity(), $message = "testFindMatchingLocations, test 3");
+  //   $this->assertEquals("SO23 6YP", $locations[0]->getPostcode(), $message = "testFindMatchingLocations, test 4");
+  //   $this->assertEquals("Hospital", $locations[0]->getType(), $message = "testFindMatchingLocations, test 5");
+  //   $this->assertEquals(1, $locations[0]->getIsactive(), $message = "testFindMatchingLocations, test 6");
+  // }
+
+  public function testFindLocationById()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $location = $serviceFacade->findLocationById(16);
+
+    $this->assertEquals(16, $location->getId(), $message = "testFindLocationById, test 1");
+    $this->assertEquals("15 London Road", $location->getAddressLine(), $message = "testFindLocationById, test 2");
+    $this->assertEquals("Southampton", $location->getCity(), $message = "testFindLocationById, test 3");
+    $this->assertEquals("SO23 6YP", $location->getPostcode(), $message = "testFindLocationById, test 4");
+    $this->assertEquals("Hospital", $location->getType(), $message = "testFindLocationById, test 5");
+    $this->assertEquals(1, $location->getIsactive(), $message = "testFindLocationById, test 6");
+
+    // $location = $serviceFacade->findLocationById(64);
+    // $this->assertNull($location, $message = "testFindLocationById, test 7");
+  }
+
+  public function testAddSymptom()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $symptom = new Symptom(null, "testSymptom");
+    $returnedSymptom = $serviceFacade->addSymptom($symptom);
+    $this->assertIsInt($returnedSymptom->getId(), $message = "testAddSymptom, test 1");
+    $this->assertEquals(47, $returnedSymptom->getId(), $message = "testAddSymptom, test 2");
+    $this->assertEquals("testSymptom", $returnedSymptom->getName(), $message = "testAddSymptom, test 3");
+
+    $symptom = new symptom(null, null);
+    $returnedSymptom = $serviceFacade->addSymptom($symptom);
+    $this->assertNull($returnedSymptom, $message = "testAddSymptom, test 4");
+
+    $symptom = new symptom(100, "test");
+    $returnedSymptom = $serviceFacade->addSymptom($symptom);
+    $this->assertNull($returnedSymptom, $message = "testAddSymptom, test 5");
+
+    $symptom = new symptom(null, "testSymptom");
+    $returnedSymptom = $serviceFacade->addSymptom($symptom);
+    $this->assertNull($returnedSymptom, $message = "testAddSymptom, test 6");
+  }
+
+  public function testFindAllSymptoms()
+  {
+    $serviceFacade = new serviceFacade();
+    $symptoms = $serviceFacade->findAllSymptoms();
+
+    $this->assertEquals(47, sizeOf($symptoms), $message = "testFindAllSymptoms, test 1");
+    $this->assertEquals(1, $symptoms[0]->getId(), $message = "testFindAllSymptoms, test 2");
+    $this->assertEquals("severe pain", $symptoms[0]->getName(), $message = "testFindAllSymptoms, test 3");
+    $this->assertEquals(47, $symptoms[46]->getId(), $message = "testFindAllSymptoms, test 2");
+    $this->assertEquals("testSymptom", $symptoms[46]->getName(), $message = "testFindAllSymptoms, test 3");
+  }
+
+  public function testFindSymptom()
+  {
+    $serviceFacade = new serviceFacade();
+    $symptom = new Symptom(null, "testSymptom");
+    $foundSymptom = $serviceFacade->findSymptom($symptom);
+
+    $this->assertEquals(47, $foundSymptom->getId(), $message = "testFindSymptom, test 1");
   }
 
 }

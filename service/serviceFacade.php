@@ -15,7 +15,7 @@ class serviceFacade
   $this->treatmentDAO = new treatmentDAO(getDatabase(), "Treatment");
   $this->prescriptionDAO = new prescriptionDAO(getDatabase(), "Prescription");
   $this->locationDAO = new locationDAO(getDatabase(), "Location");
-  // $this->symptomDAO = new symptomDAO(getDatabase(), "Symptom");
+  $this->symptomDAO = new symptomDAO(getDatabase(), "Symptom");
   // $this->diseaseDAO = new diseaseDAO(getDatabase(), "Disease");
   // $this->appointmentDAO = new appointmentDAO(getDatabase(), "Appointment");
   // $this->personDAO = new personDAO(getDatabase(), "Person");
@@ -514,12 +514,21 @@ class serviceFacade
   {
     try
     {
-      if($locationObj != null && $locationObj->getId() == null && $locationObj->getAddress() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType != null && $locationObj->getIsactive() != null)
+      if($locationObj != null && $locationObj->getId() != null && $locationObj->getAddressLine() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType() != null && ($locationObj->getIsactive() === 0 || $locationObj->getIsactive() === 1))
       {
-        $originalObj = $this->prescriptionDAO->findLocationById($locationObj->getId());
-        if($originalObj != null)
+        $allLocations = $this->locationDAO->findAllLocations();
+        $unique = TRUE;
+        foreach ($allLocations as $location)
         {
-          return $this->locationDAO->modifyLocation($locationObj);
+          if($location->getAddressLine() == $locationObj->getAddressLine())
+          {
+            $unique = FALSE;
+          }
+        }
+        if($unique == TRUE)
+        {
+          $this->locationDAO->modifyLocation($locationObj);
+          return TRUE;
         }
         else
         {
@@ -543,17 +552,7 @@ class serviceFacade
     {
       if($type != null)
       {
-        $locations = $this->locationDAO->findLocationByType($type);
-        $activeLocations = null;
-
-        foreach ($locations as $location)
-        {
-          if($location->getIsactive() == 1)
-          {
-            $activeLocations[] = $location;
-          }
-        }
-        return $locations;
+        return $this->locationDAO->findLocationByType($type);
       }
       else
       {
@@ -571,7 +570,7 @@ class serviceFacade
     try
     {
       $returnedObj = null;
-      if($locationObj != null && $locationObj->getId() == null && $locationObj->getAddress() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType != null && $locationObj->getIsactive() != null)
+      if($locationObj != null && $locationObj->getId() == null && $locationObj->getAddressLine() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType != null && $locationObj->getIsactive() != null)
       {
         return $this->locationDAO->findMatchingLocations($locationObj);
       }
@@ -591,12 +590,13 @@ class serviceFacade
     try {
       if($id != null)
       {
-        return $this->locationDAO->findLocationById();
+        $location = $this->locationDAO->findLocationById($id);
+        if($location != null)
+        {
+          return $location;
+        }
       }
-      else
-      {
-        return null;
-      }
+      return null;
     }
     catch (PDOException $e) {
       echo "Error: $e";
@@ -1017,7 +1017,116 @@ class serviceFacade
     }
   }
 
+  public function addSymptom($symptomObj)
+  {
+    try
+    {
+      if($symptomObj != null && $symptomObj->getId() == null && $symptomObj->getName() != null)
+      {
+        if($this->symptomDAO->findSymptom($symptomObj) == null)
+        {
+          return $this->symptomDAO->addSymptom($symptomObj);
+        }
+      }
+      return null;
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 
+  public function findAllSymptoms()
+  {
+    try
+    {
+      return $this->symptomDAO->findAllSymptoms();
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findSymptom($symptomObj)
+  {
+    try
+    {
+      $exists = FALSE;
+      $allSymptoms = $this->symptomDAO->findAllSymptoms();
+      foreach ($allSymptoms as $symptom)
+      {
+        if($symptom->getName() == $symptomObj->getName() || $symptom->getId() == $symptomObj->getId())
+        {
+          $exists == TRUE;
+        }
+      }
+      if($exists == TRUE)
+      {
+        return $this->symptomDAO->findSymptom($symptomObj);
+      }
+      return null;
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findSymptomById($id)
+  {
+    try
+    {
+      $exists = FALSE;
+      $allSymptoms = $this->symptomDAO->findAllSymptoms();
+      foreach ($allSymptoms as $symptom)
+      {
+        if($symptom->getId() == $id)
+        {
+          $exists == TRUE;
+        }
+      }
+      if($exists == TRUE)
+      {
+        return $this->symptomDAO->findById($id);
+      }
+      return null;
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function modifySymptom($symptomObj)
+  {
+    try
+    {
+      $exists = FALSE;
+      $unique = TRUE;
+      $allSymptoms = $this->symptomDAO->findAllSymptoms();
+      foreach ($allSymptoms as $symptom)
+      {
+        if($symptom->getId() == $symptomObj->getId())
+        {
+          $exists == TRUE;
+        }
+        if($symptom->getName() == $symptomObj->getName())
+        {
+          $unique = FALSE;
+        }
+      }
+      if($exists == TRUE && $unique == TRUE)
+      {
+        return $this->symptomDAO->modifySymptom($symptomObj);
+      }
+      return null;
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 
 
 
