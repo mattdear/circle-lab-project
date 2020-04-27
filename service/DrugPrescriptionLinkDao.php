@@ -1,7 +1,7 @@
 <?php
 include ("DrugPrescriptionLinkDto.php");
 
-class DrugPrescriptionLinkDao
+class drugPrescriptionLinkDAO
 {
     private $table, $conn;
 
@@ -11,9 +11,10 @@ class DrugPrescriptionLinkDao
         $this->table = $table;
     }
     //find  list by prescription//
-    public function FindAllDrugPrescriptionLinkByPrescription($id)
+    public function findAllDrugPrescriptionLinkByPrescription($id)
     {
-	if ($DrugPrescriptionLink->getId() != null)
+	if ($id != null)
+  {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE prescription=?");
         $stmt->execute([$id]);
         $DrugPrescriptionLink = [];
@@ -25,48 +26,53 @@ class DrugPrescriptionLinkDao
 	else{
 			return null;
 		}
-	
+  }
+
     //Delete Drug prescription link
-    public function DeleteDrugPrescriptionLink($removedDrugPrescriptionLink)
+    public function deleteDrugPrescriptionLink($removedDrugPrescriptionLink)
       {
-        if ($removedDrugPrescriptionLink != null && $removedDrugPrescriptionLink->getId() != null)
+        if ($removedDrugPrescriptionLink != null && $removedDrugPrescriptionLink->getDrug() != null && $removedDrugPrescriptionLink->getPrescription() != null)
 	{
-        $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE = drug =? AND prescription = ? ");
+        $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE drug =? AND prescription = ? ");
         $stmt->execute([$removedDrugPrescriptionLink->getDrug(), $removedDrugPrescriptionLink->getPrescription()]);
 	}
 	    else{
 			return null;
 		}
-	
+  }
+
     //add a new Drug prescription link
-    public function AddDrugPrescriptionLink($newDrugPrescriptionLink)
+    public function addDrugPrescriptionLink($newDrugPrescriptionLink)
     {
-        if ($newDrugPrescriptionLink->getDrug() != null && $newDrugPrescriptionLink->getPrescription()]) != null)
-	{
-        $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(drug, prescription) VALUES (? , ?)");
-        $stmt->execute([$newDrugPrescriptionLink->getDrug(), $newDrugPrescriptionLink->getPrescription()]);
-	}
-	    else{
-			return null;
+    if ($newDrugPrescriptionLink->getDrug() != null && $newDrugPrescriptionLink->getPrescription() != null)
+	  {
+      $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(drug, prescription) VALUES (? , ?)");
+      $stmt->execute([$newDrugPrescriptionLink->getDrug(), $newDrugPrescriptionLink->getPrescription()]);
+	  }
+	  else
+    {
+      return null;
 		}
-	
+  }
+
     //Updating a Drug_prescription_link
-    public function UpdateDrugPrescriptionLink($oldDrugPrescriptionLink, $updatedDrugPrescriptionLink)
+    public function modifyDrugPrescriptionLink($oldDrugPrescriptionLink, $updatedDrugPrescriptionLink)
     {
-        if ($updatedDrugPrescriptionLink->getDrug() != null && $updatedDrugPrescriptionLink->getPrescription()]) != null)
+        if ($updatedDrugPrescriptionLink->getDrug() != null && $updatedDrugPrescriptionLink->getPrescription() != null)
 	{
-        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET drug= ? , prescription= ? WHERE = drug =? AND prescription = ?  ");
+        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET drug= ? , prescription= ? WHERE drug =? AND prescription = ?  ");
         $stmt->execute([$updatedDrugPrescriptionLink->getDrug(), $updatedDrugPrescriptionLink->getPrescription(), $oldDrugPrescriptionLink->getDrug(), $oldDrugPrescriptionLink->getPrescription()]);
 	}
 	    else{
 			return null;
 		}
-	
+  }
+
     //find all by drug
-    public function FindAllDrugPrescriptionLinkByDrug($id)
-     {
-        if ($id != null) 
-	{
+    public function findAllDrugPrescriptionLinkByDrug($id)
+    {
+    if ($id != null)
+	  {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE drug=?");
         $stmt->execute([$id]);
         $DrugPrescriptionLink = [];
@@ -78,20 +84,22 @@ class DrugPrescriptionLinkDao
 	else{
 			return null;
 		}
+  }
+
 	public function findByObject($link){
-		$stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE = drug =? AND prescription = ? ");
+		$stmt = $this->conn->prepare("SELECT * FROM " .  $this->table .  " WHERE drug =? AND prescription = ? ");
 		$stmt->execute([$link->getDrug() , $link->getPrescription()]);
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		$uniqueCount = $stmt->rowCount();
 		if($uniqueCount == 1){
-			array_push($DrugPrescriptionLink, new DrugPrescriptionLinkDto($row["drug"], $row["prescription"]));
+			$foundLink = new DrugPrescriptionLinkDto($row["drug"], $row["prescription"]);
 			return $foundLink;
 		}
 		else{
 			return null;
 		}
 	}
-		
-		
+
+
 	}
 ?>

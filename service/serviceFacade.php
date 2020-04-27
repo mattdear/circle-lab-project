@@ -16,13 +16,13 @@ class serviceFacade
   $this->prescriptionDAO = new prescriptionDAO(getDatabase(), "Prescription");
   $this->locationDAO = new locationDAO(getDatabase(), "Location");
   $this->symptomDAO = new symptomDAO(getDatabase(), "Symptom");
-  // $this->diseaseDAO = new diseaseDAO(getDatabase(), "Disease");
+  $this->diseaseDAO = new diseaseDAO(getDatabase(), "Disease");
   // $this->appointmentDAO = new appointmentDAO(getDatabase(), "Appointment");
   // $this->personDAO = new personDAO(getDatabase(), "Person");
   $this->roleDAO = new roleDAO(getDatabase(), "Role");
   // $this->reportDAO = new reportDAO(getDatabase(), "Report");
-  // $this->drugPrescriptionLinkDAO = new drugPrescriptionLinkDAO(getDatabase(), "Drug_Prescription_Link");
-  // $this->drugTreatmentLinkDAO = new drugTreatmentLinkDAO(getDatabase(), "Drug_Treatment_Link");
+  $this->drugPrescriptionLinkDAO = new drugPrescriptionLinkDAO(getDatabase(), "Drug_Prescription_Link");
+  $this->drugTreatmentLinkDAO = new drugTreatmentLinkDAO(getDatabase(), "Drug_Treatment_Link");
   $this->diseaseTreatmentLinkDAO = new diseaseTreatmentLinkDAO(getDatabase(), "Disease_Treatment_Link");
   $this->diseaseSymptomLinkDAO = new diseaseSymptomLinkDAO(getDatabase(), "Disease_Symptom_Link");
   $this->diseasePersonLinkDAO = new diseasePersonLinkDAO(getDatabase(), "Disease_Person_Link");
@@ -565,26 +565,6 @@ class serviceFacade
     }
   }
 
-  public function findMatchingLocations($locationObj)
-  {
-    try
-    {
-      $returnedObj = null;
-      if($locationObj != null && $locationObj->getId() == null && $locationObj->getAddressLine() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType != null && $locationObj->getIsactive() != null)
-      {
-        return $this->locationDAO->findMatchingLocations($locationObj);
-      }
-      else
-      {
-        return null;
-      }
-    }
-    catch (PDOException $e)
-    {
-      echo "Error: $e";
-    }
-  }
-
   public function findLocationById($id)
   {
     try {
@@ -1052,20 +1032,7 @@ class serviceFacade
   {
     try
     {
-      $exists = FALSE;
-      $allSymptoms = $this->symptomDAO->findAllSymptoms();
-      foreach ($allSymptoms as $symptom)
-      {
-        if($symptom->getName() == $symptomObj->getName() || $symptom->getId() == $symptomObj->getId())
-        {
-          $exists == TRUE;
-        }
-      }
-      if($exists == TRUE)
-      {
-        return $this->symptomDAO->findSymptom($symptomObj);
-      }
-      return null;
+      return $this->symptomDAO->findSymptom($symptomObj);
     }
     catch (PDOException $e)
     {
@@ -1077,20 +1044,7 @@ class serviceFacade
   {
     try
     {
-      $exists = FALSE;
-      $allSymptoms = $this->symptomDAO->findAllSymptoms();
-      foreach ($allSymptoms as $symptom)
-      {
-        if($symptom->getId() == $id)
-        {
-          $exists == TRUE;
-        }
-      }
-      if($exists == TRUE)
-      {
-        return $this->symptomDAO->findById($id);
-      }
-      return null;
+      return $this->symptomDAO->findById($id);
     }
     catch (PDOException $e)
     {
@@ -1109,7 +1063,7 @@ class serviceFacade
       {
         if($symptom->getId() == $symptomObj->getId())
         {
-          $exists == TRUE;
+          $exists = TRUE;
         }
         if($symptom->getName() == $symptomObj->getName())
         {
@@ -1128,13 +1082,366 @@ class serviceFacade
     }
   }
 
+  public function addDrugTreatmentLinkDTO($link)
+  {
+    try
+    {
+      if($link != null && $link->getDrug() != null && $link->getTreatment() != null)
+      {
+        if($this->drugTreatmentLinkDAO->findByObject($link) == null)
+        {
+          $this->drugTreatmentLinkDAO->addDrugTreatmentLink($link);
+          return TRUE;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e) {
+      echo "Error: $e";
+    }
+  }
 
+  public function modifyDrugTreatmentLinkDTO($oldLink , $newLink)
+  {
+    try
+    {
+      if($oldLink != null && $oldLink->getDrug() != null && $oldLink->getTreatment() != null && $newLink != null && $newLink->getDrug() != null && $newLink->getTreatment() != null)
+      {
+        if($this->drugTreatmentLinkDAO->findByObject($oldLink) != null && $this->drugTreatmentLinkDAO->findByObject($newLink) == null)
+        {
+          $this->drugTreatmentLinkDAO->modifyDrugTreatmentLink($oldLink, $newLink);
+          return TRUE;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 
+  public function findDrugTreatmentLinkByTreatmentId($id)
+  {
+    try
+    {
+      if($id != null)
+      {
+        return $this->drugTreatmentLinkDAO->findAllDrugTreatmentLinkByTreatment($id);
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 
+  public function findDrugTreatmentLinkByDrugId($id)
+  {
+    try
+    {
+      if($id != null)
+      {
+        return $this->drugTreatmentLinkDAO->findAllDrugTreatmentLinkByDrug($id);
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 
+  public function deleteDrugTreatmentLinkDTO($link)
+  {
+    try
+    {
+      if($link != null && $link->getDrug() != null && $link->getTreatment() != null && $this->drugTreatmentLinkDAO->findByObject($link) != null)
+      {
+        $this->drugTreatmentLinkDAO->deleteDrugTreatmentLink($link);
+        return TRUE;
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 
+  public function findByDrugTreatmentLinkObject($link)
+  {
+    try
+    {
+      if($link != null && $link->getDrug() != null && $link->getTreatment() != null)
+      {
+        $foundLink = $this->drugTreatmentLinkDAO->findByObject($link);
+        if($foundLink != null)
+        {
+          return $foundLink;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 
+  public function addDrugPrescriptionLinkDTO($link)
+  {
+    try
+    {
+      if($link != null && $link->getDrug() != null && $link->getPrescription() != null)
+      {
+        if($this->drugPrescriptionLinkDAO->findByObject($link) == null)
+        {
+          $this->drugPrescriptionLinkDAO->addDrugPrescriptionLink($link);
+          return TRUE;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e) {
+      echo "Error: $e";
+    }
+  }
 
+  public function modifyDrugPrescriptionLinkDTO($oldLink , $newLink)
+  {
+    try
+    {
+      if($oldLink != null && $oldLink->getDrug() != null && $oldLink->getPrescription() != null && $newLink != null && $newLink->getDrug() != null && $newLink->getPrescription() != null)
+      {
+        if($this->drugPrescriptionLinkDAO->findByObject($oldLink) != null && $this->drugPrescriptionLinkDAO->findByObject($newLink) == null)
+        {
+          $this->drugPrescriptionLinkDAO->modifyDrugPrescriptionLink($oldLink, $newLink);
+          return TRUE;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findDrugPrescriptionLinkByPrescriptionId($id)
+  {
+    try
+    {
+      if($id != null)
+      {
+        return $this->drugPrescriptionLinkDAO->findAllDrugPrescriptionLinkByPrescription($id);
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findDrugPrescriptionLinkByDrugId($id)
+  {
+    try
+    {
+      if($id != null)
+      {
+        return $this->drugPrescriptionLinkDAO->findAllDrugPrescriptionLinkByDrug($id);
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function deleteDrugPrescriptionLinkDTO($link)
+  {
+    try
+    {
+      if($link != null && $link->getDrug() != null && $link->getPrescription() != null && $this->drugPrescriptionLinkDAO->findByObject($link) != null)
+      {
+        $this->drugPrescriptionLinkDAO->deleteDrugPrescriptionLink($link);
+        return TRUE;
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findByDrugPrescriptionLinkObject($link)
+  {
+    try
+    {
+      if($link != null && $link->getDrug() != null && $link->getPrescription() != null)
+      {
+        $foundLink = $this->drugPrescriptionLinkDAO->findByObject($link);
+        if($foundLink != null)
+        {
+          return $foundLink;
+        }
+        else
+        {
+          return null;
+        }
+      }
+      else
+      {
+        return null;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function addDisease($diseaseObj)
+  {
+    try
+    {
+      if($diseaseObj != null && $diseaseObj->getId() == null && $diseaseObj->getName() != null)
+      {
+        if($this->diseaseDAO->findDisease($diseaseObj) == null)
+        {
+          return $this->diseaseDAO->addDisease($diseaseObj);
+        }
+      }
+      return null;
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findAllDiseases()
+  {
+    try
+    {
+      return $this->diseaseDAO->findAllDiseases();
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findDisease($diseaseObj)
+  {
+    try
+    {
+      return $this->diseaseDAO->findDisease($diseaseObj);
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findDiseaseById($id)
+  {
+    try
+    {
+      return $this->diseaseDAO->findById($id);
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function modifyDisease($diseaseObj)
+  {
+    try
+    {
+      $exists = FALSE;
+      $unique = TRUE;
+      $allDiseases = $this->diseaseDAO->findAllDiseases();
+      foreach ($allDiseases as $disease)
+      {
+        if($disease->getId() == $diseaseObj->getId())
+        {
+          $exists = TRUE;
+        }
+        if($disease->getName() == $diseaseObj->getName())
+        {
+          $unique = FALSE;
+        }
+      }
+      if($exists == TRUE && $unique == TRUE)
+      {
+        return $this->diseaseDAO->modifyDisease($diseaseObj);
+      }
+      return null;
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 
 
 

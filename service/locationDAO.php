@@ -41,41 +41,55 @@ class locationDAO
 
     //Find location by template
     public function findMatchingLocations($locationTemplate){
-        $locations = [];
-        $allLocations = $this->findAllLocations();
-        $matching = true;
-        foreach ($allLocations as $l){
-          $matching = true;
-            if($locationTemplate->getAddressLine() != null) {
-                if (strpos($l->getAddressLine(), $locationTemplate->getAddressLine()) === false) {
-                    $matching = false;
-                }
-            }
-            if($locationTemplate->getCity() != null) {
-                if (strpos($l->getCity(), $locationTemplate->getCity()) === false) {
-                    $matching = false;
-                }
-            }
-            if($locationTemplate->getPostcode() != null) {
-                if (strpos($l->getPostcode(), $locationTemplate->getPostcode()) === false){
-                    $matching = false;
-                }
-            }
-			if($locationTemplate->getType() != null) {
-                if (strpos($l->getType(), $locationTemplate->getType()) === false) {
-                    $matching = false;
-                }
-            }
-			if($locationTemplate->getIsactive() != null) {
-                if (strpos($l->getIsactive(), $locationTemplate->getIsactive()) === false) {
-                    $matching = false;
-                }
-            }
-            if($matching === true){
-                array_push($locations, $l);
-            }
-        }
-        return $locations;
+        if($locationTemplate != null){
+			if ($locationTemplate->getId() != null){
+				$stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE id=?");
+				$stmt->execute([$locationTemplate->getId()]);
+				$count = $stmt->rowCount();
+				if($count == 1){
+					$row = $stmt->fetch();
+					return new locationDTO($row["id"], $row["address_line"], $row["city"],$row["postcode"], $row["type"], $row["isactive"]);
+				}
+			}
+			elseif($locationTemplate->getAddressLine() != null){
+				$stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE address_line=?");
+				$stmt->execute([$locationTemplate->getAddressLine()]);
+				$count = $stmt->rowCount();
+				if($count == 1){
+					$row = $stmt->fetch();
+					return new locationDTO($row["id"], $row["address_line"], $row["city"],$row["postcode"], $row["type"], $row["isactive"]);
+				}
+			}
+			elseif($locationTemplate->getCity() != null){
+				$stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE city=?");
+				$stmt->execute([$locationTemplate->getCity()]);
+				$count = $stmt->rowCount();
+				if($count == 1){
+					$row = $stmt->fetch();
+					return new locationDTO($row["id"], $row["address_line"], $row["city"],$row["postcode"], $row["type"], $row["isactive"]);
+				}
+			}
+			elseif($locationTemplate->getPostcode() != null){
+				$stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE postcode=?");
+				$stmt->execute([$locationTemplate->getPostcode()]);
+				$count = $stmt->rowCount();
+				if($count == 1){
+					$row = $stmt->fetch();
+					return new locationDTO($row["id"], $row["address_line"], $row["city"],$row["postcode"], $row["type"], $row["isactive"]);
+				}
+			}
+			elseif($locationTemplate->getType() != null){
+				$stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE type=?");
+				$stmt->execute([$locationTemplate->getType()]);
+				$count = $stmt->rowCount();
+				if($count == 1){
+					$row = $stmt->fetch();
+					return new locationDTO($row["id"], $row["address_line"], $row["city"],$row["postcode"], $row["type"], $row["isactive"]);
+				}
+			}
+			return null;
+		}
+		return null;
     }
 
     //Find by type
@@ -93,8 +107,11 @@ class locationDAO
     public function findLocationById($id){
         $stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE id=?");
         $stmt->execute([$id]);
-        $row = $stmt->fetch();
-        return new locationDTO($row["id"], $row["address_line"], $row["city"],$row["postcode"], $row["type"], $row["isactive"]);
+        $count = $stmt->rowCount();
+				if($count == 1){
+					$row = $stmt->fetch();
+					return new locationDTO($row["id"], $row["address_line"], $row["city"],$row["postcode"], $row["type"], $row["isactive"]);
+				}
     }
 }
 

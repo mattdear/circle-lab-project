@@ -1,9 +1,10 @@
 <?php
 
-
 class DrugPrescriptionLinkDto
 {
-private $drug, $prescription;
+
+    private $drug, $prescription;
+
     public function __construct($drug, $prescription)
     {
         $this->drug = $drug;
