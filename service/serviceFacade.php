@@ -1447,14 +1447,12 @@ class serviceFacade
   {
     try
     {
-      if($personObj != null && $personObj->getId() == null && $personObj->getFirstName() != null && $personObj->getLastName() != null && $personObj->getDob() != null && ($personObj->getGender() === 0 || $personObj->getGender() === 1)
+      if($personObj != null && $personObj->getId() == null && $personObj->getFirstName() != null && $personObj->getLastName() != null && $personObj->getDob() != null && ($personObj->getGender() == 0 || $personObj->getGender() == 1)
       && $personObj->getEmail() != null && $personObj->getPhone() != null && $personObj->getAddress() != null && $personObj->getRole() != null && $personObj->getUsername() != null && $personObj->getPassword() != null
-      && ($personObj->getIsactive() === 0 || $personObj->getIsactive() === 1))
+      && ($personObj->getIsactive() == 0 || $personObj->getIsactive() == 1))
       {
-        $tempPer = new personDTO(null, null, null, null, null, null, null, null, null, $personObj->getUsername(), null, null);
         $allPeople = $this->personDAO->findAllpeople();
         $unique = TRUE;
-
         foreach ($allPeople as $person)
         {
           if($personObj->getUsername() == $person->getUsername())

@@ -2198,7 +2198,7 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
 
     $date = date_create("1997-03-01");
     $formattedDate = date_format($date,"Y/m/d");
-    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, 0, "jb@gmail.com", "07780000000", 1, 1, "justinbieber", "jb123", 0);
+    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, 0, "jb@gmail.com", "07780000000", 1, 1, "justinbieber", "jb123", 1);
     $returnedPerson = $serviceFacade->addPerson($personObj);
 
     $this->assertNotNull($returnedPerson, $message = "testAddPerson, test 1");
