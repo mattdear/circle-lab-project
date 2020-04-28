@@ -3,9 +3,10 @@
 
 class diseaseSymptomLinkDTO
 {
-    private $disease, $symptom ;
+    private $disease, $symptom;
 
-    public function __construct($disease, $symptom) {
+    public function __construct($disease, $symptom)
+    {
         $this->disease = $disease;
         $this->symptom = $symptom;
     }

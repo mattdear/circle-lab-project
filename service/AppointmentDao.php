@@ -56,9 +56,7 @@ class AppointmentDao
                     $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
             }
             return $Appointment;
-        } 
-        else
-        {
+        } else {
             return null;
         }
     }

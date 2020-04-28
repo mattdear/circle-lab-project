@@ -10,18 +10,22 @@ class DrugPrescriptionLinkDto
         $this->drug = $drug;
         $this->prescription = $prescription;
     }
+
     public function getDrug()
     {
         return $this->drug;
     }
+
     public function setDrug($drug)
     {
         $this->drug = $drug;
     }
+
     public function getPrescription()
     {
         return $this->prescription;
     }
+
     public function setPrescription($prescription)
     {
         $this->prescription = $prescription;
@@ -33,4 +37,5 @@ class DrugPrescriptionLinkDto
         return $string;
     }
 }
+
 ?>

@@ -9,7 +9,7 @@ class Disease
     {
         $this->id = $id;
         $this->name = $name;
-}
+    }
 
     public function getId()
     {
@@ -33,7 +33,7 @@ class Disease
 
     public function toString()
     {
-        return $string = "" .$this->getId(). " " .$this->getName();
+        return $string = "" . $this->getId() . " " . $this->getName();
     }
 
 }

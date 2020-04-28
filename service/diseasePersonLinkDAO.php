@@ -12,20 +12,23 @@ class diseasePersonLinkDAO
     }
 
     //Inserting a new Disease_Person_Link
-    public function addDiseasePersonLinkDTO($newDPe_Link){
-        $stmt = $this->conn->prepare("INSERT INTO " . $this->table .  "(disease, person) VALUES (? , ?)");
+    public function addDiseasePersonLinkDTO($newDPe_Link)
+    {
+        $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(disease, person) VALUES (? , ?)");
         $stmt->execute([$newDPe_Link->getDisease(), $newDPe_Link->getPerson()]);
     }
 
     //Updating a Disease_Person_Link
-    public function modifyDiseasePersonLinkDTO($oldDPe_Link , $updatedDPe_Link){
-        $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET disease= ? , person= ? WHERE disease =? AND person = ?  ");
+    public function modifyDiseasePersonLinkDTO($oldDPe_Link, $updatedDPe_Link)
+    {
+        $stmt = $this->conn->prepare("UPDATE " . $this->table . " SET disease= ? , person= ? WHERE disease =? AND person = ?  ");
         $stmt->execute([$updatedDPe_Link->getDisease(), $updatedDPe_Link->getPerson(), $oldDPe_Link->getDisease(), $oldDPe_Link->getPerson()]);
     }
 
     //Find by PersonId
-    public function findByPersonId($id){
-        $stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE person=?");
+    public function findByPersonId($id)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE person=?");
         $stmt->execute([$id]);
         $personsDiseases = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -35,8 +38,9 @@ class diseasePersonLinkDAO
     }
 
     //Find by DiseaseId
-    public function findByDiseaseId($id){
-        $stmt = $this->conn->prepare("SELECT * FROM ".  $this->table .  " WHERE disease=?");
+    public function findByDiseaseId($id)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE disease=?");
         $stmt->execute([$id]);
         $diseaseInPeople = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -46,24 +50,25 @@ class diseasePersonLinkDAO
     }
 
     //Delete Disease_Person_Link
-    public function deleteDiseasePersonLinkDTO($removedDPe_Link){
-        $stmt = $this->conn->prepare("DELETE FROM " . $this->table .  " WHERE disease =? AND person = ? ");
+    public function deleteDiseasePersonLinkDTO($removedDPe_Link)
+    {
+        $stmt = $this->conn->prepare("DELETE FROM " . $this->table . " WHERE disease =? AND person = ? ");
         $stmt->execute([$removedDPe_Link->getDisease(), $removedDPe_Link->getPerson()]);
     }
 
-	public function findByObject($link){
-		$stmt = $this->conn->prepare("SELECT * FROM ". $this->table . " WHERE disease = ? AND person = ?");
-		$stmt->execute([$link->getDisease() , $link->getPerson()]);
-		$row = $stmt->fetch(PDO::FETCH_ASSOC);
-		$uniqueCount = $stmt->rowCount();
-		if($uniqueCount == 1){
-			$foundLink = new diseasePersonLinkDTO((int)$row["disease"], (int)$row["person"]);
-			return $foundLink;
-		}
-		else{
-			return null;
-		}
-	}
+    public function findByObject($link)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE disease = ? AND person = ?");
+        $stmt->execute([$link->getDisease(), $link->getPerson()]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $uniqueCount = $stmt->rowCount();
+        if ($uniqueCount == 1) {
+            $foundLink = new diseasePersonLinkDTO((int)$row["disease"], (int)$row["person"]);
+            return $foundLink;
+        } else {
+            return null;
+        }
+    }
 }
 
 ?>

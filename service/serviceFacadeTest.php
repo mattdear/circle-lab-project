@@ -2191,6 +2191,48 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
 
     $this->assertNull($returnedDisease, $message = "testModifyDisease, test 3");
   }
+
+  public function testAddPerson()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $date = date_create("1997-03-01");
+    $formattedDate = date_format($date,"Y/m/d");
+    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, 0, "jb@gmail.com", "07780000000", 1, 1, "justinbieber", "jb123", 0);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+
+    $this->assertNotNull($returnedPerson, $message = "testAddPerson, test 1");
+  }
+
+  public function testModifyPerson()
+  {
+    $serviceFacade = new serviceFacade();
+
+  }
+
+  public function testFindAllPeople()
+  {
+    $serviceFacade = new serviceFacade();
+
+  }
+
+  public function testFindMatchingPeople()
+  {
+    $serviceFacade = new serviceFacade();
+
+  }
+
+  public function testFindPersonByRole()
+  {
+    $serviceFacade = new serviceFacade();
+
+  }
+
+  public function testFindPersonById()
+  {
+    $serviceFacade = new serviceFacade();
+
+  }
 }
 
 ?>

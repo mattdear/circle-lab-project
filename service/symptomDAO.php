@@ -14,8 +14,8 @@ class SymptomDao
 
     public function addSymptom($newSymptom)
     {
-        if ($newSymptom != null && $newSymptom->getId() == null && $newSymptom->getName() != null){
-            $stmt = $this->conn->prepare("INSERT INTO " .$this->table. " (name) VALUES (?)");
+        if ($newSymptom != null && $newSymptom->getId() == null && $newSymptom->getName() != null) {
+            $stmt = $this->conn->prepare("INSERT INTO " . $this->table . " (name) VALUES (?)");
             $stmt->execute([$newSymptom->getName()]);
             $idInt = (int)$this->conn->lastInsertId();
             $newSymptom->setId($idInt);
@@ -24,23 +24,25 @@ class SymptomDao
         return null;
     }
 
-    public function findAllSymptoms(){
-        $stmt = $this->conn->prepare("SELECT * FROM " .$this->table. " ORDER BY id");
+    public function findAllSymptoms()
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " ORDER BY id");
         $stmt->execute();
         $symptoms = [];
-        while ($row = $stmt->fetch()){
+        while ($row = $stmt->fetch()) {
             array_push($symptoms, new Symptom($row["id"], $row["name"]));
         }
         return $symptoms;
     }
 
-    public function findSymptom($searchSymptom){
+    public function findSymptom($searchSymptom)
+    {
         if ($searchSymptom != null) {
             if ($searchSymptom->getId() != null) {
                 $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE id=?");
                 $stmt->execute([$searchSymptom->getId()]);
                 $count = $stmt->rowCount();
-                if ($count == 1){
+                if ($count == 1) {
                     $row = $stmt->fetch();
                     return new Symptom((int)$row["id"], $row["name"]);
                 }
@@ -48,7 +50,7 @@ class SymptomDao
                 $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE name=?");
                 $stmt->execute([$searchSymptom->getName()]);
                 $count = $stmt->rowCount();
-                if ($count == 1){
+                if ($count == 1) {
                     $row = $stmt->fetch();
                     return new Symptom((int)$row["id"], $row["name"]);
                 }
@@ -58,12 +60,13 @@ class SymptomDao
         return null;
     }
 
-    public function findById($id){
-        if ($id!=null){
-            $stmt = $this->conn->prepare("SELECT * FROM " .$this->table. " WHERE id=?");
+    public function findById($id)
+    {
+        if ($id != null) {
+            $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE id=?");
             $stmt->execute([$id]);
             $count = $stmt->rowCount();
-            if ($count == 1){
+            if ($count == 1) {
                 $row = $stmt->fetch();
                 return new Symptom((int)$row["id"], $row["name"]);
             }
@@ -72,9 +75,10 @@ class SymptomDao
         return null;
     }
 
-    public function modifySymptom($updatedSymptom){
-        if ($updatedSymptom->getId() !=null && $updatedSymptom->getName() != null){
-            $stmt = $this->conn->prepare("UPDATE " . $this->table .  " SET name= ? WHERE id= ? ");
+    public function modifySymptom($updatedSymptom)
+    {
+        if ($updatedSymptom->getId() != null && $updatedSymptom->getName() != null) {
+            $stmt = $this->conn->prepare("UPDATE " . $this->table . " SET name= ? WHERE id= ? ");
             $stmt->execute([$updatedSymptom->getName(), $updatedSymptom->getId()]);
             return $updatedSymptom;
         }

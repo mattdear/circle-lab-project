@@ -3,9 +3,10 @@
 
 class diseaseTreatmentLinkDTO
 {
-    private $disease, $treatment ;
+    private $disease, $treatment;
 
-    public function __construct($disease, $treatment) {
+    public function __construct($disease, $treatment)
+    {
         $this->disease = $disease;
         $this->treatment = $treatment;
     }

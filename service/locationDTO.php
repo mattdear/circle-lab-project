@@ -5,7 +5,8 @@ class locationDTO
 {
     private $id, $address_line, $city, $postcode, $type, $isactive;
 
-    public function __construct($id, $address_line, $city, $postcode, $type, $isactive) {
+    public function __construct($id, $address_line, $city, $postcode, $type, $isactive)
+    {
         $this->id = $id;
         $this->address_line = $address_line;
         $this->city = $city;
@@ -76,7 +77,7 @@ class locationDTO
 
     public function toString()
     {
-        $string = $this->id . " , " . $this->address_line . " , ". $this->city . " , " . $this->postcode . " , " . $this->type . " , " . $this->isactive ;
+        $string = $this->id . " , " . $this->address_line . " , " . $this->city . " , " . $this->postcode . " , " . $this->type . " , " . $this->isactive;
         return $string;
     }
 }

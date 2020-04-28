@@ -10,7 +10,6 @@
 */
 
 include("prescriptionDTO.php");
-include("personDTO.php");
 
 class prescriptionDAO {
 

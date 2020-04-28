@@ -18,7 +18,7 @@ class serviceFacade
   $this->symptomDAO = new symptomDAO(getDatabase(), "Symptom");
   $this->diseaseDAO = new diseaseDAO(getDatabase(), "Disease");
   // $this->appointmentDAO = new appointmentDAO(getDatabase(), "Appointment");
-  // $this->personDAO = new personDAO(getDatabase(), "Person");
+  $this->personDAO = new personDAO(getDatabase(), "Person");
   $this->roleDAO = new roleDAO(getDatabase(), "Role");
   // $this->reportDAO = new reportDAO(getDatabase(), "Report");
   $this->drugPrescriptionLinkDAO = new drugPrescriptionLinkDAO(getDatabase(), "Drug_Prescription_Link");
@@ -1443,7 +1443,100 @@ class serviceFacade
     }
   }
 
+  public function addPerson($personObj)
+  {
+    try
+    {
+      if($personObj != null && $personObj->getId() == null && $personObj->getFirstName() != null && $personObj->getLastName() != null && $personObj->getDob() != null && ($personObj->getGender() === 0 || $personObj->getGender() === 1)
+      && $personObj->getEmail() != null && $personObj->getPhone() != null && $personObj->getAddress() != null && $personObj->getRole() != null && $personObj->getUsername() != null && $personObj->getPassword() != null
+      && ($personObj->getIsactive() === 0 || $personObj->getIsactive() === 1))
+      {
+        $tempPer = new personDTO(null, null, null, null, null, null, null, null, null, $personObj->getUsername(), null, null);
+        $allPeople = $this->personDAO->findAllpeople();
+        $unique = TRUE;
 
+        foreach ($allPeople as $person)
+        {
+          if($personObj->getUsername() == $person->getUsername())
+          {
+            $unique = FALSE;
+          }
+        }
+        if($unique == TRUE)
+        {
+          $this->personDAO->addPerson($personObj);
+        }
+      }
+      return null;
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function modifyPerson()
+  {
+    try
+    {
+
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findAllPeople()
+  {
+    try
+    {
+      return $this->personDAO->findAllPeople();
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findMatchingPeople()
+  {
+    try
+    {
+
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findPersonByRole($role)
+  {
+    try
+    {
+      if($role != null)
+      {
+
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findPersonById()
+  {
+    try
+    {
+
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 
 
 

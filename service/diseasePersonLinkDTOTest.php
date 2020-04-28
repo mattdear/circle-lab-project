@@ -1,5 +1,6 @@
 <?php
 include("diseasePersonLinkDTO.php");
+
 use PHPUnit\Framework\TestCase;
 
 class diseasePersonLinkDTOTest extends PHPUnit\Framework\TestCase
@@ -50,7 +51,7 @@ class diseasePersonLinkDTOTest extends PHPUnit\Framework\TestCase
     public function testSetPersonId()
     {
         $id = 1;
-        $Link1 = new diseasePersonLinkDTO(1,2);
+        $Link1 = new diseasePersonLinkDTO(1, 2);
 
         $this->assertEquals(2, $Link1->getPerson(), $message = "testSetName, test 1");
         $this->assertNotEquals(1, $Link1->getPerson(), $message = "testSetName, test 2");
@@ -63,11 +64,11 @@ class diseasePersonLinkDTOTest extends PHPUnit\Framework\TestCase
     }
 
     public function testToString()
-  {
-    $Link1 = new diseasePersonLinkDTO(1, 2);
-    $this->assertIsString($Link1->toString(), $message = "testToString, test 1");
-    $this->assertEquals("1 , 2", $Link1->toString(), $message = "testToString, test 2");
-  }
+    {
+        $Link1 = new diseasePersonLinkDTO(1, 2);
+        $this->assertIsString($Link1->toString(), $message = "testToString, test 1");
+        $this->assertEquals("1 , 2", $Link1->toString(), $message = "testToString, test 2");
+    }
 
 
 }

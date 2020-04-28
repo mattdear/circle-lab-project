@@ -3,9 +3,10 @@
 
 class personDTO
 {
-    private $id, $first_name, $last_name , $dob, $gender, $email, $phone, $address, $role, $username , $password;
+    private $id, $first_name, $last_name, $dob, $gender, $email, $phone, $address, $role, $username, $password, $isactive;
 
-    public function __construct($id, $first_name, $last_name , $dob, $gender, $email, $phone, $address, $role, $username , $password) {
+    public function __construct($id, $first_name, $last_name, $dob, $gender, $email, $phone, $address, $role, $username, $password, $isactive)
+    {
         $this->id = $id;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
@@ -17,7 +18,9 @@ class personDTO
         $this->role = $role;
         $this->username = $username;
         $this->password = $password;
+        $this->isactive = $isactive;
     }
+
     public function getId()
     {
         return $this->id;
@@ -128,11 +131,21 @@ class personDTO
         $this->password = $password;
     }
 
+    public function getIsactive()
+    {
+        return $this->isactive;
+    }
+
+    public function setIsactive($isactive)
+    {
+        $this->isactive = $isactive;
+    }
+
     public function toString()
-        {
-            $string = " " . $this->id . " " . $this->first_name . " " . $this->last_name . " " . $this->dob . " " . $this->gender . " " . $this->email . " " . $this->phone . " " . $this->address . " "  . $this->role . " "   . $this->username . " "   . $this->password . " " ;
-            return $string;
-        }
+    {
+        $string = " " . $this->id . " " . $this->first_name . " " . $this->last_name . " " . $this->dob . " " . $this->gender . " " . $this->email . " " . $this->phone . " " . $this->address . " " . $this->role . " " . $this->username . " " . $this->password . " " . $this->isactive;
+        return $string;
+    }
 }
 
 ?>

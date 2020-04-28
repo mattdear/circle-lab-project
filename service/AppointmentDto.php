@@ -1,7 +1,9 @@
 <?php
+
 class AppointmentDto
 {
     private $id, $description, $patient, $staff_member, $date_time, $location, $duration, $isactive;
+
     public function __construct($id, $description, $patient, $staff_member, $date_time, $location, $duration, $isactive)
     {
 
@@ -19,34 +21,42 @@ class AppointmentDto
     {
         return $this->id;
     }
+
     public function setId($id)
     {
         $this->id = $id;
     }
+
     public function getDescription()
     {
         return $this->description;
     }
+
     public function setDescription($description)
     {
         $this->description = $description;
     }
+
     public function getPatient()
     {
         return $this->patient;
     }
+
     public function setPatient($patient)
     {
         $this->patient = $patient;
     }
+
     public function getStaffMember()
     {
         return $this->staff_member;
     }
+
     public function setStaffMember($staff_member)
     {
         $this->staff_member = $staff_member;
     }
+
     public function getDateTime()
     {
         return $this->date_time;
@@ -56,14 +66,17 @@ class AppointmentDto
     {
         $this->date_time = $date_time;
     }
+
     public function getLocation()
     {
         return $this->location;
     }
+
     public function setLocation($location)
     {
         $this->location = $location;
     }
+
     public function getDuration()
     {
         return $this->duration;
@@ -73,10 +86,12 @@ class AppointmentDto
     {
         $this->duration = $duration;
     }
+
     public function getIsactive()
     {
         return $this->isactive;
     }
+
     public function setIsactive($isactive)
     {
         $this->isactive = $isactive;
@@ -84,8 +99,9 @@ class AppointmentDto
 
     function toString()
     {
-        $string = " " . $this->id . " " . $this->description . " " . $this->patient . " " . $this->staff_member . " " .  $this->date_time. " " . $this->location .  " " . $this->duration. " ". $this->isactive . " ";
+        $string = " " . $this->id . " " . $this->description . " " . $this->patient . " " . $this->staff_member . " " . $this->date_time . " " . $this->location . " " . $this->duration . " " . $this->isactive . " ";
         return $string;
     }
 }
+
 ?>

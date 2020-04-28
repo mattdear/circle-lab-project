@@ -1,12 +1,13 @@
 <?php
 include("diseaseSymptomLinkDTO.php");
+
 use PHPUnit\Framework\TestCase;
 
 class diseaseSymptomLinkDTOTest extends PHPUnit\Framework\TestCase
 {
     public function testConstruct()
     {
-        $Link1 = new diseaseSymptomLinkDTO(1,2);
+        $Link1 = new diseaseSymptomLinkDTO(1, 2);
 
         $this->assertIsInt($Link1->getDisease(), $message = "testConstruct, test 1");
         $this->assertIsInt($Link1->getSymptom(), $message = "testConstruct, test 2");
@@ -64,9 +65,9 @@ class diseaseSymptomLinkDTOTest extends PHPUnit\Framework\TestCase
 
     public function testToString()
     {
-      $Link1 = new diseaseSymptomLinkDTO(1, 2);
-      $this->assertIsString($Link1->toString(), $message = "testToString, test 1");
-      $this->assertEquals("1 , 2", $Link1->toString(), $message = "testToString, test 2");
+        $Link1 = new diseaseSymptomLinkDTO(1, 2);
+        $this->assertIsString($Link1->toString(), $message = "testToString, test 1");
+        $this->assertEquals("1 , 2", $Link1->toString(), $message = "testToString, test 2");
     }
 
 }

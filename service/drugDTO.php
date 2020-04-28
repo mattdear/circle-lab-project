@@ -1,13 +1,13 @@
 <?php
 
 /**
-* Copyright (C) 2020 Circle Lab
-*
-* Coder: Joshua Alsop-Barrell
-*
-* Reviwer: Matthew Dear
-*
-*/
+ * Copyright (C) 2020 Circle Lab
+ *
+ * Coder: Joshua Alsop-Barrell
+ *
+ * Reviwer: Matthew Dear
+ *
+ */
 
 class drugDTO
 

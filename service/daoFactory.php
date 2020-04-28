@@ -12,4 +12,5 @@
   include ("DrugTreatmentLinkDao.php");
   include ("DrugPrescriptionLinkDao.php");
   include ("diseaseDAO.php");
+  include ("personDAO.php");
 ?>
