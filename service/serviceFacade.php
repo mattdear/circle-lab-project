@@ -11,21 +11,21 @@ class serviceFacade
   public function __construct()
   {
   $this->conn = getDatabase();
-  $this->drugDAO = new drugDAO(getDatabase(), "Drug");
-  $this->treatmentDAO = new treatmentDAO(getDatabase(), "Treatment");
-  $this->prescriptionDAO = new prescriptionDAO(getDatabase(), "Prescription");
-  $this->locationDAO = new locationDAO(getDatabase(), "Location");
-  $this->symptomDAO = new symptomDAO(getDatabase(), "Symptom");
-  $this->diseaseDAO = new diseaseDAO(getDatabase(), "Disease");
-  // $this->appointmentDAO = new appointmentDAO(getDatabase(), "Appointment");
-  $this->personDAO = new personDAO(getDatabase(), "Person");
-  $this->roleDAO = new roleDAO(getDatabase(), "Role");
-  // $this->reportDAO = new reportDAO(getDatabase(), "Report");
-  $this->drugPrescriptionLinkDAO = new drugPrescriptionLinkDAO(getDatabase(), "Drug_Prescription_Link");
-  $this->drugTreatmentLinkDAO = new drugTreatmentLinkDAO(getDatabase(), "Drug_Treatment_Link");
-  $this->diseaseTreatmentLinkDAO = new diseaseTreatmentLinkDAO(getDatabase(), "Disease_Treatment_Link");
-  $this->diseaseSymptomLinkDAO = new diseaseSymptomLinkDAO(getDatabase(), "Disease_Symptom_Link");
-  $this->diseasePersonLinkDAO = new diseasePersonLinkDAO(getDatabase(), "Disease_Person_Link");
+  $this->drugDAO = new drugDAO(getDatabase(), "drug");
+  $this->treatmentDAO = new treatmentDAO(getDatabase(), "treatment");
+  $this->prescriptionDAO = new prescriptionDAO(getDatabase(), "prescription");
+  $this->locationDAO = new locationDAO(getDatabase(), "location");
+  $this->symptomDAO = new symptomDAO(getDatabase(), "symptom");
+  $this->diseaseDAO = new diseaseDAO(getDatabase(), "disease");
+  $this->appointmentDAO = new AppointmentDao(getDatabase(), "appointment");
+  $this->personDAO = new personDAO(getDatabase(), "person");
+  $this->roleDAO = new roleDAO(getDatabase(), "role");
+  // $this->reportDAO = new reportDAO(getDatabase(), "report");
+  $this->drugPrescriptionLinkDAO = new drugPrescriptionLinkDAO(getDatabase(), "drug_prescription_link");
+  $this->drugTreatmentLinkDAO = new drugTreatmentLinkDAO(getDatabase(), "drug_treatment_link");
+  $this->diseaseTreatmentLinkDAO = new diseaseTreatmentLinkDAO(getDatabase(), "disease_treatment_link");
+  $this->diseaseSymptomLinkDAO = new diseaseSymptomLinkDAO(getDatabase(), "disease_symptom_link");
+  $this->diseasePersonLinkDAO = new diseasePersonLinkDAO(getDatabase(), "disease_person_link");
   }
 
   public function addTreatment($treatmentObj)
@@ -1447,9 +1447,11 @@ class serviceFacade
   {
     try
     {
-      if($personObj != null && $personObj->getId() == null && $personObj->getFirstName() != null && $personObj->getLastName() != null && $personObj->getDob() != null && ($personObj->getGender() == 0 || $personObj->getGender() == 1)
-      && $personObj->getEmail() != null && $personObj->getPhone() != null && $personObj->getAddress() != null && $personObj->getRole() != null && $personObj->getUsername() != null && $personObj->getPassword() != null
-      && ($personObj->getIsactive() == 0 || $personObj->getIsactive() == 1))
+      if($personObj != null && $personObj->getId() == null && $personObj->getFirstName() != null && $personObj->getLastName() != null
+      && $personObj->getDob() != null && ($personObj->getGender() === 0 || $personObj->getGender() === 1)
+      && $personObj->getEmail() != null && $personObj->getPhone() != null && $personObj->getAddress() != null
+      && $personObj->getRole() != null && $personObj->getUsername() != null && $personObj->getPassword() != null
+      && ($personObj->getIsactive() === 0 || $personObj->getIsactive() === 1))
       {
         $allPeople = $this->personDAO->findAllpeople();
         $unique = TRUE;
@@ -1462,7 +1464,7 @@ class serviceFacade
         }
         if($unique == TRUE)
         {
-          $this->personDAO->addPerson($personObj);
+          return $this->personDAO->addPerson($personObj);
         }
       }
       return null;
@@ -1473,11 +1475,34 @@ class serviceFacade
     }
   }
 
-  public function modifyPerson()
+  public function modifyPerson($personObj)
   {
     try
     {
-
+      if($personObj != null && $personObj->getId() != null && $personObj->getFirstName() != null && $personObj->getLastName() != null
+      && $personObj->getDob() != null && ($personObj->getGender() == 0 || $personObj->getGender() == 1)
+      && $personObj->getEmail() != null && $personObj->getPhone() != null && $personObj->getAddress() != null
+      && $personObj->getRole() != null && $personObj->getUsername() != null && $personObj->getPassword() != null
+      && ($personObj->getIsactive() == 0 || $personObj->getIsactive() == 1))
+      {
+        $allPeople = $this->personDAO->findAllpeople();
+        $unique = TRUE;
+        if($this->personDAO->findPersonById($personObj->getId()) != null){
+          foreach ($allPeople as $person)
+          {
+            if($personObj->getUsername() == $person->getUsername() && $personObj->getId() != $person->getId())
+            {
+              $unique = FALSE;
+            }
+          }
+        }
+        if($unique == TRUE)
+        {
+          $this->personDAO->modifyPerson($personObj);
+          return TRUE;
+        }
+      }
+      return null;
     }
     catch (PDOException $e)
     {
@@ -1497,25 +1522,13 @@ class serviceFacade
     }
   }
 
-  public function findMatchingPeople()
-  {
-    try
-    {
-
-    }
-    catch (PDOException $e)
-    {
-      echo "Error: $e";
-    }
-  }
-
   public function findPersonByRole($role)
   {
     try
     {
       if($role != null)
       {
-
+        return $this->personDAO->findByRole($role);
       }
     }
     catch (PDOException $e)
@@ -1524,11 +1537,23 @@ class serviceFacade
     }
   }
 
-  public function findPersonById()
+  public function findPersonById($id)
   {
     try
     {
-
+      $allPeople = $this->personDAO->findAllPeople();
+      $exists = FALSE;
+      foreach ($allPeople as $person)
+      {
+        if($id == $person->getId())
+        {
+          $exists = TRUE;
+        }
+      }
+      if($exists == TRUE)
+      {
+        return $this->personDAO->findPersonById($id);
+      }
     }
     catch (PDOException $e)
     {
@@ -1536,8 +1561,70 @@ class serviceFacade
     }
   }
 
+  public function addAppointment($appointment)
+  {
+    try
+    {
+      if($appointment != null && $appointment->getId() == null && $appointment->getDescription() != null &&
+          $appointment->getPatient() != null && $appointment->getStaffmember() != null && $appointment->getDateTime() != null &&
+          $appointment->getLocation() != null && $appointment->getDuration() != null && ($appointment->getIsactive() === 1 || $appointment->getIsactive() === 0))
+      {
+        return $this->appointmentDAO->addAppointment($appointment);
+      }
+      return null;
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 
+  public function modifyAppointment($appointment)
+  {
+    try
+    {
+      if($appointment != null && $appointment->getId() == null && $appointment->getDescription() != null &&
+          $appointment->getPatient() != null && $appointment->getStaffmember() != null && $appointment->getDateTime() != null &&
+          $appointment->getLocation() != null && $appointment->getDuration() != null && ($appointment->getIsactive() === 1 || $appointment->getIsactive() === 0))
+      {
+        if($this->appointmentDAO->findAppointmentById($appointment->getId()) != null)
+        {
+          $this->appointmentDAO->modifyAppointment($appointment);
+          return TRUE;
+        }
+      }
+      return null;
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 
+  public function findAllAppointments()
+  {
+    try
+    {
+      return $this->appointmentDAO->findAllAppointments();
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
+  public function findAllAppointmentByPatient($patient)
+  {
+    try
+    {
+      return $this->appointmentDAO->findAllAppointmentByPatient($patient);
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+
+  }
 }
 
 ?>

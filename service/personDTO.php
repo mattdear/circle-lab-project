@@ -33,118 +33,118 @@ class personDTO
 
     public function getFirstName()
     {
-        return $this->first_name;
+      return $this->first_name;
     }
 
     public function setFirstName($first_name)
     {
-        $this->first_name = $first_name;
+      $this->first_name = $first_name;
     }
 
     public function getLastName()
     {
-        return $this->last_name;
+      return $this->last_name;
     }
 
     public function setLastName($last_name)
     {
-        $this->last_name = $last_name;
+      $this->last_name = $last_name;
     }
 
     public function getDob()
     {
-        return $this->dob;
+      return $this->dob;
     }
 
     public function setDob($dob)
     {
-        $this->dob = $dob;
+      $this->dob = $dob;
     }
 
     public function getGender()
     {
-        return $this->gender;
+      return $this->gender;
     }
 
     public function setGender($gender)
     {
-        $this->gender = $gender;
+      $this->gender = $gender;
     }
 
     public function getEmail()
     {
-        return $this->email;
+      return $this->email;
     }
 
     public function setEmail($email)
     {
-        $this->email = $email;
+      $this->email = $email;
     }
 
     public function getPhone()
     {
-        return $this->phone;
+      return $this->phone;
     }
 
     public function setPhone($phone)
     {
-        $this->phone = $phone;
+      $this->phone = $phone;
     }
 
     public function getAddress()
     {
-        return $this->address;
+      return $this->address;
     }
 
     public function setAddress($address)
     {
-        $this->address = $address;
+      $this->address = $address;
     }
 
     public function getRole()
     {
-        return $this->role;
+      return $this->role;
     }
 
     public function setRole($role)
     {
-        $this->role = $role;
+      $this->role = $role;
     }
 
     public function getUsername()
     {
-        return $this->username;
+      return $this->username;
     }
 
     public function setUsername($username)
     {
-        $this->username = $username;
+      $this->username = $username;
     }
 
     public function getPassword()
     {
-        return $this->password;
+      return $this->password;
     }
 
     public function setPassword($password)
     {
-        $this->password = $password;
+      $this->password = $password;
     }
 
     public function getIsactive()
     {
-        return $this->isactive;
+      return $this->isactive;
     }
 
     public function setIsactive($isactive)
     {
-        $this->isactive = $isactive;
+      $this->isactive = $isactive;
     }
 
     public function toString()
     {
-        $string = " " . $this->id . " " . $this->first_name . " " . $this->last_name . " " . $this->dob . " " . $this->gender . " " . $this->email . " " . $this->phone . " " . $this->address . " " . $this->role . " " . $this->username . " " . $this->password . " " . $this->isactive;
-        return $string;
+      $string = " " . $this->id . " " . $this->first_name . " " . $this->last_name . " " . $this->dob . " " . $this->gender . " " . $this->email . " " . $this->phone . " " . $this->address . " " . $this->role . " " . $this->username . " " . $this->password . " " . $this->isactive;
+      return $string;
     }
 }
 

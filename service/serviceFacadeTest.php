@@ -2202,37 +2202,198 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $returnedPerson = $serviceFacade->addPerson($personObj);
 
     $this->assertNotNull($returnedPerson, $message = "testAddPerson, test 1");
+    $this->assertEquals(10, $returnedPerson->getId(), $message = "testAddPerson, test 2");
+    $this->assertEquals("Justin", $returnedPerson->getFirstName(), $message = "testAddPerson, test 3");
+    $this->assertEquals("Bieber", $returnedPerson->getLastName(), $message = "testAddPerson, test 4");
+    $this->assertEquals("1997/03/01", $returnedPerson->getDob(), $message = "testAddPerson, test 5");
+    $this->assertEquals(0, $returnedPerson->getGender(), $message = "testAddPerson, test 6");
+    $this->assertEquals("jb@gmail.com", $returnedPerson->getEmail(), $message = "testAddPerson, test 7");
+    $this->assertEquals("07780000000", $returnedPerson->getPhone(), $message = "testAddPerson, test 8");
+    $this->assertEquals(1, $returnedPerson->getAddress(), $message = "testAddPerson, test 9");
+    $this->assertEquals(1, $returnedPerson->getRole(), $message = "testAddPerson, test 10");
+    $this->assertEquals("justinbieber", $returnedPerson->getUsername(), $message = "testAddPerson, test 11");
+    $this->assertEquals("jb123", $returnedPerson->getPassword(), $message = "testAddPerson, test 12");
+    $this->assertEquals(1, $returnedPerson->getIsactive(), $message = "testAddPerson, test 13");
+
+    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, 0, "jb@gmail.com", "07780000000", 1, 1, "justinbieber", "jb123", 1);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 14");
+
+    $personObj = new personDTO(null, null, "Bieber", $formattedDate, 0, "jb@gmail.com", "07780000000", 1, 1, "justinbieber", "jb123", 1);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 15");
+
+    $personObj = new personDTO(null, "Justin", null, $formattedDate, 0, "jb@gmail.com", "07780000000", 1, 1, "justinbieber", "jb123", 1);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 16");
+
+    $personObj = new personDTO(null, "Justin", "Bieber", null, 0, "jb@gmail.com", "07780000000", 1, 1, "justinbieber", "jb123", 1);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 17");
+
+    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, null, "jb@gmail.com", "07780000000", 1, 1, "justinbieber", "jb123", 1);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 18");
+
+    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, 0, null, "07780000000", 1, 1, "justinbieber", "jb123", 1);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 19");
+
+    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, 0, "jb@gmail.com", null, 1, 1, "justinbieber", "jb123", 1);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 20");
+
+    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, 0, "jb@gmail.com", "07780000000", null, 1, "justinbieber", "jb123", 1);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 21");
+
+    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, 0, "jb@gmail.com", "07780000000", 1, null, "justinbieber", "jb123", 1);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 22");
+
+    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, 0, "jb@gmail.com", "07780000000", 1, 1, null, "jb123", 1);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 23");
+
+    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, 0, "jb@gmail.com", "07780000000", 1, 1, "justinbieber", null, 1);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 24");
+
+    $personObj = new personDTO(null, "Justin", "Bieber", $formattedDate, 0, "jb@gmail.com", "07780000000", 1, 1, "justinbieber", "jb123", null);
+    $returnedPerson = $serviceFacade->addPerson($personObj);
+    $this->assertNull($returnedPerson, $message = "testAddPerson, test 25");
   }
 
   public function testModifyPerson()
   {
     $serviceFacade = new serviceFacade();
 
+    $date = date_create("1997-03-01");
+    $formattedDate = date_format($date,"Y/m/d");
+    $personObj = $serviceFacade->findPersonById(10);
+    $personObj->setFirstName("Jack");
+    $personObj->setLastName("Black");
+    $personObj->setUsername("jackblack");
+    $bool = $serviceFacade->modifyPerson($personObj);
+
+    $this->assertEquals("Jack", $personObj->getFirstName(), $message = "testModifyPerson, test 1");
+    $this->assertEquals("Black", $personObj->getLastName(), $message = "testModifyPerson, test 2");
+    $this->assertEquals("jackblack", $personObj->getUsername(), $message = "testModifyPerson, test 3");
+    $returnedPerson = $serviceFacade->findPersonById($personObj->getId());
+
+    $this->assertNotNull($returnedPerson, $message = "testModifyPerson, test 4");
+    $this->assertTrue($bool, $message = "testModifyPerson, test 5");
+    $this->assertEquals(10, $returnedPerson->getId(), $message = "testModifyPerson, test 6");
+    $this->assertEquals("Jack", $returnedPerson->getFirstName(), $message = "testModifyPerson, test 7");
+    $this->assertEquals("Black", $returnedPerson->getLastName(), $message = "testModifyPerson, test 8");
+    $this->assertEquals("1997-03-01", $returnedPerson->getDob(), $message = "testModifyPerson, test 9");
+    $this->assertEquals(0, $returnedPerson->getGender(), $message = "testModifyPerson, test 10");
+    $this->assertEquals("jb@gmail.com", $returnedPerson->getEmail(), $message = "testModifyPerson, test 11");
+    $this->assertEquals("07780000000", $returnedPerson->getPhone(), $message = "testModifyPerson, test 12");
+    $this->assertEquals(1, $returnedPerson->getAddress(), $message = "testModifyPerson, test 13");
+    $this->assertEquals(1, $returnedPerson->getRole(), $message = "testModifyPerson, test 14");
+    $this->assertEquals("jackblack", $returnedPerson->getUsername(), $message = "testModifyPerson, test 15");
+    $this->assertEquals("jb123", $returnedPerson->getPassword(), $message = "testModifyPerson, test 16");
+    $this->assertEquals(1, $returnedPerson->getIsactive(), $message = "testModifyPerson, test 17");
+
+    $personObj = $serviceFacade->findPersonById(1);
+    $personObj->setUsername("jackblack");
+    $bool = $serviceFacade->modifyPerson($personObj);
+    $this->assertNull($bool, $message = "testModifyPerson, test 18");
   }
 
   public function testFindAllPeople()
   {
     $serviceFacade = new serviceFacade();
 
-  }
+    $allPeople = $serviceFacade->findAllPeople();
 
-  public function testFindMatchingPeople()
-  {
-    $serviceFacade = new serviceFacade();
+    $this->assertEquals(1, $allPeople[0]->getId(), $message = "testModifyPerson, test 1");
+    $this->assertEquals($serviceFacade->findPersonById(1), $allPeople[0], $message = "testModifyPerson, test 2");
+
+    $this->assertEquals(10, $allPeople[9]->getId(), $message = "testModifyPerson, test 1");
+    $this->assertEquals($serviceFacade->findPersonById(10), $allPeople[9], $message = "testModifyPerson, test 2");
 
   }
 
   public function testFindPersonByRole()
   {
     $serviceFacade = new serviceFacade();
+    $people = $serviceFacade->findPersonByRole(1);
 
+    $this->assertEquals(2, sizeOf($people), $message = "testModifyPerson, test 1");
+
+    $this->assertEquals(1, $people[0]->getId(), $message = "testModifyPerson, test 2");
+    $this->assertEquals($serviceFacade->findPersonById(1), $people[0], $message = "testModifyPerson, test 3");
+
+    $this->assertEquals(10, $people[1]->getId(), $message = "testModifyPerson, test 4");
+    $this->assertEquals($serviceFacade->findPersonById(10), $people[1], $message = "testModifyPerson, test 5");
   }
 
   public function testFindPersonById()
   {
     $serviceFacade = new serviceFacade();
 
+    $returnedPerson = $serviceFacade->findPersonById(1);
+    $this->assertNotNull($returnedPerson, $message = "testFindPersonById, test 1");
+
+    $returnedPerson = $serviceFacade->findPersonById(100);
+    $this->assertNull($returnedPerson, $message = "testFindPersonById, test 2");
   }
+
+  public function testAddAppointment()
+  {
+    $serviceFacade = new serviceFacade();
+    $date = date_create("2020-03-01");
+    $formattedDate = date_format($date,"Y/m/d");
+    $appointment = new AppointmentDto(null, "test", 5, 4, $formattedDate, 16, 30, 1);
+    $returnedAppointment = $serviceFacade->addAppointment($appointment);
+
+    $this->assertEquals("test", $returnedAppointment->getDescription(), $message = "testAddAppointment, test 1");
+    $this->assertEquals(4, $returnedAppointment->getId(), $message = "testAddAppointment, test 2");
+    $this->assertEquals(4, $returnedAppointment->getStaffmember(), $message = "testAddAppointment, test 3");
+    $this->assertEquals(5, $returnedAppointment->getPatient(), $message = "testAddAppointment, test 4");
+    $this->assertEquals("2020/03/01", $returnedAppointment->getDateTime(), $message = "testAddAppointment, test 5");
+    $this->assertEquals(16, $returnedAppointment->getLocation(), $message = "testAddAppointment, test 6");
+    $this->assertEquals(30, $returnedAppointment->getDuration(), $message = "testAddAppointment, test 7");
+    $this->assertEquals(1, $returnedAppointment->getIsactive(), $message = "testAddAppointment, test 8");
+
+    $appointment = new AppointmentDto(null, null, 5, 4, $formattedDate, 16, 30, 1);
+    $returnedAppointment = $serviceFacade->addAppointment($appointment);
+    $this->assertNull($returnedAppointment, $message = "testAddAppointment, test 9");
+
+    $appointment = new AppointmentDto(null, "test", null, 4, $formattedDate, 16, 30, 1);
+    $returnedAppointment = $serviceFacade->addAppointment($appointment);
+    $this->assertNull($returnedAppointment, $message = "testAddAppointment, test 10");
+
+    $appointment = new AppointmentDto(null, "test", 5, null, $formattedDate, 16, 30, 1);
+    $returnedAppointment = $serviceFacade->addAppointment($appointment);
+    $this->assertNull($returnedAppointment, $message = "testAddAppointment, test 11");
+
+    $appointment = new AppointmentDto(null, "test", 5, 4, null, 16, 30, 1);
+    $returnedAppointment = $serviceFacade->addAppointment($appointment);
+    $this->assertNull($returnedAppointment, $message = "testAddAppointment, test 12");
+
+    $appointment = new AppointmentDto(null, "test", 5, 4, $formattedDate, null, 30, 1);
+    $returnedAppointment = $serviceFacade->addAppointment($appointment);
+    $this->assertNull($returnedAppointment, $message = "testAddAppointment, test 13");
+
+    $appointment = new AppointmentDto(null, "test", 5, 4, $formattedDate, 16, null, 1);
+    $returnedAppointment = $serviceFacade->addAppointment($appointment);
+    $this->assertNull($returnedAppointment, $message = "testAddAppointment, test 14");
+
+    $appointment = new AppointmentDto(null, "test", 5, 4, $formattedDate, 16, 30, null);
+    $returnedAppointment = $serviceFacade->addAppointment($appointment);
+    $this->assertNull($returnedAppointment, $message = "testAddAppointment, test 15");
+  }
+
+  // public function testModifyAppointment()
+  // {
+  //   $serviceFacade = new serviceFacade();
+  //   $date = date_create("2020-03-01");
+  //   $formattedDate = date_format($date,"Y/m/d");
+  //   $appointment = new AppointmentDto(null, "test", 5, 4, $formattedDate, 16, 30, 1);
+  // }
 }
 
 ?>

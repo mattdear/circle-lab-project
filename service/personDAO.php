@@ -23,7 +23,6 @@ class personDAO
             $newPerson->setId($id);
         }
         return $newPerson;
-
     }
 
     //Updating a person
