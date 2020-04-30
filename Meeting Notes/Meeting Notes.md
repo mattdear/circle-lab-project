@@ -192,3 +192,9 @@ Attendees = Emma, Mark, Josh, Matt
 - People to continue work on their DAOs and DTOs and code reviews.
 
 Attendees = Emma, Mark, Josh, Matt, Juan
+
+## MEETING 27-04-2020
+- The group decided to move the dealine for work completion back because some people had still not meet the deadline.
+
+## MEETING 29-04-2020
+- Nothing much was discussed. Just that everyone was OK and the deadline was Monday.
