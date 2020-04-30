@@ -28,7 +28,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 <p>Postcode: <?= $searchPost ?></p>
             </div>
             <div class="searchButtons">
-                <form method="post" action="modifyPerson.php">
+                <form method="post" action="modifyPersonInput.php">
                     <input type="hidden" name="id">
                     <button type="submit" class="modDelButton">Modify</button>
                 </form>

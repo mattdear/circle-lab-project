@@ -37,7 +37,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <br/>
         <button onclick="window.location.href = 'locations.php';">Locations</button>
         <br/>
-        <button onclick="window.location.href = 'modifyPerson.php';">Update Personal Info</button>
+        <button onclick="window.location.href = 'modifyPersonInput.php';">Update Personal Info</button>
         <br/>
         <button onclick="window.location.href = 'logOff.php';">Log Off</button>
         <br/>

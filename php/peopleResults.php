@@ -33,8 +33,8 @@ if (!isset ($_SESSION["gatekeeper"])) {
                         <p>Email: <?= $person->getEmail() ?></p>
                     </div>
                     <div class="searchButtons">
-                        <form method="post" action="modifyPerson.php">
-                            <input type="hidden" name="id" value="">
+                        <form method="post" action="modifyPersonInput.php">
+                            <input type="hidden" name="id" value="<?= $person->getId() ?>">
                             <button type="submit" class="modDelButton">Modify</button>
                         </form>
                         <form method="post" action="deletePerson.php">
