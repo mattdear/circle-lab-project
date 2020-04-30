@@ -11,6 +11,17 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->setCSS("../css/smart-system");
     $webPage->writeHead();
     $service = new serviceFacade();
+
+    $people = $service->findAllPeople();
+    $patients = [];
+    $staff = [];
+    foreach ($people as $person) {
+        if ($person->getRole() == 5) {
+            array_push($patients, $person);
+        } elseif ($person->getRole() == 2 or $person->getRole() == 4) {
+            array_push($staff, $person);
+        }
+    }
     ?>
     <h1>Add Appointment</h1>
     <form method="post" action="addAppointment.php">
@@ -27,7 +38,18 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 <label>Patient</label>
             </div>
             <div class="col-75">
-                <input class="inputs" name="patient" placeholder="Patient">
+                <select class="inputs, select" name="patient">
+                    <?php
+                    if ($_SESSION["access"] != 0) {
+                        foreach ($patients as $member) {
+                            echo "<option value=" . $member->getId() . ">" . $member->getFirstName() . " " . $member->getLastName() . "</option>";
+                        }
+                    } else {
+                        $person = $service->findPersonById($_SESSION["userId"]);
+                        echo "<option value=" . $person->getId(). ">" . $person->getFirstName() . " " . $person->getLastName() . "</option>";
+                    }
+                    ?>
+                </select>
             </div>
         </div>
         <div class="row">
@@ -35,7 +57,13 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 <label>Doctor/Nurse</label>
             </div>
             <div class="col-75">
-                <input class="inputs" name="staff" placeholder="Doctor">
+                <select class="inputs, select" name="staff">
+                    <?php
+                    foreach ($staff as $member) {
+                        echo "<option value=" . $member->getId() . ">" . $member->getFirstName() . " " . $member->getLastName() . "</option>";
+                    }
+                    ?>
+                </select>
             </div>
         </div>
         <div class="row">
@@ -47,7 +75,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                     <option>Day</option>
                     <?php
                     for ($i = 1; $i < 32; $i++) {
-                        echo "<option value=".$i.">".$i."</option>";
+                        echo "<option value=" . $i . ">" . $i . "</option>";
                     }
                     ?>
                 </select>
@@ -55,7 +83,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                     <option>Month</option>
                     <?php
                     for ($i = 1; $i < 13; $i++) {
-                        echo "<option value=".$i.">".$i."</option>";
+                        echo "<option value=" . $i . ">" . $i . "</option>";
                     }
                     ?>
                 </select>
@@ -63,7 +91,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                     <option>Year</option>
                     <?php
                     for ($i = 2020; $i < 2023; $i++) {
-                        echo "<option value=".$i.">".$i."</option>";
+                        echo "<option value=" . $i . ">" . $i . "</option>";
                     }
                     ?>
                 </select>
@@ -75,16 +103,16 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <select class="dob" name="h">
-                <?php
-                for ($i = 9; $i < 18; $i++) {
-                    echo "<option value=".$i.">".$i."</option>";
-                }
-                ?>
+                    <?php
+                    for ($i = 9; $i < 18; $i++) {
+                        echo "<option value=" . $i . ">" . $i . "</option>";
+                    }
+                    ?>
                 </select>
                 <select class="dob" name="min">
                     <?php
-                    for ($i = 0; $i < 46; $i=$i+15) {
-                        echo "<option value=".$i.">".$i."</option>";
+                    for ($i = 0; $i < 46; $i = $i + 15) {
+                        echo "<option value=" . $i . ">" . $i . "</option>";
                     }
                     ?>
                 </select>
@@ -98,8 +126,8 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 <select class="inputs, select" name="location">
                     <?php
                     $locations = $service->findAllLocations();
-                    foreach ($locations as $location){
-                        echo "<option value=".$location->getId().">".$location->getAddressLine()."</option>";
+                    foreach ($locations as $location) {
+                        echo "<option value=" . $location->getId() . ">" . $location->getAddressLine() . "</option>";
                     }
                     ?>
                 </select>
