@@ -32,6 +32,7 @@ $time = "".$y."-".$m."-".$d;
 $date = date_create($time);
 $formattedDate = date_format($date,"Y/m/d");
 
+$app = $service->findAppointmentById(2);
 ?>
     <div>
         <h1>Test Page</h1>
@@ -54,6 +55,8 @@ $formattedDate = date_format($date,"Y/m/d");
         ?>
 
         <p> Time: <?=$formattedDate?></p>
+
+        <p>App: <?=$app->getIsactive()?></p>
     </div>
 <?php
 

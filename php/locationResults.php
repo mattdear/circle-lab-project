@@ -13,31 +13,38 @@ if (!isset ($_SESSION["gatekeeper"])) {
 
     $service = new serviceFacade();
 
-    $searchName = htmlentities($_GET["locationName"]);
-    $searchPost = htmlentities($_GET["locationPost"]);
+    $searchName = strtolower(htmlentities($_GET["locationName"]));
 
-    $service->findLocationsByType()
+    $locations = $service->findAllLocations();
     ?>
     <h1>Location Results</h1>
     <div class="searchResults">
-        <div class="searchResult">
-            <div class="searchDetails">
-                <p>Name: <?= $searchName ?></p>
-                <p>Address:</p>
-                <p>City:</p>
-                <p>Postcode: <?= $searchPost ?></p>
-            </div>
-            <div class="searchButtons">
-                <form method="post" action="modifyPersonInput.php">
-                    <input type="hidden" name="id">
-                    <button type="submit" class="modDelButton">Modify</button>
-                </form>
-                <form method="post" action="deletePerson.php">
-                    <input type="hidden" name="id">
-                    <button type="submit" class="modDelButton">Delete</button>
-                </form>
-            </div>
-        </div>
+        <?php
+        foreach ($locations as $location) {
+            if ($searchName == strtolower($location->getPostcode())) {
+                ?>
+                <div class="searchResult">
+                    <div class="searchDetails">
+                        <p>Name: <?= $location->getAddressLine() ?></p>
+                        <p>City: <?= $location->getCity() ?></p>
+                        <p>Postcode: <?= $location->getPostcode() ?></p>
+                        <p>Type: <?= $location->getType() ?></p>
+                    </div>
+                    <div class="searchButtons">
+                        <form method="post" action="modifyPersonInput.php">
+                            <input type="hidden" name="id">
+                            <button type="submit" class="modDelButton">Modify</button>
+                        </form>
+                        <form method="post" action="deletePerson.php">
+                            <input type="hidden" name="id">
+                            <button type="submit" class="modDelButton">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <?php
+            }
+        }
+        ?>
     </div>
 
     <button onclick="window.location.href = 'locations.php';">Back</button>

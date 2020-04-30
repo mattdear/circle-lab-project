@@ -13,18 +13,13 @@ if (!isset ($_SESSION["gatekeeper"])) {
     <h1>Locations</h1>
     <form method="get" action="locationResults.php">
         <label>
-            <input class="inputs" name="locationName" placeholder="Search Name">
-        </label>
-        <br/>
-        <p>OR</p>
-        <label>
-            <input class="inputs" name="locationPost" placeholder="Search Postcode">
+            <input class="inputs" name="locationName" placeholder="Search Postcode">
         </label>
         <br/>
         <button type="submit">Search</button>
     </form>
 
-    <button onclick="window.location.href = 'addPerson.php';">Add Location</button>
+    <button onclick="window.location.href = 'addLocationInput.php';">Add Location</button>
     <br/>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>
