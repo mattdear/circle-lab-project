@@ -14,15 +14,15 @@ class personDAO
     //Inserting a new person
     public function addPerson($newPerson)
     {
-        if ($newPerson != null && $newPerson->getId() == null && $newPerson->getFirstName() != null && $newPerson->getLastName() && $newPerson->getDob() != null && ($newPerson->getGender() === 0 || $newPerson->getGender() === 1) != null
-        && $newPerson->getEmail() != null && $newPerson->getPhone() != null && $newPerson->getAddress() != null && $newPerson->getRole() != null && $newPerson->getUsername() != null && $newPerson->getPassword() != null
-        && ($newPerson->getIsactive() === 0 || $newPerson->getIsactive() === 1)) {
+        if ($newPerson != null && $newPerson->getId() == null && $newPerson->getFirstName() != null && $newPerson->getLastName() != null && $newPerson->getDob() != null && ($newPerson->getGender() == 0 || $newPerson->getGender() == 1)
+            && $newPerson->getEmail() != null && $newPerson->getPhone() != null && $newPerson->getAddress() != null && $newPerson->getRole() != null && $newPerson->getUsername() != null && $newPerson->getPassword() != null
+        && ($newPerson->getIsactive() == 0 || $newPerson->getIsactive() == 1)) {
             $stmt = $this->conn->prepare("INSERT INTO " . $this->table . "(first_name , last_name , dob , gender , email , phone , address , role , username, password , isactive) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ?, ? , ? )");
             $stmt->execute([$newPerson->getFirstName(), $newPerson->getLastName(), $newPerson->getDob(), $newPerson->getGender(), $newPerson->getEmail(), $newPerson->getPhone(), $newPerson->getAddress(), $newPerson->getRole(), $newPerson->getUsername(), $newPerson->getPassword(), $newPerson->getIsactive()]);
             $id = (int)$this->conn->lastInsertId();
             $newPerson->setId($id);
+            return $newPerson;
         }
-        return $newPerson;
     }
 
     //Updating a person

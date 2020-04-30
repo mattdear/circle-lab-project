@@ -475,6 +475,18 @@ class serviceFacade
     }
   }
 
+  public function findAllLocations()
+  {
+    try
+    {
+      return $this->locationDAO->findAllLocations();
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
+
   public function addLocation($locationObj)
   {
     try
@@ -1448,10 +1460,10 @@ class serviceFacade
     try
     {
       if($personObj != null && $personObj->getId() == null && $personObj->getFirstName() != null && $personObj->getLastName() != null
-      && $personObj->getDob() != null && ($personObj->getGender() === 0 || $personObj->getGender() === 1)
+      && $personObj->getDob() != null && ($personObj->getGender() == 0 || $personObj->getGender() == 1)
       && $personObj->getEmail() != null && $personObj->getPhone() != null && $personObj->getAddress() != null
       && $personObj->getRole() != null && $personObj->getUsername() != null && $personObj->getPassword() != null
-      && ($personObj->getIsactive() === 0 || $personObj->getIsactive() === 1))
+      && ($personObj->getIsactive() == 0 || $personObj->getIsactive() == 1))
       {
         $allPeople = $this->personDAO->findAllpeople();
         $unique = TRUE;

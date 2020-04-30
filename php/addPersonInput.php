@@ -2,6 +2,7 @@
 session_start();
 include("../OOP/WebPage.php");
 include("mFunctions.php");
+include("../service/serviceFacade.php");
 if (!isset ($_SESSION["gatekeeper"])) {
     popUpError("Your not logged in! Please log in and try again.");
 } else {
@@ -9,6 +10,8 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->open();
     $webPage->setCSS("../css/smart-system");
     $webPage->writeHead();
+
+    $service = new serviceFacade();
     ?>
     <h1>Add Person</h1>
     <form method="post" action="addPerson.php">
@@ -33,7 +36,9 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 <label>Date of Birth</label>
             </div>
             <div class="col-75">
-                <input class="inputs" name="dob" placeholder="dd/mm/yyyy" type="date">
+                <input class="dob" name="d" placeholder="dd">-
+                <input class="dob" name="m" placeholder="mm">-
+                <input class="dob" name="y" placeholder="yyyy">
             </div>
         </div>
         <div class="row">
@@ -62,6 +67,23 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <input class="inputs" name="phone" placeholder="Phone">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label>Primary Location</label>
+            </div>
+            <div class="col-75">
+                <select class="inputs, select" name="location">
+                    <?php
+                    $locations = $service->findAllLocations();
+                    foreach ($locations as $location){
+                        ?>
+                        <option value="<?=$location->getId()?>"><?=$location->getAddressLine()?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
             </div>
         </div>
         <div class="row">

@@ -22,8 +22,15 @@ $person = $service->findPersonById(1);
 $fullName = strtolower($person->getFirstName()) . " " . strtolower($person->getLastName());
 $prescription = new prescriptionDTO(null, $patientId, $date, $quantity, $location, 1);
 
-$links = $service->findDrugPrescriptionLinkByPrescription(9);
+$links = $service->findDrugPrescriptionLinkByPrescriptionId(9);
 
+$d = 01;
+$m = 04;
+$y = 1995;
+$time = "".$y."-".$m."-".$d;
+
+$date = date_create($time);
+$formattedDate = date_format($date,"Y/m/d");
 
 ?>
     <div>
@@ -45,6 +52,8 @@ $links = $service->findDrugPrescriptionLinkByPrescription(9);
             echo"<p>Drug: ".$drug->getName()."</p>";
         }
         ?>
+
+        <p> Time: <?=$formattedDate?></p>
     </div>
 <?php
 
