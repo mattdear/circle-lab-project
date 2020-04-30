@@ -26,8 +26,8 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <br/>
         <button onclick="window.location.href = 'prescriptions.php';">Prescriptions</button>
         <br/>
-        <button onclick="window.location.href = 'reports.php';">Reports</button>
-        <br/>
+        <!--<button onclick="window.location.href = 'reports.php';">Reports</button>
+        <br/>-->
         <button onclick="window.location.href = 'logOff.php';">Log Off</button>
         <br/>
     <?php } elseif ($_SESSION["access"] == 0) { ?>

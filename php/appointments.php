@@ -28,7 +28,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <br/>
         <button type="submit">See All My Appointments</button>
     </form>
-    <button onclick="window.location.href = 'addAppointment.php';">Add Appointment</button>
+    <button onclick="window.location.href = 'addAppointmentInput.php';">Add Appointment</button>
     <br/>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>

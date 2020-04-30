@@ -53,7 +53,7 @@ button:focus{
 }
 
 .dob{
-    width:5vw;
+    width:7vw;
     height: 3vw;
     padding: 1vw;
     border-radius: 1vw;
@@ -99,7 +99,6 @@ footer{
 .col-75{
     float: left;
     width: 30vw;
-    height: 5vw;
     margin-top: 1vw;
 }
 

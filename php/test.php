@@ -27,10 +27,12 @@ $links = $service->findDrugPrescriptionLinkByPrescriptionId(9);
 $d = 01;
 $m = 04;
 $y = 1995;
-$time = "".$y."-".$m."-".$d;
+$h = 9;
+$min = 15;
+$time = "".$y."-".$m."-".$d. " ".$h.":".$min;
 
 $date = date_create($time);
-$formattedDate = date_format($date,"Y/m/d");
+$formattedDate = date_format($date,"Y/m/d H:i:s");
 
 $app = $service->findAppointmentById(2);
 ?>
