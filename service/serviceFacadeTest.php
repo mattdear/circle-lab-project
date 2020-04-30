@@ -703,19 +703,19 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $serviceFacade = new serviceFacade();
 
     // Test with null object.
-    $person = new personDTO(null, null, null, null, null, null, null, null, null, null, null);
+    $person = new personDTO(null, null, null, null, null, null, null, null, null, null, null, null);
     $returnedPrescriptions = $serviceFacade->findPrescriptionByPatient($person);
 
     $this->assertNull($returnedPrescriptions, $message = "testFindPrescriptionByPatient, test 1");
 
     // Test with null patient.
-    $person = new personDTO(null, "John", "Smith", null, null, null, null, null, null, null, null);
+    $person = new personDTO(null, "John", "Smith", null, null, null, null, null, null, null, null, null);
     $returnedPrescriptions = $serviceFacade->findPrescriptionByPatient($person);
 
     $this->assertNull($returnedPrescriptions, $message = "testFindPrescriptionByPatient, test 2");
 
     // Test with complete template object.
-    $person = new personDTO(6, "John", "Smith", null, null, null, null, null, null, null, null);
+    $person = new personDTO(6, "John", "Smith", null, null, null, null, null, null, null, null, null);
     $returnedPrescriptions = $serviceFacade->findPrescriptionByPatient($person);
 
     $this->assertIsArray($returnedPrescriptions, $message = "testFindPrescriptionByPatient, test 3");
