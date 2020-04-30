@@ -13,7 +13,9 @@ if (!isset ($_SESSION["gatekeeper"])) {
     ?>
     <div>
     <h1>Homepage</h1>
-        <?php if ($_SESSION["role"] > 6) { ?>
+        <h1>User ID <?=$_SESSION["userId"]?></h1>
+        <h1>access <?=$_SESSION["access"]?></h1>
+        <?php if ($_SESSION["access"] > 6) { ?>
         <button onclick="window.location.href = 'diagnosis.php';">Diagnosis</button>
         <br/>
         <button onclick="window.location.href = 'people.php';">People</button>
@@ -28,7 +30,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <br/>
         <button onclick="window.location.href = 'logOff.php';">Log Off</button>
         <br/>
-    <?php } elseif ($_SESSION["role"] == 0) { ?>
+    <?php } elseif ($_SESSION["access"] == 0) { ?>
         <button onclick="window.location.href = 'diagnosis.php';">Diagnosis</button>
         <br/>
         <button onclick="window.location.href = 'appointments.php';">Appointments</button>

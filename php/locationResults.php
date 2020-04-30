@@ -2,6 +2,7 @@
 session_start();
 include("../OOP/WebPage.php");
 include("mFunctions.php");
+include("../service/serviceFacade.php");
 if (!isset ($_SESSION["gatekeeper"])) {
     popUpError("Your not logged in! Please log in and try again.");
 } else {
@@ -10,8 +11,12 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->setCSS("../css/smart-system");
     $webPage->writeHead();
 
+    $service = new serviceFacade();
+
     $searchName = htmlentities($_GET["locationName"]);
     $searchPost = htmlentities($_GET["locationPost"]);
+
+    $service->findLocationsByType()
     ?>
     <h1>Location Results</h1>
     <div class="searchResults">

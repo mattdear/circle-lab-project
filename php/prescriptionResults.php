@@ -28,7 +28,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) or $searchName == $fullName) {
                     $date = $prescription->getDate();
                     $fullName = $person->getFirstName() . " " . $person->getLastName();
-                    $links = $service->findDrugPrescriptionLinkByPrescription($prescription->getId());
+                    $links = $service->findDrugPrescriptionLinkByPrescriptionId($prescription->getId());
                     if ($prescription->getIsActive() == 1) {
                         ?>
                         <div class="searchResult">

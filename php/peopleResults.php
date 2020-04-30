@@ -12,40 +12,46 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->writeHead();
 
     $service = new serviceFacade();
-    $person = $service->findPersonById(1);
+
 
     $searchName = strtolower(htmlentities($_GET["name"]));
-    $fullName = strtolower($person->getFirstName()) . " " . strtolower($person->getLastName());
+    $people = $service->findAllPeople();
+    $count = 0;
     ?>
     <h1>People Results</h1>
     <div class="searchResults">
         <?php
-        if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) or $searchName == $fullName) {
-            ?>
-            <div class="searchResult">
-                <div class="searchDetails">
-                    <p>Name: <?=$person->getFirstName()?> <?=$person->getLastName()?></p>
-                    <p>Date of Birth: <?=$person->getDob()?></p>
-                    <p>Telephone: <?=$person->getPhone()?></p>
-                    <p>Email: <?=$person->getEmail()?></p>
+        foreach ($people as $person) {
+            $fullName = strtolower($person->getFirstName()) . " " . strtolower($person->getLastName());
+            if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) or $searchName == $fullName) {
+                ?>
+                <div class="searchResult">
+                    <div class="searchDetails">
+                        <p>Name: <?= $person->getFirstName() ?> <?= $person->getLastName() ?></p>
+                        <p>Date of Birth: <?= $person->getDob() ?></p>
+                        <p>Telephone: <?= $person->getPhone() ?></p>
+                        <p>Email: <?= $person->getEmail() ?></p>
+                    </div>
+                    <div class="searchButtons">
+                        <form method="post" action="modifyPerson.php">
+                            <input type="hidden" name="id" value="">
+                            <button type="submit" class="modDelButton">Modify</button>
+                        </form>
+                        <form method="post" action="deletePerson.php">
+                            <input type="hidden" name="id">
+                            <button type="submit" class="modDelButton">Delete</button>
+                        </form>
+                        <form method="post" action="prescriptionInput.php">
+                            <input type="hidden" name="id" value="<?= $person->getId() ?>">
+                            <button type="submit" class="modDelButton">Add Prescription</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="searchButtons">
-                    <form method="post" action="modifyPerson.php">
-                        <input type="hidden" name="id" value="">
-                        <button type="submit" class="modDelButton">Modify</button>
-                    </form>
-                    <form method="post" action="deletePerson.php">
-                        <input type="hidden" name="id">
-                        <button type="submit" class="modDelButton">Delete</button>
-                    </form>
-                    <form method="post" action="prescriptionInput.php">
-                        <input type="hidden" name="id" value="<?=$person->getId()?>">
-                        <button type="submit" class="modDelButton">Add Prescription</button>
-                    </form>
-                </div>
-            </div>
-            <?php
-        } else {
+                <?php
+                $count++;
+            }
+        }
+        if ($count == 0) {
             echo "<p>No Results Found</p>";
         }
         ?>
