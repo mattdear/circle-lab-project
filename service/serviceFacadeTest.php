@@ -2387,13 +2387,44 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $this->assertNull($returnedAppointment, $message = "testAddAppointment, test 15");
   }
 
-  // public function testModifyAppointment()
-  // {
-  //   $serviceFacade = new serviceFacade();
-  //   $date = date_create("2020-03-01");
-  //   $formattedDate = date_format($date,"Y/m/d");
-  //   $appointment = new AppointmentDto(null, "test", 5, 4, $formattedDate, 16, 30, 1);
-  // }
+  public function testModifyAppointment()
+  {
+    $serviceFacade = new serviceFacade();
+    $date = date_create("2020-01-10");
+    $formattedDate = date_format($date,"Y/m/d");
+    $appointment = $serviceFacade->findAppointmentById(4);
+    $appointment->setDescription("updatedTest");
+    $appointment->setPatient(3);
+    $appointment->setStaffMember(7);
+    $appointment->setDateTime($formattedDate);
+    $appointment->setLocation(4);
+    $appointment->setDuration(15);
+    $appointment->setIsactive(0);
+    $bool = $serviceFacade->modifyAppointment($appointment);
+    $appointment = $serviceFacade->findAppointmentById(4);
+
+    $this->assertTrue($bool, $message = "testModifyAppointment, test 1");
+    $this->assertEquals(4, $appointment->getId(), $message = "testModifyAppointment, test 2");
+    $this->assertEquals("updatedTest", $appointment->getDescription(), $message = "testModifyAppointment, test 3");
+    $this->assertEquals(3, $appointment->getPatient(), $message = "testModifyAppointment, test 4");
+    $this->assertEquals(7, $appointment->getStaffmember(), $message = "testModifyAppointment, test 5");
+    $this->assertEquals("2020-01-10", $appointment->getDateTime(), $message = "testModifyAppointment, test 6");
+    $this->assertEquals(4, $appointment->getLocation(), $message = "testModifyAppointment, test 7");
+    $this->assertEquals(15, $appointment->getDuration(), $message = "testModifyAppointment, test 6");
+    $this->assertEquals(0, $appointment->getIsactive(), $message = "testModifyAppointment, test 6");
+
+  }
+
+  public function testFindAppointmentById()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $returnedAppointment = $serviceFacade->findAppointmentById(4);
+    $this->assertNotNull($returnedAppointment, $message = "testFindAppointmentById, test 1");
+
+    $returnedAppointment = $serviceFacade->findAppointmentById(100);
+    $this->assertNull($returnedAppointment, $message = "testFindAppointmentById, test 2");
+  }
 }
 
 ?>

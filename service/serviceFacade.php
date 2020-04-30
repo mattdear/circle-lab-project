@@ -1583,7 +1583,7 @@ class serviceFacade
   {
     try
     {
-      if($appointment != null && $appointment->getId() == null && $appointment->getDescription() != null &&
+      if($appointment != null && $appointment->getId() != null && $appointment->getDescription() != null &&
           $appointment->getPatient() != null && $appointment->getStaffmember() != null && $appointment->getDateTime() != null &&
           $appointment->getLocation() != null && $appointment->getDuration() != null && ($appointment->getIsactive() === 1 || $appointment->getIsactive() === 0))
       {
@@ -1623,7 +1623,18 @@ class serviceFacade
     {
       echo "Error: $e";
     }
+  }
 
+  public function findAppointmentById($id)
+  {
+    try
+    {
+      return $this->appointmentDAO->findAppointmentById($id);
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
   }
 }
 

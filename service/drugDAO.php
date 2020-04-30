@@ -132,15 +132,17 @@ class drugDAO
 
     public function findDrugById($id)
     {
-        if ($id != null) {
-            $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE id=:id");
-            $stmt->execute([":id" => $id]);
-            $count = $stmt->rowCount();
-            if ($count == 1) {
-                $row = $stmt->fetch();
-                return new drugDTO((int)$row["id"], $row["name"]);
-            }
-            return null;
+        if ($id != null)
+        {
+          $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE id=:id");
+          $stmt->execute([":id" => $id]);
+          $count = $stmt->rowCount();
+          if ($count == 1)
+          {
+            $row = $stmt->fetch();
+            return new drugDTO((int)$row["id"], $row["name"]);
+          }
+          return null;
         }
         return null;
     }
