@@ -1495,7 +1495,7 @@ class serviceFacade
       && $personObj->getDob() != null && ($personObj->getGender() == 0 || $personObj->getGender() == 1)
       && $personObj->getEmail() != null && $personObj->getPhone() != null && $personObj->getAddress() != null
       && $personObj->getRole() != null && $personObj->getUsername() != null && $personObj->getPassword() != null
-      && ($personObj->getIsactive() !== 0 || $personObj->getIsactive() == 1))
+      && ($personObj->getIsactive() == 0 || $personObj->getIsactive() == 1))
       {
         $allPeople = $this->personDAO->findAllpeople();
         $unique = TRUE;

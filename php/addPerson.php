@@ -50,7 +50,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <br/>
         <?php
     } else {
-        echo "<p>Person not added</p>";
+        popUpErrorBack("Person Not added", "php/people.php");
     }
     $webPage->writeFooter();
     $webPage->close();
