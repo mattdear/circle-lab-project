@@ -30,58 +30,47 @@ class AppointmentDao
     //find all Appointment List//
     public function findAllAppointments()
     {
-      $stmt = $this->conn->prepare("SELECT * FROM " . $this->table);
-      $Appointments = [];
-      while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-      {
-        array_push($people, new AppointmentDto($row["id"], $row["desciption"], $row["patient"],
-        $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
-      }
-      return $Appointments;
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " ORDER BY id");
+        $stmt->execute();
+        $appointments;
+        while ($row = $stmt->fetch()) {
+            $appointment = new AppointmentDto($row["id"], $row["desciption"], $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]);
+            $appointments[] = $appointment;
+        }
+        return $appointments;
     }
 
-    public function findAllAppointmentByPatient($appointment)
+    public function findAllAppointmentByPatient($id)
     {
-      if ($appointment->getId() != null)
+      if ($id != null)
       {
-        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE patient = id");
-        $stmt->execute(["id" => $appointment->getId()]);
-        $Appointment = [];
-        $count = $stmt->rowCount();
-        if ($count != 0)
-        {
-          while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-          {
-            array_push($people, new AppointmentDto($row["id"], $row["desciption"], $row["patient"],
-            $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]));
-          }
-          return $Appointment;
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE patient = :id ORDER BY id");
+        $stmt->execute([":id" => $id]);
+        $appointments;
+        while ($row = $stmt->fetch()) {
+            $appointment = new AppointmentDto($row["id"], $row["desciption"], $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]);
+            $appointments[] = $appointment;
         }
-      }
-      else
-      {
-        return null;
+        return $appointments;
       }
     }
 
     //delete an Appointment//
-    public function deleteAppointment($appointment)
+    public function deleteAppointment($AppointmentObj)
     {
-      if ($appointment != null && $appointment->getId() != null)
-      {
-        $stmt = $this->conn->prepare("DELETE FROM " . $this->table . " WHERE id= id");
-        $stmt->execute([":id" => $appointment->getId()]);
-        $stmt = null;
-        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE id= id");
-        $stmt->execute([":id" => $appointment->getId()]);
-        $count = $stmt->rowCount();
-        if ($count == 0)
-        {
-            return true;
+        if ($AppointmentObj != null && $AppointmentObj->getId() != null) {
+            $stmt = $this->conn->prepare("DELETE FROM " . $this->table . " WHERE id=:id");
+            $stmt->execute([":id" => $AppointmentObj->getId()]);
+            $stmt = null;
+            $stmt = $this->conn->prepare("SELECT * FROM " . $this->table . " WHERE id=:id");
+            $stmt->execute([":id" => $AppointmentObj->getId()]);
+            $count = $stmt->rowCount();
+            if ($count == 0) {
+                return true;
+            }
+            return false;
         }
         return false;
-      }
-      return false;
     }
 
 //Modify an Appointment//
@@ -109,7 +98,7 @@ class AppointmentDao
         if ($count == 1)
         {
           $row = $stmt->fetch();
-          return new AppointmentDto((int)$row["id"], $row["desciption"], $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]);
+          return new AppointmentDto($row["id"], $row["desciption"], $row["patient"], $row["staff_member"], $row["date_time"], $row["location"], $row["duration"], $row["isactive"]);
         }
         return null;
       }

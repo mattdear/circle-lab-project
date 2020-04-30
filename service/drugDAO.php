@@ -123,6 +123,7 @@ class drugDAO
     {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table);
         $stmt->execute();
+        $drugs;
         while ($row = $stmt->fetch()) {
             $drug = new drugDTO((int)$row["id"], $row["name"]);
             $drugs[] = $drug;

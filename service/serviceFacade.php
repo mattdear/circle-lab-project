@@ -1636,6 +1636,23 @@ class serviceFacade
       echo "Error: $e";
     }
   }
+  public function deleteAppointment($appointmentObj)
+  {
+    try {
+      if ($appointmentObj != null && $appointmentObj->getId() != null)
+      {
+        return $this->appointmentDAO->deleteAppointment($appointmentObj);
+      }
+      else
+      {
+        return false;
+      }
+    }
+    catch (PDOException $e)
+    {
+      echo "Error: $e";
+    }
+  }
 }
 
 ?>

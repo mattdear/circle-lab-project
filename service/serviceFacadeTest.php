@@ -2391,7 +2391,7 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
   {
     $serviceFacade = new serviceFacade();
     $date = date_create("2020-01-10");
-    $formattedDate = date_format($date,"Y/m/d");
+    $formattedDate = date_format($date,"Y/m/d H:i:s");
     $appointment = $serviceFacade->findAppointmentById(4);
     $appointment->setDescription("updatedTest");
     $appointment->setPatient(3);
@@ -2408,10 +2408,10 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
     $this->assertEquals("updatedTest", $appointment->getDescription(), $message = "testModifyAppointment, test 3");
     $this->assertEquals(3, $appointment->getPatient(), $message = "testModifyAppointment, test 4");
     $this->assertEquals(7, $appointment->getStaffmember(), $message = "testModifyAppointment, test 5");
-    $this->assertEquals("2020-01-10", $appointment->getDateTime(), $message = "testModifyAppointment, test 6");
+    $this->assertEquals("2020-01-10 00:00:00", $appointment->getDateTime(), $message = "testModifyAppointment, test 6");
     $this->assertEquals(4, $appointment->getLocation(), $message = "testModifyAppointment, test 7");
-    $this->assertEquals(15, $appointment->getDuration(), $message = "testModifyAppointment, test 6");
-    $this->assertEquals(0, $appointment->getIsactive(), $message = "testModifyAppointment, test 6");
+    $this->assertEquals(15, $appointment->getDuration(), $message = "testModifyAppointment, test 8");
+    $this->assertEquals(0, $appointment->getIsactive(), $message = "testModifyAppointment, test 9");
 
   }
 
@@ -2419,11 +2419,65 @@ class serviceFacadeTest extends PHPUnit\Framework\TestCase
   {
     $serviceFacade = new serviceFacade();
 
-    $returnedAppointment = $serviceFacade->findAppointmentById(4);
-    $this->assertNotNull($returnedAppointment, $message = "testFindAppointmentById, test 1");
+    $appointment = $serviceFacade->findAppointmentById(4);
+    $this->assertNotNull($appointment, $message = "testFindAppointmentById, test 1");
+    $this->assertEquals(4, $appointment->getId(), $message = "testFindAppointmentById, test 2");
+    $this->assertEquals("updatedTest", $appointment->getDescription(), $message = "testFindAppointmentById, test 3");
+    $this->assertEquals(3, $appointment->getPatient(), $message = "testFindAppointmentById, test 4");
+    $this->assertEquals(7, $appointment->getStaffmember(), $message = "testFindAppointmentById, test 5");
+    $this->assertEquals("2020-01-10 00:00:00", $appointment->getDateTime(), $message = "testFindAppointmentById, test 6");
+    $this->assertEquals(4, $appointment->getLocation(), $message = "testFindAppointmentById, test 7");
+    $this->assertEquals(15, $appointment->getDuration(), $message = "testFindAppointmentById, test 8");
+    $this->assertEquals(0, $appointment->getIsactive(), $message = "testFindAppointmentById, test 9");
 
-    $returnedAppointment = $serviceFacade->findAppointmentById(100);
-    $this->assertNull($returnedAppointment, $message = "testFindAppointmentById, test 2");
+    $appointment = $serviceFacade->findAppointmentById(100);
+    $this->assertNull($appointment, $message = "testFindAppointmentById, test 2");
+  }
+
+  public function testFindAllAppointments()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $allAppointments = $serviceFacade->findAllAppointments();
+
+    $this->assertEquals($allAppointments[0], $serviceFacade->findAppointmentById(1), $message = "testFindAllAppointments, test 1");
+    $this->assertEquals($allAppointments[1], $serviceFacade->findAppointmentById(2), $message = "testFindAllAppointments, test 2");
+    $this->assertEquals($allAppointments[2], $serviceFacade->findAppointmentById(3), $message = "testFindAllAppointments, test 3");
+    $this->assertEquals($allAppointments[3], $serviceFacade->findAppointmentById(4), $message = "testFindAllAppointments, test 4");
+  }
+
+  public function testFindAllAppointmentByPatient()
+  {
+    $serviceFacade = new serviceFacade();
+
+    $allAppointments = $serviceFacade->findAllAppointmentByPatient(6);
+
+    $this->assertEquals($allAppointments[0], $serviceFacade->findAppointmentById(1), $message = "testFindAllAppointments, test 1");
+    $this->assertEquals($allAppointments[1], $serviceFacade->findAppointmentById(2), $message = "testFindAllAppointments, test 2");
+    $this->assertEquals($allAppointments[2], $serviceFacade->findAppointmentById(3), $message = "testFindAllAppointments, test 3");
+  }
+
+  public function testDeleteAppointment()
+  {
+    $serviceFacade = new serviceFacade();
+
+    // Test with null object.
+    $appointment = new AppointmentDto(null, null, null, null, null, null, null, null);
+    $returnedAppointment = $serviceFacade->deleteAppointment($appointment);
+
+    $this->assertFalse($returnedAppointment, $message = "testDeleteAppointment, test 1");
+
+    // Test with template object and null id.
+    $appointment = new AppointmentDto(null, "testInput", 1, 1, null, 1, 1, 1);
+    $returnedAppointment = $serviceFacade->deleteAppointment($appointment);
+
+    $this->assertFalse($returnedAppointment, $message = "testDeleteAppointment, test 2");
+
+    // Test with complete template object.
+    $appointment = $serviceFacade->findAppointmentById(4);
+    $returnedAppointment = $serviceFacade->deleteAppointment($appointment);
+
+    $this->assertTrue($returnedAppointment, $message = "testDeleteAppointment, test 3");
   }
 }
 
