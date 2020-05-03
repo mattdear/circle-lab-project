@@ -11,16 +11,14 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $webPage->writeHead();
     ?>
     <h1>Diagnosis</h1>
-    <form>
+    <form method="get" action="diagnosisResults.php">
         <label>
-            <input class="inputs" name="symptom" placeholder="Search Symptoms">
+            <input class="inputs" name="symptom" placeholder="Search Symptoms"><br/>
         </label>
+        <button type="submit">Search</button>
     </form>
-    <div id="symptomResults">
-
-    </div>
     <?php
-    if ($_SESSION["role"] > 8) {
+    if ($_SESSION["access"] > 8) {
         ?>
         <button onclick="window.location.href = 'addDiagnosis.php';">Add Diagnosis</button>
         <br/>

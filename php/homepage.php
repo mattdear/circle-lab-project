@@ -13,8 +13,6 @@ if (!isset ($_SESSION["gatekeeper"])) {
     ?>
     <div>
     <h1>Homepage</h1>
-        <h1>User ID <?=$_SESSION["userId"]?></h1>
-        <h1>access <?=$_SESSION["access"]?></h1>
         <?php if ($_SESSION["access"] > 6) { ?>
         <button onclick="window.location.href = 'diagnosis.php';">Diagnosis</button>
         <br/>

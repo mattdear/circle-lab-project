@@ -36,14 +36,6 @@ button:focus{
     outline-style: none;
 }
 
-#symptomResults{
-    background-color: lightgray;
-    width: 30vw;
-    height: 35vw;
-    margin: 3vw auto;
-    border-radius: 1vw;
-}
-
 .inputs{
     width: 20vw;
     height: 3vw;

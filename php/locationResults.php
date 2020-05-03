@@ -31,10 +31,10 @@ if (!isset ($_SESSION["gatekeeper"])) {
                         <p>Type: <?= $location->getType() ?></p>
                     </div>
                     <div class="searchButtons">
-                        <form method="post" action="modifyPersonInput.php">
+                        <!--<form method="post" action="modifyLocationInput.php">
                             <input type="hidden" name="id">
                             <button type="submit" class="modDelButton">Modify</button>
-                        </form>
+                        </form>-->
                         <form method="post" action="deletePerson.php">
                             <input type="hidden" name="id">
                             <button type="submit" class="modDelButton">Delete</button>

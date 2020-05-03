@@ -33,7 +33,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
 
         $added = $service->addAppointment($add)
         ?>
-        <h1>Added Person</h1>
+        <h1>Added Appointment</h1>
         <p>Id <?= $added->getId() ?></p>
         <p>Description <?= $added->getDescription()?></p>
         <p>Date <?= $added->getDateTime() ?></p>

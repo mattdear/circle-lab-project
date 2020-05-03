@@ -24,7 +24,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
         foreach ($people as $person) {
             $fullName = strtolower($person->getFirstName()) . " " . strtolower($person->getLastName());
             if ($searchName == strtolower($person->getFirstName()) or $searchName == strtolower($person->getLastName()) or $searchName == $fullName) {
-                if ($person->getIsactive() == 1) {
+                if ($person->getIsactive() == 1 and $_SESSION["access"] > 6) {
                     ?>
                     <div class="searchResult">
                         <div class="searchDetails">
@@ -40,7 +40,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                             </form>
                             <form method="post" action="deletePerson.php">
                                 <input type="hidden" name="id" value="<?= $person->getId() ?>" >
-                                <button type="submit" class="modDelButton">Delete</button>
+                                <button type="submit" class="modDelButton">Deactivate Person</button>
                             </form>
                             <form method="post" action="prescriptionInput.php">
                                 <input type="hidden" name="id" value="<?= $person->getId() ?>">
