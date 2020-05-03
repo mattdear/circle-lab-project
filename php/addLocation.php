@@ -7,7 +7,7 @@ include("../service/serviceFacade.php");
 if (!isset ($_SESSION["gatekeeper"])) {
     popUpError("Your not logged in! Please log in and try again.");
 } else {
-    $webPage = new WebPage("Add Person", "Circle Lab", 2020);
+    $webPage = new WebPage("Add Location", "Circle Lab", 2020);
     $webPage->open();
     $webPage->setCSS("../css/smart-system");
     $webPage->writeHead();
@@ -18,24 +18,23 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $city = htmlentities($_POST["city"]);
     $postcode = htmlentities($_POST["postcode"]);
     $type = htmlentities($_POST["type"]);
-    if ($address != null or $city != null or $postcode != null or $type != null) {
+    if ($address != null and $city != null and $postcode != null and $type != null) {
         $add = new locationDTO(null, $address, $city, $postcode, $type, 1);
 
         $added = $service->addLocation($add);
         ?>
         <h1>Location Added</h1>
-        <p>Id <?= $added->getId() ?></p>
-        <p>Name <?= $added->getAddressLine() ?></p>
-        <p>Date of Birth <?= $added->getCity() ?></p>
-        <p>Gender <?= $added->getPostcode() ?></p>
-        <p>Email <?=$added->getType() ?></p>
+        <p>1st Line of Address <?= $added->getAddressLine() ?></p>
+        <p>City <?= $added->getCity() ?></p>
+        <p>Postcode <?= $added->getPostcode() ?></p>
+        <p>Type <?=$added->getType() ?></p>
         <button onclick="window.location.href = 'locations.php';">Locations</button>
         <br/>
         <button onclick="window.location.href = 'homepage.php';">Homepage</button>
         <br/>
         <?php
     } else {
-        popUpErrorBack("Person Not added", "php/people.php");
+        popUpErrorBack("Location Not added", "php/locations.php");
     }
     $webPage->writeFooter();
     $webPage->close();

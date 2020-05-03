@@ -26,10 +26,8 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $formattedDate = date_format($date,"Y/m/d H:i:s");
     $location = htmlentities($_POST["location"]);
     $duration = htmlentities($_POST["duration"]);
-    if ($description != null or $patient != null or $staff != null or $m != null or $location != null or $duration != null) {
-
+    if ($description != null and $patient != null and $staff != null and $m != null and $location != null and $duration != null) {
         $add = new appointmentDto(null, $description, $patient, $staff, $formattedDate, $location, $duration, 1);
-
 
         $added = $service->addAppointment($add)
         ?>
@@ -43,7 +41,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <br/>
         <?php
     } else {
-        popUpErrorBack("Person Not added", "php/people.php");
+        popUpErrorBack("Appointment Not added", "php/appointments.php");
     }
     $webPage->writeFooter();
     $webPage->close();

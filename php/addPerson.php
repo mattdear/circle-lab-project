@@ -29,7 +29,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $role = htmlentities($_POST["role"]);
     $un = htmlentities($_POST["username"]);
     $pw = htmlentities($_POST["password"]);
-    if ($fName != null or $sName != null or $dob != null or $gender != null or $email != null or $phone != null or $location != null or $role != null or $un != null or $pw != null) {
+    if ($fName != null and $sName != null and $dob != null and $gender != null and $email != null and $phone != null and $location != null and $role != null and $un != null and $pw != null) {
         $add = new personDTO(null, $fName, $sName, $formattedDate, $gender, $email, $phone, $location, $role, $un, $pw, 1);
 
 

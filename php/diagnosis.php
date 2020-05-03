@@ -18,13 +18,13 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <button type="submit">Search</button>
     </form>
     <?php
-    if ($_SESSION["access"] > 8) {
-        ?>
-        <button onclick="window.location.href = 'addDiagnosis.php';">Add Diagnosis</button>
+/*    if ($_SESSION["access"] > 8) {
+        */?><!--
+        <button onclick="window.location.href = 'addDiagnosisInput.php';">Add Disease</button>
         <br/>
-        <?php
-    }
-    ?>
+        --><?php
+/*    }
+    */?>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>
     <?php

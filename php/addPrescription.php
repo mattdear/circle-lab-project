@@ -52,7 +52,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
         }
         ?>
         <p>Quantity: <?= $quantity ?></p>
-        <p>Location: 10 London Road</p>
+        <p>Location: <?= $location ?></p>
         <?php
     }
     ?>
