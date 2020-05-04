@@ -32,9 +32,8 @@ if (!isset ($_SESSION["gatekeeper"])) {
         $added = $service->addAppointment($add)
         ?>
         <h1>Added Appointment</h1>
-        <p>Id <?= $added->getId() ?></p>
         <p>Description <?= $added->getDescription()?></p>
-        <p>Date <?= $added->getDateTime() ?></p>
+        <p>Date / Time <?= $added->getDateTime() ?></p>
         <button onclick="window.location.href = 'appointments.php';">Appointments</button>
         <br/>
         <button onclick="window.location.href = 'homepage.php';">Homepage</button>
