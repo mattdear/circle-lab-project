@@ -3,8 +3,10 @@ session_start();
 include("../OOP/WebPage.php");
 include("mFunctions.php");
 include("../service/serviceFacade.php");
-if (!isset ($_SESSION["gatekeeper"])) {
+if (!isset ($_SESSION["gatekeeper"]) and $_SESSION["access"] < 6) {
     popUpError("Your not logged in! Please log in and try again.");
+} elseif ($_SESSION["access"] < 6) {
+    popUpErrorBack("Access Denied.", "php/homepage.php");
 } else {
     $webPage = new WebPage("Prescription Results", "Circle Lab", 2020);
     $webPage->open();
@@ -64,7 +66,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 }
             }
         }
-        if ($count == 0){
+        if ($count == 0) {
             echo "<p>No Results Found</p>";
         }
         ?>

@@ -3,7 +3,7 @@ session_start();
 include("../OOP/WebPage.php");
 include("mFunctions.php");
 include("../service/serviceFacade.php");
-if (!isset ($_SESSION["gatekeeper"])) {
+if (!isset ($_SESSION["gatekeeper"]) and $_SESSION["access"] < 6) {
     popUpError("Your not logged in! Please log in and try again.");
 } else {
     $webPage = new WebPage("Add Prescription", "Circle Lab", 2020);
