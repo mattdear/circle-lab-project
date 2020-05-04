@@ -4,6 +4,8 @@ include("../OOP/WebPage.php");
 include("mFunctions.php");
 if (!isset ($_SESSION["gatekeeper"])) {
     popUpError("Your not logged in! Please log in and try again.");
+} elseif ($_SESSION["access"] < 6) {
+    popUpErrorBack("Access Denied.", "php/homepage.php");
 } else {
     $webPage = new WebPage("Modify Appointment", "Circle Lab", 2020);
     $webPage->open();

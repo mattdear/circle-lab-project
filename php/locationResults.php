@@ -23,7 +23,8 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <?php
         foreach ($locations as $location) {
             if ($searchName == strtolower($location->getPostcode()) or $searchName == strtolower($location->getCity())) {
-                $count = 1;
+                if ($location->getIsActive() == 1){
+                    $count = 1;
                 ?>
                 <div class="searchResult">
                     <div class="searchDetails">
@@ -40,12 +41,13 @@ if (!isset ($_SESSION["gatekeeper"])) {
                                 <input type="hidden" name="id">
                                 <button type="submit" class="modDelButton">Modify</button>
                             </form>-->
-                            <form method="post" action="deletePerson.php">
-                                <input type="hidden" name="id">
-                                <button type="submit" class="modDelButton">Delete</button>
+                            <form method="post" action="deleteLocation.php">
+                                <input type="hidden" name="id" value="<?=$location->getId()?>">
+                                <button type="submit" class="modDelButton">Deactivate</button>
                             </form>
                         </div>
                         <?php
+                    }
                     }
                     ?>
                 </div>

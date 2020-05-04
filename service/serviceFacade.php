@@ -522,19 +522,20 @@ class serviceFacade
     }
   }
 
+
   public function modifyLocation($locationObj)
   {
     try
     {
-      if($locationObj != null && $locationObj->getId() != null && $locationObj->getAddressLine() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType() != null && ($locationObj->getIsactive() === 0 || $locationObj->getIsactive() === 1))
+      if($locationObj != null && $locationObj->getId() != null && $locationObj->getAddressLine() != null && $locationObj->getCity() != null && $locationObj->getPostcode() != null && $locationObj->getType() != null)
       {
         $allLocations = $this->locationDAO->findAllLocations();
-        $unique = TRUE;
+        $unique = FALSE;
         foreach ($allLocations as $location)
         {
           if($location->getAddressLine() == $locationObj->getAddressLine())
           {
-            $unique = FALSE;
+            $unique = TRUE;
           }
         }
         if($unique == TRUE)
