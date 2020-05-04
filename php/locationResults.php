@@ -21,7 +21,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
     <div class="searchResults">
         <?php
         foreach ($locations as $location) {
-            if ($searchName == strtolower($location->getPostcode())) {
+            if ($searchName == strtolower($location->getPostcode()) or $searchName == strtolower($location->getCity())) {
                 ?>
                 <div class="searchResult">
                     <div class="searchDetails">
