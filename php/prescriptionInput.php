@@ -26,7 +26,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 <label>Patient</label>
             </div>
             <div class="col-75">
-                <p><?=$patient->getFirstName()?> <?=$patient->getLastName()?></p>
+                <p><?= $patient->getFirstName() ?> <?= $patient->getLastName() ?></p>
                 <input type="hidden" name="patient" value="<?= $patientId ?>">
             </div>
         </div>
@@ -35,7 +35,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 <label>Date</label>
             </div>
             <div class="col-75">
-                <p><?=$date?></p>
+                <p><?= $date ?></p>
                 <input type="hidden" name="date" value="<?= $date ?>">
             </div>
         </div>
@@ -52,7 +52,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                         $name = $drug->getName();
                         $id = $drug->getId();
                         ?>
-                        <option value="<?=$id?>"><?=$name?></option>
+                        <option value="<?= $id ?>"><?= $name ?></option>
                         <?php
                     }
                     ?>
@@ -72,7 +72,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                         $name = $drug->getName();
                         $id = $drug->getId();
                         ?>
-                        <option value="<?=$id?>"><?=$name?></option>
+                        <option value="<?= $id ?>"><?= $name ?></option>
                         <?php
                     }
                     ?>
@@ -92,7 +92,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
                         $name = $drug->getName();
                         $id = $drug->getId();
                         ?>
-                        <option value="<?=$id?>"><?=$name?></option>
+                        <option value="<?= $id ?>"><?= $name ?></option>
                         <?php
                     }
                     ?>
@@ -113,13 +113,14 @@ if (!isset ($_SESSION["gatekeeper"])) {
             </div>
             <div class="col-75">
                 <select class="inputs, select" name="location">
-                    <option value="0">Please Select Location</option>
-                    <option value="1">1 London Road</option>
-                    <option value="10">10 London Road</option>
-                    <option value="11">10 The High Street</option>
-                    <option value="12">11 Rolling Road</option>
-                    <option value="13">12 Sandpark Square</option>
-
+                    <?php
+                    $locations = $service->findAllLocations();
+                    foreach ($locations as $location) {
+                        if ($location->getType() != "Home") {
+                            echo "<option value=" . $location->getId() . ">" . $location->getAddressLine() . "</option>";
+                        }
+                    }
+                    ?>
                 </select>
             </div>
         </div>

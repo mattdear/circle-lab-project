@@ -36,23 +36,29 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <p>Date: <?= $date ?></p>
         <?php
         if ($drug1 != 0) {
-            $service->addDrugToPrescription($drug1, $addedPrescription->getId());
+            $link = new drugPrescriptionLinkDTO($drug1, $addedPrescription->getId());
+            $service->addDrugPrescriptionLinkDTO($link);
             $drugName = $service->findDrugById($drug1)->getName();
             echo "<p>Drug 1: " . $drugName . "</p>";
         }
         if ($drug2 != 0) {
-            $service->addDrugToPrescription($drug2, $addedPrescription->getId());
+            $link = new drugPrescriptionLinkDTO($drug2, $addedPrescription->getId());
+            $service->addDrugPrescriptionLinkDTO($link);
             $drugName = $service->findDrugById($drug2)->getName();
             echo "<p>Drug 2: " . $drugName . "</p>";
         }
         if ($drug3 != 0) {
-            $service->addDrugToPrescription($drug3, $addedPrescription->getId());
+            $link = new drugPrescriptionLinkDTO($drug3, $addedPrescription->getId());
+            $service->addDrugPrescriptionLinkDTO($link);
             $drugName = $service->findDrugById($drug3)->getName();
             echo "<p>Drug 3: " . $drugName . "</p>";
         }
         ?>
         <p>Quantity: <?= $quantity ?></p>
-        <p>Location: <?= $location ?></p>
+        <?php
+        $location = $service->findLocationById($location)
+        ?>
+        <p>Location: <?= $location->getAddressLine() ?></p>
         <?php
     }
     ?>

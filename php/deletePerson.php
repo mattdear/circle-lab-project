@@ -14,8 +14,8 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $modifyPerson = $service->findPersonById($id);
     $modifyPerson->setIsactive(0);
     if ($service->modifyPerson($modifyPerson)) {
-        popUpErrorBack("Person Details Modified", "php/homepage.php");
+        popUpErrorBack("Person Deactivated", "php/people.php");
     } else {
-        popUpErrorBack("Person Details Not Modified", "php/homepage.php");
+        popUpErrorBack("Person Not Deactivated", "php/people.php");
     }
 }
