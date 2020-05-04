@@ -36,12 +36,13 @@ if (!isset ($_SESSION["gatekeeper"])) {
     <div class="searchResult">
     <div class="searchDetails">
         <p>Disease: <?= ucfirst($disease->getName()) ?></p>
-        <p>Possible Treatments:</p>
         <?php
-        if ($_SESSION["access"] > 7)
-        foreach ($matchingTreatments as $t) {
-            $treatment = $service->findTreatmentById($t->getTreatment());
-            echo "<p>".ucfirst($treatment->getName())."</p>";
+        if ($_SESSION["access"] > 7) {
+            echo "<p>Possible Treatments:</p>";
+            foreach ($matchingTreatments as $t) {
+                $treatment = $service->findTreatmentById($t->getTreatment());
+                echo "<p>" . ucfirst($treatment->getName()) . "</p>";
+            }
         }
         ?>
     </div>

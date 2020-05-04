@@ -29,21 +29,17 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $role = htmlentities($_POST["role"]);
     $un = htmlentities($_POST["username"]);
     $pw = htmlentities($_POST["password"]);
-    if ($fName != null and $sName != null and $dob != null and $gender != null and $email != null and $phone != null and $location != null and $role != null and $un != null and $pw != null) {
+    if ($fName != null and $sName != null and $formattedDate != null and $email != null and $phone != null and $un != null and $pw != null) {
         $add = new personDTO(null, $fName, $sName, $formattedDate, $gender, $email, $phone, $location, $role, $un, $pw, 1);
 
 
         $added = $service->addPerson($add)
         ?>
         <h1>Added Person</h1>
-        <p>Id <?= $added->getId() ?></p>
         <p>Name <?= $added->getFirstName() ?> <?= $added->getLastName() ?></p>
         <p>Date of Birth <?= $added->getDob() ?></p>
-        <p>Gender <?= $added->getGender() ?></p>
         <p>Email <?=$added->getEmail() ?></p>
-        <p>Location <?= $added->getAddress() ?></p>
         <p>Phone <?= $added->getPhone() ?></p>
-        <p>Role <?= $added->getRole() ?></p>
         <button onclick="window.location.href = 'people.php';">People</button>
         <br/>
         <button onclick="window.location.href = 'homepage.php';">Homepage</button>
