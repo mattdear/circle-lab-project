@@ -30,16 +30,22 @@ if (!isset ($_SESSION["gatekeeper"])) {
                         <p>Postcode: <?= $location->getPostcode() ?></p>
                         <p>Type: <?= $location->getType() ?></p>
                     </div>
-                    <div class="searchButtons">
-                        <!--<form method="post" action="modifyLocationInput.php">
-                            <input type="hidden" name="id">
-                            <button type="submit" class="modDelButton">Modify</button>
-                        </form>-->
-                        <form method="post" action="deletePerson.php">
-                            <input type="hidden" name="id">
-                            <button type="submit" class="modDelButton">Delete</button>
-                        </form>
-                    </div>
+                    <?php
+                    if ($_SESSION["access"] > 6) {
+                        ?>
+                        <div class="searchButtons">
+                            <!--<form method="post" action="modifyLocationInput.php">
+                                <input type="hidden" name="id">
+                                <button type="submit" class="modDelButton">Modify</button>
+                            </form>-->
+                            <form method="post" action="deletePerson.php">
+                                <input type="hidden" name="id">
+                                <button type="submit" class="modDelButton">Delete</button>
+                            </form>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <?php
             }

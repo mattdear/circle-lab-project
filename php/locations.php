@@ -18,9 +18,14 @@ if (!isset ($_SESSION["gatekeeper"])) {
         <br/>
         <button type="submit">Search</button>
     </form>
-
-    <button onclick="window.location.href = 'addLocationInput.php';">Add Location</button>
-    <br/>
+    <?php
+    if ($_SESSION["access"] > 6) {
+        ?>
+        <button onclick="window.location.href = 'addLocationInput.php';">Add Location</button>
+        <br/>
+        <?php
+    }
+    ?>
     <button onclick="window.location.href = 'homepage.php';">Homepage</button>
     <br/>
     <?php
