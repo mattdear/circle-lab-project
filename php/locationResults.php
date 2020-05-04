@@ -16,12 +16,14 @@ if (!isset ($_SESSION["gatekeeper"])) {
     $searchName = strtolower(htmlentities($_GET["locationName"]));
 
     $locations = $service->findAllLocations();
+    $count = 0;
     ?>
     <h1>Location Results</h1>
     <div class="searchResults">
         <?php
         foreach ($locations as $location) {
             if ($searchName == strtolower($location->getPostcode()) or $searchName == strtolower($location->getCity())) {
+                $count = 1;
                 ?>
                 <div class="searchResult">
                     <div class="searchDetails">
@@ -49,6 +51,9 @@ if (!isset ($_SESSION["gatekeeper"])) {
                 </div>
                 <?php
             }
+        }
+        if ($count == 0){
+            echo "<p>No Results Found</p>";
         }
         ?>
     </div>
