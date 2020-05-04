@@ -15,7 +15,7 @@ if (!isset ($_SESSION["gatekeeper"])) {
 
     $service = new serviceFacade();
     ?>
-    <h1>Add Person</h1>
+    <h1>Add Location</h1>
     <form method="post" action="addLocation.php">
         <div class="row">
             <div class="col-25">
