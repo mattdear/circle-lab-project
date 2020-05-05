@@ -1,0 +1,223 @@
+body{
+    background-color: #EBEBEB;
+    text-align: center;
+    font-family: "Frutiger", Arial, serif;
+}
+
+.wrapper{
+    overflow: auto;
+    width: 100vw;
+    text-align: center;
+}
+
+h1{
+
+}
+
+h2{
+
+}
+
+button{
+    width: 20vw;
+    height: 3vw;
+    border-radius: 1vw;
+    margin-top: 2vw;
+    overflow: auto;
+    font-family: "Frutiger", Arial, serif;
+    border: none;
+}
+
+button:hover{
+    background-color: #b5ecff;
+}
+
+button:focus{
+    outline-style: none;
+}
+
+.inputs{
+    width: 20vw;
+    height: 3vw;
+    padding: 1vw;
+    border-radius: 1vw;
+    border: none;
+}
+
+.dob{
+    width:7vw;
+    height: 3vw;
+    padding: 1vw;
+    border-radius: 1vw;
+    border: none;
+}
+
+.loginInput{
+    margin: 2vw 0 2vw 0;
+}
+
+.select{
+    width:22vw;
+    height: 4.5vw;
+    border-radius: 1vw;
+}
+
+.inputs:focus{
+    outline-style: none;
+}
+
+footer{
+    margin-top: 2vw;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    overflow: auto;
+    width: 100vw;
+}
+
+.row{
+    width: 50vw;
+    overflow: auto;
+    margin: 0 auto;
+}
+
+.col-25{
+    float: left;
+    width: 20vw;
+    height: 5vw;
+    margin-top: 3vw;
+}
+
+.col-75{
+    float: left;
+    width: 30vw;
+    margin-top: 1vw;
+}
+
+.searchResults{
+    overflow: auto;
+    width: 60vw;
+    margin: 0 auto;
+}
+
+.searchResult{
+ overflow: auto;
+    text-align: left;
+    background-color: gainsboro;
+    margin-bottom: 2vw;
+    border-radius: 2vw;
+    padding: 1vw;
+}
+
+.searchDetails{
+    float:left;
+    width: 35vw;
+}
+
+.searchButtons{
+    float: left;
+    overflow: auto;
+}
+
+.modDelButton{
+    width: 20vw;
+    margin: 1vw 0;
+    float: left;
+}
+
+
+
+
+
+
+
+
+
+
+/*Responsive screen css*/
+
+@media screen and (max-width: 765px) {
+
+    .wrapper{
+        margin-bottom: 1vw;
+    }
+
+    button{
+        width: 70vw;
+        height: 10vw;
+    }
+
+    #symptomResults{
+        background-color: lightgray;
+        width: 70vw;
+        height: 100vw;
+        margin: 3vw auto;
+        border-radius: 1vw;
+    }
+
+    .inputs{
+        width: 45vw;
+        height: 8vw;
+        padding: 1vw;
+        border-radius: 1vw;
+        border: none;
+    }
+
+    .select{
+        width:47vw;
+        height: 8vw;
+        border-radius: 1vw;
+    }
+
+    .row{
+        width: 75vw;
+        overflow: auto;
+        margin: 0 auto;
+    }
+
+    .col-25{
+        float: left;
+        width: 25vw;
+        height: 10vw;
+        margin-top: 4vw;
+    }
+
+    .col-75{
+        float: left;
+        width: 50vw;
+        height: 10vw;
+        margin-top: 1vw;
+    }
+
+    .searchResults{
+        overflow: auto;
+        width: 70vw;
+        margin: 0 auto;
+    }
+
+    .searchResult{
+        overflow: auto;
+        text-align: center;
+    }
+
+    .searchDetails{
+        float: none;
+        width: 60vw;
+    }
+
+    .searchButtons{
+        float: none;
+        margin-top: 2vw;
+    }
+
+    .modDelButton{
+        width: 60vw;
+        margin: 1vw 2vw;
+        float: none;
+    }
+
+    .modDelButtonPatient{
+        width: 70vw;
+        margin: 0;
+    }
+}
