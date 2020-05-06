@@ -183,25 +183,29 @@ Attendees = Emma, Mark, Josh, Matt, Juan
 ## WEEK12
 ###### TUESDAY MEETUP
 - Matt and Josh demoed the pull request and code review though GitHub.
-- Matt assigned tasks to the team until the end of the task.
+- Matt assigned tasks to the team until the end of the project.
+- Checked if anyone had an issues, none were mention so closed the meeting.
 
 Attendees = Emma, Mark, Josh, Matt
 
 
 ## MEETING 20-04-2020
 - People to continue work on their DAOs and DTOs and code reviews.
+- Checked if anyone had an issues, none were mention so closed the meeting.
 
 Attendees = Emma, Mark, Josh, Matt, Juan
 
 
 ## MEETING 27-04-2020
 - The group decided to move the dealine for work completion back because some people had still not meet the deadline.
+- Checked if anyone had an issues, none were mention so closed the meeting.
 
 Attendees = Emma, Mark, Josh, Matt, Juan
 
 
 ## MEETING 29-04-2020
 - Nothing much was discussed. Just that everyone was OK and the deadline was Monday.
+- Checked if anyone had an issues, none were mention so closed the meeting.
 
 Attendees = Emma, Mark, Josh, Matt, Juan
 
@@ -209,14 +213,14 @@ Attendees = Emma, Mark, Josh, Matt, Juan
 ## MEETING 01-04-2020
 - Mark showed almost completed application to group.
 - Confirmed deadline of 04-05-2020 for user guide and dev guide.
-- Otherwise check everyone was OK and left meeting.
+- Checked if anyone had an issues, none were mention so closed the meeting.
 
 Attendees = Emma, Mark, Josh, Matt, Juan
 
 
 ## MEETING 04-05-2020
 - Confirmed that Josh and Matt would get the final code into master once Mark had completed the application.
-- Otherwise check everyone was OK and left meeting.
+- Checked if anyone had an issues, none were mention so closed the meeting.
 
 Attendees = Emma, Mark, Josh, Matt
 
@@ -226,5 +230,6 @@ Attendees = Emma, Mark, Josh, Matt
 - Confirmed that the remaining task test the final version uploaded to the server. This to be done by all.
 - Other than this all work is complete and the repo is ready to be closed off.
 - Mark to notify Matt or Josh once work is complete and then the repo will be closed down.
+- Checked if anyone had an issues, none were mention so closed the meeting.
 
 Attendees = Emma, Mark, Josh, Matt, Juan
