@@ -193,8 +193,38 @@ Attendees = Emma, Mark, Josh, Matt
 
 Attendees = Emma, Mark, Josh, Matt, Juan
 
+
 ## MEETING 27-04-2020
 - The group decided to move the dealine for work completion back because some people had still not meet the deadline.
 
+Attendees = Emma, Mark, Josh, Matt, Juan
+
+
 ## MEETING 29-04-2020
 - Nothing much was discussed. Just that everyone was OK and the deadline was Monday.
+
+Attendees = Emma, Mark, Josh, Matt, Juan
+
+
+## MEETING 01-04-2020
+- Mark showed almost completed application to group.
+- Confirmed deadline of 04-05-2020 for user guide and dev guide.
+- Otherwise check everyone was OK and left meeting.
+
+Attendees = Emma, Mark, Josh, Matt, Juan
+
+
+## MEETING 04-05-2020
+- Confirmed that Josh and Matt would get the final code into master once Mark had completed the application.
+- Otherwise check everyone was OK and left meeting.
+
+Attendees = Emma, Mark, Josh, Matt
+
+
+## MEETING 06-05-2020
+- Discussed that Mark is waiting for the URL and that he needs it from Emma before his work is complete.
+- Confirmed that the remaining task test the final version uploaded to the server. This to be done by all.
+- Other than this all work is complete and the repo is ready to be closed off.
+- Mark to notify Matt or Josh once work is complete and then the repo will be closed down.
+
+Attendees = Emma, Mark, Josh, Matt, Juan
