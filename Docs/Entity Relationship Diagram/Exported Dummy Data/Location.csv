@@ -1,0 +1,17 @@
+id,address_line,city,postcode,type,isactive
+,"1 London Road",Southampton,"SO16 7GP",Home,1
+,"2 London Road",Southampton,"SO16 7GP",Home,1
+,"3 London Road",Southampton,"SO16 7GP",Home,1
+,"4 London Road",Southampton,"SO16 7GP",Home,1
+,"5 London Road",Southampton,"SO16 7GP",Home,1
+,"6 London Road",Southampton,"SO16 7GP",Home,1
+,"7 London Road",Southampton,"SO16 7GP",Home,1
+,"8 London Road",Southampton,"SO16 7GP",Home,1
+,"9 London Road",Southampton,"SO16 7GP",Home,1
+,"10 London Road",Southampton,"SO16 7GP",Home,1
+,"10 The High Street",Southampton,"SO19 5RV",Pharmacy,1
+,"11 Rolling Road",Southampton,"SO10 2TP",Pharmacy,1
+,"12 Sandpark Square",Southampton,"SO16 4RL",Surgery,1
+,"13 Java Lane",Southampton,"SO16 7GP",Surgery,1
+,"14 Cresent Place",Southampton,"SO01 9UI",Hospital,1
+,"15 London Road",Southampton,"SO23 6YP",Hospital,1

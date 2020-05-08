@@ -1,0 +1,4 @@
+id,name,requester,request_date,start_date,finish_date,approved,max_age,min_age,male,female,disease,isactive
+,"Broken Ankle Men Only",9,2020-04-03,,,1,NULL,NULL,1,NULL,1,1
+,"Broken Ankle Women Only",9,2020-04-03,,,0,NULL,NULL,NULL,1,1,1
+,"Heel Pain",8,2020-04-03,,,1,NULL,NULL,NULL,NULL,2,1

@@ -1,0 +1,28 @@
+==============================================================
+Guild: Circle Lab
+Channel: Text Channels / repository-status
+==============================================================
+
+[21-Feb-20 12:57 PM] Blnkspc#9267
+@everyone 100% fully working
+
+[20-Apr-20 04:07 PM] Blnkspc#9267
+@everyone Repository is broken please await further instructions.
+
+[20-Apr-20 04:07 PM] Blnkspc#9267
+Please do not work on it.
+
+[20-Apr-20 04:26 PM] Blnkspc#9267
+@everyone can I please ask you to now re clone the repository as this is now back up and running.
+
+[23-Apr-20 06:59 AM] Blnkspc#9267
+@everyone Repository is needing roll back after rouge merge to master #38 please hold and await further instructions.
+
+[23-Apr-20 07:15 AM] Blnkspc#9267
+@everyone Repository is now back online as of 07:14 can I please ask you to re clone your repository.
+
+==============================================================
+Exported 6 message(s)
+==============================================================
+
+

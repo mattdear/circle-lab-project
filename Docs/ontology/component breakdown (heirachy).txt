@@ -1,0 +1,69 @@
+Stakeholder
+	Type
+		Doctor
+		Pharmacist
+		Nurse
+		Support Worker
+		Researcher
+		Government
+		Regulatory Bodies
+		Patient
+			Medical history
+	Person
+		First Name
+		Second Name
+		Height
+		Weight
+		Gender
+		DOB
+		Ethnicity
+		Eye Colour
+		Hair Colour
+	Contact Details
+		Private Email
+		Work Email
+		Phone Number
+		Mobile Number
+		Work Number
+	Location
+Location
+	Type
+		Hospital
+		Lab
+		Surgery
+		Office
+		Home
+	Address
+		Address Name
+		House/Flat Number
+		Street Name
+		Town
+		County
+		Country
+	Location Details
+		Phone Number
+		Email Address
+Appointment
+	Time
+	Date
+	Location
+	Apointee
+Account
+	Type
+	Login Details
+		Username
+		Password
+		Memorable Information
+			Question
+			Answer
+	Account Email
+Aliment
+	Sypmtom
+	Disease
+Drug
+	Drug Compound
+	Elements
+	Composition
+
+	
+	

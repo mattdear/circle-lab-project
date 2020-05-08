@@ -1,0 +1,10 @@
+id,first_name,last_name,dob,gender,email,phone,address,role,username,password,isactive
+,Robin,Wright,1966-04-08,1,rw@gmail.com,07771111111,1,1,robinwright,rw123,1
+,Tom,Cruise,1962-07-03,0,tc@gmail.com,07772222222,2,2,tomcruise,tc123,1
+,Matthew,Perry,1969-08-19,0,mp@gmail.com,07773333333,3,3,matthewperry,mp123,1
+,Andy,Samberg,1978-08-18,0,as@gmail.com,07774444444,4,4,andysamberg,as123,1
+,Jessica,Alba,1981-04-28,1,ja@gmail.com,07775555555,5,5,jessicaalba,ja123,1
+,Emma,Thompson,1959-04-15,1,et@gmail.com,07776666666,6,6,emmathompson,et123,1
+,Billy,Zane,1966-02-24,0,bz@gmail.com,07777777777,7,7,billyzane,bz123,1
+,Emma,Stone,1988-11-06,1,es@gmail.com,07778888888,8,8,emmastone,es123,1
+,Megan,Fox,1986-05-16,1,mf@gmail.com,07779999999,9,9,meganfox,mf123,1

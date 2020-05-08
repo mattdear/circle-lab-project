@@ -1,0 +1,136 @@
+==============================================================
+Guild: Circle Lab
+Channel: Text Channels / work-to-do
+==============================================================
+
+[31-Jan-20 09:42 AM] Emma12812#7942
+* Create Focus Questions
+* Create CMAP
+* Complete Tree Structured WBS
+* Look at developing ontology
+* (INDIVIDUAL) Complete Gantt Chart Task 
+* (INDIVIDUAL) Complete Activity Network and Critical Path Analysis Exercise 
+* Set up a trello board
+* Make Gantt Chart for team project 
+* Make activity network diagram and critical paths for project
+* Update Concept Map
+* Construct a risk analysis table
+
+[03-Feb-20 08:05 PM] Emma12812#7942
+
+{Attachments}
+https://cdn.discordapp.com/attachments/670383941114396712/673982414862811168/Week_2_tasksheet.doc
+
+[07-Feb-20 09:34 AM] JoshuaAB#9254
+@morochin This is the Belbin Self-Perception
+
+{Attachments}
+https://cdn.discordapp.com/attachments/670383941114396712/675273241509756938/Belbin_Self-Perception_inventory.doc
+
+[21-Feb-20 11:48 AM] Emma12812#7942
+@everyone before we meet on Wednesday we must all complete the use case texts for our specific parts along with the matching robustness diagram and sequence diagram .
+This is so  that on Wednesday we can go through the class diagram and decomposition diagram
+
+[21-Feb-20 12:22 PM] Emma12812#7942
+@mkhtop @morochin you both need to update the group cmap as well and @mark you need to add your pros and cons of the methodology to the google doc please
+
+[13-Mar-20 12:29 PM] mkhtop#4904
+@everyone 
+Josh - finish class diagram - Wednesday
+Matt - finish decomp - wednedsday
+Emma - review class diagram/make changes
+Juan - start work on State diagram for Wednesday (detail in lecture week 8)
+Mark - Jsp logic for decomp by Wednesday
+
+[13-Mar-20 12:31 PM] mkhtop#4904
+looking to start implementation from wednesday
+
+[25-Mar-20 10:03 AM] morochin#2472
+
+{Attachments}
+https://cdn.discordapp.com/attachments/670383941114396712/692312686175846471/StateDiagram.drawio
+
+[27-Mar-20 08:32 PM] Blnkspc#9267
+Information about Enums in PHP https://stitcher.io/blog/php-enums
+
+{Embed}
+https://stitcher.io/blog/php-enums
+PHP Enums - stitcher.io
+How to handle enums in PHP.
+https://stitcher.io/resources/img/meta_small.png
+
+[28-Mar-20 03:06 PM] Emma12812#7942
+```Adding ID to all the stakeholders.
+Adding availablitiy class. 
+change symptoms to a class 
+prescription needs to link to drugs
+all the enums for doctors need adding
+why does nurse have a list of patients
+doesnt account have personid
+all stakeholders need person_id as well
+made gender an enum 
+add painkiller and other to drugtype
+security question enum (birth town, first job, mothers maiden name)```
+
+[28-Mar-20 03:06 PM] Emma12812#7942
+@everyone a list of a few changes needing to be done to the class diagram. The database ERD is now uploaded under a database folder in the docs branch and that will make it a lot easier to change the class diagram i think
+
+[28-Mar-20 03:07 PM] JoshuaAB#9254
+Awesome, I'll change them soon
+
+[28-Mar-20 03:09 PM] Emma12812#7942
+awesome
+
+[29-Mar-20 01:46 PM] JoshuaAB#9254
+All stakeholders have an ID through inheritance
+
+[29-Mar-20 01:46 PM] JoshuaAB#9254
+Availability class added
+
+[29-Mar-20 01:46 PM] JoshuaAB#9254
+Symptoms changed to a class
+
+[29-Mar-20 01:48 PM] JoshuaAB#9254
+Linked drugs to prescriptions
+
+[29-Mar-20 01:48 PM] JoshuaAB#9254
+Added doctor enum(Specialisation)
+
+[29-Mar-20 01:49 PM] JoshuaAB#9254
+Removed list of patients for Nurse
+
+[29-Mar-20 01:49 PM] JoshuaAB#9254
+Replaced account's person attribute with person_id
+
+[29-Mar-20 01:49 PM] JoshuaAB#9254
+Made Gender enum
+
+[29-Mar-20 01:50 PM] JoshuaAB#9254
+Added painkiller (is there a specific list of drug types to add? )
+
+[29-Mar-20 01:50 PM] JoshuaAB#9254
+Added security question enum and linked it to account
+
+[29-Mar-20 02:14 PM] Emma12812#7942
+@JoshuaAB that makes sense about the inheritance ID however what will then be the primary key for the stakeholders table? As you can't have 2 tables with the same primary key.
+
+[29-Mar-20 02:14 PM] Emma12812#7942
+And I'll have a look at the drug types later as I can't remember what I wrote
+
+[29-Mar-20 02:16 PM] JoshuaAB#9254
+It will be ID, no? The value doesn't have to be the same, and we won't be storing any generic people
+
+[29-Mar-20 02:21 PM] Emma12812#7942
+You need 2 ID's in the stakeholder table. You need for example personid to link them to that person and then the main ID which is in all tables
+
+[29-Mar-20 02:25 PM] Emma12812#7942
+I could be wrong though. I 4hink I'm confused. we can talk about it tomorrow as I'm not at my laptop STM
+
+[29-Mar-20 02:25 PM] Emma12812#7942
+Atm
+
+==============================================================
+Exported 29 message(s)
+==============================================================
+
+

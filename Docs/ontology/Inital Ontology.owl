@@ -1,0 +1,636 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#"
+     xml:base="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Account -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Account"/>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Account_Email -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Account_Email">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Account"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address_Name -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address_Name">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Aliment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Aliment"/>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Answer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Answer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Memorable_Information"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Question"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Apointee -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Apointee">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Appointment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Appointment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Appointment"/>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Composition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Composition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Drug"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Contact_Details -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Contact_Details">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Stakeholder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Country -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Country">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#County -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#County">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#DOB -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#DOB">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Date -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Date">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Appointment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Disease -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Disease">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Aliment"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Sypmtom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Doctor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Doctor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Drug -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Drug"/>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Drug_Compound -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Drug_Compound">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Drug"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Elements -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Elements">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Drug"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Email_Address -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Email_Address">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location_Details"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Phone_Number"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Ethnicity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Ethnicity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Eye_Colour -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Eye_Colour">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#First_Name -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#First_Name">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Gender -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Gender">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Government -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Government">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Hair_Colour -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Hair_Colour">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Height -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Height">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Home -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Home">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Hospital -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Hospital">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Lab -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Lab">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Appointment"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Stakeholder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location_Details -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location_Details">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Login_Details -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Login_Details">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Account"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Medical_history -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Medical_history">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Patient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Memorable_Information -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Memorable_Information">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Login_Details"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Mobile_Number -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Mobile_Number">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Contact_Details"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Nurse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Nurse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Office -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Office">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Password -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Password">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Login_Details"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Patient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Patient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Stakeholder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Pharmacist -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Pharmacist">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Phone_Number -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Phone_Number">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Contact_Details"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location_Details"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Private_Email -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Private_Email">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Contact_Details"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Question -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Question">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Memorable_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Regulatory_Bodies -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Regulatory_Bodies">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Researcher -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Researcher">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Second_Name -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Second_Name">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Stakeholder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Stakeholder"/>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Street_Name -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Street_Name">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Support_Worker -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Support_Worker">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Surgery -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Surgery">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Sypmtom -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Sypmtom">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Aliment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Time -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Time">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Appointment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Town -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Town">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Account"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Stakeholder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Username -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Username">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Login_Details"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Weight -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Weight">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Work_Email -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Work_Email">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Contact_Details"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Work_Number -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Work_Number">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Contact_Details"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#House/Flat_Number -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#House/Flat_Number">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Account"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Aliment"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Appointment"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Drug"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Stakeholder"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Account_Email"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Login_Details"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location_Details"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Address_Name"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Country"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#County"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Street_Name"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Town"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#House/Flat_Number"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Apointee"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Date"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Time"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Composition"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Drug_Compound"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Elements"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Contact_Details"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Location"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Person"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Type"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#DOB"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Ethnicity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Eye_Colour"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#First_Name"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Gender"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Hair_Colour"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Height"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Second_Name"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Weight"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Doctor"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Government"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Home"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Hospital"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Lab"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Nurse"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Office"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Patient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Pharmacist"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Regulatory_Bodies"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Researcher"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Support_Worker"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Surgery"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Memorable_Information"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Password"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Username"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Mobile_Number"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Phone_Number"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Private_Email"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Work_Email"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/3hartm83/ontologies/2020/1/untitled-ontology-3#Work_Number"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
