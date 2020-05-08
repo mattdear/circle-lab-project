@@ -233,3 +233,15 @@ Attendees = Emma, Mark, Josh, Matt
 - Checked if anyone had an issues, none were mention so closed the meeting.
 
 Attendees = Emma, Mark, Josh, Matt, Juan
+
+
+## MEETING 08-05-2020 (Final Meeting)
+- Text channel exported from Discrod by Josh and added to docs branch.
+- Online working document stored in Google docs backed up and added to docs branch by Josh.
+- WhatsApp not backed up for final project hand in as this does not seem useful.
+- Femi added to Tello and GitHub by Matthew.
+- People asked not to use personal discord or WhatsApp chats without asking permission of the other person.
+- Everyone confirmed that they are happy for group discord chats to be used in the report.
+- Eceryone confirmed that they are happy for the project to end.
+
+Attendees = Emma, Mark, Josh, Matt, Juan
