@@ -1,0 +1,1610 @@
+==============================================================
+Guild: Circle Lab
+Channel: Text Channels / work
+==============================================================
+
+[31-Jan-20 09:37 AM] Emma12812#7942
+Link to the google doc where we can put all of our stuff
+
+[03-Feb-20 10:30 AM] Emma12812#7942
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/673837661336895508/MaleAndFemaleLegAndFeet.xlsx
+
+[05-Feb-20 10:45 AM] Emma12812#7942
+https://trello.com/invite/b/om8BXdCQ/f9b135b2c15b4dd09656b5335ebfb2b8/circle-labs
+
+{Embed}
+https://trello.com/invite/b/om8BXdCQ/f9b135b2c15b4dd09656b5335ebfb2b8/circle-labs
+Trello
+Organize anything, together. Trello is a collaboration tool that organizes your projects into boards. In one glance, know what's being worked on, who's working on what, and where something is in a process.
+
+[05-Feb-20 10:46 AM] Emma12812#7942
+Link to our trello board
+
+[05-Feb-20 12:33 PM] Emma12812#7942
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/674593557583233024/Tree_Structred_WBS.xml
+
+[05-Feb-20 12:34 PM] Emma12812#7942
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/674593577510240303/Tree_Structred_WBS.png
+
+[14-Feb-20 11:01 AM] JoshuaAB#9254
+Pinned a message.
+
+[14-Feb-20 12:02 PM] JoshuaAB#9254 (pinned)
+https://docs.google.com/document/d/1eovEAfnVF05nvq9G06P2XUZT6k-L8xKcgOuukm_VF8M/edit
+
+{Embed}
+https://docs.google.com/document/d/1eovEAfnVF05nvq9G06P2XUZT6k-L8xKcgOuukm_VF8M/edit
+Engineering Software Systems
+A smart medical system for stakeholders = LEG AND FEET Project:  Manage the day to day activity   Focus Questions: What do we want the system to do? Identify key terms  Get the case scenario and highlight key terms/ information to include in cmap  Good understanding of the con...
+https://lh5.googleusercontent.com/bdh30f07HN1sMdJlSezF8FHJYwwi_noN-CF3eSYp6RfbmpaYcojGeVN4qQv3C5Q-_k9-DrS6gw=w1200-h630-p
+
+[14-Feb-20 12:02 PM] JoshuaAB#9254
+Pinned a message.
+
+[11-Mar-20 11:48 AM] mkhtop#4904
+login
+homepage
+diagnosis_home
+diagnosis_view
+diagnosis_add
+people_home
+people_view
+people_add
+appointment_home
+appointment_view
+appointment_add
+locations_home
+location_add
+prescription_home
+prescription_add
+reports_home
+
+[28-Mar-20 03:03 PM] Emma12812#7942
+Database
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/693475365682806784/smartmedicalmanagementsystem.sql
+
+[01-Apr-20 11:34 AM] Emma12812#7942
+```ip: cookmate.app
+Username: CircleLabs
+Password: Yf25&ZPPaAAk
+Database: circlelabs
+```
+
+[01-Apr-20 11:34 AM] Emma12812#7942
+HeidiSQL
+
+[01-Apr-20 11:38 AM] Blnkspc#9267
+https://phpunit.de/
+
+[01-Apr-20 11:42 AM] JoshuaAB#9254
+Each DAO requires a add, modify, delete, find(Object), findAll function
+
+[01-Apr-20 03:42 PM] Blnkspc#9267
+@everyone The final ERD is online and I have added the DAO's for people to start work on. I will aim to get the database up and running as soon as possible and I will let you know once the work is complete.
+
+[01-Apr-20 04:39 PM] Emma12812#7942
+sounds good! thanks
+
+[01-Apr-20 04:39 PM] Blnkspc#9267
+I am just working on the fake data now.
+
+[01-Apr-20 04:39 PM] Blnkspc#9267
+I will then be able to load the database.
+
+[03-Apr-20 10:59 AM] Emma12812#7942
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/695573308518694942/unknown.png
+
+[03-Apr-20 11:32 AM] Emma12812#7942
+@everyone how do i begin a php storm project 😂
+
+[03-Apr-20 11:35 AM] Emma12812#7942
+dont worry think i managed it
+
+[22-Apr-20 11:54 AM] Emma12812#7942 (pinned)
+https://docs.google.com/presentation/d/1xvyym-5jyL-A4Ur4xdhkqJfl3Iyvp2NB3SaOb34E43U/edit?usp=sharing
+
+{Embed}
+https://docs.google.com/presentation/d/1xvyym-5jyL-A4Ur4xdhkqJfl3Iyvp2NB3SaOb34E43U/edit?usp=sharing
+Circle Labs Project
+Circle Labs Smart Medical Management System Create an electronic system to handle the management of medical activities between health organisations and the corresponding stakeholders. It should cover management of activities, manage decisions about aliments, medications, locat...
+https://lh5.googleusercontent.com/0WQS1R5yB1xcZI62Z3YvGLo4C0d9OC2-XR11duQYlwT-63lwHA2j2o1k63ojNuN_ZYAGfP1Cdg=w1200-h630-p
+
+[22-Apr-20 11:54 AM] Emma12812#7942
+@everyone
+
+[22-Apr-20 11:54 AM] mkhtop#4904
+thank you
+
+[23-Apr-20 09:55 AM] mkhtop#4904
+$conn = new PDO ("mysql:host=cookmate.app:3306;dbname=circlelabs", "CircleLabs", "Yf25&ZPPaAAk");
+
+[23-Apr-20 09:55 AM] mkhtop#4904
+just posted this here for ease to find
+
+[23-Apr-20 10:16 AM] Blnkspc#9267
+https://www.educative.io/edpresso/how-to-delete-remote-branches-in-git
+
+{Embed}
+https://www.educative.io/edpresso/how-to-delete-remote-branches-in-git
+How to delete remote branches in Git
+How to delete remote branches in Git
+https://www.educative.io/static/imgs/logos/EdpressoLogo2.png
+
+[23-Apr-20 10:37 AM] Blnkspc#9267
+@everyone Can I please ask you to delete branch's that you are not using and are no longer needed... This can be done using these two commands... ```git branch -d test``` to delete the local branch and then ```git push origin --delete test``` to delete the remote branch that is the one on GitHub. Please delete both and make sure you are only deleting your own thank you.
+
+[23-Apr-20 10:37 AM] Blnkspc#9267
+You can be in any branch to run these commands and as always please be careful.
+
+[23-Apr-20 10:45 AM] Blnkspc#9267
+@everyone Can I please ask everyone to do this before tomorrow thanks.
+
+[23-Apr-20 11:45 AM] Emma12812#7942
+@everyone the formatting of the risk analysis table is all wrong and i dont know how to fix it
+
+[23-Apr-20 11:47 AM] Emma12812#7942
+@Blnkspc trying to run the first command to delete the branch locally and it says the branch is not found
+
+[23-Apr-20 11:50 AM] JoshuaAB#9254
+Just run the second one
+
+[23-Apr-20 11:53 AM] Blnkspc#9267
+@Emma12812 what Josh said.
+
+[23-Apr-20 11:54 AM] Emma12812#7942
+ahh thanks
+
+[23-Apr-20 12:30 PM] Emma12812#7942
+what is femi's role within the project
+
+[23-Apr-20 12:30 PM] Emma12812#7942
+like what should I call him within the presentation
+
+[23-Apr-20 12:30 PM] Emma12812#7942
+we discussed it with ..... (cant think what to call him)
+
+[23-Apr-20 12:49 PM] JoshuaAB#9254
+A client maybe
+
+[23-Apr-20 01:04 PM] Emma12812#7942
+Ahh yeah
+
+[23-Apr-20 01:04 PM] Emma12812#7942
+5hanks 😂
+
+[23-Apr-20 01:17 PM] Emma12812#7942
+have we designed a test plan?
+
+[23-Apr-20 01:17 PM] morochin#2472
+i gotta do it! 👍
+
+[23-Apr-20 01:17 PM] Emma12812#7942
+ahh okay no worries
+
+[23-Apr-20 01:18 PM] morochin#2472
+i am gonna do it as the example in the lecture
+
+[23-Apr-20 01:18 PM] morochin#2472
+3 would be enough?
+
+[23-Apr-20 01:18 PM] Emma12812#7942
+can you post a screenshoot of the example so i can see it
+
+[23-Apr-20 01:18 PM] Emma12812#7942
+I dont mind helping you develop it later if youd like?
+
+[23-Apr-20 01:19 PM] morochin#2472
+i would love the help let me just get the screenshot for u
+
+[23-Apr-20 01:19 PM] Emma12812#7942
+as i can follow the one i did for craigs assignment
+
+[23-Apr-20 01:20 PM] morochin#2472
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/702856333606780979/unknown.png
+
+[23-Apr-20 01:20 PM] Emma12812#7942
+ahh yeah awesome
+
+[23-Apr-20 01:20 PM] Emma12812#7942
+want to call at 3pm and get that sorted?
+
+[23-Apr-20 01:20 PM] Emma12812#7942
+or i can do late tonight at like 10pm ? which ever is easier
+
+[23-Apr-20 01:20 PM] morochin#2472
+any time is good for me
+
+[23-Apr-20 01:21 PM] Emma12812#7942
+3pm then? ?
+
+[23-Apr-20 01:21 PM] morochin#2472
+sure!!
+
+[23-Apr-20 01:21 PM] Emma12812#7942
+awesome
+
+[23-Apr-20 01:21 PM] Emma12812#7942
+@everyone could I also ask 1 person to talk about the user guide and 1 person for the developer guide within the presentation as I do not know much about these obviously
+
+[23-Apr-20 02:32 PM] Emma12812#7942
+@everyone do we think we need to make a test plan for absolutely everything? or just one with a variety of tests in to show we can do it
+
+[23-Apr-20 02:39 PM] Emma12812#7942
+@mkhtop have you got a list of all of the names of each webpage that I could have
+
+[23-Apr-20 03:26 PM] Emma12812#7942
+@everyone it is going to be quite difficult do these tests without actually using the program as we are not fully sure on the layout etc of the program so cannot write the test actions.
+
+[23-Apr-20 03:40 PM] JoshuaAB#9254
+Why is there still a folder in the dev branch?
+
+[23-Apr-20 03:41 PM] Emma12812#7942
+ahh shit forgot to take the files out the folder
+
+[23-Apr-20 03:41 PM] Emma12812#7942
+i guess we can just take files out the folder and push it back to dev
+
+[23-Apr-20 03:41 PM] JoshuaAB#9254
+But the folder would still be there
+
+[23-Apr-20 03:42 PM] JoshuaAB#9254
+The files would just be in 2 places
+
+[23-Apr-20 03:42 PM] Emma12812#7942
+not if we delete the folder
+
+[23-Apr-20 03:44 PM] JoshuaAB#9254
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/702892598859268156/unknown.png
+
+[23-Apr-20 03:45 PM] JoshuaAB#9254
+There are methods incorrectly named and the input should just be $newPerson. Php doesn't specify variable types
+
+[23-Apr-20 03:50 PM] Emma12812#7942
+Oh fuck 😂
+
+[23-Apr-20 03:50 PM] Emma12812#7942
+I'll have to sort it when I'm home as I'm out atm
+
+[23-Apr-20 03:50 PM] Emma12812#7942
+It worked when being tested
+
+[23-Apr-20 03:51 PM] Emma12812#7942
+So I don't think it's a huge issue
+
+[23-Apr-20 03:54 PM] JoshuaAB#9254
+It may pass the tests but the camel case naming scheme, standard method names (add, modify, find, delete), unit testing (each dao/dto) is all there to make putting everything together easier and quicker. I only have until next Friday to receive everyone's work and piece it all together
+
+[23-Apr-20 03:55 PM] JoshuaAB#9254
+I have to write each method in the service facade and test them too
+
+[23-Apr-20 03:56 PM] Emma12812#7942
+Okay I'll sort it when I'm back can I just push it straight to branch
+
+[23-Apr-20 03:56 PM] Emma12812#7942
+Dev I mean
+
+[23-Apr-20 03:57 PM] JoshuaAB#9254
+I'm not sure
+
+[23-Apr-20 03:58 PM] Emma12812#7942
+I don't see why it would be a bad thing
+
+[23-Apr-20 03:59 PM] JoshuaAB#9254
+You'll have to message Matt about it
+
+[23-Apr-20 04:00 PM] Emma12812#7942
+I'll sort it later
+
+{Reactions}
+👌🏽
+
+[23-Apr-20 04:04 PM] Emma12812#7942
+What exactly do you want me to change
+
+[23-Apr-20 04:06 PM] JoshuaAB#9254
+Remove files from their folders.
+Rename methods (Remove underscores, use camel case)
+Change input variables to just have the variable name.
+
+[23-Apr-20 04:07 PM] JoshuaAB#9254
+There's not enough time for testing now, so don't worry about that
+
+[23-Apr-20 04:42 PM] Emma12812#7942
+how do you want me to call insertDiseasePersonLinkDTO to?
+
+[23-Apr-20 04:43 PM] Emma12812#7942
+addDiseasePersonLinkDTO
+
+[23-Apr-20 04:43 PM] JoshuaAB#9254
+Yee 🙂
+
+[23-Apr-20 04:54 PM] Emma12812#7942
+all updated just dont know how to upload it to github now
+
+[23-Apr-20 06:26 PM] Emma12812#7942
+Tried to make the pull request on my new code (its in EmmasCode2) but its erroring because files are in dev
+
+[23-Apr-20 06:39 PM] Emma12812#7942
+@everyone who is able to talk about the user guide and developer guide for tomorrow?
+
+[23-Apr-20 06:53 PM] mkhtop#4904
+I can talk about it
+
+[23-Apr-20 06:54 PM] Emma12812#7942
+ahahha you only need to say like 20 seconds of info on it ahah
+
+[23-Apr-20 06:54 PM] Emma12812#7942
+which one are you doing user guide or developer ?
+
+[23-Apr-20 06:55 PM] mkhtop#4904
+I'll be talking about the user guide, I think Matt and Josh are talking about the developer guide
+
+[23-Apr-20 06:55 PM] Emma12812#7942
+ahh okay awesome
+
+[23-Apr-20 08:59 PM] mkhtop#4904
+Demo is ready to go for the morning
+feel free to checkout the gui branch and run it on you own machine to have a look, you may just need to set up a php interpreter on phpstorm
+login is admin with password admin
+if you wanna try and search for a person search for robin or wright or robin wright (not case sensitive)
+you can add a prescription to robin with up to 3 drugs (slight issue with quantity but nothing big just have only one choice of quantity)
+you can also search for robin under prescriptions which should give you a list of the prescriptions
+ill be online at half 8 if anyone finds anything broken/needs changing
+
+[24-Apr-20 08:26 AM] Emma12812#7942
+amazing !! @JoshuaAB @Blnkspc who can speak about the developer guide today
+
+[24-Apr-20 08:52 AM] mkhtop#4904
+@JoshuaAB if you do a pull before the demo, I've just added functionality to the delete prescription button so should remove it from the list
+
+[24-Apr-20 08:52 AM] JoshuaAB#9254
+Cool cool
+
+[24-Apr-20 08:53 AM] JoshuaAB#9254
+Hopefully Matt can talk about it as I'll do the demo
+
+[24-Apr-20 08:53 AM] Emma12812#7942
+awesome
+
+[24-Apr-20 08:54 AM] Emma12812#7942
+i think we only have 10 minutes for the whole presentation ahah
+
+[24-Apr-20 08:54 AM] mkhtop#4904
+thats not a bad thing i guess 😂
+
+[24-Apr-20 08:54 AM] mkhtop#4904
+who is sharing their screen for the presentation?
+
+[24-Apr-20 08:54 AM] Emma12812#7942
+me i assume
+
+[24-Apr-20 08:55 AM] Emma12812#7942
+then it will swap to josh for the demo
+
+[24-Apr-20 08:55 AM] JoshuaAB#9254
+I'll have to for the demo
+
+[24-Apr-20 08:55 AM] JoshuaAB#9254
+Yeah
+
+[24-Apr-20 08:55 AM] Blnkspc#9267
+@Emma12812 Can you send me the link to the presentation as I would like to copy down my notes.
+
+[24-Apr-20 08:55 AM] mkhtop#4904
+Pinned a message.
+
+[24-Apr-20 08:55 AM] mkhtop#4904
+ive just pinned it in this chat
+
+[24-Apr-20 08:56 AM] mkhtop#4904
+thanks for doing the presentation emma, looking awesome!
+
+[24-Apr-20 08:56 AM] Emma12812#7942
+thanks hope it goes well lol
+
+[24-Apr-20 08:59 AM] JoshuaAB#9254
+I assume this starts at 9?
+
+[24-Apr-20 09:00 AM] morochin#2472
+it should start at 9
+
+[24-Apr-20 09:01 AM] Blnkspc#9267
+I will talk about the development guide.
+
+[24-Apr-20 09:01 AM] JoshuaAB#9254
+Thank you
+
+[24-Apr-20 09:06 AM] Emma12812#7942
+ill do ti
+
+[24-Apr-20 09:06 AM] Emma12812#7942
+it
+
+[24-Apr-20 09:06 AM] mkhtop#4904
+thank you
+
+[24-Apr-20 10:26 AM] JoshuaAB#9254
+Not too bad overall
+
+[24-Apr-20 10:27 AM] mkhtop#4904
+Think it went well
+
+[24-Apr-20 10:27 AM] morochin#2472
+i think it went great dude
+
+[24-Apr-20 10:34 AM] Emma12812#7942
+The app looks so good!!!
+
+[24-Apr-20 10:35 AM] mkhtop#4904
+thank you
+
+[24-Apr-20 10:36 AM] Emma12812#7942
+Now we can just focus on getting the rest of the implementation complete
+
+[24-Apr-20 10:37 AM] JoshuaAB#9254
+Yeah, I've created a checklist of daos left to implement and I'll start working through them 1 by 1
+
+[24-Apr-20 10:37 AM] Emma12812#7942
+awesome if you need any help let me know and I can try my best ahah
+
+[24-Apr-20 10:38 AM] JoshuaAB#9254
+ty ;P
+
+[24-Apr-20 10:54 AM] mkhtop#4904
+😂
+
+[24-Apr-20 11:27 AM] Emma12812#7942
+what was our 'dummy' grade?
+
+[24-Apr-20 11:27 AM] mkhtop#4904
+i have no idea at least a B i think
+
+[24-Apr-20 11:27 AM] Emma12812#7942
+ahh okay
+
+[24-Apr-20 11:50 AM] morochin#2472
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/703196185145639032/Screenshot_risk_table.PNG
+
+[24-Apr-20 11:52 AM] Emma12812#7942
+@everyone think ive fixed it please can someone else pull from docs and check it
+
+[24-Apr-20 01:07 PM] JoshuaAB#9254
+Just looking at locationDTO/DAO. Postcode and isActive is missing
+
+[24-Apr-20 01:10 PM] JoshuaAB#9254
+and name is not needed
+
+[24-Apr-20 01:50 PM] Emma12812#7942
+oh god okay
+
+[24-Apr-20 01:53 PM] Emma12812#7942
+wait what are the attributes of location??
+
+[24-Apr-20 01:53 PM] JoshuaAB#9254
+They are in the ERD
+
+[24-Apr-20 01:53 PM] Emma12812#7942
+on the database i see id, lat, long, name, status
+
+[24-Apr-20 01:53 PM] JoshuaAB#9254
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/703227194008141894/unknown.png
+
+[24-Apr-20 01:54 PM] JoshuaAB#9254
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/703227360677462046/unknown.png
+
+[24-Apr-20 01:54 PM] Emma12812#7942
+ill fix that
+
+[24-Apr-20 01:54 PM] JoshuaAB#9254
+Thank you 🙂
+
+[24-Apr-20 02:06 PM] Emma12812#7942
+how are we finding locations in the application
+
+[24-Apr-20 02:06 PM] Emma12812#7942
+by id, type? anything else
+
+[24-Apr-20 02:06 PM] JoshuaAB#9254
+And by template I think
+
+[24-Apr-20 02:06 PM] Emma12812#7942
+okay awesome
+
+[24-Apr-20 02:06 PM] JoshuaAB#9254
+Your findMatchingLocations method looks so strange
+
+[24-Apr-20 02:07 PM] Emma12812#7942
+i used it in craigs
+
+[24-Apr-20 02:07 PM] JoshuaAB#9254
+I think I have it sorted though
+
+[24-Apr-20 02:07 PM] JoshuaAB#9254
+I'll test it soon xD
+
+[24-Apr-20 02:07 PM] Emma12812#7942
+it can find things by looking for anything
+
+[24-Apr-20 02:07 PM] Emma12812#7942
+so it can search using name and type for example
+
+[24-Apr-20 02:07 PM] Emma12812#7942
+and it looks at letters not whole words so it uses contains()
+
+[24-Apr-20 02:07 PM] Emma12812#7942
+but the php method for contains() ahah
+
+[24-Apr-20 02:08 PM] JoshuaAB#9254
+Okay
+
+[24-Apr-20 02:17 PM] Emma12812#7942
+updates should be done
+
+[24-Apr-20 02:17 PM] Emma12812#7942
+just uploading
+
+[24-Apr-20 02:17 PM] Emma12812#7942
+you happy for me to update to dev?
+
+[24-Apr-20 02:17 PM] JoshuaAB#9254
+We have no choice
+
+[24-Apr-20 02:17 PM] JoshuaAB#9254
+Matt has to take the rule off
+
+[24-Apr-20 02:17 PM] Emma12812#7942
+okay cool just doing it
+
+[24-Apr-20 02:18 PM] Blnkspc#9267
+rule removed
+
+[24-Apr-20 02:19 PM] Emma12812#7942
+oh hang on fffsss locationDTO didnt save
+
+[24-Apr-20 02:20 PM] Emma12812#7942
+there we go
+
+[24-Apr-20 02:20 PM] JoshuaAB#9254
+Thank you
+
+[24-Apr-20 02:20 PM] Emma12812#7942
+i have no clue where i got my information from originally ?!?!? so strange
+
+[24-Apr-20 02:23 PM] JoshuaAB#9254
+I can't see the change to locationDTO
+
+[24-Apr-20 02:23 PM] Emma12812#7942
+i had to push that seperately
+
+[24-Apr-20 02:23 PM] JoshuaAB#9254
+I can see the change to the DAO and DTOTest
+
+[24-Apr-20 02:23 PM] Emma12812#7942
+pull again ahhaa
+
+[24-Apr-20 02:24 PM] JoshuaAB#9254
+I have
+
+[24-Apr-20 02:24 PM] JoshuaAB#9254
+and I'm looking on GitHub
+
+[24-Apr-20 02:24 PM] Emma12812#7942
+let me check again
+
+[24-Apr-20 02:25 PM] Emma12812#7942
+check now?
+
+[24-Apr-20 02:25 PM] JoshuaAB#9254
+Now I see it 😄
+
+[24-Apr-20 02:25 PM] Emma12812#7942
+pheww
+
+[25-Apr-20 11:34 AM] JoshuaAB#9254
+Hey @Emma12812  could I get you to add a find by object to each of the linking tables please. It would make checking whether a specific record already exists much easier.
+
+[25-Apr-20 12:13 PM] JoshuaAB#9254
+It allows to me check if a record exists before attempting to delete/ update or add new
+
+[25-Apr-20 12:15 PM] JoshuaAB#9254
+It should look like this
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/703564734783422544/unknown.png
+
+[25-Apr-20 01:48 PM] JoshuaAB#9254
+Also, in diseaseSymptomLinkDAO. The modifyDiseaseSymptomLinkDTO method has treatment in the query rather than symptom. That's an hour of my life gone trying to find why it wasn't modifying the record xD
+
+[25-Apr-20 01:53 PM] morochin#2472
+Not done a great job reviewing  have I? 😅
+
+[25-Apr-20 02:10 PM] mkhtop#4904
+@juan i have reviewed your code, alot of same things so sorry if seems repetitive
+
+[25-Apr-20 02:12 PM] morochin#2472
+no prob! appreciate the feedback let me fix them up
+
+[25-Apr-20 02:30 PM] JoshuaAB#9254
+@Emma12812 In diseaseTreatmentLinkDAO, modify link method. Could you swap the old and updated links around because they are the other way around in the other linking tables you've made
+
+[25-Apr-20 03:57 PM] Emma12812#7942
+@JoshuaAB will fix that now
+
+[25-Apr-20 03:57 PM] Emma12812#7942
+can you push all your code to github so i can pull the most uptodate before working on it
+
+[25-Apr-20 03:59 PM] JoshuaAB#9254
+I haven't edited the files from dev. Just update them and I can grab them from dev as I need them
+
+[25-Apr-20 03:59 PM] Emma12812#7942
+ahh okay awesome
+
+[25-Apr-20 04:10 PM] Emma12812#7942
+all done and uploading
+
+[25-Apr-20 04:10 PM] JoshuaAB#9254
+Thank you
+
+[25-Apr-20 04:28 PM] JoshuaAB#9254
+You have an extra curly bracket at the end of diseasePersonLinkDAO
+
+[25-Apr-20 04:30 PM] JoshuaAB#9254
+And there is a missing $ on modifyDiseaseTreatmentLinkDTO
+
+[25-Apr-20 04:50 PM] Emma12812#7942
+Done
+
+[25-Apr-20 05:04 PM] JoshuaAB#9254
+There were some more errors, but I'm just gonna upload the fixes
+
+[25-Apr-20 05:11 PM] Emma12812#7942
+okay
+
+[25-Apr-20 10:32 PM] morochin#2472
+@JoshuaAB finally finish going 1 by 1 in each change from the review if u find anything u want me to change or any issues let me know i also added the find by object function u wanted in both my links!
+
+[26-Apr-20 12:41 PM] JoshuaAB#9254
+@morochin  Thank you, I'll get onto those soon
+
+[26-Apr-20 12:43 PM] JoshuaAB#9254
+@Emma12812 I'm not entirely sure if either a) I don't understand how to use findMatchingLocations or b) it doesn't do anything 😅
+
+[26-Apr-20 12:51 PM] JoshuaAB#9254
+locationDAO findById breaks if you search for an ID that's not in the database. Should check if count = 1 before contructing an object to return
+
+[26-Apr-20 12:58 PM] JoshuaAB#9254
+@mkhtop Disease and Symptom DAO neither need the variable types in their functions' inputs
+
+[26-Apr-20 01:01 PM] JoshuaAB#9254
+Also update symptom/disease should be modify symptom/disease
+
+[26-Apr-20 01:13 PM] mkhtop#4904
+No worries will update that asap
+
+[26-Apr-20 01:13 PM] JoshuaAB#9254
+Cheers 🙂
+
+[26-Apr-20 01:24 PM] Emma12812#7942
+What do you want me to change find matching location to instead?
+
+[26-Apr-20 01:25 PM] JoshuaAB#9254
+Just before making the locationDTO, check that the query count == 1
+
+[26-Apr-20 01:25 PM] JoshuaAB#9254
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/703944883441762324/unknown.png
+
+[26-Apr-20 01:25 PM] JoshuaAB#9254
+Kinda like this
+
+[26-Apr-20 01:27 PM] Emma12812#7942
+Okay I'll sort it after I've had my lunch
+
+[26-Apr-20 01:28 PM] JoshuaAB#9254
+Thank you 🙂
+
+[26-Apr-20 01:48 PM] JoshuaAB#9254
+@mkhtop findSymptom/Disease should also check count == 1 before constructing objects
+
+[26-Apr-20 02:15 PM] JoshuaAB#9254
+😂  Also symptomDTO setId() actually sets the name, not the ID! That took me a while to figure out why getName was returning a number
+
+[26-Apr-20 02:16 PM] JoshuaAB#9254
+For reference findSymptom/Disease should look like this I think
+
+[26-Apr-20 02:16 PM] JoshuaAB#9254
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/703957702576963626/unknown.png
+
+[26-Apr-20 02:44 PM] mkhtop#4904
+@JoshuaAB should be good to go mate
+
+[26-Apr-20 02:45 PM] JoshuaAB#9254
+sweet, thanks 🙂
+
+[26-Apr-20 03:57 PM] JoshuaAB#9254
+@mkhtop I think you edited Drug rather than DIsease
+
+[26-Apr-20 03:59 PM] mkhtop#4904
+🙃
+
+[26-Apr-20 03:59 PM] mkhtop#4904
+2 secs
+
+[26-Apr-20 04:08 PM] mkhtop#4904
+have changed diseaseDAO
+
+[26-Apr-20 04:08 PM] mkhtop#4904
+checked my commit, i only removed a random & on drugDAO so should be fine
+
+[26-Apr-20 04:17 PM] Emma12812#7942
+Sorry I had to pop to the shops will work on it soon
+
+[26-Apr-20 04:41 PM] Emma12812#7942
+should be updated now
+
+[26-Apr-20 06:22 PM] JoshuaAB#9254
+Thank you everyone. Just had dinner, I'll start working on it again now for a bit
+
+[27-Apr-20 10:03 AM] Emma12812#7942
+@mkhtop @JoshuaAB I think me and Juan will need help with the test plan as I am unsure on how we carry out certain tasks within the application so cannot fill out the actions part of the test plan if that makes sense
+
+[27-Apr-20 10:19 AM] Emma12812#7942
+@everyone are we calling today?
+
+[27-Apr-20 10:42 AM] mkhtop#4904
+I can call at 11
+
+[27-Apr-20 10:42 AM] morochin#2472
+me too
+
+[27-Apr-20 11:04 AM] morochin#2472
+just making a coffe
+
+[27-Apr-20 11:04 AM] morochin#2472
+and join the call
+
+[27-Apr-20 11:13 AM] Emma12812#7942
+https://edward2.solent.ac.uk/~assign211/PointsOfInterest/
+
+[27-Apr-20 01:14 PM] JoshuaAB#9254
+@morochin an I've already changed some naming issues. Could you change findAllDrugTreatmentLinkByPrescription to findAllDrugTreatmentLinkByTreatment
+
+[27-Apr-20 01:18 PM] JoshuaAB#9254
+Also some of your functions in the linking tables are written like this 
+($newDrugTreatmentLink->getDrug() != null)  && $newDrugTreatmentLink->getTreatment() != null)
+
+[27-Apr-20 01:18 PM] JoshuaAB#9254
+But they should be like this
+
+[27-Apr-20 01:18 PM] JoshuaAB#9254
+($newDrugTreatmentLink->getDrug() != null && $newDrugTreatmentLink->getTreatment() != null)
+
+[27-Apr-20 01:20 PM] JoshuaAB#9254
+There is also a random return false on line 61 in DrugTreatmentLinkDAO
+
+[27-Apr-20 01:21 PM] JoshuaAB#9254
+And line 62 has a } which cuts of half of the class
+
+[27-Apr-20 01:22 PM] JoshuaAB#9254
+Line 87 there is an 1 too many ) after $row["prescription"]
+
+[27-Apr-20 01:29 PM] JoshuaAB#9254
+I'm assuming all of these points will also be true for drugPrescription DAO/DTO if you copy and pasted them
+
+[27-Apr-20 01:29 PM] Emma12812#7942
+@morochin are you available to fix these now?
+
+[27-Apr-20 01:30 PM] morochin#2472
+Crap... give me 30 min I am just about to take a shower
+
+[27-Apr-20 01:31 PM] Emma12812#7942
+thanks!
+
+[27-Apr-20 01:31 PM] JoshuaAB#9254
+addDrugTreatmentLink calls setID but drugTreatmentLinkDTO doesn't have an ID
+
+[27-Apr-20 01:32 PM] JoshuaAB#9254
+drugTreatmentLinkDAO says $row["prescription"] rather than $row["treatment"] row 87
+
+[27-Apr-20 01:33 PM] JoshuaAB#9254
+Actually it happens a few times throughout
+
+[27-Apr-20 01:33 PM] JoshuaAB#9254
+5 times altogether
+
+[27-Apr-20 01:34 PM] JoshuaAB#9254
+I think I may have to rewrite these myself soon
+
+[27-Apr-20 01:35 PM] morochin#2472
+Jezz
+
+[27-Apr-20 01:35 PM] JoshuaAB#9254
+I finally got it to compile and add a drugTreatmentDTO
+
+[27-Apr-20 01:44 PM] JoshuaAB#9254
+drugTreatmentLinkDAO line 58 says where = drug = ? rather than where drug = ?
+
+[27-Apr-20 01:45 PM] JoshuaAB#9254
+Also line 35 does the same
+
+[27-Apr-20 01:57 PM] JoshuaAB#9254
+Line 33 calls getId but again drugTreatmentLinkDTO doesn't have an ID
+
+[27-Apr-20 01:57 PM] JoshuaAB#9254
+if ($removedDrugTreatmentLink != null && $removedDrugTreatmentLink->getDrug() != null && $removedDrugTreatmentLink->getTreatment() != null)
+
+[27-Apr-20 01:58 PM] JoshuaAB#9254
+That should be line 33
+
+[27-Apr-20 02:00 PM] JoshuaAB#9254
+DrugTreatmentDAO has now been tested
+
+[27-Apr-20 02:02 PM] morochin#2472
+right i am back gonna start doing the changes
+
+[27-Apr-20 02:05 PM] morochin#2472
+i just did a pull on dev
+
+[27-Apr-20 02:06 PM] morochin#2472
+and it says that i am ehind
+
+[27-Apr-20 02:06 PM] morochin#2472
+behind
+
+[27-Apr-20 02:06 PM] morochin#2472
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/704317501206560809/unknown.png
+
+[27-Apr-20 02:06 PM] Emma12812#7942
+oh god I have no clue what to do to fix that
+
+[27-Apr-20 02:06 PM] JoshuaAB#9254
+Did you make changes before doing the pull?
+
+[27-Apr-20 02:07 PM] morochin#2472
+no
+
+[27-Apr-20 02:07 PM] morochin#2472
+just oppened the file
+
+[27-Apr-20 02:07 PM] morochin#2472
+genuenly
+
+[27-Apr-20 02:07 PM] Emma12812#7942
+think you have to delete the folder and reclone?
+
+[27-Apr-20 02:07 PM] JoshuaAB#9254
+Then reclone
+
+[27-Apr-20 02:07 PM] JoshuaAB#9254
+yeah
+
+[27-Apr-20 02:07 PM] morochin#2472
+will do
+
+[27-Apr-20 02:07 PM] JoshuaAB#9254
+It's probably because I pushed a  couple of smalle changes already
+
+[27-Apr-20 02:11 PM] JoshuaAB#9254
+line 16/17 missing { to start the if statement
+
+[27-Apr-20 02:12 PM] JoshuaAB#9254
+This is drugPrescriptionDAO now
+
+[27-Apr-20 02:13 PM] JoshuaAB#9254
+Also you are missing a } at the end of each method meaning they never close and cannot be called. findByObject is fine though
+
+[27-Apr-20 02:14 PM] JoshuaAB#9254
+The if statement for addDrugPrescriptionLink has a random ] in it
+
+[27-Apr-20 02:15 PM] JoshuaAB#9254
+And it has a random ) which close the if statement input too soon
+
+[27-Apr-20 02:15 PM] JoshuaAB#9254
+modifyDrugPrescriptionLink has the same problems
+
+[27-Apr-20 02:16 PM] morochin#2472
+sweet lord
+
+[27-Apr-20 02:16 PM] morochin#2472
+xD!
+
+[27-Apr-20 02:16 PM] morochin#2472
+right
+
+[27-Apr-20 02:16 PM] JoshuaAB#9254
+I bet these are coming faster than you can fix them
+
+[27-Apr-20 02:16 PM] morochin#2472
+where do i start
+
+[27-Apr-20 02:16 PM] morochin#2472
+they are indeed hahahah
+
+[27-Apr-20 02:17 PM] morochin#2472
+right i recloned the repository now
+
+[27-Apr-20 02:17 PM] morochin#2472
+should i start on drugtreatment link?
+
+[27-Apr-20 02:18 PM] JoshuaAB#9254
+Yeah, because I've looked through all of that one
+
+[27-Apr-20 02:19 PM] JoshuaAB#9254
+I now have an error which I don't understand
+
+[27-Apr-20 02:21 PM] JoshuaAB#9254
+Nevermind that was a problem on my end
+
+[27-Apr-20 02:22 PM] morochin#2472
+right
+
+[27-Apr-20 02:22 PM] morochin#2472
+i am fixing them as we go give me 2 secs
+
+[27-Apr-20 02:54 PM] morochin#2472
+right drug prescription should be completely the same now as the one u uploaded
+
+[27-Apr-20 02:55 PM] JoshuaAB#9254
+Just person, disease, appointment and reports to go
+
+[27-Apr-20 04:06 PM] Emma12812#7942
+awesome !!! thanks for getting this all done @JoshuaAB
+
+[27-Apr-20 04:06 PM] Emma12812#7942
+worst comes to worst we dont need to worry about reports
+
+[27-Apr-20 04:43 PM] morochin#2472
+@JoshuaAB oppened them in php storm the brackets problem should be all sorted in all of them following the one u did it should be good to go now from my side but since is likely to have another error somewhere let me know if i can do anything else
+
+[28-Apr-20 01:06 PM] Emma12812#7942
+@everyone is everyone available to meet tomorrow at 11am
+
+[28-Apr-20 01:23 PM] JoshuaAB#9254
+Yeah
+
+[28-Apr-20 02:05 PM] JoshuaAB#9254
+@Emma12812 Person DAO/DTO should include an isactive attribute
+
+[28-Apr-20 02:06 PM] Emma12812#7942
+okay
+
+[28-Apr-20 02:10 PM] Emma12812#7942
+omg ive just realised ive been going off of my old database that i made origionally
+
+[28-Apr-20 02:10 PM] Emma12812#7942
+no wonder my stuff was wrong!
+
+[28-Apr-20 02:10 PM] Emma12812#7942
+Sorry!!!!
+
+[28-Apr-20 02:10 PM] JoshuaAB#9254
+Oh xD
+
+[28-Apr-20 02:10 PM] Emma12812#7942
+fixing person now
+
+[28-Apr-20 02:11 PM] JoshuaAB#9254
+Thanks 🙂
+
+[28-Apr-20 02:16 PM] Emma12812#7942
+added is active, made it so a person cannot be added unless isactive is equal to one and added isactive to all other functions etc
+
+[28-Apr-20 02:17 PM] Emma12812#7942
+should be uploaded
+
+[28-Apr-20 02:17 PM] JoshuaAB#9254
+Thanks, I'll get that pulled
+
+[28-Apr-20 02:44 PM] JoshuaAB#9254
+After 2 hours I still can't add a person
+
+[28-Apr-20 02:44 PM] JoshuaAB#9254
+I'll take a break and come back to it
+
+[28-Apr-20 02:44 PM] Emma12812#7942
+wtfff what error is it giving you?
+
+[28-Apr-20 02:45 PM] Emma12812#7942
+i was definitely able to add test people into the database
+
+[28-Apr-20 02:45 PM] JoshuaAB#9254
+It's returning null so I probs fucked it at the service facade layer
+
+[28-Apr-20 02:45 PM] Emma12812#7942
+if you want you can send over the code and i could try look
+
+[28-Apr-20 02:48 PM] JoshuaAB#9254
+I've pushed it to the gui branch if you want to have a look
+
+[28-Apr-20 02:51 PM] Emma12812#7942
+hmm want me to create a find by username within person so its easier to check if someone in the database with that username already exists?
+
+[28-Apr-20 02:54 PM] Emma12812#7942
+is it because you dont have triple equals?
+
+[28-Apr-20 02:54 PM] Emma12812#7942
+```php
+if($personObj != null && $personObj->getId() == null && $personObj->getFirstName() != null && $personObj->getLastName() != null && $personObj->getDob() != null && ($personObj->getGender() == 0 || $personObj->getGender() == 1)
+      && $personObj->getEmail() != null && $personObj->getPhone() != null && $personObj->getAddress() != null && $personObj->getRole() != null && $personObj->getUsername() != null && $personObj->getPassword() != null
+      && ($personObj->getIsactive() == 0 || $personObj->getIsactive() == 1))
+```
+
+[28-Apr-20 02:54 PM] Emma12812#7942
+in that ?
+
+[28-Apr-20 03:00 PM] JoshuaAB#9254
+It would be useful. I tried triple === also
+
+[28-Apr-20 03:00 PM] JoshuaAB#9254
+Tried chaning a lot of things
+
+[28-Apr-20 03:00 PM] Emma12812#7942
+other than that i couldnt see anything blaringly obvious to be wrong 😦
+
+[29-Apr-20 10:45 AM] Emma12812#7942
+@Blnkspc @morochin @mkhtop are you all available at 11am today
+
+[29-Apr-20 10:46 AM] morochin#2472
+@Emma12812 yeah! just got up by the alarm making myself a coffe 🙂
+
+[29-Apr-20 10:46 AM] mkhtop#4904
+I’ll be there for 11
+
+[29-Apr-20 10:46 AM] Emma12812#7942
+awesome
+
+[29-Apr-20 11:02 AM] mkhtop#4904
+Be there in 2 secs
+
+[29-Apr-20 11:12 AM] Emma12812#7942
+```
+Each of the phases should evidence your understanding of tasks and activities required but emphasis will be on what you have done, why, what learning or lessons you derived among other things for every phases of the SDLC. For example, the maintenance phase for your group comprises of the developer's guide, user guide and presentation documents. While I will expect you to give a synopsis to demonstrate an understanding of the three documents (i.e., purpose, contents and context), emphasis will be on the presentation document which you have worked on (as you have advised in the group's demo last week) in that phase. Simply put, your report is a brief introduction of all activities within the phase then more details on your contribution (what, how and why) and its impacts on the entire activities of the phase you are addressing. I hope this helps?
+```
+
+[29-Apr-20 12:47 PM] JoshuaAB#9254
+@mkhtop  Person is done
+
+[29-Apr-20 12:49 PM] mkhtop#4904
+@JoshuaAB thank you
+
+[29-Apr-20 01:30 PM] Emma12812#7942
+Amazing !!!!
+
+[29-Apr-20 01:31 PM] JoshuaAB#9254
+I'm on appointment and I kinda have to rewrite the DAO
+
+[29-Apr-20 01:38 PM] morochin#2472
+whats wrong with it?
+
+[29-Apr-20 01:38 PM] JoshuaAB#9254
+So many things that it would take too long to go through it 1 problem at a time
+
+[29-Apr-20 01:40 PM] morochin#2472
+😅
+
+[29-Apr-20 01:41 PM] JoshuaAB#9254
+I'm sorry, I just really want to be done with this today so I can focus on finishing documents for ESS and give time to Mark and Emma to implement it to the gui and write the the test plan
+
+[29-Apr-20 01:41 PM] morochin#2472
+oh no tottally i am with u
+
+[29-Apr-20 01:42 PM] morochin#2472
+i got a copy of it i will compare it once is finished 🙂
+
+[29-Apr-20 01:42 PM] morochin#2472
+u carry on man
+
+[30-Apr-20 11:43 AM] JoshuaAB#9254
+Appointment has been tested
+
+[30-Apr-20 11:45 AM] Emma12812#7942
+amazing !!!
+
+[30-Apr-20 11:46 AM] Emma12812#7942
+what are the next steps? ?
+
+[30-Apr-20 11:46 AM] JoshuaAB#9254
+Get it implemented into the gui
+
+[30-Apr-20 11:46 AM] JoshuaAB#9254
+I'm going to complete the class diagram
+
+[30-Apr-20 11:47 AM] Emma12812#7942
+ahh okay awesome is that for mark to do?
+
+[30-Apr-20 11:47 AM] JoshuaAB#9254
+Yeah, but if he needs help then I can help
+
+[30-Apr-20 11:47 AM] Emma12812#7942
+okay awesome !
+
+[30-Apr-20 11:47 AM] Emma12812#7942
+if you need anything let me know
+
+[30-Apr-20 11:47 AM] JoshuaAB#9254
+Will do 🙂
+
+[30-Apr-20 12:54 PM] mkhtop#4904
+@everyone I thought we moved group work to finish on Monday?
+
+[30-Apr-20 12:55 PM] Emma12812#7942
+yeah we did 🙂
+
+[30-Apr-20 12:55 PM] mkhtop#4904
+okay, I’ll update the trello now 🙂
+
+[30-Apr-20 12:55 PM] Emma12812#7942
+ahh okay
+
+[30-Apr-20 04:10 PM] mkhtop#4904
+@emma thank you!
+
+[30-Apr-20 04:25 PM] mkhtop#4904
+@Emma12812 has the server password changes> i can seem to connect?
+
+[30-Apr-20 04:26 PM] Emma12812#7942
+Let me ask Sam
+
+[30-Apr-20 04:26 PM] mkhtop#4904
+thank you
+
+[30-Apr-20 04:30 PM] Emma12812#7942
+what login details are you using @mkhtop
+
+[30-Apr-20 04:30 PM] mkhtop#4904
+"CircleLabs", "Yf25&ZPPaAAk"
+
+[30-Apr-20 04:30 PM] mkhtop#4904
+user and pass
+
+[30-Apr-20 04:30 PM] Emma12812#7942
+thanks
+
+[30-Apr-20 04:32 PM] Emma12812#7942
+apparently it should be fixed
+
+[30-Apr-20 04:32 PM] Emma12812#7942
+let me know if there are any issues
+
+[30-Apr-20 04:32 PM] mkhtop#4904
+thank you ill check now
+
+[30-Apr-20 04:32 PM] Emma12812#7942
+okayy
+
+[30-Apr-20 04:32 PM] mkhtop#4904
+@JoshuaAB when do you reckon person daos will be done?
+
+[30-Apr-20 04:34 PM] mkhtop#4904
+@Emma12812 i can connect but is not giving me access to tables :S
+
+[30-Apr-20 04:34 PM] Emma12812#7942
+okayy ill feedback ahaha
+
+[30-Apr-20 04:34 PM] mkhtop#4904
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/705442069702770698/unknown.png
+
+[30-Apr-20 04:39 PM] mkhtop#4904
+working now 🙂
+
+[30-Apr-20 04:39 PM] Emma12812#7942
+awesome
+
+[30-Apr-20 04:39 PM] mkhtop#4904
+thank you
+
+[30-Apr-20 04:39 PM] Emma12812#7942
+no worries
+
+[30-Apr-20 06:24 PM] JoshuaAB#9254
+What's up?
+
+[30-Apr-20 06:26 PM] mkhtop#4904
+the role and people are wrong, trying to find appointments, jessica alba is marked as the staff member though the role makes her a patient
+
+[30-Apr-20 06:27 PM] mkhtop#4904
+just gonna have to make work what i can
+
+[30-Apr-20 06:28 PM] JoshuaAB#9254
+Hop in the chat quick if you can
+
+[01-May-20 11:15 AM] mkhtop#4904
+@everyone call?
+
+[01-May-20 11:22 AM] mkhtop#4904
+@everyone my bad we said 1
+
+[01-May-20 11:37 AM] Emma12812#7942
+Haha yeah
+
+[01-May-20 01:03 PM] JoshuaAB#9254
+@Blnkspc @morochin  Are we rocking and rolling
+
+[02-May-20 08:48 PM] Emma12812#7942
+how is everything going @everyone
+
+[03-May-20 05:50 PM] Emma12812#7942
+@mkhtop is the application complete?
+
+[03-May-20 05:52 PM] mkhtop#4904
+@Emma12812 just finishing off the last few bits this eve, should be done in the next hour
+
+[03-May-20 05:52 PM] Emma12812#7942
+awesome
+
+[03-May-20 05:52 PM] mkhtop#4904
+Then getting the user guide done
+
+[03-May-20 07:59 PM] mkhtop#4904
+Program should be working for all menu options now
+
+[03-May-20 08:27 PM] Emma12812#7942
+Amazing ! If I pull from GitHub I should be able to get it to run in phpstorm ?
+
+[03-May-20 08:28 PM] morochin#2472
+@mkhtop cool! do u want some help with the user guide?
+
+[04-May-20 10:12 AM] Emma12812#7942
+@everyone what branch do i go to to run the program
+
+[04-May-20 10:13 AM] mkhtop#4904
+if you checkout the gui branch you should be able to run it from there
+
+[04-May-20 10:14 AM] Emma12812#7942
+awesome thanks
+
+[04-May-20 10:15 AM] Blnkspc#9267
+What time are we meeting today?
+
+[04-May-20 10:17 AM] Emma12812#7942
+do i just open the entire folder? as ive tried that and I dont think its worked. also meeting at 1pm
+
+[04-May-20 10:19 AM] mkhtop#4904
+how are you trying to run it? on php storm, youll have to open the index page and cclick one of these:
+
+[04-May-20 10:20 AM] Emma12812#7942
+so ive loaded up phpstorm clicked load project and selected the circle lab folder which looks like this
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/706797440044499025/unknown.png
+
+[04-May-20 10:20 AM] Emma12812#7942
+that has loaded all the files in my phpstorm but i cant click the play button
+
+[04-May-20 10:21 AM] Emma12812#7942
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/706797575025721374/unknown.png
+
+[04-May-20 10:21 AM] mkhtop#4904
+in phpstorm youll have to preview the file, jump in the chat quick and i can show you 🙂
+
+[04-May-20 10:21 AM] Emma12812#7942
+okay
+
+[04-May-20 12:45 PM] mkhtop#4904
+just sorting out deactive location fyi
+
+[04-May-20 12:45 PM] mkhtop#4904
+but should work in same way as deactive person
+
+[04-May-20 12:47 PM] Emma12812#7942
+ahh okay
+
+[04-May-20 12:47 PM] Emma12812#7942
+so its not delete its deactivate ?
+
+[04-May-20 12:47 PM] mkhtop#4904
+yeah thought to keep it consistent with person
+
+[04-May-20 12:47 PM] Emma12812#7942
+sounds good!
+
+[04-May-20 12:54 PM] Emma12812#7942
+test plan done
+
+[04-May-20 01:39 PM] JoshuaAB#9254
+Just a couple of small things really
+
+[04-May-20 01:40 PM] JoshuaAB#9254
+The test plan is good. Just on 1.14 maybe give a postcode to search for.
+
+[04-May-20 01:40 PM] JoshuaAB#9254
+In the program, how do I reactivate a person/location?
+
+[04-May-20 01:41 PM] JoshuaAB#9254
+And searching for a diagnosis with a non existing symptom gives an error
+
+[04-May-20 01:41 PM] JoshuaAB#9254
+Other than that all good
+
+[04-May-20 02:06 PM] mkhtop#4904
+We havent accounted for reactivating, it was more to stop the database from breaking if one was removed
+
+[04-May-20 02:08 PM] Emma12812#7942
+Yeah I don't thinks it's something we should bother adding now
+
+[04-May-20 03:01 PM] Emma12812#7942
+@JoshuaAB  let me know when you push the test plan to docs completed and ill make that change
+
+[04-May-20 03:01 PM] JoshuaAB#9254
+I haven't edited it at all, so feel free to go ahead
+
+[04-May-20 03:21 PM] Emma12812#7942
+ahh okay awesome
+
+[04-May-20 03:23 PM] Emma12812#7942
+ahh i dont have a postcode on that one because if i did the test plan would only work once. I have just changed it to make it clearer hopefully
+
+[04-May-20 06:39 PM] Blnkspc#9267
+@everyone I just wanted to check that you are all OK and that no one is in need of any help at all?
+
+[04-May-20 06:41 PM] mkhtop#4904
+@Blnkspc all good thank you, unless you can get me fibre optic that would be great 😂
+
+[04-May-20 06:42 PM] Blnkspc#9267
+Who is your ISP?
+
+[04-May-20 06:42 PM] Blnkspc#9267
+Ill see what I can do 🤣
+
+[04-May-20 06:54 PM] Emma12812#7942
+Think everything is alright now that the implementation is done
+
+[04-May-20 09:42 PM] mkhtop#4904
+@everyone user guides are complete for both medical practitioners and patients, there just needs to be a modification to the url for the system
+
+[04-May-20 09:42 PM] Emma12812#7942
+amazing !!!!
+
+[04-May-20 09:42 PM] Emma12812#7942
+as soon as everything is merged into master i can send it over to sam to set up on the website
+
+[05-May-20 12:09 PM] Blnkspc#9267
+@everyone Can I please ask you all to confirm work has been completed before closing the repo? @mkhtop apart from the issue you are having with the URL.
+
+[05-May-20 12:09 PM] JoshuaAB#9254
+Mine is completed
+
+[05-May-20 12:09 PM] Blnkspc#9267
+Completed please go ahead
+
+[05-May-20 12:20 PM] mkhtop#4904
+My work is completed (minus the user guide) just noticed there is still a branch i need to delete, did you want me to do this now?
+
+[05-May-20 12:22 PM] Emma12812#7942
+Mines all done apart from the fact I have one extra branch but I thought they were just being deleted snyway. Has the test plan been carried out fine?
+
+[05-May-20 12:25 PM] Blnkspc#9267
+> My work is completed (minus the user guide) just noticed there is still a branch i need to delete, did you want me to do this now?
+@mkhtop that is fine I will deal with it.
+
+[05-May-20 12:25 PM] Emma12812#7942
+Also I don't think we should delete the discord as it can be used as evidence in our report and it's easier to take screenshots directly from it
+
+[05-May-20 12:26 PM] Blnkspc#9267
+> Mines all done apart from the fact I have one extra branch but I thought they were just being deleted snyway. Has the test plan been carried out fine?
+@Emma12812 Me and Josh will deal with all branches now.
+
+[05-May-20 12:26 PM] Emma12812#7942
+Awesome
+
+[05-May-20 12:28 PM] Blnkspc#9267
+Also I don't think we should delete the discord as it can be used as evidence in our report and it's easier to take screenshots directly from it
+
+@Emma all chats are being exported and put into the final artifact anyway so you will be able to pull it out of there.
+
+[05-May-20 12:32 PM] Emma12812#7942
+It's an easy way to contact each other if needed though
+
+[05-May-20 12:41 PM] Blnkspc#9267
+Yes but after the repo is closed we are no longer a group.
+
+[05-May-20 01:09 PM] Emma12812#7942
+Okay maybe just keep it till we get our grades incase there are issues with the server that's all I'm concerned about
+
+[05-May-20 01:11 PM] Blnkspc#9267
+Sounds good
+
+[05-May-20 01:12 PM] Blnkspc#9267
+Just need the go ahead from @morochin
+
+[05-May-20 01:12 PM] morochin#2472
+Go ahead broo
+
+[05-May-20 01:12 PM] morochin#2472
+I am just reading what I missed out 😆
+
+[05-May-20 01:13 PM] mkhtop#4904
+I guess we can just use the WhatsApp if there’s anything else to speak about after? 🙂
+
+[05-May-20 01:15 PM] Blnkspc#9267
+OK cool me and Josh will get this sorted for it to be uploaded to the server @Emma12812  and we will let you know once it is ready...
+
+[05-May-20 01:29 PM] Blnkspc#9267
+@Emma12812 code is now in the master branch ready to be uploaded to the server. Can you then please let @mark know the URL for the index.php file so he can update the user guide before we continue closing down the repo.
+
+[05-May-20 01:43 PM] mkhtop#4904
+Perfect, will take me two secs to change the URL on the guides 🙂
+
+[06-May-20 11:00 AM] Emma12812#7942
+Just finishing breakfast and I'll be on
+
+[06-May-20 11:01 AM] Emma12812#7942
+Just seen that message @Blnkspc I'll get that sorted
+
+[06-May-20 01:21 PM] Emma12812#7942
+Few problems with the web server almost finished working on it
+
+[06-May-20 02:22 PM] mkhtop#4904
+no problem let me know when you're ready 🙂
+
+[06-May-20 05:44 PM] Emma12812#7942
+@everyone Sam's spent about 3 hours trying to sort out the website online and it's just not working. What other alternative do we have?
+
+[06-May-20 06:31 PM] mkhtop#4904
+Okay, I guess the only other option is to host it on the Edward 2 server? thank you and Sam for trying so hard! What does @everyone think?
+
+[06-May-20 06:32 PM] morochin#2472
+there was another team that hosted it in edward 2 server i think shouldnt be a problem!
+
+[06-May-20 06:34 PM] JoshuaAB#9254
+I just tried getting on to my one but there's no connection
+
+[06-May-20 07:17 PM] Blnkspc#9267
+Edward2 might be a good shout but it will be worth asking Nick make sure he is OK with it?
+
+[06-May-20 07:22 PM] Emma12812#7942
+The only other option is to just give femi the program, instructions on how to install it correctly and just get him to run it locally but connected to our database still
+
+[06-May-20 07:22 PM] Emma12812#7942
+So he runs it just like we would in phpstorm?
+
+[06-May-20 07:27 PM] Blnkspc#9267
+@Emma12812 how was Sam trying to set it up on the server using XAMPP? or using phpstorm?
+
+[06-May-20 07:28 PM] Emma12812#7942
+He was using a custom docker container
+
+[06-May-20 07:38 PM] Blnkspc#9267
+containing?
+
+[06-May-20 07:45 PM] Emma12812#7942
+Its like a virtual machine
+
+[06-May-20 07:45 PM] Blnkspc#9267
+OK but what was he deploying in the docker container?
+
+[06-May-20 07:46 PM] Emma12812#7942
+Njinx
+
+[06-May-20 08:02 PM] morochin#2472
+why dont we email femi and ask his opinion?
+
+[06-May-20 09:10 PM] Emma12812#7942
+yeah ill email femi in the morning and ask his opinion
+
+[07-May-20 09:56 AM] Emma12812#7942
+@everyone I've emailed Femi
+
+[07-May-20 09:58 AM] Blnkspc#9267
+@everyone OK I have made a guide of how to locally install it using XAMPP this is a free product. However I am going to need someone to test the instruction manual.
+
+[07-May-20 10:21 AM] Blnkspc#9267
+@Emma12812 Can you ask Sam if he is able to setup a docker container on his server containing XAMPP? As if he is able to then the guide on how to do a local installation should work on that.
+
+[07-May-20 10:22 AM] Emma12812#7942
+That's not possible because docker is based on Linux and xampp is a software package based on windows. His problem is he needs to generate an SSL certificate but it's not possible
+
+[07-May-20 10:27 AM] Blnkspc#9267
+OK cool.
+
+[07-May-20 10:28 AM] Blnkspc#9267
+Shame about the SSL thing as there is a Linux version of XAMPP.
+
+[07-May-20 10:33 AM] Emma12812#7942
+That still wouldn't work with docker unfortunately
+
+[07-May-20 10:34 AM] Blnkspc#9267
+That is fine it was worth asking the question.
+
+[07-May-20 10:35 AM] Emma12812#7942
+Yeah its a shame
+
+[07-May-20 11:41 AM] Emma12812#7942
+
+{Attachments}
+https://cdn.discordapp.com/attachments/672737099408998411/707904852449296425/Screenshot_20200507-114053.jpg
+
+[07-May-20 11:41 AM] Emma12812#7942
+Femis response
+
+[07-May-20 12:01 PM] Blnkspc#9267
+OK cool me and Josh have made a guide on how to install it using XAMPP and I think we will package that up this afternoon.
+
+[07-May-20 12:08 PM] Blnkspc#9267
+Then the test plan will need to be run on it before the final close down.
+
+[07-May-20 12:08 PM] JoshuaAB#9254
+I can do that soon
+
+[07-May-20 12:09 PM] Emma12812#7942
+Okay
+
+[07-May-20 12:24 PM] JoshuaAB#9254
+It all works fine
+
+[07-May-20 12:24 PM] Blnkspc#9267
+OK cool
+
+[07-May-20 12:29 PM] mkhtop#4904
+What shall I change on the user guide? Shall I just reference the doc you guys have written?
+
+[07-May-20 01:32 PM] Emma12812#7942
+thats what im thinking @mkhtop
+
+[07-May-20 01:39 PM] Blnkspc#9267
+Sounds like a good idea
+
+[07-May-20 02:27 PM] mkhtop#4904
+@everyone I have changed the user guides and ready to go
+
+[07-May-20 02:46 PM] Emma12812#7942
+Are we calling tomorrow to finalise?
+
+[07-May-20 03:10 PM] Blnkspc#9267
+Thank you @mkhtop
+
+[07-May-20 03:25 PM] Blnkspc#9267
+@everyone what is the earliest time you can meet tomorrow?
+
+[07-May-20 03:26 PM] JoshuaAB#9254
+00:01 for me
+
+[07-May-20 03:26 PM] Blnkspc#9267
+For me 09:00
+
+[07-May-20 03:31 PM] Emma12812#7942
+I can meet from 10
+
+[07-May-20 03:39 PM] mkhtop#4904
+i can meet from 9 🙂
+
+[07-May-20 03:40 PM] Blnkspc#9267
+@everyone Lets call it and meet at 10am tomorrow.
+
+[07-May-20 03:41 PM] mkhtop#4904
+perfect, that works for me
+
+==============================================================
+Exported 499 message(s)
+==============================================================
+
+
